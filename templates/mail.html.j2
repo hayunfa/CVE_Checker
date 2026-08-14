@@ -1,0 +1,132 @@
+{#- 메일 본문 (HTML). 메일 클라이언트 호환을 위해 전부 인라인 스타일 + table 레이아웃 -#}
+{%- set sev_color = {'CRITICAL':'#b3122b','HIGH':'#d9480f','MEDIUM':'#b8860b','LOW':'#2b6cb0','NONE':'#666666'} -%}
+<div style="font-family:'Malgun Gothic',AppleGothic,sans-serif;font-size:13px;color:#222;line-height:1.6;max-width:900px;">
+
+  <h2 style="margin:0 0 4px;font-size:18px;color:#1f3864;">AI 오픈소스 신규 취약점 알림</h2>
+  <div style="color:#666;font-size:12px;margin-bottom:14px;">{{ date_str }} 수집 · 실행번호 {{ run_id }}</div>
+
+  {# ── 수집 조건: 내부망 담당자가 "이 파일이 어떤 조건으로 뽑힌 것인지" 알 수 있어야 한다 ── #}
+  <div style="background:#f4f6fa;border-left:4px solid #1f3864;padding:9px 12px;margin-bottom:16px;
+              font-family:Consolas,monospace;font-size:11.5px;color:#333;word-break:break-all;">
+    {{ scope_desc }}
+  </div>
+
+  {# ── 요약 ── #}
+  <table cellpadding="7" cellspacing="0" border="0"
+         style="border-collapse:collapse;margin-bottom:6px;font-size:13px;">
+    <tr>
+      {% for level in ['CRITICAL','HIGH','MEDIUM','LOW','NONE'] %}
+      <td style="border:1px solid #dcdcdc;text-align:center;min-width:78px;
+                 background:{{ '#fff5f5' if level in ['CRITICAL','HIGH'] and stats.get(level,0) else '#fafafa' }};">
+        <div style="color:{{ sev_color[level] }};font-weight:bold;font-size:11px;">{{ level }}</div>
+        <div style="font-size:17px;font-weight:bold;color:#222;">{{ stats.get(level, 0) }}</div>
+      </td>
+      {% endfor %}
+      <td style="border:1px solid #dcdcdc;text-align:center;min-width:78px;background:#f0f6ff;">
+        <div style="color:#1f3864;font-weight:bold;font-size:11px;">합계</div>
+        <div style="font-size:17px;font-weight:bold;color:#222;">{{ total_cnt }}</div>
+      </td>
+    </tr>
+  </table>
+  <div style="color:#555;font-size:12px;margin-bottom:16px;">
+    신규 <b>{{ new_cnt }}</b>건 · 변경 <b>{{ updated_cnt }}</b>건
+    {%- if truncated_cnt %} ·
+    <span style="color:#b3122b;">최대 행수({{ max_rows }}) 초과로 {{ truncated_cnt }}건은 엑셀에서 제외됨</span>
+    {%- endif %}
+  </div>
+
+  {# ── KEV 등재 건 (실제 악용 확인) — 최상단 강조 ── #}
+  {% if kev_items %}
+  <div style="border:2px solid #b3122b;border-radius:3px;margin-bottom:18px;">
+    <div style="background:#b3122b;color:#fff;padding:7px 11px;font-weight:bold;font-size:13px;">
+      ⚠ 실제 악용 확인(CISA KEV) {{ kev_items|length }}건 — 우선 조치 필요
+    </div>
+    <table cellpadding="7" cellspacing="0" border="0" width="100%"
+           style="border-collapse:collapse;font-size:12px;">
+      <tr style="background:#fdf0f2;color:#555;">
+        <th align="left" style="border-bottom:1px solid #eecdd3;">CVE</th>
+        <th align="left" style="border-bottom:1px solid #eecdd3;">S/W</th>
+        <th align="left" style="border-bottom:1px solid #eecdd3;">영향 버전</th>
+        <th align="left" style="border-bottom:1px solid #eecdd3;">조치 버전</th>
+      </tr>
+      {% for item in kev_items %}
+      <tr>
+        <td style="border-bottom:1px solid #f2e2e5;"><b>{{ item.cve_id }}</b></td>
+        <td style="border-bottom:1px solid #f2e2e5;">{{ item.sw_name }}</td>
+        <td style="border-bottom:1px solid #f2e2e5;font-family:Consolas,monospace;">{{ item.affected_range }}</td>
+        <td style="border-bottom:1px solid #f2e2e5;font-family:Consolas,monospace;">{{ item.fixed_version or '-' }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %}
+
+  {# ── 상위 N건 ── #}
+  <div style="font-weight:bold;margin-bottom:6px;font-size:13px;">
+    심각도 상위 {{ top_items|length }}건
+  </div>
+  <table cellpadding="7" cellspacing="0" border="0" width="100%"
+         style="border-collapse:collapse;font-size:12px;border:1px solid #e0e0e0;">
+    <tr style="background:#f4f6fa;color:#444;">
+      <th align="left" style="border-bottom:1px solid #dcdcdc;">CVE</th>
+      <th align="left" style="border-bottom:1px solid #dcdcdc;">S/W</th>
+      <th align="center" style="border-bottom:1px solid #dcdcdc;">심각도</th>
+      <th align="center" style="border-bottom:1px solid #dcdcdc;">점수</th>
+      <th align="left" style="border-bottom:1px solid #dcdcdc;">영향 버전</th>
+      <th align="left" style="border-bottom:1px solid #dcdcdc;">조치 버전</th>
+    </tr>
+    {% for item in top_items %}
+    <tr{% if loop.index0 % 2 %} style="background:#fbfbfc;"{% endif %}>
+      <td style="border-bottom:1px solid #eee;">
+        {%- if item.reference_url -%}
+        <a href="{{ item.reference_url }}" style="color:#1f3864;text-decoration:none;">{{ item.cve_id }}</a>
+        {%- else -%}{{ item.cve_id }}{%- endif -%}
+        {% if item.kev_yn == 'Y' %} <span style="color:#b3122b;font-weight:bold;">[KEV]</span>{% endif %}
+      </td>
+      <td style="border-bottom:1px solid #eee;">{{ item.sw_name }}</td>
+      <td align="center" style="border-bottom:1px solid #eee;color:{{ sev_color.get(item.severity,'#666') }};font-weight:bold;">
+        {{ item.severity }}
+      </td>
+      <td align="center" style="border-bottom:1px solid #eee;">{{ item.cvss_score or '-' }}</td>
+      <td style="border-bottom:1px solid #eee;font-family:Consolas,monospace;">{{ item.affected_range }}</td>
+      <td style="border-bottom:1px solid #eee;font-family:Consolas,monospace;">{{ item.fixed_version or '-' }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% if total_cnt > top_items|length %}
+  <div style="color:#777;font-size:12px;margin-top:6px;">
+    … 첨부 엑셀에는 {{ excel_cnt }}건이 담겨 있습니다.
+    {%- if truncated_cnt %} 나머지 {{ truncated_cnt }}건은 아래 열람 페이지에서 확인하세요.
+    {%- else %} 전체 목록은 첨부 엑셀 또는 아래 열람 페이지에서 확인하세요.{% endif %}
+  </div>
+  {% endif %}
+
+  {# ── 첨부 / 링크 ── #}
+  <div style="margin-top:20px;padding:11px 13px;background:#f7f9fb;border:1px solid #e2e8f0;font-size:12px;">
+    {% if attached %}
+    📎 첨부파일 <b>{{ excel_name }}</b> — 내부망 반입용 정본입니다.
+       (파일명·시트명·헤더 16개를 그대로 유지해 주세요)
+    {% else %}
+    ⚠ 첨부파일이 {{ max_attach_mb }}MB 를 초과해 생략했습니다.
+      {% if excel_url %}<a href="{{ excel_url }}" style="color:#1f3864;">{{ excel_name }} 내려받기</a>{% endif %}
+    {% endif %}
+    {% if site_url %}
+    <div style="margin-top:6px;">
+      🔗 <a href="{{ site_url }}" style="color:#1f3864;">전체 취약점 열람 페이지</a>
+      {% if run_url %} · <a href="{{ run_url }}" style="color:#1f3864;">이번 실행 상세</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  {% if source_stat %}
+  <div style="color:#888;font-size:11.5px;margin-top:12px;">
+    소스별 수집:
+    {%- for name, count in source_stat.items() %} {{ name }}={{ count }}{% if not loop.last %} ·{% endif %}{% endfor %}
+  </div>
+  {% endif %}
+
+  <div style="color:#aaa;font-size:11px;margin-top:16px;border-top:1px solid #eee;padding-top:9px;">
+    이 메일은 ai-cve-watch 가 자동 발송했습니다. 수집 조건 변경은 저장소의
+    config/settings.yml 또는 워크플로 수동 실행 입력값으로 조정할 수 있습니다.
+  </div>
+</div>

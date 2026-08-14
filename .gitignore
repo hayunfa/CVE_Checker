@@ -1,0 +1,25 @@
+# 비밀 정보 (절대 커밋 금지)
+.env
+credentials.json
+token.json
+*.pem
+
+# 파이썬
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# 로그 (실행 로그는 Actions artifact 로만 보관)
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ※ data/cve.db, output/, docs/ 는 의도적으로 커밋 대상이다 (무시하지 말 것)
+
+# 로컬 작업 지침서 (도구와 무관한 개인 문서라 공개 저장소에서 제외)
+claude.md

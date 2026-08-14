@@ -1,0 +1,20 @@
+# 줄바꿈 자동변환으로 파일이 깨지는 것을 막는다.
+
+# 기본: 텍스트는 저장소에 LF 로 저장
+* text=auto eol=lf
+
+# 바이너리 — 절대 변환하지 말 것 (변환되면 엑셀 파일이 깨진다)
+*.xls  binary
+*.xlsx binary
+*.db   binary
+*.png  binary
+*.jpg  binary
+*.ico  binary
+
+# 리눅스 러너에서 실행되는 스크립트·워크플로는 반드시 LF
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.sh   text eol=lf
+
+# CSV 는 UTF-8 BOM 을 유지해야 하므로 변환하지 않는다
+*.csv  binary

@@ -1,0 +1,61 @@
+# ============================================================
+#  ai-cve-watch  기본 설정
+#  우선순위 :  이 파일(defaults)  →  preset  →  CLI/Actions 인자
+#  (뒤가 앞을 덮어쓴다. 빈 값은 덮어쓰지 않는다)
+# ============================================================
+
+defaults:
+  # --- 3.5절 9개 축 ---
+  lookback_days: 3          # 1. 조회 기간(일)
+  date_from: null           # 2. 절대 구간 시작 (YYYY-MM-DD). 지정 시 lookback 무시
+  date_to: null             #    절대 구간 종료 (YYYY-MM-DD)
+  min_severity: MEDIUM      # 3. 심각도 하한 CRITICAL/HIGH/MEDIUM/LOW/ALL
+  groups: all               # 4. 대상 그룹 (all 또는 framework,serving,...)
+  sw_names: null            # 5. 특정 S/W만 (지정 시 groups·only_in_use 무시)
+  only_in_use: false        # 6. watchlist의 in_use=true 만
+  sources: nvd,osv,ghsa,kev # 7. 사용할 수집 소스
+  excel_scope: delta        # 8. delta(신규·변경만) / all(전량)
+  max_rows: 300             # 9. 엑셀 최대 행수
+
+# 자주 쓰는 조합 (--preset 이름)
+presets:
+  daily:    { lookback_days: 3,  min_severity: MEDIUM, excel_scope: delta, max_rows: 300 }
+  urgent:   { lookback_days: 1,  min_severity: HIGH,   excel_scope: delta, max_rows: 50 }
+  in_use:   { lookback_days: 7,  min_severity: LOW,    only_in_use: true,  max_rows: 200 }
+  monthly:  { lookback_days: 30, min_severity: HIGH,   excel_scope: all,   max_rows: 1000 }
+  backfill: { date_from: '2026-01-01', min_severity: HIGH, excel_scope: all, max_rows: 5000 }
+
+# --- 수집 동작 ---
+collect:
+  timeout: 30               # 초. 모든 HTTP 요청 공통
+  max_retries: 5            # 429/5xx 재시도 횟수 (exponential backoff)
+  backoff_base: 1.5         # 대기 = backoff_base ** 시도횟수 (초)
+  user_agent: "ai-cve-watch/1.0 (+https://github.com/OWNER/ai-cve-watch)"
+  nvd_sleep_no_key: 6.5     # NVD API 키 없을 때 요청 간 대기(초). 30초/5요청 제한
+  nvd_sleep_with_key: 0.7   # NVD_API_KEY 있을 때
+  nvd_results_per_page: 2000
+  osv_batch_size: 100       # querybatch 1회 패키지 수
+  ghsa_page_size: 100
+
+# --- 출력 ---
+output:
+  translate: false          # SUMMARY 번역 훅 (기본 비활성, 무료·오프라인 우선)
+  summary_max_len: 1000     # SUMMARY 절삭 길이
+  range_max_len: 500        # AFFECTED_RANGE 절삭 길이
+  make_xlsx: true           # 부가 .xlsx 생성
+  make_csv: true            # 부가 .csv(UTF-8 BOM) 생성
+  retention_days: 90        # output/ 보관일수
+
+# --- 메일 ---
+mail:
+  send_when_empty: false    # 신규 0건이면 발송하지 않음 (SKIPPED 기록)
+  max_attach_mb: 5          # 초과 시 첨부 생략 + Pages 링크로 대체
+  retry: 2                  # 실패 주소 재시도 횟수
+  subject_prefix: "[AI OSS 취약점]"
+  top_n: 10                 # 본문 상위 N건 요약표
+
+# --- 사이트(GitHub Pages) ---
+site:
+  base_url: ""              # 예: https://OWNER.github.io/ai-cve-watch  (비우면 상대경로)
+  recent_runs: 30           # index.html 실행 이력 표시 개수
+  top_sw: 20                # S/W별 Top N 막대

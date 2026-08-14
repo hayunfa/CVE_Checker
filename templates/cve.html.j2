@@ -1,0 +1,99 @@
+{% extends "base.html.j2" %}
+{% block title %}전체 CVE 검색 — AI CVE Watch{% endblock %}
+{% block content %}
+
+<h2>전체 CVE 검색 ({{ cves|length }}건)</h2>
+<div class="card">
+  <div class="filters">
+    <input type="search" id="q" placeholder="CVE 번호 · S/W명 · 요약 검색" autocomplete="off">
+    <select id="sev">
+      <option value="">심각도 전체</option>
+      {% for level in ['CRITICAL','HIGH','MEDIUM','LOW','NONE'] %}
+      <option value="{{ level }}">{{ level }}</option>
+      {% endfor %}
+    </select>
+    <select id="sw">
+      <option value="">S/W 전체</option>
+      {% for name in sw_names %}<option value="{{ name }}">{{ name }}</option>{% endfor %}
+    </select>
+    <select id="kev">
+      <option value="">KEV 전체</option>
+      <option value="Y">KEV 등재만</option>
+      <option value="N">KEV 미등재</option>
+    </select>
+    <button id="reset" style="padding:7px 12px;border:1px solid var(--line);border-radius:4px;
+            background:var(--card);color:var(--text);cursor:pointer;font-family:inherit;">초기화</button>
+  </div>
+  <div class="muted" id="count"></div>
+</div>
+
+<div class="tablebox">
+  <table id="tbl">
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+<div class="muted" style="margin-top:8px;">
+  원본 데이터: <a href="../data/all.json">all.json</a>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+// 외부 라이브러리 없이 순수 JS 로 클라이언트 필터링한다.
+const DATA = {{ cve_json }};
+const tbody = document.querySelector('#tbl tbody');
+const q = document.getElementById('q'), sev = document.getElementById('sev');
+const sw = document.getElementById('sw'), kev = document.getElementById('kev');
+const count = document.getElementById('count');
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g,
+    c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function row(c) {
+  const link = c.reference_url
+    ? `<a href="${esc(c.reference_url)}" target="_blank" rel="noopener">${esc(c.cve_id)}</a>`
+    : esc(c.cve_id);
+  return `<tr>
+    <td class="mono">${link}</td>
+    <td>${esc(c.sw_name)}</td>
+    <td class="sev sev-${esc(c.severity)}">${esc(c.severity)}</td>
+    <td>${c.cvss_score == null ? '-' : esc(c.cvss_score)}</td>
+    <td class="mono">${esc(c.affected_range)}</td>
+    <td class="mono">${esc(c.fixed_version) || '-'}</td>
+    <td>${c.kev_yn === 'Y' ? '<span class="kev">KEV</span>' : '-'}</td>
+    <td class="mono">${esc(c.published_date)}</td>
+    <td>${esc(c.source)}</td>
+    <td class="wrap-cell">${esc(c.summary)}</td>
+  </tr>`;
+}
+
+function render() {
+  const term = q.value.trim().toLowerCase();
+  const rows = DATA.filter(c =>
+    (!sev.value || c.severity === sev.value) &&
+    (!sw.value || c.sw_name === sw.value) &&
+    (!kev.value || (c.kev_yn || 'N') === kev.value) &&
+    (!term ||
+      (c.cve_id || '').toLowerCase().includes(term) ||
+      (c.sw_name || '').toLowerCase().includes(term) ||
+      (c.summary || '').toLowerCase().includes(term))
+  );
+  tbody.innerHTML = rows.length
+    ? rows.map(row).join('')
+    : '<tr><td colspan="10" class="empty">조건에 맞는 CVE 가 없습니다.</td></tr>';
+  count.textContent = `${rows.length} / ${DATA.length} 건 표시`;
+}
+
+[q, sev, sw, kev].forEach(el => el.addEventListener('input', render));
+document.getElementById('reset').addEventListener('click', () => {
+  q.value = ''; sev.value = ''; sw.value = ''; kev.value = ''; render();
+});
+render();
+</script>
+{% endblock %}

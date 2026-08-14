@@ -1,0 +1,124 @@
+{% extends "base.html.j2" %}
+{% block title %}AI CVE Watch — 대시보드{% endblock %}
+{% block content %}
+
+{# ── 최신 실행 요약 ── #}
+{% if latest %}
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>최근 실행</b> {{ latest.run_id }}
+      <span class="pill st-{{ latest.status }}">{{ latest.status }}</span></div>
+    <div class="muted">{{ latest.started_at }} ~ {{ latest.finished_at or '진행 중' }}</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">{{ latest.scope_desc }}</div>
+  {% if latest.error_msg %}
+  <div class="muted" style="margin-top:8px;color:var(--crit);">사유: {{ latest.error_msg }}</div>
+  {% endif %}
+</div>
+
+<div class="grid">
+  {% for label, value in [('전체 누적 CVE', total_cve), ('최근 실행 수집', latest.total_cnt or 0),
+                          ('신규', latest.new_cnt or 0), ('변경', latest.updated_cnt or 0),
+                          ('잘린 건수', latest.truncated_cnt or 0)] %}
+  <div class="card kpi"><div class="n">{{ value }}</div><div class="l">{{ label }}</div></div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{# ── 심각도별 누적 ── #}
+<h2>심각도별 누적 건수</h2>
+<div class="card">
+  {% for level in ['CRITICAL','HIGH','MEDIUM','LOW','NONE'] %}
+  {% set count = severity_counts.get(level, 0) %}
+  <div class="bar-row">
+    <div class="nm sev sev-{{ level }}">{{ level }}</div>
+    <div class="bar sev-bg-{{ level }}"
+         style="width:{{ (count / severity_max * 620) | round(1) if severity_max else 2 }}px;
+                background:var(--{{ {'CRITICAL':'crit','HIGH':'high','MEDIUM':'med','LOW':'low','NONE':'none'}[level] }});"></div>
+    <div class="v">{{ count }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+{# ── S/W별 Top N ── #}
+<h2>감시대상 S/W별 취약점 건수 Top {{ sw_counts|length }}</h2>
+<div class="card">
+  {% if sw_counts %}
+    {% for item in sw_counts %}
+    <div class="bar-row">
+      <div class="nm">{{ item.sw_name }}</div>
+      <div class="bar" style="width:{{ (item.cnt / sw_max * 620) | round(1) if sw_max else 2 }}px;"></div>
+      <div class="v">{{ item.cnt }}</div>
+    </div>
+    {% endfor %}
+  {% else %}<div class="empty">아직 수집된 데이터가 없습니다.</div>{% endif %}
+</div>
+
+{# ── 실행 이력 ── #}
+<h2>최근 실행 이력 (최대 {{ runs|length }}회)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>실행일시</th><th>상태</th><th>적용 SCOPE</th><th>소스별 수집</th>
+      <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
+    </tr></thead>
+    <tbody>
+    {% for run in runs %}
+      <tr>
+        <td class="mono">{{ run.started_at or run.run_id }}</td>
+        <td><span class="pill st-{{ run.status }}">{{ run.status }}</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          {{ run.scope_desc }}</td>
+        <td class="mono" style="font-size:11px;">{{ run.source_stat_text }}</td>
+        <td>{{ run.total_cnt or 0 }}</td>
+        <td>{{ run.new_cnt or 0 }}</td>
+        <td>{{ run.updated_cnt or 0 }}</td>
+        <td>{{ run.truncated_cnt or 0 }}</td>
+        <td>{% if run.excel_file %}<a href="output/{{ run.excel_file }}">{{ run.excel_file }}</a>
+            {% else %}-{% endif %}</td>
+        <td>{{ run.mail_sent }} / {{ run.mail_failed }}</td>
+        <td><a href="runs/{{ run.run_id }}.html">보기</a></td>
+      </tr>
+    {% else %}
+      <tr><td colspan="11" class="empty">실행 이력이 없습니다.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{# ── 최신 실행의 신규 CVE ── #}
+<h2>최근 실행의 신규·변경 CVE ({{ latest_cves|length }}건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>공개일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+    {% for cve in latest_cves %}
+      <tr>
+        <td class="mono">
+          {% if cve.reference_url %}<a href="{{ cve.reference_url }}" target="_blank" rel="noopener">{{ cve.cve_id }}</a>
+          {% else %}{{ cve.cve_id }}{% endif %}
+          {% if cve.kev_yn == 'Y' %}<span class="kev">KEV</span>{% endif %}
+        </td>
+        <td>{{ cve.sw_name }}</td>
+        <td class="sev sev-{{ cve.severity }}">{{ cve.severity }}</td>
+        <td>{{ cve.cvss_score if cve.cvss_score is not none else '-' }}</td>
+        <td class="mono">{{ cve.affected_range }}</td>
+        <td class="mono">{{ cve.fixed_version or '-' }}</td>
+        <td class="mono">{{ cve.published_date }}</td>
+        <td>{{ cve.source }}</td>
+        <td class="wrap-cell">{{ cve.summary }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="9" class="empty">이번 실행에서 새로 확인된 건이 없습니다.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="muted" style="margin-top:8px;">
+  데이터 재활용: <a href="data/latest.json">latest.json</a> ·
+  <a href="data/all.json">all.json</a>
+</div>
+{% endblock %}

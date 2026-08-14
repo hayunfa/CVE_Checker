@@ -1,0 +1,625 @@
+# ============================================================
+#  감시 대상 AI 오픈소스 목록
+# ============================================================
+#  canonical_name : ★ 내부망 TB_SW.SW_NM 과 1:1로 일치해야 하는 최종 제품명.
+#                     엑셀 SW_NAME 컬럼에 이 값이 그대로 들어간다.
+#                     내부망 목록과 철자가 다르면 매칭이 안 되니 반드시 맞출 것.
+#  aliases        : 소스가 돌려주는 원본 패키지명들 (매칭·중복제거용, 소문자 비교)
+#  ecosystem      : pypi / npm / github / other   (엑셀 ECOSYSTEM 컬럼 값)
+#  pypi/npm/go    : OSV 조회용 패키지 좌표 (없으면 생략)
+#  github         : owner/repo  (GHSA·참고 URL용)
+#  cpe_keyword    : NVD keywordSearch 검색어
+#  vendor         : 엑셀 VENDOR 컬럼 기본값
+#  group          : framework/serving/library/app/ui/vectordb/mlops/base
+#  enabled        : false면 수집 대상에서 완전 제외
+#  in_use         : 내부망에 실제 반입된 S/W인지 (--only-in-use 로 범위 축소)
+# ============================================================
+
+# ---------- 프레임워크 / 런타임 ----------
+- canonical_name: PyTorch
+  aliases: [torch, pytorch, "pytorch/pytorch"]
+  ecosystem: pypi
+  pypi: torch
+  github: pytorch/pytorch
+  cpe_keyword: pytorch
+  vendor: PyTorch Foundation
+  group: framework
+  enabled: true
+  in_use: true
+
+- canonical_name: TensorFlow
+  aliases: [tensorflow, tensorflow-gpu, tensorflow-cpu, "tensorflow/tensorflow"]
+  ecosystem: pypi
+  pypi: tensorflow
+  github: tensorflow/tensorflow
+  cpe_keyword: tensorflow
+  vendor: Google
+  group: framework
+  enabled: true
+  in_use: true
+
+- canonical_name: JAX
+  aliases: [jax, jaxlib, "jax-ml/jax"]
+  ecosystem: pypi
+  pypi: jax
+  github: jax-ml/jax
+  cpe_keyword: jax
+  vendor: Google
+  group: framework
+  enabled: true
+  in_use: false
+
+- canonical_name: ONNX Runtime
+  aliases: [onnxruntime, onnxruntime-gpu, "onnx runtime", "microsoft/onnxruntime"]
+  ecosystem: pypi
+  pypi: onnxruntime
+  github: microsoft/onnxruntime
+  cpe_keyword: onnxruntime
+  vendor: Microsoft
+  group: framework
+  enabled: true
+  in_use: true
+
+- canonical_name: OpenVINO
+  aliases: [openvino, openvino-dev, "openvinotoolkit/openvino"]
+  ecosystem: pypi
+  pypi: openvino
+  github: openvinotoolkit/openvino
+  cpe_keyword: openvino
+  vendor: Intel
+  group: framework
+  enabled: true
+  in_use: false
+
+- canonical_name: DeepSpeed
+  aliases: [deepspeed, "microsoft/deepspeed", "deepspeedai/deepspeed"]
+  ecosystem: pypi
+  pypi: deepspeed
+  github: deepspeedai/DeepSpeed
+  cpe_keyword: deepspeed
+  vendor: Microsoft
+  group: framework
+  enabled: true
+  in_use: false
+
+- canonical_name: Triton Inference Server
+  aliases: [tritonserver, "triton inference server", "triton-inference-server/server", tritonclient]
+  ecosystem: github
+  github: triton-inference-server/server
+  cpe_keyword: triton inference server
+  vendor: NVIDIA
+  group: framework
+  enabled: true
+  in_use: false
+
+# ---------- LLM 서빙 / 추론 ----------
+- canonical_name: vLLM
+  aliases: [vllm, "vllm-project/vllm"]
+  ecosystem: pypi
+  pypi: vllm
+  github: vllm-project/vllm
+  cpe_keyword: vllm
+  vendor: vLLM Project
+  group: serving
+  enabled: true
+  in_use: true
+
+- canonical_name: Ollama
+  aliases: [ollama, "ollama/ollama", "github.com/ollama/ollama"]
+  ecosystem: github
+  go: github.com/ollama/ollama
+  github: ollama/ollama
+  cpe_keyword: ollama
+  vendor: Ollama
+  group: serving
+  enabled: true
+  in_use: true
+
+- canonical_name: llama.cpp
+  aliases: [llama.cpp, llama-cpp, llama-cpp-python, "ggerganov/llama.cpp", "ggml-org/llama.cpp"]
+  ecosystem: github
+  pypi: llama-cpp-python
+  github: ggml-org/llama.cpp
+  cpe_keyword: llama.cpp
+  vendor: ggml.ai
+  group: serving
+  enabled: true
+  in_use: false
+
+- canonical_name: Text Generation Inference
+  aliases: [text-generation-inference, text-generation, tgi, "huggingface/text-generation-inference"]
+  ecosystem: github
+  pypi: text-generation
+  github: huggingface/text-generation-inference
+  cpe_keyword: text generation inference
+  vendor: Hugging Face
+  group: serving
+  enabled: true
+  in_use: false
+
+- canonical_name: LocalAI
+  aliases: [localai, "mudler/localai", "github.com/mudler/localai"]
+  ecosystem: github
+  go: github.com/mudler/LocalAI
+  github: mudler/LocalAI
+  cpe_keyword: localai
+  vendor: LocalAI
+  group: serving
+  enabled: true
+  in_use: false
+
+- canonical_name: SGLang
+  aliases: [sglang, "sgl-project/sglang"]
+  ecosystem: pypi
+  pypi: sglang
+  github: sgl-project/sglang
+  cpe_keyword: sglang
+  vendor: SGLang Project
+  group: serving
+  enabled: true
+  in_use: false
+
+# ---------- 라이브러리 / 툴킷 ----------
+- canonical_name: Transformers
+  aliases: [transformers, "huggingface/transformers"]
+  ecosystem: pypi
+  pypi: transformers
+  github: huggingface/transformers
+  cpe_keyword: transformers
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: true
+
+- canonical_name: Hugging Face Hub
+  aliases: [huggingface-hub, huggingface_hub, "huggingface/huggingface_hub"]
+  ecosystem: pypi
+  pypi: huggingface-hub
+  github: huggingface/huggingface_hub
+  cpe_keyword: huggingface hub
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: true
+
+- canonical_name: Datasets
+  aliases: [datasets, "huggingface/datasets"]
+  ecosystem: pypi
+  pypi: datasets
+  github: huggingface/datasets
+  cpe_keyword: huggingface datasets
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: false
+
+- canonical_name: Diffusers
+  aliases: [diffusers, "huggingface/diffusers"]
+  ecosystem: pypi
+  pypi: diffusers
+  github: huggingface/diffusers
+  cpe_keyword: diffusers
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: false
+
+- canonical_name: Tokenizers
+  aliases: [tokenizers, "huggingface/tokenizers"]
+  ecosystem: pypi
+  pypi: tokenizers
+  github: huggingface/tokenizers
+  cpe_keyword: tokenizers
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: false
+
+- canonical_name: Accelerate
+  aliases: [accelerate, "huggingface/accelerate"]
+  ecosystem: pypi
+  pypi: accelerate
+  github: huggingface/accelerate
+  cpe_keyword: accelerate
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: false
+
+- canonical_name: PEFT
+  aliases: [peft, "huggingface/peft"]
+  ecosystem: pypi
+  pypi: peft
+  github: huggingface/peft
+  cpe_keyword: peft
+  vendor: Hugging Face
+  group: library
+  enabled: true
+  in_use: false
+
+# ---------- 앱 / 오케스트레이션 ----------
+- canonical_name: LangChain
+  aliases: [langchain, langchain-core, langchain-community, "langchain-ai/langchain"]
+  ecosystem: pypi
+  pypi: langchain
+  github: langchain-ai/langchain
+  cpe_keyword: langchain
+  vendor: LangChain
+  group: app
+  enabled: true
+  in_use: true
+
+- canonical_name: LlamaIndex
+  aliases: [llama-index, llama_index, llama-index-core, "run-llama/llama_index"]
+  ecosystem: pypi
+  pypi: llama-index
+  github: run-llama/llama_index
+  cpe_keyword: llamaindex
+  vendor: LlamaIndex
+  group: app
+  enabled: true
+  in_use: false
+
+- canonical_name: AutoGen
+  aliases: [autogen, pyautogen, autogen-agentchat, autogen-core, "microsoft/autogen"]
+  ecosystem: pypi
+  pypi: pyautogen
+  github: microsoft/autogen
+  cpe_keyword: autogen
+  vendor: Microsoft
+  group: app
+  enabled: true
+  in_use: false
+
+- canonical_name: CrewAI
+  aliases: [crewai, "crewaiinc/crewai", "joaomdmoura/crewai"]
+  ecosystem: pypi
+  pypi: crewai
+  github: crewAIInc/crewAI
+  cpe_keyword: crewai
+  vendor: CrewAI
+  group: app
+  enabled: true
+  in_use: false
+
+- canonical_name: Haystack
+  aliases: [haystack-ai, farm-haystack, haystack, "deepset-ai/haystack"]
+  ecosystem: pypi
+  pypi: haystack-ai
+  github: deepset-ai/haystack
+  cpe_keyword: haystack
+  vendor: deepset
+  group: app
+  enabled: true
+  in_use: false
+
+- canonical_name: Dify
+  aliases: [dify, "langgenius/dify"]
+  ecosystem: github
+  github: langgenius/dify
+  cpe_keyword: dify
+  vendor: LangGenius
+  group: app
+  enabled: true
+  in_use: false
+
+- canonical_name: n8n
+  aliases: [n8n, "n8n-io/n8n"]
+  ecosystem: npm
+  npm: n8n
+  github: n8n-io/n8n
+  cpe_keyword: n8n
+  vendor: n8n GmbH
+  group: app
+  enabled: true
+  in_use: false
+
+# ---------- UI ----------
+- canonical_name: Gradio
+  aliases: [gradio, gradio-client, "gradio-app/gradio"]
+  ecosystem: pypi
+  pypi: gradio
+  github: gradio-app/gradio
+  cpe_keyword: gradio
+  vendor: Hugging Face
+  group: ui
+  enabled: true
+  in_use: true
+
+- canonical_name: Streamlit
+  aliases: [streamlit, "streamlit/streamlit"]
+  ecosystem: pypi
+  pypi: streamlit
+  github: streamlit/streamlit
+  cpe_keyword: streamlit
+  vendor: Snowflake
+  group: ui
+  enabled: true
+  in_use: true
+
+- canonical_name: Open WebUI
+  aliases: [open-webui, "open webui", openwebui, "open-webui/open-webui"]
+  ecosystem: pypi
+  pypi: open-webui
+  github: open-webui/open-webui
+  cpe_keyword: open webui
+  vendor: Open WebUI
+  group: ui
+  enabled: true
+  in_use: true
+
+- canonical_name: ComfyUI
+  aliases: [comfyui, "comfyanonymous/comfyui", comfy-cli]
+  ecosystem: github
+  github: comfyanonymous/ComfyUI
+  cpe_keyword: comfyui
+  vendor: Comfy Org
+  group: ui
+  enabled: true
+  in_use: false
+
+- canonical_name: AUTOMATIC1111 Stable Diffusion WebUI
+  aliases: [stable-diffusion-webui, "automatic1111/stable-diffusion-webui", "stable diffusion webui"]
+  ecosystem: github
+  github: AUTOMATIC1111/stable-diffusion-webui
+  cpe_keyword: stable diffusion webui
+  vendor: AUTOMATIC1111
+  group: ui
+  enabled: true
+  in_use: false
+
+- canonical_name: AnythingLLM
+  aliases: [anythingllm, anything-llm, "mintplex-labs/anything-llm"]
+  ecosystem: github
+  github: Mintplex-Labs/anything-llm
+  cpe_keyword: anythingllm
+  vendor: Mintplex Labs
+  group: ui
+  enabled: true
+  in_use: false
+
+# ---------- 벡터DB / 검색 ----------
+- canonical_name: ChromaDB
+  aliases: [chromadb, chroma, "chroma-core/chroma"]
+  ecosystem: pypi
+  pypi: chromadb
+  github: chroma-core/chroma
+  cpe_keyword: chromadb
+  vendor: Chroma
+  group: vectordb
+  enabled: true
+  in_use: true
+
+- canonical_name: Milvus
+  aliases: [milvus, pymilvus, "milvus-io/milvus"]
+  ecosystem: pypi
+  pypi: pymilvus
+  go: github.com/milvus-io/milvus
+  github: milvus-io/milvus
+  cpe_keyword: milvus
+  vendor: Zilliz
+  group: vectordb
+  enabled: true
+  in_use: false
+
+- canonical_name: Qdrant
+  aliases: [qdrant, qdrant-client, "qdrant/qdrant"]
+  ecosystem: pypi
+  pypi: qdrant-client
+  github: qdrant/qdrant
+  cpe_keyword: qdrant
+  vendor: Qdrant
+  group: vectordb
+  enabled: true
+  in_use: false
+
+- canonical_name: Weaviate
+  aliases: [weaviate, weaviate-client, "weaviate/weaviate"]
+  ecosystem: pypi
+  pypi: weaviate-client
+  go: github.com/weaviate/weaviate
+  github: weaviate/weaviate
+  cpe_keyword: weaviate
+  vendor: Weaviate
+  group: vectordb
+  enabled: true
+  in_use: false
+
+- canonical_name: FAISS
+  aliases: [faiss, faiss-cpu, faiss-gpu, "facebookresearch/faiss"]
+  ecosystem: pypi
+  pypi: faiss-cpu
+  github: facebookresearch/faiss
+  cpe_keyword: faiss
+  vendor: Meta
+  group: vectordb
+  enabled: true
+  in_use: false
+
+- canonical_name: pgvector
+  aliases: [pgvector, "pgvector/pgvector"]
+  ecosystem: github
+  github: pgvector/pgvector
+  cpe_keyword: pgvector
+  vendor: pgvector
+  group: vectordb
+  enabled: true
+  in_use: false
+
+- canonical_name: Elasticsearch
+  aliases: [elasticsearch, elasticsearch-py, "elastic/elasticsearch"]
+  ecosystem: pypi
+  pypi: elasticsearch
+  github: elastic/elasticsearch
+  cpe_keyword: elasticsearch
+  vendor: Elastic
+  group: vectordb
+  enabled: true
+  in_use: true
+
+# ---------- MLOps / 노트북 ----------
+- canonical_name: MLflow
+  aliases: [mlflow, mlflow-skinny, "mlflow/mlflow"]
+  ecosystem: pypi
+  pypi: mlflow
+  github: mlflow/mlflow
+  cpe_keyword: mlflow
+  vendor: Databricks
+  group: mlops
+  enabled: true
+  in_use: true
+
+- canonical_name: Ray
+  aliases: [ray, "ray-project/ray"]
+  ecosystem: pypi
+  pypi: ray
+  github: ray-project/ray
+  cpe_keyword: ray
+  vendor: Anyscale
+  group: mlops
+  enabled: true
+  in_use: false
+
+- canonical_name: Kubeflow
+  aliases: [kubeflow, kfp, "kubeflow/kubeflow"]
+  ecosystem: github
+  go: github.com/kubeflow/kubeflow
+  github: kubeflow/kubeflow
+  cpe_keyword: kubeflow
+  vendor: Kubeflow
+  group: mlops
+  enabled: true
+  in_use: false
+
+- canonical_name: JupyterLab
+  aliases: [jupyterlab, jupyter-lab, "jupyterlab/jupyterlab"]
+  ecosystem: pypi
+  pypi: jupyterlab
+  github: jupyterlab/jupyterlab
+  cpe_keyword: jupyterlab
+  vendor: Project Jupyter
+  group: mlops
+  enabled: true
+  in_use: true
+
+- canonical_name: Jupyter Notebook
+  aliases: [notebook, "jupyter notebook", "jupyter/notebook", nbconvert]
+  ecosystem: pypi
+  pypi: notebook
+  github: jupyter/notebook
+  cpe_keyword: jupyter notebook
+  vendor: Project Jupyter
+  group: mlops
+  enabled: true
+  in_use: true
+
+- canonical_name: Airflow
+  aliases: [apache-airflow, airflow, "apache/airflow"]
+  ecosystem: pypi
+  pypi: apache-airflow
+  github: apache/airflow
+  cpe_keyword: apache airflow
+  vendor: Apache Software Foundation
+  group: mlops
+  enabled: true
+  in_use: false
+
+- canonical_name: DVC
+  aliases: [dvc, "iterative/dvc"]
+  ecosystem: pypi
+  pypi: dvc
+  github: iterative/dvc
+  cpe_keyword: dvc
+  vendor: Iterative
+  group: mlops
+  enabled: true
+  in_use: false
+
+- canonical_name: Label Studio
+  aliases: [label-studio, "label studio", "humansignal/label-studio", "heartexlabs/label-studio"]
+  ecosystem: pypi
+  pypi: label-studio
+  github: HumanSignal/label-studio
+  cpe_keyword: label studio
+  vendor: HumanSignal
+  group: mlops
+  enabled: true
+  in_use: false
+
+# ---------- 기반 ----------
+- canonical_name: NumPy
+  aliases: [numpy, "numpy/numpy"]
+  ecosystem: pypi
+  pypi: numpy
+  github: numpy/numpy
+  cpe_keyword: numpy
+  vendor: NumPy
+  group: base
+  enabled: true
+  in_use: true
+
+- canonical_name: Pandas
+  aliases: [pandas, "pandas-dev/pandas"]
+  ecosystem: pypi
+  pypi: pandas
+  github: pandas-dev/pandas
+  cpe_keyword: pandas
+  vendor: NumFOCUS
+  group: base
+  enabled: true
+  in_use: true
+
+- canonical_name: Pillow
+  aliases: [pillow, pil, "python-pillow/pillow"]
+  ecosystem: pypi
+  pypi: pillow
+  github: python-pillow/Pillow
+  cpe_keyword: pillow
+  vendor: Python Pillow
+  group: base
+  enabled: true
+  in_use: true
+
+- canonical_name: protobuf
+  aliases: [protobuf, protocol-buffers, "protocolbuffers/protobuf"]
+  ecosystem: pypi
+  pypi: protobuf
+  github: protocolbuffers/protobuf
+  cpe_keyword: protobuf
+  vendor: Google
+  group: base
+  enabled: true
+  in_use: true
+
+- canonical_name: gRPC
+  aliases: [grpcio, grpc, "grpc/grpc"]
+  ecosystem: pypi
+  pypi: grpcio
+  github: grpc/grpc
+  cpe_keyword: grpc
+  vendor: gRPC Authors
+  group: base
+  enabled: true
+  in_use: false
+
+- canonical_name: FastAPI
+  aliases: [fastapi, "tiangolo/fastapi", "fastapi/fastapi"]
+  ecosystem: pypi
+  pypi: fastapi
+  github: fastapi/fastapi
+  cpe_keyword: fastapi
+  vendor: FastAPI
+  group: base
+  enabled: true
+  in_use: true
+
+- canonical_name: Uvicorn
+  aliases: [uvicorn, "encode/uvicorn"]
+  ecosystem: pypi
+  pypi: uvicorn
+  github: encode/uvicorn
+  cpe_keyword: uvicorn
+  vendor: Encode
+  group: base
+  enabled: true
+  in_use: false

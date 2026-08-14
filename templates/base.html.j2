@@ -1,0 +1,84 @@
+{#- 공통 레이아웃. 외부 CSS/JS(CDN) 없이 인라인 스타일만 쓴다 (오프라인·사내망에서도 그대로 열림) -#}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}AI CVE Watch{% endblock %}</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="{{ root }}index.html" class="{{ 'on' if page == 'index' }}">대시보드</a>
+      <a href="{{ root }}cve/index.html" class="{{ 'on' if page == 'cve' }}">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 {{ generated_at }}</div>
+  </div>
+</header>
+<div class="wrap">
+{% block content %}{% endblock %}
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+{% block script %}{% endblock %}
+</body>
+</html>

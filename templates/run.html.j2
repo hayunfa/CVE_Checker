@@ -1,0 +1,88 @@
+{% extends "base.html.j2" %}
+{% block title %}실행 {{ run.run_id }} — AI CVE Watch{% endblock %}
+{% block content %}
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>실행 {{ run.run_id }}</b>
+      <span class="pill st-{{ run.status }}">{{ run.status }}</span></div>
+    <div class="muted">{{ run.started_at }} ~ {{ run.finished_at or '진행 중' }}</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">{{ run.scope_desc }}</div>
+  {% if run.error_msg %}
+  <div class="muted" style="margin-top:8px;color:var(--crit);">사유: {{ run.error_msg }}</div>
+  {% endif %}
+</div>
+
+<div class="grid">
+  {% for label, value in [('수집', run.total_cnt or 0), ('신규', run.new_cnt or 0),
+                          ('변경', run.updated_cnt or 0), ('잘림', run.truncated_cnt or 0),
+                          ('메일 성공', mail_sent), ('메일 실패', mail_failed)] %}
+  <div class="card kpi"><div class="n">{{ value }}</div><div class="l">{{ label }}</div></div>
+  {% endfor %}
+</div>
+
+<div class="card">
+  <div><b>소스별 수집 건수</b> <span class="mono">{{ run.source_stat_text }}</span></div>
+  {% if run.excel_file %}
+  <div style="margin-top:7px;">엑셀 정본:
+    <a href="../output/{{ run.excel_file }}">{{ run.excel_file }}</a>
+    <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
+  {% endif %}
+</div>
+
+<h2>이 회차 CVE ({{ cves|length }}건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>제작사</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+    {% for cve in cves %}
+      <tr>
+        <td class="mono">
+          {% if cve.reference_url %}<a href="{{ cve.reference_url }}" target="_blank" rel="noopener">{{ cve.cve_id }}</a>
+          {% else %}{{ cve.cve_id }}{% endif %}
+        </td>
+        <td>{{ cve.sw_name }}</td>
+        <td>{{ cve.vendor }}</td>
+        <td class="sev sev-{{ cve.severity }}">{{ cve.severity }}</td>
+        <td>{{ cve.cvss_score if cve.cvss_score is not none else '-' }}</td>
+        <td class="mono">{{ cve.affected_range }}</td>
+        <td class="mono">{{ cve.fixed_version or '-' }}</td>
+        <td>{% if cve.kev_yn == 'Y' %}<span class="kev">KEV</span>{% else %}-{% endif %}</td>
+        <td class="mono">{{ cve.published_date }}</td>
+        <td class="mono">{{ cve.modified_date }}</td>
+        <td>{{ cve.source }}</td>
+        <td class="wrap-cell">{{ cve.summary }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="12" class="empty">이 회차에 기록된 CVE 가 없습니다.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>메일 발송 로그</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr><th>수신자</th><th>상태</th><th>발송시각</th><th>첨부</th><th>비고</th></tr></thead>
+    <tbody>
+    {% for row in mail_logs %}
+      <tr>
+        <td class="mono">{{ row.recipient }}</td>
+        <td><span class="pill st-{{ 'SUCCESS' if row.status == 'SENT' else ('FAILED' if row.status == 'FAILED' else 'SKIPPED') }}">{{ row.status }}</span></td>
+        <td class="mono">{{ row.sent_at }}</td>
+        <td class="mono">{{ row.attach_file or '-' }}</td>
+        <td class="wrap-cell muted">{{ row.error_msg or '' }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="5" class="empty">메일 발송 기록이 없습니다.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:16px;"><a href="../index.html">← 대시보드로</a></div>
+{% endblock %}

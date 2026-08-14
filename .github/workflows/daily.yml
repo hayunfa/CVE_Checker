@@ -1,0 +1,139 @@
+name: daily-cve-collect
+
+on:
+  schedule:
+    - cron: '0 21 * * *'      # UTC 21:00 = KST 06:00
+  workflow_dispatch:
+    inputs:
+      preset:        { description: '프리셋', required: false, default: 'daily',
+                       type: choice, options: [daily, urgent, in_use, monthly, backfill] }
+      lookback_days: { description: '조회 기간(일). 비우면 프리셋값', required: false, default: '' }
+      date_from:     { description: '시작일 YYYY-MM-DD (백필용, 비우면 미사용)', required: false, default: '' }
+      date_to:       { description: '종료일 YYYY-MM-DD', required: false, default: '' }
+      min_severity:  { description: '심각도 하한', required: false, default: '',
+                       type: choice, options: ['', CRITICAL, HIGH, MEDIUM, LOW, ALL] }
+      groups:        { description: '대상 그룹(쉼표). 예: framework,serving', required: false, default: '' }
+      sw_names:      { description: '특정 S/W만(쉼표). 지정 시 groups 무시', required: false, default: '' }
+      only_in_use:   { description: '내부망 반입분만', required: false, default: false, type: boolean }
+      sources:       { description: '소스(쉼표). 예: osv,kev', required: false, default: '' }
+      excel_scope:   { description: '결과 범위', required: false, default: '',
+                       type: choice, options: ['', delta, all] }
+      max_rows:      { description: '엑셀 최대 행수', required: false, default: '' }
+      skip_mail:     { description: '메일 발송 생략', required: false, default: false, type: boolean }
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-cve
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 3.11 준비
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'      # 3.12+ 는 xlwt 의존 모듈 제거 이슈가 있어 3.11 고정
+          cache: pip
+
+      - name: 의존성 설치
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 수집 실행
+        env:
+          # ── 시크릿 ─────────────────────────────────────────────
+          SMTP_HOST:   ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:   ${{ secrets.SMTP_PORT }}
+          SMTP_USER:   ${{ secrets.SMTP_USER }}
+          SMTP_PASS:   ${{ secrets.SMTP_PASS }}
+          MAIL_FROM:   ${{ secrets.MAIL_FROM }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}      # 선택. 없으면 요청 간 6.5초 대기
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    # GHSA GraphQL 용 (자동 주입)
+          SITE_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          # ── 수동 실행 입력값 (셸 주입을 막기 위해 반드시 env 로 받는다) ──
+          IN_PRESET:      ${{ github.event.inputs.preset }}
+          IN_LOOKBACK:    ${{ github.event.inputs.lookback_days }}
+          IN_FROM:        ${{ github.event.inputs.date_from }}
+          IN_TO:          ${{ github.event.inputs.date_to }}
+          IN_SEVERITY:    ${{ github.event.inputs.min_severity }}
+          IN_GROUPS:      ${{ github.event.inputs.groups }}
+          IN_SW:          ${{ github.event.inputs.sw_names }}
+          IN_ONLY_IN_USE: ${{ github.event.inputs.only_in_use }}
+          IN_SOURCES:     ${{ github.event.inputs.sources }}
+          IN_EXCEL_SCOPE: ${{ github.event.inputs.excel_scope }}
+          IN_MAX_ROWS:    ${{ github.event.inputs.max_rows }}
+          IN_SKIP_MAIL:   ${{ github.event.inputs.skip_mail }}
+        run: |
+          set -o pipefail
+
+          # 값이 있을 때만 인자를 붙인다 (빈 값이 프리셋을 덮어쓰지 않게).
+          # 함수로 감싸 항상 0 을 돌려줘야 `bash -e` 에서 스텝이 실패하지 않는다.
+          ARGS="--preset ${IN_PRESET:-daily}"
+          add()  { if [ -n "$2" ];            then ARGS="$ARGS $1 $2"; fi; return 0; }
+          flag() { if [ "$2" = "true" ];      then ARGS="$ARGS $1";    fi; return 0; }
+
+          add  --lookback     "$IN_LOOKBACK"
+          add  --from         "$IN_FROM"
+          add  --to           "$IN_TO"
+          add  --min-severity "$IN_SEVERITY"
+          add  --groups       "$IN_GROUPS"
+          add  --sw-names     "$IN_SW"
+          add  --sources      "$IN_SOURCES"
+          add  --excel-scope  "$IN_EXCEL_SCOPE"
+          add  --max-rows     "$IN_MAX_ROWS"
+          flag --only-in-use  "$IN_ONLY_IN_USE"
+          flag --skip-mail    "$IN_SKIP_MAIL"
+
+          # schedule 트리거일 때는 입력이 모두 비어 있어 `--preset daily` 로만 실행된다
+          echo "실행 인자: $ARGS"
+          python -m src.aicve.main $ARGS
+
+      - name: 보관기간(90일) 지난 엑셀 정리
+        if: always()
+        run: |
+          python - <<'PY'
+          from src.aicve.excel import cleanup_old_files
+          from src.aicve.scope import load_settings
+          days = int((load_settings("config/settings.yml").get("output") or {})
+                     .get("retention_days", 90))
+          removed = cleanup_old_files("output", days)
+          print(f"{days}일 초과 파일 {len(removed)}개 정리: {removed}")
+          PY
+
+      - name: 결과 커밋 & 푸시
+        if: always()          # 수집이 실패해도 로그·DB·페이지는 남긴다
+        run: |
+          git config user.name  "cve-bot"
+          git config user.email "cve-bot@users.noreply.github.com"
+          git add -A data output docs
+          if git diff --staged --quiet; then
+            echo "변경 사항이 없어 커밋을 건너뜁니다."
+          else
+            git commit -m "chore(cve): 자동 수집 $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            # 동시에 다른 커밋이 올라간 경우를 대비해 재시도
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push && break
+              echo "푸시 재시도 $i"
+              sleep 5
+            done
+          fi
+
+      - name: 산출물 보관 (30일)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cve-output-${{ github.run_id }}
+          path: |
+            output/
+            logs/
+          retention-days: 30
+          if-no-files-found: warn
