@@ -1,0 +1,29 @@
+{
+ "run_id": "20260814053105",
+ "generated_at": "2026-08-14 05:31:12",
+ "scope_desc": "SCOPE lookback=1 sev>=HIGH groups=all sw=- in_use=False src=osv,kev scope=delta max=50",
+ "count": 1,
+ "cves": [
+  {
+   "cve_id": "CVE-2026-57516",
+   "sw_name": "Ray",
+   "vendor": "Anyscale",
+   "affected_range": "<2.56.0",
+   "fixed_version": "2.56.0",
+   "severity": "HIGH",
+   "cvss_score": 8.8,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+   "published_date": "20260724",
+   "modified_date": "20260814",
+   "kev_yn": "N",
+   "summary": "## Summary `ray.data.read_webdataset(paths=...)` is a `@PublicAPI(stability=\"alpha\")` reader for WebDataset-format TAR files. Its default `decoder=True` invokes `_default_decoder` on every sample's keys, which routes file extension to a decoder by extension. Two of those branches deserialize attacker-controlled bytes with no validation: - `.pickle` / `.pkl` -> `pickle.loads(value)` - `.pt` / `.pth` -> `torch.load(io.BytesIO(value), weights_only=False)` Both fire during a standard `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` call. No flags, no opt-in, no environment variable. An attacker who can supply a TAR (via S3 share, HuggingFace Hub mirror, email attachment, model-zoo, or any HTTP URL the user passes to `read_webdataset`) achieves arbitrary code execution in the calling Ray process at schema-sample time, before row data is consumed. This is the same class of bug as GHSA-mw35-8rx3-xf9r (Parquet Arrow Extension Type cloudpickle deserialization, patched in 2.55.0): ",
+   "reference_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57516",
+   "source": "OSV",
+   "ecosystem": "pypi",
+   "first_seen_run": "20260814053105",
+   "last_seen_run": "20260814053105",
+   "collected_at": "20260814053105",
+   "content_hash": "7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7"
+  }
+ ]
+}

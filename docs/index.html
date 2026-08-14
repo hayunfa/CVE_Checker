@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI CVE Watch — 대시보드</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="index.html" class="on">대시보드</a>
+      <a href="cve/index.html" class="">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 2026-08-14 05:31:12</div>
+  </div>
+</header>
+<div class="wrap">
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>최근 실행</b> 20260814053105
+      <span class="pill st-SUCCESS">SUCCESS</span></div>
+    <div class="muted">2026-08-14 05:31:05 ~ 2026-08-14 05:31:12</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">SCOPE lookback=1 sev&gt;=HIGH groups=all sw=- in_use=False src=osv,kev scope=delta max=50</div>
+</div>
+
+<div class="grid">
+  <div class="card kpi"><div class="n">1</div><div class="l">전체 누적 CVE</div></div>
+  <div class="card kpi"><div class="n">1</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">1</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
+</div>
+
+<h2>심각도별 누적 건수</h2>
+<div class="card">
+  <div class="bar-row">
+    <div class="nm sev sev-CRITICAL">CRITICAL</div>
+    <div class="bar sev-bg-CRITICAL"
+         style="width:0.0px;
+                background:var(--crit);"></div>
+    <div class="v">0</div>
+  </div>
+  <div class="bar-row">
+    <div class="nm sev sev-HIGH">HIGH</div>
+    <div class="bar sev-bg-HIGH"
+         style="width:620.0px;
+                background:var(--high);"></div>
+    <div class="v">1</div>
+  </div>
+  <div class="bar-row">
+    <div class="nm sev sev-MEDIUM">MEDIUM</div>
+    <div class="bar sev-bg-MEDIUM"
+         style="width:0.0px;
+                background:var(--med);"></div>
+    <div class="v">0</div>
+  </div>
+  <div class="bar-row">
+    <div class="nm sev sev-LOW">LOW</div>
+    <div class="bar sev-bg-LOW"
+         style="width:0.0px;
+                background:var(--low);"></div>
+    <div class="v">0</div>
+  </div>
+  <div class="bar-row">
+    <div class="nm sev sev-NONE">NONE</div>
+    <div class="bar sev-bg-NONE"
+         style="width:0.0px;
+                background:var(--none);"></div>
+    <div class="v">0</div>
+  </div>
+</div>
+
+<h2>감시대상 S/W별 취약점 건수 Top 1</h2>
+<div class="card">
+    <div class="bar-row">
+      <div class="nm">Ray</div>
+      <div class="bar" style="width:620.0px;"></div>
+      <div class="v">1</div>
+    </div>
+</div>
+
+<h2>최근 실행 이력 (최대 1회)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>실행일시</th><th>상태</th><th>적용 SCOPE</th><th>소스별 수집</th>
+      <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">2026-08-14 05:31:05</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=1 sev&gt;=HIGH groups=all sw=- in_use=False src=osv,kev scope=delta max=50</td>
+        <td class="mono" style="font-size:11px;">KEV=1665 OSV=2</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td><a href="output/CVE_20260814.xls">CVE_20260814.xls</a>
+</td>
+        <td>3 / 0</td>
+        <td><a href="runs/20260814053105.html">보기</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>최근 실행의 신규·변경 CVE (1건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>공개일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-57516" target="_blank" rel="noopener">CVE-2026-57516</a>
+        </td>
+        <td>Ray</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&lt;2.56.0</td>
+        <td class="mono">2.56.0</td>
+        <td class="mono">20260724</td>
+        <td>OSV</td>
+        <td class="wrap-cell">## Summary `ray.data.read_webdataset(paths=...)` is a `@PublicAPI(stability=&#34;alpha&#34;)` reader for WebDataset-format TAR files. Its default `decoder=True` invokes `_default_decoder` on every sample&#39;s keys, which routes file extension to a decoder by extension. Two of those branches deserialize attacker-controlled bytes with no validation: - `.pickle` / `.pkl` -&gt; `pickle.loads(value)` - `.pt` / `.pth` -&gt; `torch.load(io.BytesIO(value), weights_only=False)` Both fire during a standard `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` call. No flags, no opt-in, no environment variable. An attacker who can supply a TAR (via S3 share, HuggingFace Hub mirror, email attachment, model-zoo, or any HTTP URL the user passes to `read_webdataset`) achieves arbitrary code execution in the calling Ray process at schema-sample time, before row data is consumed. This is the same class of bug as GHSA-mw35-8rx3-xf9r (Parquet Arrow Extension Type cloudpickle deserialization, patched in 2.55.0): </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="muted" style="margin-top:8px;">
+  데이터 재활용: <a href="data/latest.json">latest.json</a> ·
+  <a href="data/all.json">all.json</a>
+</div>
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+</body>
+</html>

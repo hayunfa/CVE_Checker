@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전체 CVE 검색 — AI CVE Watch</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="../index.html" class="">대시보드</a>
+      <a href="../cve/index.html" class="on">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 2026-08-14 05:31:12</div>
+  </div>
+</header>
+<div class="wrap">
+
+<h2>전체 CVE 검색 (1건)</h2>
+<div class="card">
+  <div class="filters">
+    <input type="search" id="q" placeholder="CVE 번호 · S/W명 · 요약 검색" autocomplete="off">
+    <select id="sev">
+      <option value="">심각도 전체</option>
+      <option value="CRITICAL">CRITICAL</option>
+      <option value="HIGH">HIGH</option>
+      <option value="MEDIUM">MEDIUM</option>
+      <option value="LOW">LOW</option>
+      <option value="NONE">NONE</option>
+    </select>
+    <select id="sw">
+      <option value="">S/W 전체</option>
+<option value="Ray">Ray</option>    </select>
+    <select id="kev">
+      <option value="">KEV 전체</option>
+      <option value="Y">KEV 등재만</option>
+      <option value="N">KEV 미등재</option>
+    </select>
+    <button id="reset" style="padding:7px 12px;border:1px solid var(--line);border-radius:4px;
+            background:var(--card);color:var(--text);cursor:pointer;font-family:inherit;">초기화</button>
+  </div>
+  <div class="muted" id="count"></div>
+</div>
+
+<div class="tablebox">
+  <table id="tbl">
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+<div class="muted" style="margin-top:8px;">
+  원본 데이터: <a href="../data/all.json">all.json</a>
+</div>
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+<script>
+// 외부 라이브러리 없이 순수 JS 로 클라이언트 필터링한다.
+const DATA = [{&#34;cve_id&#34;: &#34;CVE-2026-57516&#34;, &#34;sw_name&#34;: &#34;Ray&#34;, &#34;vendor&#34;: &#34;Anyscale&#34;, &#34;affected_range&#34;: &#34;&lt;2.56.0&#34;, &#34;fixed_version&#34;: &#34;2.56.0&#34;, &#34;severity&#34;: &#34;HIGH&#34;, &#34;cvss_score&#34;: 8.8, &#34;cvss_vector&#34;: &#34;CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H&#34;, &#34;published_date&#34;: &#34;20260724&#34;, &#34;modified_date&#34;: &#34;20260814&#34;, &#34;kev_yn&#34;: &#34;N&#34;, &#34;summary&#34;: &#34;## Summary `ray.data.read_webdataset(paths=...)` is a `@PublicAPI(stability=\&#34;alpha\&#34;)` reader for WebDataset-format TAR files. Its default `decoder=True` invokes `_default_decoder` on every sample&#39;s keys, which routes file extension to a decoder by extension. Two of those branches deserialize attacker-controlled bytes with no validation: - `.pickle` / `.pkl` -&gt; `pickle.loads(value)` - `.pt` / `.pth` -&gt; `torch.load(io.BytesIO(value), weights_only=False)` Both fire during a standard `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` call. No flags, no opt-in, no environment variable. An attacker who can supply a TAR (via S3 share, HuggingFace Hub mirror, email attachment, model-zoo, or any HTTP URL the user passes to `read_webdataset`) achieves arbitrary code execution in the calling Ray process at schema-sample time, before row data is consumed. This is the same class of bug as GHSA-mw35-8rx3-xf9r (Parquet Arrow Extension Type cloudpickle deserialization, patched in 2.55.0): &#34;, &#34;reference_url&#34;: &#34;https://nvd.nist.gov/vuln/detail/CVE-2026-57516&#34;, &#34;source&#34;: &#34;OSV&#34;, &#34;ecosystem&#34;: &#34;pypi&#34;, &#34;first_seen_run&#34;: &#34;20260814053105&#34;, &#34;last_seen_run&#34;: &#34;20260814053105&#34;, &#34;collected_at&#34;: &#34;20260814053105&#34;, &#34;content_hash&#34;: &#34;7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7&#34;}];
+const tbody = document.querySelector('#tbl tbody');
+const q = document.getElementById('q'), sev = document.getElementById('sev');
+const sw = document.getElementById('sw'), kev = document.getElementById('kev');
+const count = document.getElementById('count');
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g,
+    c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function row(c) {
+  const link = c.reference_url
+    ? `<a href="${esc(c.reference_url)}" target="_blank" rel="noopener">${esc(c.cve_id)}</a>`
+    : esc(c.cve_id);
+  return `<tr>
+    <td class="mono">${link}</td>
+    <td>${esc(c.sw_name)}</td>
+    <td class="sev sev-${esc(c.severity)}">${esc(c.severity)}</td>
+    <td>${c.cvss_score == null ? '-' : esc(c.cvss_score)}</td>
+    <td class="mono">${esc(c.affected_range)}</td>
+    <td class="mono">${esc(c.fixed_version) || '-'}</td>
+    <td>${c.kev_yn === 'Y' ? '<span class="kev">KEV</span>' : '-'}</td>
+    <td class="mono">${esc(c.published_date)}</td>
+    <td>${esc(c.source)}</td>
+    <td class="wrap-cell">${esc(c.summary)}</td>
+  </tr>`;
+}
+
+function render() {
+  const term = q.value.trim().toLowerCase();
+  const rows = DATA.filter(c =>
+    (!sev.value || c.severity === sev.value) &&
+    (!sw.value || c.sw_name === sw.value) &&
+    (!kev.value || (c.kev_yn || 'N') === kev.value) &&
+    (!term ||
+      (c.cve_id || '').toLowerCase().includes(term) ||
+      (c.sw_name || '').toLowerCase().includes(term) ||
+      (c.summary || '').toLowerCase().includes(term))
+  );
+  tbody.innerHTML = rows.length
+    ? rows.map(row).join('')
+    : '<tr><td colspan="10" class="empty">조건에 맞는 CVE 가 없습니다.</td></tr>';
+  count.textContent = `${rows.length} / ${DATA.length} 건 표시`;
+}
+
+[q, sev, sw, kev].forEach(el => el.addEventListener('input', render));
+document.getElementById('reset').addEventListener('click', () => {
+  q.value = ''; sev.value = ''; sw.value = ''; kev.value = ''; render();
+});
+render();
+</script>
+</body>
+</html>
