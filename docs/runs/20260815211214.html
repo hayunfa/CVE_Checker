@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI CVE Watch — 대시보드</title>
+<title>실행 20260815211214 — AI CVE Watch</title>
 <style>
   :root {
     --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
@@ -66,8 +66,8 @@
   <div class="wrap">
     <h1>AI CVE Watch</h1>
     <nav>
-      <a href="index.html" class="on">대시보드</a>
-      <a href="cve/index.html" class="">전체 CVE 검색</a>
+      <a href="../index.html" class="">대시보드</a>
+      <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
     <div class="stamp">최종 생성 2026-08-15 21:13:30</div>
   </div>
@@ -76,7 +76,7 @@
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260815211214
+    <div><b>실행 20260815211214</b>
       <span class="pill st-SUCCESS">SUCCESS</span></div>
     <div class="muted">2026-08-15 21:12:14 ~ 2026-08-15 21:13:30</div>
   </div>
@@ -84,219 +84,27 @@
 </div>
 
 <div class="grid">
-  <div class="card kpi"><div class="n">107</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">66</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">66</div><div class="l">수집</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">신규</div></div>
   <div class="card kpi"><div class="n">6</div><div class="l">변경</div></div>
-  <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">잘림</div></div>
+  <div class="card kpi"><div class="n">3</div><div class="l">메일 성공</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">메일 실패</div></div>
 </div>
 
-<h2>심각도별 누적 건수</h2>
 <div class="card">
-  <div class="bar-row">
-    <div class="nm sev sev-CRITICAL">CRITICAL</div>
-    <div class="bar sev-bg-CRITICAL"
-         style="width:72.3px;
-                background:var(--crit);"></div>
-    <div class="v">7</div>
-  </div>
-  <div class="bar-row">
-    <div class="nm sev sev-HIGH">HIGH</div>
-    <div class="bar sev-bg-HIGH"
-         style="width:413.3px;
-                background:var(--high);"></div>
-    <div class="v">40</div>
-  </div>
-  <div class="bar-row">
-    <div class="nm sev sev-MEDIUM">MEDIUM</div>
-    <div class="bar sev-bg-MEDIUM"
-         style="width:620.0px;
-                background:var(--med);"></div>
-    <div class="v">60</div>
-  </div>
-  <div class="bar-row">
-    <div class="nm sev sev-LOW">LOW</div>
-    <div class="bar sev-bg-LOW"
-         style="width:0.0px;
-                background:var(--low);"></div>
-    <div class="v">0</div>
-  </div>
-  <div class="bar-row">
-    <div class="nm sev sev-NONE">NONE</div>
-    <div class="bar sev-bg-NONE"
-         style="width:0.0px;
-                background:var(--none);"></div>
-    <div class="v">0</div>
-  </div>
+  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1665 OSV=7 NVD=60 GHSA=4</span></div>
+  <div style="margin-top:7px;">엑셀 정본:
+    <a href="../output/CVE_20260815.xls">CVE_20260815.xls</a>
+    <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>감시대상 S/W별 취약점 건수 Top 20</h2>
-<div class="card">
-    <div class="bar-row">
-      <div class="nm">Elasticsearch</div>
-      <div class="bar" style="width:620.0px;"></div>
-      <div class="v">22</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Airflow</div>
-      <div class="bar" style="width:479.1px;"></div>
-      <div class="v">17</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">n8n</div>
-      <div class="bar" style="width:450.9px;"></div>
-      <div class="v">16</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">gRPC</div>
-      <div class="bar" style="width:197.3px;"></div>
-      <div class="v">7</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">vLLM</div>
-      <div class="bar" style="width:197.3px;"></div>
-      <div class="v">7</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">JupyterLab</div>
-      <div class="bar" style="width:112.7px;"></div>
-      <div class="v">4</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">PyTorch</div>
-      <div class="bar" style="width:112.7px;"></div>
-      <div class="v">4</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">FastAPI</div>
-      <div class="bar" style="width:84.5px;"></div>
-      <div class="v">3</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Jupyter Notebook</div>
-      <div class="bar" style="width:84.5px;"></div>
-      <div class="v">3</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Open WebUI</div>
-      <div class="bar" style="width:84.5px;"></div>
-      <div class="v">3</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Ray</div>
-      <div class="bar" style="width:84.5px;"></div>
-      <div class="v">3</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">MLflow</div>
-      <div class="bar" style="width:56.4px;"></div>
-      <div class="v">2</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Pandas</div>
-      <div class="bar" style="width:56.4px;"></div>
-      <div class="v">2</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Pillow</div>
-      <div class="bar" style="width:56.4px;"></div>
-      <div class="v">2</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Transformers</div>
-      <div class="bar" style="width:56.4px;"></div>
-      <div class="v">2</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">protobuf</div>
-      <div class="bar" style="width:56.4px;"></div>
-      <div class="v">2</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Accelerate</div>
-      <div class="bar" style="width:28.2px;"></div>
-      <div class="v">1</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">AnythingLLM</div>
-      <div class="bar" style="width:28.2px;"></div>
-      <div class="v">1</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Diffusers</div>
-      <div class="bar" style="width:28.2px;"></div>
-      <div class="v">1</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Dify</div>
-      <div class="bar" style="width:28.2px;"></div>
-      <div class="v">1</div>
-    </div>
-</div>
-
-<h2>최근 실행 이력 (최대 3회)</h2>
+<h2>이 회차 CVE (66건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
-      <th>실행일시</th><th>상태</th><th>적용 SCOPE</th><th>소스별 수집</th>
-      <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td class="mono">2026-08-15 21:12:14</td>
-        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
-        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
-          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
-        <td class="mono" style="font-size:11px;">KEV=1665 OSV=7 NVD=60 GHSA=4</td>
-        <td>66</td>
-        <td>0</td>
-        <td>6</td>
-        <td>0</td>
-        <td><a href="output/CVE_20260815.xls">CVE_20260815.xls</a>
-</td>
-        <td>3 / 0</td>
-        <td><a href="runs/20260815211214.html">보기</a></td>
-      </tr>
-      <tr>
-        <td class="mono">2026-08-14 21:16:06</td>
-        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
-        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
-          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
-        <td class="mono" style="font-size:11px;">KEV=1665 OSV=27 NVD=89 GHSA=8</td>
-        <td>107</td>
-        <td>106</td>
-        <td>0</td>
-        <td>0</td>
-        <td><a href="output/CVE_20260814.xls">CVE_20260814.xls</a>
-</td>
-        <td>3 / 0</td>
-        <td><a href="runs/20260814211606.html">보기</a></td>
-      </tr>
-      <tr>
-        <td class="mono">2026-08-14 05:31:05</td>
-        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
-        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
-          SCOPE lookback=1 sev&gt;=HIGH groups=all sw=- in_use=False src=osv,kev scope=delta max=50</td>
-        <td class="mono" style="font-size:11px;">KEV=1665 OSV=2</td>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-        <td><a href="output/CVE_20260814.xls">CVE_20260814.xls</a>
-</td>
-        <td>3 / 0</td>
-        <td><a href="runs/20260814053105.html">보기</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h2>최근 실행의 신규·변경 CVE (66건)</h2>
-<div class="tablebox">
-  <table>
-    <thead><tr>
-      <th>CVE</th><th>S/W</th><th>심각도</th><th>점수</th><th>영향 버전</th>
-      <th>조치 버전</th><th>공개일</th><th>소스</th><th>요약</th>
+      <th>CVE</th><th>S/W</th><th>제작사</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
       <tr>
@@ -304,11 +112,14 @@
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-12720" target="_blank" rel="noopener">CVE-2024-12720</a>
         </td>
         <td>Transformers</td>
+        <td>Hugging Face</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">&lt;4.48.0</td>
         <td class="mono">4.48.0</td>
+        <td>-</td>
         <td class="mono">20250320</td>
+        <td class="mono">20260813</td>
         <td>OSV</td>
         <td class="wrap-cell">A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file tokenization_nougat_fast.py. The vulnerability occurs in the post_process_single() function, where a regular expression processes specially crafted input. The issue stems from the regex exhibiting exponential time complexity under certain conditions, leading to excessive backtracking. This can result in significantly high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.46.3.</td>
       </tr>
@@ -317,11 +128,14 @@
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-1194" target="_blank" rel="noopener">CVE-2025-1194</a>
         </td>
         <td>Transformers</td>
+        <td>Hugging Face</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>4.3</td>
         <td class="mono">&lt;4.50.0</td>
         <td class="mono">4.50.0</td>
+        <td>-</td>
         <td class="mono">20250429</td>
+        <td class="mono">20260813</td>
         <td>OSV</td>
         <td class="wrap-cell">A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file `tokenization_gpt_neox_japanese.py` of the GPT-NeoX-Japanese model. The vulnerability occurs in the SubWordJapaneseTokenizer class, where regular expressions process specially crafted inputs. The issue stems from a regex exhibiting exponential complexity under certain conditions, leading to excessive backtracking. This can result in high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.48.1 (latest).</td>
       </tr>
@@ -330,11 +144,14 @@
 <a href="https://access.redhat.com/errata/RHSA-2026:53261" target="_blank" rel="noopener">CVE-2026-18618</a>
         </td>
         <td>gRPC</td>
+        <td>gRPC Authors</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260810</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] A flaw was found in ml-metadata. The statically-linked gRPC stack in ml-metadata is outdated, making it vulnerable to known HTTP/2 denial of service (DoS) issues. An in-cluster attacker, with network access to the MLMD pod, could exploit these vulnerabilities by sending specially crafted HTTP/2 requests. This could lead to a denial of service by crashing the MLMD pod, disrupting all pipeline runs in the affected namespace.</td>
       </tr>
@@ -343,11 +160,14 @@
 <a href="https://developer.konghq.com/mesh/changelog/" target="_blank" rel="noopener">CVE-2026-18675</a>
         </td>
         <td>gRPC</td>
+        <td>gRPC Authors</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] The dataplane token validator in kuma-cp performs an unchecked Go type assertion on the JWT kid header. A token whose kid is a JSON number decodes as a float64 and triggers a runtime panic before any signature, claims, or authorization check runs. The panic terminates the entire kuma-cp process, HTTP API, the health and readiness endpoints, and xDS. Unauthenticated access to the dataplane gRPC server can trigger the crash with a malformed token A single request is a transient interruption; sustaining an outage requires repeated requests.</td>
       </tr>
@@ -356,11 +176,14 @@
 <a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
         </td>
         <td>gRPC</td>
+        <td>grpc</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
         <td>9.1</td>
         <td class="mono">&lt;1.79.3</td>
         <td class="mono">1.79.3</td>
+        <td>-</td>
         <td class="mono">20260320</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</td>
       </tr>
@@ -369,11 +192,14 @@
 <a href="https://github.com/mlflow/mlflow/commit/4a3f2f720cb4f058c9e0c5b883e0acc9ab64a7f3" target="_blank" rel="noopener">CVE-2026-4035</a>
         </td>
         <td>MLflow</td>
+        <td>lfprojects</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.7</td>
         <td class="mono">&lt;3.11.0</td>
         <td class="mono">3.11.0</td>
+        <td>-</td>
         <td class="mono">20260603</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">A vulnerability in mlflow/mlflow versions prior to 3.11.0 allows for the resolution of environment variables in AI Gateway secrets, which can be exploited to exfiltrate sensitive server-side environment credentials to an attacker-controlled endpoint. This issue arises because the `api_key` field in gateway secrets can accept `$ENV_VAR` references, which are resolved against the MLflow server&#39;s environment during runtime. The resolved secrets are then sent in provider authentication headers to the configured upstream `api_base`. This vulnerability can be exploited by low-privileged authenticated users in basic-auth deployments or by unauthenticated users in default deployments without `basic-auth`. The impact includes potential leakage of sensitive credentials such as cloud artifact credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`), which could lead to artifact poisoning and cross-boundary code execution in downstream environments. The issue is fixed in version 3.11.0.</td>
       </tr>
@@ -382,11 +208,14 @@
 <a href="https://spring.io/security/cve-2026-40983" target="_blank" rel="noopener">CVE-2026-40983</a>
         </td>
         <td>gRPC</td>
+        <td>gRPC Authors</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260609</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] In Micrometer, it is possible for a user to provide specially crafted gRPC requests that may cause a denial-of-service (DoS) condition. Affected versions: Micrometer 1.16.0 through 1.16.5; 1.15.0 through 1.15.11.</td>
       </tr>
@@ -395,11 +224,14 @@
 <a href="https://github.com/vllm-project/vllm/pull/43426" target="_blank" rel="noopener">CVE-2026-48746</a>
         </td>
         <td>vLLM</td>
+        <td>vllm</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
         <td>9.1</td>
         <td class="mono">&gt;=0.3.0,&lt;0.22.0</td>
         <td class="mono">0.22.0</td>
+        <td>-</td>
         <td class="mono">20260622</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette&#39;s trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.</td>
       </tr>
@@ -408,11 +240,14 @@
 <a href="https://github.com/advisories/GHSA-3vv5-8xxp-4f55" target="_blank" rel="noopener">CVE-2026-54007</a>
         </td>
         <td>Open WebUI</td>
+        <td>Open WebUI</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&lt;=0.9.5</td>
         <td class="mono">0.9.6</td>
+        <td>-</td>
         <td class="mono">20260617</td>
+        <td class="mono">20260813</td>
         <td>GHSA</td>
         <td class="wrap-cell">Open WebUI: Cross-origin postMessage confirmation bypass via action:submit ### Summary The chat message listener allows non-same-origin `input:prompt` and `action:submit` messages, so an external site can set prompt text and trigger `submitPrompt()` in an authenticated victim session. I validated this with a cross-origin attacker page that auto-posted messages and caused unauthorized `POST /api/v1/chats/new` and `POST /api/chat/completions` requests containing attacker-controlled prompts. This enables cross-site forced actions and model/tool execution under victim privileges without consent. ### Details The chat page&#39;s window message listener in `src/lib/components/chat/Chat.svelte` processes message types including `input:prompt` and `action:submit` without adequately enforcing same-origin restrictions. Based on code around lines ~597-616, input text is set directly from `event.data.text`; `action:submit` proceeds to `submitPrompt()` on the current prompt. The logic does not apply a s</td>
       </tr>
@@ -421,11 +256,14 @@
 <a href="https://github.com/apache/airflow/pull/68422" target="_blank" rel="noopener">CVE-2026-54183</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>4.3</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker&#39;s recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown unmasked in the Variables UI. The exposure is limited to the UI: any authenticated user who can see the Variable in the UI can already read its full value through the Variables REST API, so this does not disclose data the user could not otherwise obtain — the masking is a shoulder-surfing defense for the UI, not an access-control boundary. This is an incomplete-fix follow-up to CVE-2026-42358, whose fix made only the dictionary walk unbounded; lists, tuples, and sets beyond the depth limit remained unmasked in the UI. Deployments that applied the CVE-2026-42358 fix should also upgrade to address this residual case. Upgrade to apache-airflow 3.3.1 or later.</td>
       </tr>
@@ -434,11 +272,14 @@
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-57516" target="_blank" rel="noopener">CVE-2026-57516</a>
         </td>
         <td>Ray</td>
+        <td>Anyscale</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.8</td>
         <td class="mono">&lt;2.56.0</td>
         <td class="mono">2.56.0</td>
+        <td>-</td>
         <td class="mono">20260724</td>
+        <td class="mono">20260814</td>
         <td>OSV</td>
         <td class="wrap-cell">## Summary `ray.data.read_webdataset(paths=...)` is a `@PublicAPI(stability=&#34;alpha&#34;)` reader for WebDataset-format TAR files. Its default `decoder=True` invokes `_default_decoder` on every sample&#39;s keys, which routes file extension to a decoder by extension. Two of those branches deserialize attacker-controlled bytes with no validation: - `.pickle` / `.pkl` -&gt; `pickle.loads(value)` - `.pt` / `.pth` -&gt; `torch.load(io.BytesIO(value), weights_only=False)` Both fire during a standard `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` call. No flags, no opt-in, no environment variable. An attacker who can supply a TAR (via S3 share, HuggingFace Hub mirror, email attachment, model-zoo, or any HTTP URL the user passes to `read_webdataset`) achieves arbitrary code execution in the calling Ray process at schema-sample time, before row data is consumed. This is the same class of bug as GHSA-mw35-8rx3-xf9r (Parquet Arrow Extension Type cloudpickle deserialization, patched in 2.55.0): </td>
       </tr>
@@ -447,11 +288,14 @@
 <a href="https://github.com/apache/airflow/pull/68511" target="_blank" rel="noopener">CVE-2026-58076</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.8</td>
         <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s serialization layer reconstructed exception nodes by calling `import_string()` on a class name taken from the serialized blob and instantiating it with arguments from the same blob, with no restriction on what could be imported. An operator&#39;s `executor_config` reaches that branch, so a Dag author could place a value there that causes an arbitrary callable to be imported and invoked -- for example `subprocess.check_output`, or `builtins.eval` on the `builtins`-prefixed variant. The code runs in the **Scheduler**, which reconstructs serialized Dags in its normal loop with no request involved, and in the **API server**, on any authenticated read of the Dag such as `GET /api/v2/dags/{dag_id}/details`. Both are components the Airflow security model states must never execute Dag-author code, and both hold the metadata database credentials and the JWT signing secret. No non-default configuration is required. This is a **different sink from CVE-2026-33264**, which covered only</td>
       </tr>
@@ -460,11 +304,14 @@
 <a href="https://github.com/advisories/GHSA-gh7p-78x6-jw6m" target="_blank" rel="noopener">CVE-2026-59222</a>
         </td>
         <td>Open WebUI</td>
+        <td>Open WebUI</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>-</td>
         <td class="mono">&gt;=0.7.0,&lt;0.10.0</td>
         <td class="mono">0.10.0</td>
+        <td>-</td>
         <td class="mono">20260724</td>
+        <td class="mono">20260813</td>
         <td>GHSA</td>
         <td class="wrap-cell">Open WebUI: /api/v1/channels/{id}/members exposes full user model including sensitive credentials ### Summary The channel members endpoint serializes and returns **full user models** for channel participants, including settings objects. A normal user in a DM can retrieve admin-only sensitive configuration such as webhook URLs and tool server key material (`settings.ui.toolServers[].key`), which is not available via standard user info APIs. ### Details The endpoint GET `/api/v1/channels/{id}/members` returns the full serialized user model for every member in the channel. In both the DM and non-DM code paths, the handler constructs the response with `[UserModelResponse(**user.model_dump(), is_active=...)]` and returns it as the users list. Because `UserModel` (`models/users.py`) includes a settings object (`UserSettings`) and arbitrary UI configuration (`settings.ui`), the endpoint exposes other users&#39; sensitive configuration to any channel participant. Practically, a regular user who pa</td>
       </tr>
@@ -473,11 +320,14 @@
 <a href="https://github.com/apache/airflow/pull/69378" target="_blank" rel="noopener">CVE-2026-59242</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.4</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s XCom `GET /api/v2/{...}/xcomEntries/{key}?deserialize=true` endpoint passed a string-literal payload through `BaseXCom.deserialize_value` without the `_check_forbidden_xcom_keys` guard, allowing an authenticated API user with XCom write-and-read access to instantiate arbitrary `airflow.*` classes on the API server (CWE-502). An authenticated user who can write an XCom value and then read it back with `deserialize=true` triggers the unsafe instantiation. Users are advised to upgrade to apache-airflow 3.3.1 or later, which rejects reserved XCom serialization keys submitted as JSON string literals.</td>
       </tr>
@@ -486,11 +336,14 @@
 <a href="https://github.com/apache/airflow/pull/68975" target="_blank" rel="noopener">CVE-2026-59244</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task&#39;s Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type.</td>
       </tr>
@@ -499,11 +352,14 @@
 <a href="https://github.com/open-webui/open-webui/commit/ac3449cac91e62b08a7c28e54fcd044d14dea791" target="_blank" rel="noopener">CVE-2026-59714</a>
         </td>
         <td>Open WebUI</td>
+        <td>Open WebUI</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 before 0.10.0, any authenticated user can overwrite the content of a message in a channel they do not belong to (including private and DM channels) by sending a chat completion request with a channel:-prefixed chat_id and a target message_id. The channel: path routes pipeline output through _make_channel_emitter, which writes to the Messages table using the caller-supplied message_id without binding it to the channel. This issue is fixed in version 0.10.0.</td>
       </tr>
@@ -512,11 +368,14 @@
 <a href="https://github.com/apache/airflow/pull/70755" target="_blank" rel="noopener">CVE-2026-65017</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s Config API did not mask team-scoped sensitive configuration values in multi-team deployments. When an administrator has enabled multi-team mode and exposed the Config API, an authenticated Viewer holding only configuration-read access — with no prior access to the secret — could read a team-scoped Celery broker URL, including its embedded credentials, in cleartext, while the equivalent global option was correctly masked. The secrets masker matched only base section and option names and did not normalize team-prefixed sections before the sensitivity check (CWE-200). This is a distinct masker bypass from CVE-2026-48828 and CVE-2026-48892: deployments that upgraded to apache-airflow 3.3.0 to address those issues remain affected by this team-scoped variant. Users are advised to upgrade to apache-airflow 3.3.1 or later, which normalizes team-scoped sections before masking.</td>
       </tr>
@@ -525,11 +384,14 @@
 <a href="https://github.com/apache/airflow/pull/70704" target="_blank" rel="noopener">CVE-2026-67587</a>
         </td>
         <td>Airflow</td>
+        <td>Apache Software Foundation</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.8</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Apache Airflow&#39;s Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance&#39;s `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler&#39;s `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either of those fixes does not address this one. Users are advised to upgrade to apache-air</td>
       </tr>
@@ -538,11 +400,14 @@
 <a href="https://cyberpanel.net/KnowledgeBase/home/change-logs/" target="_blank" rel="noopener">CVE-2026-67614</a>
         </td>
         <td>FastAPI</td>
+        <td>FastAPI</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
         <td>9.8</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] CyberPanel before 3.0.0 contains a hard-coded JWT secret vulnerability in the WebTerminal FastAPI SSH service that allows unauthenticated remote attackers to forge valid authentication tokens and obtain an interactive root shell via WebSocket on port 8888. Attackers can craft a forged JWT signed with the hardcoded secret value, specifying ssh_user=root, to authenticate to the terminal service without any valid credentials and receive a root shell.</td>
       </tr>
@@ -551,11 +416,14 @@
 <a href="https://github.com/apache/airflow/pull/70736" target="_blank" rel="noopener">CVE-2026-68076</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.4</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team&#39;s scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowed to contain. When the guard did not apply, the lookup fell through to an unconditional global read that resolved the stored `AIRFLOW_CONN__&lt;TEAM&gt;___&lt;ID&gt;` variable regardless of which team asked. In multi-team mode an authenticated user of one team could therefore have `POST /api/v2/connections/test` resolve another team&#39;s Connection and authenticate outward with that team&#39;s credentials; the endpoint uses the credentials rather than returning them. Exploitation requires `[core] multi_team` enabled, `[core] test_connection` set to `Enabled` (it ships `Disabled`), team-scoped secrets provisioned as environment variables in the API-server process, and knowledge of the encoded identifier. Redire</td>
       </tr>
@@ -564,11 +432,14 @@
 <a href="https://github.com/apache/airflow/pull/70889" target="_blank" rel="noopener">CVE-2026-68968</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.</td>
       </tr>
@@ -577,11 +448,14 @@
 <a href="https://github.com/apache/airflow/pull/70889" target="_blank" rel="noopener">CVE-2026-68968</a>
         </td>
         <td>FastAPI</td>
+        <td>FastAPI</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.</td>
       </tr>
@@ -590,11 +464,14 @@
 <a href="https://github.com/apache/airflow/pull/70890" target="_blank" rel="noopener">CVE-2026-68969</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI&#39;s *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised </td>
       </tr>
@@ -603,11 +480,14 @@
 <a href="https://github.com/apache/airflow/pull/70891" target="_blank" rel="noopener">CVE-2026-68970</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matched neither and was returned unmasked. Any authenticated user able to read the logs or rendered templates of a task that references such a Variable could recover the values, with no special configuration required. This is the list-shaped counterpart of CVE-2026-59244, whose fix covered the dict case only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised to upgrade to apache-airflow 3.3.1 or later.</td>
       </tr>
@@ -616,11 +496,14 @@
 <a href="https://github.com/apache/airflow/pull/70893" target="_blank" rel="noopener">CVE-2026-68971</a>
         </td>
         <td>Airflow</td>
+        <td>apache</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&lt;3.3.1</td>
         <td class="mono">3.3.1</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">Apache Airflow&#39;s asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:&lt;team&gt;` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team&#39;s XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the Dag&#39;s team at both sites.</td>
       </tr>
@@ -629,11 +512,14 @@
 <a href="https://discuss.elastic.co/t/kibana-9-4-5-9-5-1-security-update-esa-2026-128/389539" target="_blank" rel="noopener">CVE-2026-72631</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Improper Privilege Management (CWE-269) in Kibana Fleet can lead to privilege escalation via Privilege Escalation (CAPEC-233). An integration policy may optionally declare extra data streams that the integration writes to, which Fleet adds to the Elasticsearch API key issued to Elastic Agents enrolled in the corresponding agent policy. The resulting key allows new documents to be inserted and index mappings to be extended for specific indices. The key does not allow reading, updating, or deleting existing documents</td>
       </tr>
@@ -642,10 +528,13 @@
 <a href="https://discuss.elastic.co/t/kibana-8-19-20-9-4-5-9-5-1-security-update-esa-2026-129/389532" target="_blank" rel="noopener">CVE-2026-72632</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Observable Discrepancy (CWE-203) in Kibana Fleet can lead to information disclosure via Excavation (CAPEC-116). Fleet removes the Elasticsearch API key value of an enrolled Elastic Agent from the responses of its agent listing capability, but that capability accepted caller-supplied filter expressions over the stored field that holds the value, and evaluated them with Kibana&#39;s own internal Elasticsearch privileges rather than the caller&#39;s. Because the number of matching agents is reported back to the caller, the difference between a matching and a non-matching filter formed a side channel from which the full API key value could be reconstructed one character at a time with a short sequence of requests.</td>
@@ -655,10 +544,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-133/389499" target="_blank" rel="noopener">CVE-2026-72636</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Uncontrolled Recursion (CWE-674) in the Elasticsearch wildcard matching helper can lead to a denial of service via Excessive Allocation (CAPEC-130). The matcher used to resolve wildcard patterns against names is implemented recursively and had no bound on recursion depth or on the total number of match operations performed. A search request containing a wildcard pattern with a large number of wildcard groups, evaluated against a sufficiently long name, exhausts the thread stack. Elasticsearch treats a stack overflow as an unrecoverable condition and shuts the node down, so the request terminates the affected node rather than failing gracefully.</td>
@@ -668,10 +560,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-119/389498" target="_blank" rel="noopener">CVE-2026-72638</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only low-privileged index creation permissions can submit a single request containing a specially crafted, malformed custom analysis definition that is resolved recursively without a cycle or depth check, exhausting the thread stack and terminating the affected node.</td>
@@ -681,10 +576,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-120/389503" target="_blank" rel="noopener">CVE-2026-72639</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Elasticsearch does not enforce an upper bound on a user-supplied count accepted by a search highlighting option, and the allocation derived from that count is not accounted against any circuit breaker. An authenticated user holding only read privileges on a single searchable index can submit one small search request that causes the node to reserve an excessively large internal data structure. The allocation occurs before the existing highlighting safety limits are evaluated, so memory exhaustion raises a fatal error that terminates the Elasticsearch node process. This results in a denial of service for the affected node and degrades cluster routing and health. The defect is not volumetric and does not depend on the size of the indexed data, so a single request is sufficient.</td>
@@ -694,11 +592,14 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-123/389504" target="_blank" rel="noopener">CVE-2026-72642</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.8</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] The native inference process that Elasticsearch uses to evaluate uploaded machine learning models accepts a model operation that computes a memory address from an offset supplied inside the model, without validating that the offset stays within the bounds of the underlying storage. A user with the privileges required to upload and deploy a trained model can craft a model that reads and writes memory outside the intended allocation. The result is heap corruption that crashes the inference process, and, with sufficient control over the heap layout, could allow arbitrary code execution in the context of that process.</td>
       </tr>
@@ -707,10 +608,13 @@
 <a href="https://discuss.elastic.co/t/kibana-9-4-5-9-5-1-security-update-esa-2026-124/389538" target="_blank" rel="noopener">CVE-2026-72643</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Kibana Agent Builder determines whether a caller owns a private agent by comparing a stable user identifier when one is recorded, and falling back to a comparison of the username when it is not. A username is not unique across Elasticsearch authentication realms, so two distinct principals that share a username in different realms are treated as the same owner. This discloses the configuration and instructions of an agent the caller does not own, and allows that agent to be altered or removed.</td>
@@ -720,10 +624,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-116/389502" target="_blank" rel="noopener">CVE-2026-72645</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only read privileges on a single index can submit one small, specially crafted search request that causes an excessively large memory allocation, exhausting the JVM heap and terminating the affected node.</td>
@@ -733,10 +640,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-118/389497" target="_blank" rel="noopener">CVE-2026-72647</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Serialized Data with Nested Payloads (CAPEC-230). An authenticated user holding only read privileges on a single index can submit one specially crafted search request whose deeply nested structure is processed without a depth limit, exhausting the thread stack and terminating the affected node.</td>
@@ -746,10 +656,13 @@
 <a href="https://discuss.elastic.co/t/elastic-cloud-on-kubernetes-3-5-0-security-update-esa-2026-113/389493" target="_blank" rel="noopener">CVE-2026-72648</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Cleartext Storage of Sensitive Information in an Environment Variable (CWE-526) in Elastic Cloud on Kubernetes (ECK) can lead to information disclosure via Retrieve Embedded Sensitive Data (CAPEC-37). When ECK reconciles a Fleet Server resource that authenticates to Elasticsearch with a service account token, the token is written into the generated workload specification in cleartext rather than being referenced from the Kubernetes Secret that ECK maintains for the other credentials on the same path. Any principal able to read workload specifications in the affected namespace can therefore read a live Elasticsearch credential, even when Kubernetes RBAC does not grant that principal access to Secrets.</td>
@@ -759,10 +672,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-18-0-9-0-0-security-update-esa-2026-111/389495" target="_blank" rel="noopener">CVE-2026-72656</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.</td>
@@ -772,10 +688,13 @@
 <a href="https://discuss.elastic.co/t/kibana-8-19-19-9-3-8-9-4-4-security-update-esa-2026-102/389513" target="_blank" rel="noopener">CVE-2026-72661</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Missing Authorization (CWE-862) in Kibana can lead to information disclosure via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An internal Kibana data retrieval capability used by Elastic Defend endpoint response actions did not enforce the Security Solution and endpoint privileges that its user-facing equivalents require, and it retrieved data with elevated internal permissions rather than the permissions of the requesting user. As a result, an authenticated low-privileged Kibana user with no Security Solution privileges, endpoint privileges and no Elasticsearch privileges on the underlying data, could read endpoint response action records and the corresponding response content returned by managed hosts.</td>
@@ -785,10 +704,13 @@
 <a href="https://discuss.elastic.co/t/kibana-9-4-5-security-update-esa-2026-89/389536" target="_blank" rel="noopener">CVE-2026-72672</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.7</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] The Elastic Security capability that suggests existing field values while a user authors endpoint policy artifacts queries Elastic Defend event data with Kibana&#39;s internal Elasticsearch account instead of the account of the requesting user. Only Kibana feature privileges are verified, and the caller&#39;s Elasticsearch index privileges are not. An authenticated user who holds Elastic Security feature privileges but no read access to the Elastic Defend event indices can therefore retrieve field values from that data, including process command line arguments, which commonly contain tokens, credentials, connection strings, and other sensitive operational detail from protected hosts.</td>
@@ -798,10 +720,13 @@
 <a href="https://discuss.elastic.co/t/kibana-8-19-20-and-9-4-5-security-update-esa-2026-92/389526" target="_blank" rel="noopener">CVE-2026-72675</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Missing Authorization (CWE-862) in Kibana can lead to cross-space information disclosure and unauthorized data modification via Privilege Abuse (CAPEC-122). Kibana Machine Learning carries out its Elasticsearch operations with elevated internal permissions and relies on a per-request space filter to keep the machine learning data of one space separated from another. Part of the Machine Learning functionality did not apply that filter, so operations issued from one space were carried out against the machine learning data of every space in the deployment.</td>
@@ -811,10 +736,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-80/389507" target="_blank" rel="noopener">CVE-2026-72678</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Elasticsearch does not validate a size value taken from a user-supplied input before that value is used to reserve memory for an internal data structure. An authenticated user holding only read privileges can submit a single small crafted request to a product API endpoint that causes the node to attempt an excessively large allocation. The resulting memory exhaustion raises a fatal error that terminates the Elasticsearch node process, causing a denial of service for the affected node and degrading cluster health. The defect is not volumetric, so a single request is sufficient regardless of the heap size configured on the target node.</td>
@@ -824,10 +752,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-81/389501" target="_blank" rel="noopener">CVE-2026-72679</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Elasticsearch does not apply its configurable input length restriction to a user-supplied pattern accepted by an intervals query. Compiling a deeply nested pattern drives unbounded recursion that exhausts the thread stack and raises a fatal error, terminating the Elasticsearch node process and causing a denial of service for that node. An authenticated user holding only read-only privileges on a single searchable index can trigger the condition with one small search request.</td>
@@ -837,10 +768,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-19-9-3-8-9-4-4-security-update-esa-2026-75/389496" target="_blank" rel="noopener">CVE-2026-72683</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user with the privileges required to invoke the simulate pipeline API endpoint (https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate) to submit a request that causes a self-referential data structure to be created. When a specific internal component later processes that structure, the operation recurses without bound and raises a fatal error that is not handled by the surrounding execution path, terminating the affected node process and resulting in a denial of service.</td>
@@ -850,10 +784,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-76/389508" target="_blank" rel="noopener">CVE-2026-72684</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user holding only read privileges to submit a small search request containing a crafted user-supplied input. Processing that input causes a specific internal component to allocate memory without any upper bound, and the allocation occurs outside the scope of the existing memory accounting controls that were intended to constrain it. The resulting out-of-memory condition is fatal and terminates the affected node process, causing a denial of service.</td>
@@ -863,10 +800,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-77/389500" target="_blank" rel="noopener">CVE-2026-72685</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>4.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user who can index documents to submit a single small document containing a crafted user-supplied input. Processing one such document occupies a worker thread from a bounded pool for a disproportionate amount of time, degrading the availability of indexing operations on the affected node.</td>
@@ -876,10 +816,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-78/389505" target="_blank" rel="noopener">CVE-2026-72686</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single request containing a crafted user-supplied input. A specific internal component validates the input using a recursive routine and applies no bound to the length of the value being validated, so the validation causes the thread to exhaust its stack. The resulting fatal error is not handled by the surrounding execution paths and terminates the affected node process, producing a denial of service.</td>
@@ -889,10 +832,13 @@
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-79/389506" target="_blank" rel="noopener">CVE-2026-72687</a>
         </td>
         <td>Elasticsearch</td>
+        <td>Elastic</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single small request containing a forged opaque identifier. Elasticsearch decodes and deserializes the identifier before confirming that it was legitimately issued by the cluster, and a size value carried inside the identifier drives an allocation that is neither capped nor accounted for by the available memory-usage controls. The resulting out-of-memory condition is fatal and terminates the affected node process, resulting in a denial of service.</td>
@@ -902,11 +848,14 @@
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-652q-gvq3-74qv" target="_blank" rel="noopener">CVE-2026-72750</a>
         </td>
         <td>n8n</td>
+        <td>n8n GmbH</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260811</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node&#39;s Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional &#39;Query Parameters&#39; field to bind values via positional placeholders.</td>
       </tr>
@@ -915,11 +864,14 @@
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-2x35-3fw4-9jr4" target="_blank" rel="noopener">CVE-2026-72766</a>
         </td>
         <td>n8n</td>
+        <td>n8n GmbH</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.2</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260811</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.</td>
       </tr>
@@ -928,11 +880,14 @@
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-64xh-79j6-r5v8" target="_blank" rel="noopener">CVE-2026-72771</a>
         </td>
         <td>n8n</td>
+        <td>n8n GmbH</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260811</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.</td>
       </tr>
@@ -941,11 +896,14 @@
 <a href="https://github.com/seaweedfs/seaweedfs/commit/69da20bdaec923e5a43d8aa71bf3c0a2051fc019" target="_blank" rel="noopener">CVE-2026-73080</a>
         </td>
         <td>gRPC</td>
+        <td>gRPC Authors</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
         <td>9.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260811</td>
+        <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] SeaweedFS is a distributed storage system. Prior to 4.24, VolumeServer.FetchAndWriteNeedle in weed/server/volume_grpc_remote.go fetches a caller-supplied remote endpoint through weed/remote_storage/s3/s3_storage_client.go and writes the response into a needle. The RPC performs no authentication and no target validation, allowing anyone who can reach a volume server&#39;s gRPC port to cause requests to arbitrary hosts, including loopback, link-local, RFC 1918, and cloud metadata endpoints such as 169.254.169.254, and read the response. On cloud deployments, this can disclose instance metadata and IAM credentials and reach otherwise unexposed internal services. The volume server gRPC plane is unauthenticated by default, and configuring documented JWT signing keys does not protect this RPC. This issue is fixed in version 4.24.</td>
       </tr>
@@ -954,11 +912,14 @@
 <a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-gx64-gj6p-pc4c" target="_blank" rel="noopener">CVE-2026-73415</a>
         </td>
         <td>JupyterLab</td>
+        <td>Project Jupyter</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>-</td>
         <td class="mono">&gt;=4.6.0,&lt;4.6.2|&lt;4.5.10</td>
         <td class="mono">4.6.2</td>
+        <td>-</td>
         <td class="mono">20260722</td>
+        <td class="mono">20260813</td>
         <td>OSV</td>
         <td class="wrap-cell">JupyterLab&#39;s image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```</td>
       </tr>
@@ -967,10 +928,13 @@
 <a href="https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999" target="_blank" rel="noopener">CVE-2026-73416</a>
         </td>
         <td>JupyterLab</td>
+        <td>Project Jupyter</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab&#39;s PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava</td>
@@ -980,10 +944,13 @@
 <a href="https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999" target="_blank" rel="noopener">CVE-2026-73416</a>
         </td>
         <td>Jupyter Notebook</td>
+        <td>Project Jupyter</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab&#39;s PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava</td>
@@ -993,11 +960,14 @@
 <a href="https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999" target="_blank" rel="noopener">CVE-2026-73417</a>
         </td>
         <td>JupyterLab</td>
+        <td>Project Jupyter</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.6</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user&#39;s access and can read or modify notebooks and files and run code through the notebook server, including on a connected k</td>
       </tr>
@@ -1006,11 +976,14 @@
 <a href="https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999" target="_blank" rel="noopener">CVE-2026-73417</a>
         </td>
         <td>Jupyter Notebook</td>
+        <td>Project Jupyter</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.6</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user&#39;s access and can read or modify notebooks and files and run code through the notebook server, including on a connected k</td>
       </tr>
@@ -1019,10 +992,13 @@
 <a href="https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-x58f-9m57-qc4m" target="_blank" rel="noopener">CVE-2026-73484</a>
         </td>
         <td>Pandas</td>
+        <td>NumFOCUS</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.6</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Flowise before 3.1.3 contains a sandbox escape vulnerability in pythonCodeValidator.ts that fails to block native Pandas DataFrame methods like to_csv, to_json, pipe, and query. Authenticated attackers can exploit this to exfiltrate uploaded CSV data or write arbitrary files to the server filesystem.</td>
@@ -1032,11 +1008,14 @@
 <a href="https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-w7x8-q2gp-5cgg" target="_blank" rel="noopener">CVE-2026-73487</a>
         </td>
         <td>Pandas</td>
+        <td>NumFOCUS</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
         <td>9.0</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] Flowise before 3.1.3 contains a regex-based Python code validator bypass in CSV and Airtable Agent nodes that allows unauthenticated attackers to inject malicious code via prompt injection. Attackers can exploit unblocked pandas functions like pd.read_json() to exfiltrate datasets, perform SSRF against internal services, or achieve code execution through the unauthenticated prediction API.</td>
       </tr>
@@ -1045,11 +1024,14 @@
 <a href="https://github.com/etcd-io/etcd/commit/6643f80602461a6095c9b294b6512fd9719bef41" target="_blank" rel="noopener">CVE-2026-73499</a>
         </td>
         <td>gRPC</td>
+        <td>gRPC Authors</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.1</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260812</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a user granted READ permission on a single exact key can use the Watch gRPC API with clientv3.WithFromKey() to receive watch events for every key lexicographically greater than or equal to the permitted key. In server/etcdserver/api/v3rpc/watch.go, the open-ended RangeEnd sentinel is rewritten before the RBAC permission check in server/auth/range_perm_cache.go function isRangeOpPermitted, causing the request to be treated as an exact-key watch. Range/Get and DeleteRange requests are not affected, and the issue affects only clusters with authentication enabled. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.</td>
       </tr>
@@ -1058,11 +1040,14 @@
 <a href="https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324" target="_blank" rel="noopener">CVE-2026-73555</a>
         </td>
         <td>vLLM</td>
+        <td>vLLM Project</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.</td>
       </tr>
@@ -1071,11 +1056,14 @@
 <a href="https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324" target="_blank" rel="noopener">CVE-2026-73555</a>
         </td>
         <td>FastAPI</td>
+        <td>FastAPI</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.</td>
       </tr>
@@ -1084,11 +1072,14 @@
 <a href="https://github.com/vllm-project/vllm/commit/c9a788eedc412acceaa5112e0d44624b49841577" target="_blank" rel="noopener">CVE-2026-73556</a>
         </td>
         <td>vLLM</td>
+        <td>vLLM Project</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.</td>
       </tr>
@@ -1097,10 +1088,13 @@
 <a href="https://github.com/vllm-project/vllm/commit/793cf79c89d4049124e756915468ac30318f2e50" target="_blank" rel="noopener">CVE-2026-73557</a>
         </td>
         <td>vLLM</td>
+        <td>vLLM Project</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.</td>
@@ -1110,10 +1104,13 @@
 <a href="https://github.com/vllm-project/vllm/commit/451227cb3ff07989698fed982c2d3e4300257924" target="_blank" rel="noopener">CVE-2026-73558</a>
         </td>
         <td>vLLM</td>
+        <td>vLLM Project</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user&#39;s input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user&#39;s inference result. This issue is fixed in version 0.27.0.</td>
@@ -1123,11 +1120,14 @@
 <a href="https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e" target="_blank" rel="noopener">CVE-2026-73559</a>
         </td>
         <td>vLLM</td>
+        <td>vLLM Project</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
         <td class="mono">&gt;=0.19.0,&lt;0.26.0</td>
         <td class="mono">0.26.0</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260814</td>
         <td>NVD+OSV+GHSA</td>
         <td class="wrap-cell">vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.</td>
       </tr>
@@ -1136,11 +1136,14 @@
 <a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-h5v5-8746-g7mm" target="_blank" rel="noopener">CVE-2026-73627</a>
         </td>
         <td>JupyterLab</td>
+        <td>Project Jupyter</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.0</td>
         <td class="mono">*</td>
         <td class="mono">-</td>
+        <td>-</td>
         <td class="mono">20260813</td>
+        <td class="mono">20260815</td>
         <td>NVD</td>
         <td class="wrap-cell">[버전범위 불명확] JupyterLab (pip package &#39;jupyterlab&#39;) versions &gt;=4.1.0,&lt;=4.5.9 and &gt;=4.6.0,&lt;=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the &#39;lock all&#39; mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10.</td>
       </tr>
@@ -1149,21 +1152,52 @@
 <a href="https://github.com/advisories/GHSA-2cm6-r77w-6g96" target="_blank" rel="noopener">CVE-2026-8147</a>
         </td>
         <td>MLflow</td>
+        <td>Databricks</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.1</td>
         <td class="mono">&gt;=2.14.0rc0,&lt;3.13.0rc0</td>
         <td class="mono">3.13.0rc0</td>
+        <td>-</td>
         <td class="mono">20260702</td>
+        <td class="mono">20260813</td>
         <td>OSV+GHSA</td>
         <td class="wrap-cell">MLflow: trace API endpoints lack proper authorization validators In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications.</td>
       </tr>
     </tbody>
   </table>
 </div>
-<div class="muted" style="margin-top:8px;">
-  데이터 재활용: <a href="data/latest.json">latest.json</a> ·
-  <a href="data/all.json">all.json</a>
+
+<h2>메일 발송 로그</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr><th>수신자</th><th>상태</th><th>발송시각</th><th>첨부</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">k5131@kida.re.kr</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-08-15 21:13:29</td>
+        <td class="mono">CVE_20260815.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">eclipse6@naver.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-08-15 21:13:30</td>
+        <td class="mono">CVE_20260815.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">hayunfa@gmail.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-08-15 21:13:30</td>
+        <td class="mono">CVE_20260815.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<div style="margin-top:16px;"><a href="../index.html">← 대시보드로</a></div>
   <footer>
     ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
   </footer>

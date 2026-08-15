@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-14 21:17:27",
+ "generated_at": "2026-08-15 21:13:30",
  "count": 107,
  "cves": [
   {
@@ -19,8 +19,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "1559da3dc638fdeb54020c4b271e1814dc38c77ca85d7e061475aeeab33b03d0"
   },
   {
@@ -82,8 +82,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "d41d22d6431a455fc13f5ad05d1120781fa6328073a401fb2adc31e6015c414c"
   },
   {
@@ -103,8 +103,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "308df6b2d4bb752b7c0b1d8fa17d3a0a0993e5e9e26e5461632909c5612e7fe0"
   },
   {
@@ -124,8 +124,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "6cd5a44d47f6ada1285323fb69bb71973b1ebb97785c92fe8c1e6186c5a11794"
   },
   {
@@ -138,15 +138,15 @@
    "cvss_score": 9.0,
    "cvss_vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:H/SI:L/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260813",
-   "modified_date": "20260813",
+   "modified_date": "20260814",
    "kev_yn": "N",
    "summary": "[버전범위 불명확] Flowise before 3.1.3 contains a regex-based Python code validator bypass in CSV and Airtable Agent nodes that allows unauthenticated attackers to inject malicious code via prompt injection. Attackers can exploit unblocked pandas functions like pd.read_json() to exfiltrate datasets, perform SSRF against internal services, or achieve code execution through the unauthenticated prediction API.",
    "reference_url": "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-w7x8-q2gp-5cgg",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "5839b52a78b00b8a45dd6106e5f11f16710b8f46385a40caa10a3f0bd7e05c17"
   },
   {
@@ -166,8 +166,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "53ac96543cf94c3ef80e7e45911e54f9f5faa3c6f12273cbdda2a827e899ad5a"
   },
   {
@@ -187,8 +187,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "dd163de989d999af2e6fb8e964d67b7ec73c0f082d95fcb09dd5d33256c89921"
   },
   {
@@ -208,8 +208,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "4ff0756bb0b870908d94648621b5939633c3b06c487cf6ac17f392a45ddf2d83"
   },
   {
@@ -229,8 +229,8 @@
    "source": "OSV",
    "ecosystem": "pypi",
    "first_seen_run": "20260814053105",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211606",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211215",
    "content_hash": "7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7"
   },
   {
@@ -250,30 +250,30 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "aa9abe28657ffeeacfbfbe4ee19ea98213f4ce6f3f8145982a4230787844f8fc"
   },
   {
    "cve_id": "CVE-2026-73417",
    "sw_name": "JupyterLab",
    "vendor": "Project Jupyter",
-   "affected_range": ">=4.6.0,<4.6.2|>=3.3.0,<4.5.10",
-   "fixed_version": "4.6.2",
+   "affected_range": "*",
+   "fixed_version": "",
    "severity": "HIGH",
    "cvss_score": 8.6,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:H/VA:L/SC:N/SI:N/SA:L/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected kernel. This",
+   "summary": "[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
-   "source": "NVD+OSV+GHSA",
+   "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
-   "content_hash": "660645fbd89d50fddf83f403af56aad36547c3c6c7674f5b1c576a5f709ca3b1"
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
+   "content_hash": "aa9abe28657ffeeacfbfbe4ee19ea98213f4ce6f3f8145982a4230787844f8fc"
   },
   {
    "cve_id": "CVE-2026-73484",
@@ -292,30 +292,30 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "ea0995383d53dabb15e307e16c2ceb2ab357e52fcb0543eb6f475b821e499313"
   },
   {
    "cve_id": "CVE-2026-72766",
    "sw_name": "n8n",
    "vendor": "n8n GmbH",
-   "affected_range": "<1.123.67|>=2.32.0,<2.32.1|>=2.0.0-rc.0,<2.31.5",
-   "fixed_version": "1.123.67",
+   "affected_range": "*",
+   "fixed_version": "",
    "severity": "HIGH",
    "cvss_score": 8.2,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:L/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.",
+   "summary": "[버전범위 불명확] n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-2x35-3fw4-9jr4",
-   "source": "NVD+OSV",
+   "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
-   "content_hash": "7ea770498f9ed5ad19cbf5e1889b2e2a3fead88f7c09c9a13b92c866ced27d0b"
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
+   "content_hash": "4396af3930cd8bf6895b5abd70ce24bbe8d0b400e9eb5c56088c86a72188fa95"
   },
   {
    "cve_id": "CVE-2026-19111",
@@ -355,8 +355,8 @@
    "source": "OSV+GHSA",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211306",
    "content_hash": "04a5c03607e1d091e54d824ff66967e384b9e617d6c6a43a4f0586f0749ef83e"
   },
   {
@@ -397,8 +397,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "8348f5a6b75377e66f52d0f27d0642b51bdde0cdcf910307e6478ed51b997857"
   },
   {
@@ -418,8 +418,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "e8952f5bf7b128d7a3eb33a0cf734b78320b8fdba228f4d52890b2972a4f5b49"
   },
   {
@@ -439,8 +439,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "f52aae4bf87fd60d62216f32e3b04eecbbe638e01923424ec7026493a5c9afc3"
   },
   {
@@ -481,8 +481,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "fd81726e996af1a5b1d8f307a9e1d0478952599f5eef3f874a28d48d900b1fb8"
   },
   {
@@ -505,27 +505,6 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "c248f96ed1ab62af803c22265d7393a08941fcbbee052a95260e29243ce82b38"
-  },
-  {
-   "cve_id": "CVE-2026-73415",
-   "sw_name": "JupyterLab",
-   "vendor": "Project Jupyter",
-   "affected_range": ">=4.6.0,<4.6.2|<4.5.10",
-   "fixed_version": "4.6.2",
-   "severity": "HIGH",
-   "cvss_score": 7.5,
-   "cvss_vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:A/VC:H/VI:H/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
-   "published_date": "20260812",
-   "modified_date": "20260813",
-   "kev_yn": "N",
-   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. Prior to 4.5.10 and 4.6.2, in packages/imageviewer/src/widget.ts, JupyterLab's ImageViewer uses URL.createObjectURL for a specially crafted SVG image and revokes the blob URL too early, allowing the image to retain an executable same-origin context when it is opened through the image viewer and then opened in a new browser tab. The resulting cross-site scripting can be used to execute arbitrary code on the JupyterLab server. This issue is fixed in versions 4.5.10 and 4.6.2.",
-   "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
-   "source": "NVD+OSV+GHSA",
-   "ecosystem": "pypi",
-   "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
-   "content_hash": "d9877e1088e0f3c7ee609bfa2d495f1f2176d026733b3766ce165ab695254840"
   },
   {
    "cve_id": "CVE-2026-25990",
@@ -586,8 +565,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "d8b3d2afb80f546086ec2eca4fbd21cc8454d9de3bf979c80bc952918f9bea06"
   },
   {
@@ -607,8 +586,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "35fbd7f27e09f30ac4cecf66d0e6e6b9d64ea31b8db01093b0ef03fbb62fd371"
   },
   {
@@ -712,8 +691,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "542ffa9f54e529beb6a0ea73a93a2bc93a1863c2ed2c9c9871050a1986818ef6"
   },
   {
@@ -733,8 +712,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "40e32a057d65cfdbf96ed70e43c5834594d006a3a50aae95526e4ea69999f3e1"
   },
   {
@@ -754,8 +733,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "05c834b90fc452e757f5b875e5611c227a0387376ad260a3c6c83e083e7838d2"
   },
   {
@@ -775,8 +754,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "4ddabe9be9deaa68f99ed3f0d4ed142011f6d920c636c8c2a1ade7e773832a26"
   },
   {
@@ -789,37 +768,58 @@
    "cvss_score": 7.1,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260812",
-   "modified_date": "20260812",
+   "modified_date": "20260814",
    "kev_yn": "N",
    "summary": "[버전범위 불명확] etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a user granted READ permission on a single exact key can use the Watch gRPC API with clientv3.WithFromKey() to receive watch events for every key lexicographically greater than or equal to the permitted key. In server/etcdserver/api/v3rpc/watch.go, the open-ended RangeEnd sentinel is rewritten before the RBAC permission check in server/auth/range_perm_cache.go function isRangeOpPermitted, causing the request to be treated as an exact-key watch. Range/Get and DeleteRange requests are not affected, and the issue affects only clusters with authentication enabled. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
    "reference_url": "https://github.com/etcd-io/etcd/commit/6643f80602461a6095c9b294b6512fd9719bef41",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "20b99ebac1fd165c9938442747c974b25ffbbb72d53da74d8c5cea3f15d9a908"
   },
   {
    "cve_id": "CVE-2026-72771",
    "sw_name": "n8n",
    "vendor": "n8n GmbH",
-   "affected_range": ">=2.32.0,<2.32.1|<2.31.5",
-   "fixed_version": "2.32.1",
+   "affected_range": "*",
+   "fixed_version": "",
    "severity": "HIGH",
    "cvss_score": 7.1,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:N/VA:N/SC:L/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.",
+   "summary": "[버전범위 불명확] n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-64xh-79j6-r5v8",
-   "source": "NVD+OSV",
+   "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
-   "content_hash": "ca2305e25ea07d08b45cf70061fb81fefa8100f5080190893c78a27d7a963e9c"
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
+   "content_hash": "3ace6e22fd709a3eb0751bba6d56bbb0e8acc9ed98c9af8bc0d3586fe6c12eda"
+  },
+  {
+   "cve_id": "CVE-2026-73415",
+   "sw_name": "JupyterLab",
+   "vendor": "Project Jupyter",
+   "affected_range": ">=4.6.0,<4.6.2|<4.5.10",
+   "fixed_version": "4.6.2",
+   "severity": "HIGH",
+   "cvss_score": null,
+   "cvss_vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:A/VC:H/VI:H/VA:L/SC:N/SI:N/SA:N",
+   "published_date": "20260722",
+   "modified_date": "20260813",
+   "kev_yn": "N",
+   "summary": "JupyterLab's image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```",
+   "reference_url": "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-gx64-gj6p-pc4c",
+   "source": "OSV",
+   "ecosystem": "pypi",
+   "first_seen_run": "20260814211606",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211215",
+   "content_hash": "5bf371c1f6044ee3c134d07dd14c135937aba2ea36790209e6ac3f560688e862"
   },
   {
    "cve_id": "CVE-2026-72749",
@@ -1048,8 +1048,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "2485e83395d6f3cc485e0b78b3824ec7c28fb4bbde45abbb091a6734f064e045"
   },
   {
@@ -1069,8 +1069,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "2f80120d2820e2d21d8342cd08c1c95202a0607069ecc481f92f07fc3b24cdd1"
   },
   {
@@ -1153,8 +1153,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "eb08402da447e81d0c1db317530974b187c2375f361e492690203451572c4146"
   },
   {
@@ -1174,8 +1174,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "7ecdae8cc5ab41f6866c4529c6f73fbf9b420f5f2c0ba938a1cec5e8e8e42b5a"
   },
   {
@@ -1195,8 +1195,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "d4cd14ceed64ccf3bdbfc90057ebbd69c68a53aa5a867c99afae1df89b28f67b"
   },
   {
@@ -1216,8 +1216,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "211ffe480e6cd88b3f487f9517603108fb3f773b17a849e06bb67c6824143e46"
   },
   {
@@ -1237,8 +1237,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "a3f6c619a1dba8e915c204980f227429c958ea496b7a1913a58b0e37ec84137e"
   },
   {
@@ -1258,8 +1258,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "965fdacc64b9391b352413813b6fb193d9374c5d780e96c36990fe6b1cb3f724"
   },
   {
@@ -1279,8 +1279,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "221faa62db1fd72fb76a2c81de23c1a70c58d0e129ff9248dd4128f9f9cb9960"
   },
   {
@@ -1300,8 +1300,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "3281e70b6e571055c24074575d164776cf8160ed78cbb1ebd528062bcd9e56dd"
   },
   {
@@ -1321,8 +1321,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "5e9d34cf6e488ebf9bcf902713cb4ee6cf7176965cc2dab96b7ef0e2967cb0b5"
   },
   {
@@ -1342,8 +1342,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "0430eedaa0364ac7727f3255a584f7d566105cae251f874fc88384bb9e2af816"
   },
   {
@@ -1363,8 +1363,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "27c688da04d2f63c2be3ed203563f2b2f74c922b880f089e68369c1bb462788e"
   },
   {
@@ -1384,8 +1384,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "567a25cf79ddfc671b33578e98f50dc19da3dcd837c924255260278870b99efa"
   },
   {
@@ -1405,8 +1405,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "ce400f7643683743221160c12b72ce834fca5156a18a58459f0611ee99dc717e"
   },
   {
@@ -1426,8 +1426,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "57a3afa82f10843ee98a31830353e69238754a3251db13b82d424f99345bee14"
   },
   {
@@ -1447,8 +1447,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "11050ec74455e801e506c3edc5320879f4a4ceb81967bbae582cae9fedd4f9f2"
   },
   {
@@ -1468,8 +1468,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "4821fe7ad14c29dca9c8907364597535ce2a971e1ae9c0ffcf3b0086bb20f1ca"
   },
   {
@@ -1489,8 +1489,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "b8a5a84135ebf5f6df6c89bcae6efe6f4cc48144e5074bdb3007d7d2ea661c10"
   },
   {
@@ -1510,8 +1510,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "d8ad8b5e25c88cc9ab6f59c417043de58710e565281a692ad1ca22282c410e4b"
   },
   {
@@ -1531,8 +1531,8 @@
    "source": "GHSA",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211306",
    "content_hash": "efbcc96ec53827b1775cb7f441ca8bd8eeacb82db09e1759eea8f6557eda9ec4"
   },
   {
@@ -1573,8 +1573,8 @@
    "source": "NVD+OSV+GHSA",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211306",
    "content_hash": "182992c17cc191c6eb6aff3cf7bbbb221c74cc33216765069b306db27203c09a"
   },
   {
@@ -1615,8 +1615,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "0aa5a70d4ee9ae5b9940452bce0b96c560e3b34bea4a59be6763cc17f4056b64"
   },
   {
@@ -1636,30 +1636,30 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "b4505d2b5d374211f9d6fbd8e4fc95260af563ea6048ed469c297def6aaf58ca"
   },
   {
    "cve_id": "CVE-2026-73416",
    "sw_name": "JupyterLab",
    "vendor": "Project Jupyter",
-   "affected_range": ">=4.6.0,<4.6.2|>=4.5.0,<4.5.10",
-   "fixed_version": "4.6.2",
+   "affected_range": "*",
+   "fixed_version": "",
    "severity": "MEDIUM",
    "cvss_score": 6.1,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:H/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab's PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect availability w",
+   "summary": "[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab's PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
-   "source": "NVD+OSV+GHSA",
+   "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
-   "content_hash": "b145af41150e9eb91d2410d10adf79a423bf07f7f3005434e6cf46c8e29fc67d"
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
+   "content_hash": "b4505d2b5d374211f9d6fbd8e4fc95260af563ea6048ed469c297def6aaf58ca"
   },
   {
    "cve_id": "CVE-2026-73627",
@@ -1671,15 +1671,15 @@
    "cvss_score": 6.0,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:H/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260813",
-   "modified_date": "20260813",
+   "modified_date": "20260815",
    "kev_yn": "N",
    "summary": "[버전범위 불명확] JupyterLab (pip package 'jupyterlab') versions >=4.1.0,<=4.5.9 and >=4.6.0,<=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the 'lock all' mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10.",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-h5v5-8746-g7mm",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "d8014b35a3caf41caf5116d96bf616d2ec7a81482ad6866b86b2a543dc71ada4"
   },
   {
@@ -1720,8 +1720,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "2190da810d91f58b43804a2f84d46a452d81bb997ea0d4bcafc8aa60606f73d4"
   },
   {
@@ -1741,8 +1741,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "11ef680d8f537041daf38e1cc0276d376f30c75f9466d7bcbdc49cb4ebd9de8e"
   },
   {
@@ -1846,8 +1846,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "428293af8e873b88a03e7fa4b3c029750cb56af1ae8ee2f1c32862ad72749832"
   },
   {
@@ -1888,8 +1888,8 @@
    "source": "OSV",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211606",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211215",
    "content_hash": "16cd995e6217264c6b6abf1a9d6bf5bd3251ff53b4f6468f3c2d7fbc958f73bc"
   },
   {
@@ -1909,30 +1909,30 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "444ef8f2df20474999046e5701b30fab41e83823199f8bcf108a9f103da4c8f2"
   },
   {
    "cve_id": "CVE-2026-72750",
    "sw_name": "n8n",
    "vendor": "n8n GmbH",
-   "affected_range": "<1.123.67|>=2.32.0,<2.32.1|>=2.0.0-rc.0,<2.31.5",
-   "fixed_version": "1.123.67",
+   "affected_range": "*",
+   "fixed_version": "",
    "severity": "MEDIUM",
    "cvss_score": 5.3,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:H/SI:H/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node's Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional 'Query Parameters' field to bind values via positional placeholders.",
+   "summary": "[버전범위 불명확] n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node's Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional 'Query Parameters' field to bind values via positional placeholders.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-652q-gvq3-74qv",
-   "source": "NVD+OSV",
+   "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
-   "content_hash": "2a55668186ce14a1204d6a3c889049848c53d155df5e5c9dec834ae3a348e2d6"
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
+   "content_hash": "9efd275fbd8cddc7c83f2cca923b9323ea990c7c0c04b21bf151d80ec24bc2fe"
   },
   {
    "cve_id": "CVE-2026-73555",
@@ -1951,8 +1951,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "428293af8e873b88a03e7fa4b3c029750cb56af1ae8ee2f1c32862ad72749832"
   },
   {
@@ -1972,8 +1972,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "4f228464cf77fa64cd0dcc869a87e7766cd2b638377680b9b7263b3e3cbf0202"
   },
   {
@@ -1993,8 +1993,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "04a8e968f82ebb8a8fc98446891fe280b9244065f5821e20d88245d3df1ce38c"
   },
   {
@@ -2056,8 +2056,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "e74b660c8f034dea8b8dd449ba02f8450ae7c315b2458b169236bee0ef1ac5aa"
   },
   {
@@ -2077,8 +2077,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211219",
    "content_hash": "1a80b0b0cf0c23f930ff7ed86d375149857d9f0ea016b5296b304d386ed272e8"
   },
   {
@@ -2119,8 +2119,8 @@
    "source": "OSV",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211606",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211215",
    "content_hash": "04c432fabf9a1348706544d2750500420c18c0f3c912b9d25bdf568c94be86db"
   },
   {
@@ -2140,8 +2140,8 @@
    "source": "GHSA",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211702",
+   "last_seen_run": "20260815211214",
+   "collected_at": "20260815211306",
    "content_hash": "94dee714f0970ae10c8350454c4cda6b61aea65f0f728504143224cae7d4ccc9"
   },
   {
