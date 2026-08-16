@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-08-15 21:13:30",
- "count": 107,
+ "generated_at": "2026-08-16 21:12:26",
+ "count": 108,
  "cves": [
   {
    "cve_id": "CVE-2026-67614",
@@ -19,8 +19,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "1559da3dc638fdeb54020c4b271e1814dc38c77ca85d7e061475aeeab33b03d0"
   },
   {
@@ -103,8 +103,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "308df6b2d4bb752b7c0b1d8fa17d3a0a0993e5e9e26e5461632909c5612e7fe0"
   },
   {
@@ -124,8 +124,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "6cd5a44d47f6ada1285323fb69bb71973b1ebb97785c92fe8c1e6186c5a11794"
   },
   {
@@ -145,8 +145,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "5839b52a78b00b8a45dd6106e5f11f16710b8f46385a40caa10a3f0bd7e05c17"
   },
   {
@@ -166,8 +166,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "53ac96543cf94c3ef80e7e45911e54f9f5faa3c6f12273cbdda2a827e899ad5a"
   },
   {
@@ -208,8 +208,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "4ff0756bb0b870908d94648621b5939633c3b06c487cf6ac17f392a45ddf2d83"
   },
   {
@@ -229,8 +229,8 @@
    "source": "OSV",
    "ecosystem": "pypi",
    "first_seen_run": "20260814053105",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211215",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211121",
    "content_hash": "7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7"
   },
   {
@@ -250,8 +250,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "aa9abe28657ffeeacfbfbe4ee19ea98213f4ce6f3f8145982a4230787844f8fc"
   },
   {
@@ -271,8 +271,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "aa9abe28657ffeeacfbfbe4ee19ea98213f4ce6f3f8145982a4230787844f8fc"
   },
   {
@@ -313,8 +313,8 @@
    "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "4396af3930cd8bf6895b5abd70ce24bbe8d0b400e9eb5c56088c86a72188fa95"
   },
   {
@@ -418,8 +418,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "e8952f5bf7b128d7a3eb33a0cf734b78320b8fdba228f4d52890b2972a4f5b49"
   },
   {
@@ -565,8 +565,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "d8b3d2afb80f546086ec2eca4fbd21cc8454d9de3bf979c80bc952918f9bea06"
   },
   {
@@ -754,8 +754,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "4ddabe9be9deaa68f99ed3f0d4ed142011f6d920c636c8c2a1ade7e773832a26"
   },
   {
@@ -775,8 +775,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "20b99ebac1fd165c9938442747c974b25ffbbb72d53da74d8c5cea3f15d9a908"
   },
   {
@@ -796,8 +796,8 @@
    "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "3ace6e22fd709a3eb0751bba6d56bbb0e8acc9ed98c9af8bc0d3586fe6c12eda"
   },
   {
@@ -1048,8 +1048,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "2485e83395d6f3cc485e0b78b3824ec7c28fb4bbde45abbb091a6734f064e045"
   },
   {
@@ -1069,8 +1069,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "2f80120d2820e2d21d8342cd08c1c95202a0607069ecc481f92f07fc3b24cdd1"
   },
   {
@@ -1174,8 +1174,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "7ecdae8cc5ab41f6866c4529c6f73fbf9b420f5f2c0ba938a1cec5e8e8e42b5a"
   },
   {
@@ -1216,8 +1216,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "211ffe480e6cd88b3f487f9517603108fb3f773b17a849e06bb67c6824143e46"
   },
   {
@@ -1560,22 +1560,22 @@
    "cve_id": "CVE-2026-73559",
    "sw_name": "vLLM",
    "vendor": "vLLM Project",
-   "affected_range": ">=0.19.0,<0.26.0",
-   "fixed_version": "0.26.0",
+   "affected_range": "*",
+   "fixed_version": "",
    "severity": "MEDIUM",
    "cvss_score": 6.5,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.",
+   "summary": "[버전범위 불명확] vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e",
-   "source": "NVD+OSV+GHSA",
+   "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211306",
-   "content_hash": "182992c17cc191c6eb6aff3cf7bbbb221c74cc33216765069b306db27203c09a"
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
+   "content_hash": "4f2a910506a80148e0643b3c364baa265d9083095c53f5a9763c885afd8e5e9b"
   },
   {
    "cve_id": "CVE-2026-18632",
@@ -1597,6 +1597,27 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "7e6fe03f73d8656542a88dec3f2184b5730fa661189be1e83128e24a42396fbf"
+  },
+  {
+   "cve_id": "CVE-2026-19918",
+   "sw_name": "gRPC",
+   "vendor": "gRPC Authors",
+   "affected_range": "*",
+   "fixed_version": "",
+   "severity": "MEDIUM",
+   "cvss_score": 6.3,
+   "cvss_vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+   "published_date": "20260816",
+   "modified_date": "20260816",
+   "kev_yn": "N",
+   "summary": "[버전범위 불명확] A vulnerability has been found in SpaceX Starlink Router Gen 3 2025.11.14.mr64708.3. This affects the function get_status of the component gRPC Management Interface. The manipulation leads to improper access controls. The attack can only be initiated within the local network. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+   "reference_url": "https://vuldb.com/cve/CVE-2026-19918",
+   "source": "NVD",
+   "ecosystem": "pypi",
+   "first_seen_run": "20260816211121",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
+   "content_hash": "f258e40c9a60708ce45c1789778eb053819217ac1a773bace40b7e94d69989a7"
   },
   {
    "cve_id": "CVE-2026-73557",
@@ -1678,8 +1699,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "d8014b35a3caf41caf5116d96bf616d2ec7a81482ad6866b86b2a543dc71ada4"
   },
   {
@@ -1720,8 +1741,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "2190da810d91f58b43804a2f84d46a452d81bb997ea0d4bcafc8aa60606f73d4"
   },
   {
@@ -1741,8 +1762,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "11ef680d8f537041daf38e1cc0276d376f30c75f9466d7bcbdc49cb4ebd9de8e"
   },
   {
@@ -1846,8 +1867,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "428293af8e873b88a03e7fa4b3c029750cb56af1ae8ee2f1c32862ad72749832"
   },
   {
@@ -1930,8 +1951,8 @@
    "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "9efd275fbd8cddc7c83f2cca923b9323ea990c7c0c04b21bf151d80ec24bc2fe"
   },
   {
@@ -1951,8 +1972,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "428293af8e873b88a03e7fa4b3c029750cb56af1ae8ee2f1c32862ad72749832"
   },
   {
@@ -1972,8 +1993,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "4f228464cf77fa64cd0dcc869a87e7766cd2b638377680b9b7263b3e3cbf0202"
   },
   {
@@ -2056,8 +2077,8 @@
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260815211214",
-   "collected_at": "20260815211219",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
    "content_hash": "e74b660c8f034dea8b8dd449ba02f8450ae7c315b2458b169236bee0ef1ac5aa"
   },
   {
