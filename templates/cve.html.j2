@@ -69,7 +69,10 @@ function row(c) {
     <td>${c.kev_yn === 'Y' ? '<span class="kev">KEV</span>' : '-'}</td>
     <td class="mono">${esc(c.published_date)}</td>
     <td>${esc(c.source)}</td>
-    <td class="wrap-cell">${esc(c.summary)}</td>
+    <td class="wrap-cell">${esc(c.summary)}${c.summary_en && c.summary_en !== c.summary
+      ? `<details style="margin-top:4px;"><summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+         <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">${esc(c.summary_en)}</div></details>`
+      : ''}</td>
   </tr>`;
 }
 
@@ -82,7 +85,8 @@ function render() {
     (!term ||
       (c.cve_id || '').toLowerCase().includes(term) ||
       (c.sw_name || '').toLowerCase().includes(term) ||
-      (c.summary || '').toLowerCase().includes(term))
+      (c.summary || '').toLowerCase().includes(term) ||
+      (c.summary_en || '').toLowerCase().includes(term))   // 한국어·영문 둘 다로 검색된다
   );
   tbody.innerHTML = rows.length
     ? rows.map(row).join('')

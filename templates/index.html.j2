@@ -109,7 +109,7 @@
         <td class="mono">{{ cve.fixed_version or '-' }}</td>
         <td class="mono">{{ cve.published_date }}</td>
         <td>{{ cve.source }}</td>
-        <td class="wrap-cell">{{ cve.summary }}</td>
+        <td class="wrap-cell" title="{{ cve.summary_en or cve.summary }}">{{ cve.summary }}</td>
       </tr>
     {% else %}
       <tr><td colspan="9" class="empty">이번 실행에서 새로 확인된 건이 없습니다.</td></tr>

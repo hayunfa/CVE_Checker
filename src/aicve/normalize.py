@@ -433,7 +433,8 @@ class Finding:
     published_date: str = ""           # YYYYMMDD
     modified_date: str = ""            # YYYYMMDD
     kev_yn: str = "N"
-    summary: str = ""
+    summary: str = ""                  # 엑셀·메일에 실리는 값 (번역을 켜면 한국어)
+    summary_en: str = ""               # 영문 원문 (변경 감지 해시의 기준)
     reference_url: str = ""
     collected_at: str = ""             # YYYYMMDDHHmmss
     extra: Dict[str, Any] = field(default_factory=dict)
@@ -522,6 +523,10 @@ def merge_findings(findings: Sequence[Finding],
             modified_date=modified or published,
             kev_yn="Y" if cve_id.upper() in kev_ids else "N",
             summary=clean_summary(summary_raw, summary_max_len, prefix),
+            # 영문 원문도 접두사를 포함해 summary 와 완전히 같은 형태로 둔다.
+            # 변경 감지 해시의 기준이라, 접두사 유무가 어긋나면 번역과 무관한 건까지
+            # 전부 '변경'으로 잡힌다.
+            summary_en=clean_summary(summary_raw, summary_max_len, prefix),
             reference_url=reference,
             collected_at=collected,
         ))

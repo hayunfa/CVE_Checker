@@ -225,6 +225,21 @@ def run(args: argparse.Namespace) -> int:
         log.info("병합 %d건 → 심각도 필터(%s, KEV 예외) 통과 %d건",
                  len(merged), scope.min_severity, len(filtered))
 
+        # ---------- 4-1. SUMMARY 번역 (settings.yml: output.translate) ----------
+        # 실패해도 영문 원문이 남으므로 실행을 멈추지 않는다.
+        try:
+            from .translate import translate_findings
+
+            stat = translate_findings(filtered, scope, store)
+            if stat.failed:
+                stats["TRANSLATE"] = (f"{stat.translated}건 번역 / "
+                                      f"{stat.failed}건 실패")
+            elif stat.translated or stat.cached:
+                stats["TRANSLATE"] = f"{stat.translated}건 번역 / {stat.cached}건 캐시"
+        except Exception as exc:
+            log.exception("번역 처리 실패 — 영문 원문으로 계속합니다.")
+            stats["TRANSLATE"] = f"FAILED: {exc}"
+
         # ---------- 5. DB 적재 (신규/변경 판정) ----------
         changes = store.upsert_findings(filtered, run_id)
         new_cnt, updated_cnt = len(changes["new"]), len(changes["updated"])

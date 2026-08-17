@@ -58,6 +58,10 @@ jobs:
           MAIL_FROM:   ${{ secrets.MAIL_FROM }}
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}      # 선택. 없으면 요청 간 6.5초 대기
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    # GHSA GraphQL 용 (자동 주입)
+          # 번역 제공자를 papago/deepl 로 바꿀 때만 필요 (기본 google 은 키 불필요)
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
           SITE_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           # ── 수동 실행 입력값 (셸 주입을 막기 위해 반드시 env 로 받는다) ──
           IN_PRESET:      ${{ github.event.inputs.preset }}

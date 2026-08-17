@@ -52,28 +52,47 @@ CREATE TABLE IF NOT EXISTS mail_log (
   sent_at TEXT, status TEXT,        -- SENT / FAILED / SKIPPED
   error_msg TEXT, attach_file TEXT
 );
+
+-- 번역 캐시: 한 번 번역한 문장은 다시 번역하지 않는다(무료 한도 절약)
+CREATE TABLE IF NOT EXISTS translation (
+  text_hash TEXT PRIMARY KEY,       -- sha256(대상언어 + 원문)
+  lang TEXT, source_text TEXT, translated TEXT,
+  provider TEXT, created_at TEXT
+);
 CREATE INDEX IF NOT EXISTS ix_cve_run ON cve(last_seen_run);
 CREATE INDEX IF NOT EXISTS ix_cve_sw ON cve(sw_name);
 CREATE INDEX IF NOT EXISTS ix_mail_run ON mail_log(run_id);
 """
+
+# 나중에 추가된 컬럼 (기존 DB 도 열 때 자동으로 따라온다)
+MIGRATIONS = {
+    "cve": {
+        "summary_en": "ALTER TABLE cve ADD COLUMN summary_en TEXT",
+    },
+}
 
 CVE_COLUMNS = (
     "cve_id", "sw_name", "vendor", "affected_range", "fixed_version",
     "severity", "cvss_score", "cvss_vector", "published_date", "modified_date",
     "kev_yn", "summary", "reference_url", "source", "ecosystem",
     "first_seen_run", "last_seen_run", "collected_at", "content_hash",
+    "summary_en",
 )
 
 
 def content_hash(finding: Finding) -> str:
-    """변경 감지용 해시. 이 5개 값 중 하나라도 바뀌면 'updated' 로 본다."""
+    """변경 감지용 해시. 이 5개 값 중 하나라도 바뀌면 'updated' 로 본다.
+
+    요약은 **영문 원문**을 기준으로 삼는다.
+    번역을 켜고 끄는 것만으로 전 건이 '변경'으로 잡혀 메일이 쏟아지는 것을 막는다.
+    """
     score = "" if finding.cvss_score is None else f"{float(finding.cvss_score):.1f}"
     raw = "|".join([
         finding.affected_range or "",
         finding.fixed_version or "",
         finding.severity or "",
         score,
-        finding.summary or "",
+        finding.summary_en or finding.summary or "",
     ])
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
@@ -112,6 +131,13 @@ class Store(ABC):
     def fetch_mail_logs(self, run_id: Optional[str] = None) -> List[Dict[str, Any]]: ...
 
     @abstractmethod
+    def get_translation(self, text_hash: str) -> Optional[str]: ...
+
+    @abstractmethod
+    def save_translation(self, text_hash: str, lang: str, source_text: str,
+                         translated: str, provider: str) -> None: ...
+
+    @abstractmethod
     def close(self) -> None: ...
 
 
@@ -130,7 +156,18 @@ class SqliteStore(Store):
     # ---------------- 스키마 ----------------
     def init_schema(self) -> None:
         self.conn.executescript(SCHEMA)
+        self._migrate()
         self.conn.commit()
+
+    def _migrate(self) -> None:
+        """예전에 만들어진 DB 에 나중에 추가된 컬럼을 채워 넣는다."""
+        for table, columns in MIGRATIONS.items():
+            existing = {row["name"] for row in
+                        self.conn.execute(f"PRAGMA table_info({table})")}
+            for column, statement in columns.items():
+                if column not in existing:
+                    self.conn.execute(statement)
+                    log.info("DB 스키마 갱신: %s.%s 추가", table, column)
 
     # ---------------- 실행 로그 ----------------
     def start_run(self, run_id: str, scope) -> None:
@@ -195,6 +232,7 @@ class SqliteStore(Store):
                 finding.kev_yn, finding.summary, finding.reference_url,
                 finding.source, finding.ecosystem,
                 first_seen, run_id, finding.collected_at, digest,
+                finding.summary_en or "",
             )
             placeholders = ",".join("?" * len(CVE_COLUMNS))
             cursor.execute(
@@ -253,6 +291,26 @@ class SqliteStore(Store):
                 "SELECT * FROM mail_log ORDER BY mail_seq DESC LIMIT 500").fetchall()
         return [dict(r) for r in rows]
 
+    # ---------------- 번역 캐시 ----------------
+    def get_translation(self, text_hash: str) -> Optional[str]:
+        row = self.conn.execute(
+            "SELECT translated FROM translation WHERE text_hash=?",
+            (text_hash,)).fetchone()
+        return row["translated"] if row else None
+
+    def save_translation(self, text_hash: str, lang: str, source_text: str,
+                         translated: str, provider: str) -> None:
+        self.conn.execute(
+            """INSERT OR REPLACE INTO translation
+               (text_hash, lang, source_text, translated, provider, created_at)
+               VALUES (?,?,?,?,?,?)""",
+            (text_hash, lang, source_text, translated, provider,
+             datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+        self.conn.commit()
+
+    def translation_count(self) -> int:
+        return self.conn.execute("SELECT COUNT(*) FROM translation").fetchone()[0]
+
     # ---------------- 통계 (열람 페이지용) ----------------
     def severity_counts(self) -> Dict[str, int]:
         rows = self.conn.execute(
@@ -304,6 +362,7 @@ def rows_to_findings(rows: Iterable[Dict[str, Any]]) -> List[Finding]:
             modified_date=row.get("modified_date", "") or "",
             kev_yn=row.get("kev_yn", "N") or "N",
             summary=row.get("summary", "") or "",
+            summary_en=row.get("summary_en", "") or "",
             reference_url=row.get("reference_url", "") or "",
             collected_at=row.get("collected_at", "") or "",
         ))

@@ -39,7 +39,19 @@ collect:
 
 # --- 출력 ---
 output:
-  translate: false          # SUMMARY 번역 훅 (기본 비활성, 무료·오프라인 우선)
+  # SUMMARY 한국어 번역.
+  #   영문 원문은 DB(cve.summary_en)와 열람 페이지에 그대로 남고,
+  #   엑셀·메일의 SUMMARY 칸만 한국어로 바뀐다(헤더 16개 규격은 그대로).
+  #   한 번 번역한 문장은 DB에 캐시되어 다시 번역하지 않는다.
+  translate:
+    enabled: true
+    provider: google        # google(키 불필요) / papago / deepl / none
+    target_lang: ko
+    mode: replace           # replace = 한국어만 / append = 한국어 + 영문 원문
+    sleep: 0.3              # 요청 간 대기(초). 무료 엔드포인트 차단 방지
+    max_retries: 3
+    timeout: 20
+    max_chars: 1000
   summary_max_len: 1000     # SUMMARY 절삭 길이
   range_max_len: 500        # AFFECTED_RANGE 절삭 길이
   make_xlsx: true           # 부가 .xlsx 생성
