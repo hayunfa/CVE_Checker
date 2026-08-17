@@ -7,6 +7,14 @@ from src.aicve import translate as tr
 from src.aicve.normalize import RANGE_UNCERTAIN_PREFIX, Finding
 from src.aicve.store import SqliteStore, content_hash
 
+from .test_scope import SETTINGS, WATCHLIST
+
+# 번역을 켠 설정 (backfill 테스트용) — 실제 API 대신 가짜 제공자를 쓴다
+SETTINGS_WITH_TRANSLATE = dict(
+    SETTINGS,
+    output=dict(SETTINGS.get("output", {}),
+                translate={"enabled": True, "provider": "fake", "sleep": 0}))
+
 
 @pytest.fixture
 def fake_provider(monkeypatch):
@@ -224,6 +232,60 @@ def test_summary_en_persisted(tmp_path, fake_provider):
     row = store.fetch_all_cves()[0]
     assert row["summary"] == "[ko]A flaw was found."
     assert row["summary_en"] == "A flaw was found."
+    store.close()
+
+
+def test_backfill_translates_existing_rows(tmp_path, fake_provider):
+    """수집 단계에서 못 번역한 기존 건을 한 번에 번역한다.
+
+    매일 실행은 최근 며칠치만 다시 훑기 때문에, 번역 기능을 켜기 전에 쌓인 건은
+    이 backfill 이 없으면 영영 영문으로 남는다.
+    """
+    from src.aicve.scope import resolve_scope
+    from src.aicve.translate import backfill
+
+    store = SqliteStore(tmp_path / "t.db")
+    store.upsert_findings([finding(cve_id="CVE-2026-0001"),
+                           finding(cve_id="CVE-2026-0002",
+                                   summary="Another flaw.")], "R1")
+    before = {r["cve_id"]: r["content_hash"] for r in store.fetch_all_cves()}
+
+    scope = resolve_scope(cli={}, settings=SETTINGS_WITH_TRANSLATE, watchlist=WATCHLIST)
+    stat = backfill(store, scope)
+    assert stat.translated == 2
+
+    rows = {r["cve_id"]: r for r in store.fetch_all_cves()}
+    assert rows["CVE-2026-0001"]["summary"] == "[ko]A flaw was found."
+    assert rows["CVE-2026-0001"]["summary_en"] == "A flaw was found."
+    # 해시가 그대로여야 다음 실행에서 전 건이 '변경' 으로 잡히지 않는다
+    for cve_id, digest in before.items():
+        assert rows[cve_id]["content_hash"] == digest, f"{cve_id} 해시가 바뀌었다"
+    store.close()
+
+
+def test_backfill_skips_already_translated(tmp_path, fake_provider):
+    from src.aicve.scope import resolve_scope
+    from src.aicve.translate import backfill
+
+    store = SqliteStore(tmp_path / "t.db")
+    store.upsert_findings([finding()], "R1")
+    scope = resolve_scope(cli={}, settings=SETTINGS_WITH_TRANSLATE, watchlist=WATCHLIST)
+    backfill(store, scope)
+    calls = len(fake_provider)
+    backfill(store, scope)                      # 두 번째는 할 일이 없어야 한다
+    assert len(fake_provider) == calls
+    store.close()
+
+
+def test_backfill_disabled_when_translate_off(tmp_path, fake_provider):
+    from src.aicve.scope import resolve_scope
+    from src.aicve.translate import backfill
+
+    store = SqliteStore(tmp_path / "t.db")
+    store.upsert_findings([finding()], "R1")
+    scope = resolve_scope(cli={}, settings=SETTINGS, watchlist=WATCHLIST)
+    backfill(store, scope)
+    assert fake_provider == []
     store.close()
 
 

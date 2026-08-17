@@ -1,6 +1,6 @@
 {
  "run_id": "20260817123833",
- "generated_at": "2026-08-17 12:39:59",
+ "generated_at": "2026-08-17 21:47:13",
  "scope_desc": "SCOPE lookback=3 sev>=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300",
  "count": 4,
  "cves": [

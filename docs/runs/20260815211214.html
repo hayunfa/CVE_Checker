@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-17 12:39:59</div>
+    <div class="stamp">최종 생성 2026-08-17 21:47:13</div>
   </div>
 </header>
 <div class="wrap">
@@ -122,7 +122,11 @@
         <td class="mono">20260813</td>
         <td>OSV</td>
         <td class="wrap-cell">
-          A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file tokenization_nougat_fast.py. The vulnerability occurs in the post_process_single() function, where a regular expression processes specially crafted input. The issue stems from the regex exhibiting exponential time complexity under certain conditions, leading to excessive backtracking. This can result in significantly high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.46.3.
+          Huggingface/transformers 라이브러리, 특히 tokenization_nougat_fast.py 파일에서 ReDoS(정규식 서비스 거부) 취약점이 발견되었습니다. 취약점은 정규 표현식이 특수하게 조작된 입력을 처리하는 post_process_single() 함수에서 발생합니다. 이 문제는 특정 조건에서 기하급수적인 시간 복잡성을 나타내는 정규 표현식으로 인해 발생하며 이로 인해 과도한 역추적이 발생합니다. 이로 인해 CPU 사용량이 상당히 높아지고 잠재적인 애플리케이션 가동 중지 시간이 발생하여 DoS(서비스 거부) 시나리오가 효과적으로 생성될 수 있습니다. 영향을 받는 버전은 v4.46.3입니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file tokenization_nougat_fast.py. The vulnerability occurs in the post_process_single() function, where a regular expression processes specially crafted input. The issue stems from the regex exhibiting exponential time complexity under certain conditions, leading to excessive backtracking. This can result in significantly high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.46.3.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -140,7 +144,11 @@
         <td class="mono">20260813</td>
         <td>OSV</td>
         <td class="wrap-cell">
-          A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file `tokenization_gpt_neox_japanese.py` of the GPT-NeoX-Japanese model. The vulnerability occurs in the SubWordJapaneseTokenizer class, where regular expressions process specially crafted inputs. The issue stems from a regex exhibiting exponential complexity under certain conditions, leading to excessive backtracking. This can result in high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.48.1 (latest).
+          Huggingface/transformers 라이브러리, 특히 GPT-NeoX-일본어 모델의 &#39;tokenization_gpt_neox_japanese.py&#39; 파일에서 정규식 서비스 거부(ReDoS) 취약점이 발견되었습니다. 취약점은 정규 표현식이 특수하게 조작된 입력을 처리하는 SubWord일본어Tokenizer 클래스에서 발생합니다. 이 문제는 특정 조건에서 기하급수적인 복잡성을 나타내는 정규 표현식으로 인해 발생하며 이로 인해 과도한 역추적이 발생합니다. 이로 인해 CPU 사용량이 높아지고 잠재적인 애플리케이션 가동 중지 시간이 발생하여 DoS(서비스 거부) 시나리오가 효과적으로 생성될 수 있습니다. 영향을 받는 버전은 v4.48.1(최신)입니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file `tokenization_gpt_neox_japanese.py` of the GPT-NeoX-Japanese model. The vulnerability occurs in the SubWordJapaneseTokenizer class, where regular expressions process specially crafted inputs. The issue stems from a regex exhibiting exponential complexity under certain conditions, leading to excessive backtracking. This can result in high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.48.1 (latest).</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -158,7 +166,11 @@
         <td class="mono">20260813</td>
         <td>GHSA</td>
         <td class="wrap-cell">
-          Open WebUI: Cross-origin postMessage confirmation bypass via action:submit ### Summary The chat message listener allows non-same-origin `input:prompt` and `action:submit` messages, so an external site can set prompt text and trigger `submitPrompt()` in an authenticated victim session. I validated this with a cross-origin attacker page that auto-posted messages and caused unauthorized `POST /api/v1/chats/new` and `POST /api/chat/completions` requests containing attacker-controlled prompts. This enables cross-site forced actions and model/tool execution under victim privileges without consent. ### Details The chat page&#39;s window message listener in `src/lib/components/chat/Chat.svelte` processes message types including `input:prompt` and `action:submit` without adequately enforcing same-origin restrictions. Based on code around lines ~597-616, input text is set directly from `event.data.text`; `action:submit` proceeds to `submitPrompt()` on the current prompt. The logic does not apply a s
+          Open WebUI: action:submit ###을 통한 교차 출처 postMessage 확인 우회 요약 채팅 메시지 리스너는 출처가 동일하지 않은 `input:prompt` 및 `action:submit` 메시지를 허용하므로 외부 사이트는 인증된 피해자 세션에서 프롬프트 텍스트를 설정하고 `submitPrompt()`를 트리거할 수 있습니다. 메시지를 자동 게시하고 공격자가 제어하는 ​​프롬프트가 포함된 승인되지 않은 `POST /api/v1/chats/new` 및 `POST /api/chat/completions` 요청을 유발하는 교차 출처 공격자 페이지를 통해 이를 검증했습니다. 이를 통해 동의 없이 피해자 권한으로 사이트 간 강제 작업 및 모델/도구 실행이 가능해집니다. ### 세부 정보 `src/lib/comComponents/chat/Chat.svelte`에 있는 채팅 페이지의 창 메시지 리스너는 동일 출처 제한을 적절하게 적용하지 않고 `input:prompt` 및 `action:submit`을 포함한 메시지 유형을 처리합니다. ~597-616 줄 주변의 코드를 기반으로 입력 텍스트는 `event.data.text`에서 직접 설정됩니다. `action:submit`은 현재 프롬프트에서 `submitPrompt()`로 진행됩니다. 논리는 s를 적용하지 않습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Open WebUI: Cross-origin postMessage confirmation bypass via action:submit ### Summary The chat message listener allows non-same-origin `input:prompt` and `action:submit` messages, so an external site can set prompt text and trigger `submitPrompt()` in an authenticated victim session. I validated this with a cross-origin attacker page that auto-posted messages and caused unauthorized `POST /api/v1/chats/new` and `POST /api/chat/completions` requests containing attacker-controlled prompts. This enables cross-site forced actions and model/tool execution under victim privileges without consent. ### Details The chat page&#39;s window message listener in `src/lib/components/chat/Chat.svelte` processes message types including `input:prompt` and `action:submit` without adequately enforcing same-origin restrictions. Based on code around lines ~597-616, input text is set directly from `event.data.text`; `action:submit` proceeds to `submitPrompt()` on the current prompt. The logic does not apply a s</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -176,7 +188,11 @@
         <td class="mono">20260813</td>
         <td>GHSA</td>
         <td class="wrap-cell">
-          Open WebUI: /api/v1/channels/{id}/members exposes full user model including sensitive credentials ### Summary The channel members endpoint serializes and returns **full user models** for channel participants, including settings objects. A normal user in a DM can retrieve admin-only sensitive configuration such as webhook URLs and tool server key material (`settings.ui.toolServers[].key`), which is not available via standard user info APIs. ### Details The endpoint GET `/api/v1/channels/{id}/members` returns the full serialized user model for every member in the channel. In both the DM and non-DM code paths, the handler constructs the response with `[UserModelResponse(**user.model_dump(), is_active=...)]` and returns it as the users list. Because `UserModel` (`models/users.py`) includes a settings object (`UserSettings`) and arbitrary UI configuration (`settings.ui`), the endpoint exposes other users&#39; sensitive configuration to any channel participant. Practically, a regular user who pa
+          WebUI 열기: /api/v1/channels/{id}/members는 민감한 자격 증명을 포함한 전체 사용자 모델을 노출합니다. ### 요약 채널 구성원 엔드포인트는 설정 개체를 포함하여 채널 참가자에 대한 **전체 사용자 모델**을 직렬화하고 반환합니다. DM의 일반 사용자는 표준 사용자 정보 API를 통해 사용할 수 없는 웹훅 URL 및 도구 서버 키 자료(`settings.ui.toolServers[].key`)와 같은 관리자 전용 민감한 구성을 검색할 수 있습니다. ### 세부 정보 GET 엔드포인트 `/api/v1/channels/{id}/members`는 채널의 모든 멤버에 대해 직렬화된 전체 사용자 모델을 반환합니다. DM 및 비DM 코드 경로 모두에서 핸들러는 `[UserModelResponse(**user.model_dump(), is_active=...)]`를 사용하여 응답을 구성하고 이를 사용자 목록으로 반환합니다. `UserModel`(`models/users.py`)에는 설정 개체(`UserSettings`)와 임의의 UI 구성(`settings.ui`)이 포함되어 있으므로 엔드포인트는 다른 사용자의 민감한 구성을 모든 채널 참가자에게 노출합니다. 실제로, PA를 사용하는 일반 사용자는
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Open WebUI: /api/v1/channels/{id}/members exposes full user model including sensitive credentials ### Summary The channel members endpoint serializes and returns **full user models** for channel participants, including settings objects. A normal user in a DM can retrieve admin-only sensitive configuration such as webhook URLs and tool server key material (`settings.ui.toolServers[].key`), which is not available via standard user info APIs. ### Details The endpoint GET `/api/v1/channels/{id}/members` returns the full serialized user model for every member in the channel. In both the DM and non-DM code paths, the handler constructs the response with `[UserModelResponse(**user.model_dump(), is_active=...)]` and returns it as the users list. Because `UserModel` (`models/users.py`) includes a settings object (`UserSettings`) and arbitrary UI configuration (`settings.ui`), the endpoint exposes other users&#39; sensitive configuration to any channel participant. Practically, a regular user who pa</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -194,7 +210,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          Apache Airflow&#39;s Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance&#39;s `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler&#39;s `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either of those fixes does not address this one. Users are advised to upgrade to apache-air
+          Apache Airflow의 Task SDK는 저장된 콜백 경로로 명명된 모듈을 가져오는 생성자를 다시 실행하여 직렬화된 데이터에서 `Callback` 개체를 다시 빌드했습니다. `SyncCallback` 자체가 Airflow 클래스이기 때문에 기본 `allowed_deserialization_classes` 허용 목록을 전달하므로 해당 설정을 강화해도 도움이 되지 않습니다. 따라서 작업 실행 API를 통해 작업 인스턴스의 &#39;next_kwargs&#39;를 제어하는 ​​Dag 작성자는 스케줄러의 &#39;awaiting_input&#39; 시간 제한 스윕이 해당 값을 역직렬화할 때 스케줄러 프로세스 내부로 임의의 모듈을 가져올 수 있습니다. 기본이 아닌 구성은 필요하지 않습니다. 스윕은 무조건 실행됩니다. 3.3.0 이전 버전은 영향을 받지 않습니다. 클래스는 존재하지만 클래스에 도달하는 스케줄러 스윕은 존재하지 않습니다. 이는 역직렬화에 도달하는 다양한 가젯을 다루는 CVE-2026-58076 및 CVE-2026-67260과는 별도의 코드 경로입니다. 이러한 수정 사항 중 하나를 적용해도 이 문제는 해결되지 않습니다. 사용자는 apache-air로 업그레이드하는 것이 좋습니다
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance&#39;s `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler&#39;s `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either of those fixes does not address this one. Users are advised to upgrade to apache-air</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -212,7 +232,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.
+          Apache Airflow의 Backfill API는 `backfill_id` 경로 세그먼트가 구문 분석에 실패할 때마다 호출자가 제공한 Dag ID에 대한 요청을 승인했습니다. 권한 부여 종속성은 이를 `int()`로 구문 분석하는 반면 경로 핸들러는 이를 `int()` 값을 허용하는 pydantic의 `NonNegativeInt`로 구문 분석합니다(`1.0`은 `1`로 강제 변환). FastAPI는 엔드포인트 유효성 검사 전에 종속성을 해결하므로 두 가지가 서로 다른 Dags에서 작동했습니다. 따라서 단일 Dag에 대한 편집 권한을 보유한 인증된 사용자는 다른 Dag의 대기 중인 실행을 &#39;실패&#39;로 이동하는 것을 포함하여 다른 Dag에 속한 백필을 읽고, 일시 중지하고, 취소할 수 있습니다. 기본이 아닌 구성은 필요하지 않으며 백필 ID는 순차적이므로 대상을 찾는 것이 쉽습니다. 사용자는 경로가 선언하는 것과 동일한 유형으로 백필 ID를 구문 분석하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -230,7 +254,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.
+          Apache Airflow의 Backfill API는 `backfill_id` 경로 세그먼트가 구문 분석에 실패할 때마다 호출자가 제공한 Dag ID에 대한 요청을 승인했습니다. 권한 부여 종속성은 이를 `int()`로 구문 분석하는 반면 경로 핸들러는 이를 `int()` 값을 허용하는 pydantic의 `NonNegativeInt`로 구문 분석합니다(`1.0`은 `1`로 강제 변환). FastAPI는 엔드포인트 유효성 검사 전에 종속성을 해결하므로 두 가지가 서로 다른 Dags에서 작동했습니다. 따라서 단일 Dag에 대한 편집 권한을 보유한 인증된 사용자는 다른 Dag의 대기 중인 실행을 &#39;실패&#39;로 이동하는 것을 포함하여 다른 Dag에 속한 백필을 읽고, 일시 중지하고, 취소할 수 있습니다. 기본이 아닌 구성은 필요하지 않으며 백필 ID는 순차적이므로 대상을 찾는 것이 쉽습니다. 사용자는 경로가 선언하는 것과 동일한 유형으로 백필 ID를 구문 분석하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -248,7 +276,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI&#39;s *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised 
+          Apache Airflow는 대량 엔드포인트(`PATCH /api/v2/variables` 및 `PATCH /api/v2/connections`)를 통해 제출될 때 일반 텍스트로 감사 로그에 변수 값과 연결 `추가` 콘텐츠를 기록했습니다. 감사 로그 마스킹은 최상위 요청 필드만 인식했으며 대량 요청은 엔터티를 두 수준 아래에 중첩하므로 마스킹이 적용되지 않았습니다. 변수 또는 연결 읽기를 전혀 보유할 필요가 없는 감사 로그 읽기 액세스 권한이 있는 인증된 사용자는 해당 비밀을 그대로 복구할 수 있으며 연결 &#39;추가&#39; 복사본은 연결 테이블이 암호화하는 동안 암호화되지 않은 상태로 로그에 저장됩니다. Airflow UI의 *변수 가져오기* 작업은 이 엔드포인트에 게시되므로 일반 연산자 가져오기는 파일의 모든 비밀을 로그에 기록합니다. 이는 CVE-2026-50204과 다른 코드 경로입니다. 이 수정 사항은 3.3.0에 제공되고 단일 엔터티 끝점만 다루므로 해당 권고에 따라 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자에게 조언합니다
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI&#39;s *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised </div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -266,7 +298,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          Apache Airflow&#39;s asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:&lt;team&gt;` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team&#39;s XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the Dag&#39;s team at both sites.
+          Apache Airflow의 자산 구체화 엔드포인트(`POST /api/v2/assets/{asset_id}/materialize`)와 `wait_dag_run_until_finished`에 대한 XCom 결과 확인은 다른 모든 인증 사이트와 달리 팀 없이 대상 Dag를 인증했습니다. 팀 인식 인증 관리자는 해당 필드를 기준으로 팀 범위 Dag와 전역 Dag를 구별합니다. 예를 들어 Keycloak 인증 관리자는 `DAG:&lt;team&gt;` 대신 `DAG` 리소스를 확인하므로 요청을 제어해야 하는 팀 범위 권한은 절대 참조되지 않습니다. 팀 인식 인증 관리자를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀의 인증된 사용자는 다른 팀에 속한 Dag 실행을 트리거하여 자체 `dag_run_id` 및 `conf`를 제공하고 다른 팀의 XCom 값을 읽을 수 있습니다. FAB 인증 관리자를 사용한 배포는 다중 팀 지원이 없으므로 영향을 받지 않습니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하여 두 사이트 모두에서 Dag 팀을 해결하는 것이 좋습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:&lt;team&gt;` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team&#39;s XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the Dag&#39;s team at both sites.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -284,7 +320,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Recursion (CWE-674) in the Elasticsearch wildcard matching helper can lead to a denial of service via Excessive Allocation (CAPEC-130). The matcher used to resolve wildcard patterns against names is implemented recursively and had no bound on recursion depth or on the total number of match operations performed. A search request containing a wildcard pattern with a large number of wildcard groups, evaluated against a sufficiently long name, exhausts the thread stack. Elasticsearch treats a stack overflow as an unrecoverable condition and shuts the node down, so the request terminates the affected node rather than failing gracefully.
+          [버전범위 불명확] Elasticsearch 와일드카드 일치 도우미의 제어되지 않은 재귀(CWE-674)는 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. 이름에 대한 와일드카드 패턴을 확인하는 데 사용되는 매처는 재귀적으로 구현되며 재귀 깊이나 수행되는 총 일치 작업 수에 대한 제한이 없습니다. 충분히 긴 이름에 대해 평가된 다수의 와일드카드 그룹이 있는 와일드카드 패턴을 포함하는 검색 요청은 스레드 스택을 소모합니다. Elasticsearch는 스택 오버플로를 복구할 수 없는 조건으로 처리하고 노드를 종료하므로 요청은 정상적으로 실패하지 않고 영향을 받은 노드를 종료합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Uncontrolled Recursion (CWE-674) in the Elasticsearch wildcard matching helper can lead to a denial of service via Excessive Allocation (CAPEC-130). The matcher used to resolve wildcard patterns against names is implemented recursively and had no bound on recursion depth or on the total number of match operations performed. A search request containing a wildcard pattern with a large number of wildcard groups, evaluated against a sufficiently long name, exhausts the thread stack. Elasticsearch treats a stack overflow as an unrecoverable condition and shuts the node down, so the request terminates the affected node rather than failing gracefully.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -302,7 +342,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only low-privileged index creation permissions can submit a single request containing a specially crafted, malformed custom analysis definition that is resolved recursively without a cycle or depth check, exhausting the thread stack and terminating the affected node.
+          [버전범위 불명확] Elasticsearch의 통제되지 않은 재귀(CWE-674)는 입력 데이터 조작(CAPEC-153)을 통해 서비스 거부로 이어질 수 있습니다. 낮은 권한의 인덱스 생성 권한만 보유한 인증된 사용자는 주기 또는 깊이 검사 없이 재귀적으로 해결되어 스레드 스택을 소진하고 영향을 받는 노드를 종료하는 특수 제작되고 잘못된 형식의 사용자 지정 분석 정의가 포함된 단일 요청을 제출할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only low-privileged index creation permissions can submit a single request containing a specially crafted, malformed custom analysis definition that is resolved recursively without a cycle or depth check, exhausting the thread stack and terminating the affected node.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -320,7 +364,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Elasticsearch does not enforce an upper bound on a user-supplied count accepted by a search highlighting option, and the allocation derived from that count is not accounted against any circuit breaker. An authenticated user holding only read privileges on a single searchable index can submit one small search request that causes the node to reserve an excessively large internal data structure. The allocation occurs before the existing highlighting safety limits are evaluated, so memory exhaustion raises a fatal error that terminates the Elasticsearch node process. This results in a denial of service for the affected node and degrades cluster routing and health. The defect is not volumetric and does not depend on the size of the indexed data, so a single request is sufficient.
+          [버전범위 불명확] Elasticsearch는 검색 강조 표시 옵션에서 허용하는 사용자 제공 개수에 상한을 적용하지 않으며, 해당 개수에서 파생된 할당은 회로 차단기에 대해 고려되지 않습니다. 단일 검색 가능 인덱스에 대해 읽기 권한만 보유한 인증된 사용자는 노드가 지나치게 큰 내부 데이터 구조를 예약하게 만드는 작은 검색 요청을 제출할 수 있습니다. 기존 강조 표시 안전 한도가 평가되기 전에 할당이 발생하므로 메모리 소모로 인해 Elasticsearch 노드 프로세스가 종료되는 치명적인 오류가 발생합니다. 이로 인해 영향을 받은 노드에 대한 서비스 거부가 발생하고 클러스터 라우팅 및 상태가 저하됩니다. 결함은 체적이 아니며 인덱싱된 데이터의 크기에 의존하지 않으므로 단일 요청으로 충분합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Elasticsearch does not enforce an upper bound on a user-supplied count accepted by a search highlighting option, and the allocation derived from that count is not accounted against any circuit breaker. An authenticated user holding only read privileges on a single searchable index can submit one small search request that causes the node to reserve an excessively large internal data structure. The allocation occurs before the existing highlighting safety limits are evaluated, so memory exhaustion raises a fatal error that terminates the Elasticsearch node process. This results in a denial of service for the affected node and degrades cluster routing and health. The defect is not volumetric and does not depend on the size of the indexed data, so a single request is sufficient.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -338,7 +386,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only read privileges on a single index can submit one small, specially crafted search request that causes an excessively large memory allocation, exhausting the JVM heap and terminating the affected node.
+          [버전범위 불명확] Elasticsearch에서 과도한 크기 값(CWE-789)을 사용한 메모리 할당은 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. 단일 인덱스에 대해 읽기 권한만 보유하고 있는 인증된 사용자는 과도하게 큰 메모리 할당을 유발하여 JVM 힙을 소진하고 영향을 받는 노드를 종료시키는 특수하게 조작된 작은 검색 요청 하나를 제출할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only read privileges on a single index can submit one small, specially crafted search request that causes an excessively large memory allocation, exhausting the JVM heap and terminating the affected node.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -356,7 +408,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Serialized Data with Nested Payloads (CAPEC-230). An authenticated user holding only read privileges on a single index can submit one specially crafted search request whose deeply nested structure is processed without a depth limit, exhausting the thread stack and terminating the affected node.
+          [버전범위 불명확] Elasticsearch의 통제되지 않은 재귀(CWE-674)는 중첩 페이로드가 포함된 직렬화된 데이터(CAPEC-230)를 통해 서비스 거부로 이어질 수 있습니다. 단일 인덱스에 대해 읽기 권한만 보유한 인증된 사용자는 깊게 중첩된 구조가 깊이 제한 없이 처리되어 스레드 스택이 소진되고 영향을 받은 노드가 종료되는 특수 제작된 검색 요청 하나를 제출할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Serialized Data with Nested Payloads (CAPEC-230). An authenticated user holding only read privileges on a single index can submit one specially crafted search request whose deeply nested structure is processed without a depth limit, exhausting the thread stack and terminating the affected node.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -374,7 +430,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.
+          [버전범위 불명확] Elasticsearch의 ES|QL 쿼리 처리에서 과도한 크기 값(CWE-789)을 사용한 메모리 할당은 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. ES|QL 쿼리를 제출할 수 있는 인증된 사용자는 평가를 통해 무제한의 힙 메모리를 할당하는 특별히 제작된 쿼리를 보낼 수 있으며, 이로 인해 수신 노드에서 사용 가능한 힙이 소진되고 노드를 사용할 수 없게 됩니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -392,7 +452,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] The Elastic Security capability that suggests existing field values while a user authors endpoint policy artifacts queries Elastic Defend event data with Kibana&#39;s internal Elasticsearch account instead of the account of the requesting user. Only Kibana feature privileges are verified, and the caller&#39;s Elasticsearch index privileges are not. An authenticated user who holds Elastic Security feature privileges but no read access to the Elastic Defend event indices can therefore retrieve field values from that data, including process command line arguments, which commonly contain tokens, credentials, connection strings, and other sensitive operational detail from protected hosts.
+          [버전범위 불명확] 사용자가 엔드포인트 정책 아티팩트를 작성하는 동안 기존 필드 값을 제안하는 Elastic Security 기능은 요청하는 사용자의 계정 대신 Kibana의 내부 Elasticsearch 계정으로 Elastic Defend 이벤트 데이터를 쿼리합니다. Kibana 기능 권한만 확인되며 호출자의 Elasticsearch 인덱스 권한은 확인되지 않습니다. 따라서 Elastic Security 기능 권한은 있지만 Elastic Defend 이벤트 인덱스에 대한 읽기 액세스 권한이 없는 인증된 사용자는 일반적으로 보호된 호스트의 토큰, 자격 증명, 연결 문자열 및 기타 민감한 운영 세부 정보가 포함된 프로세스 명령줄 인수를 포함하여 해당 데이터에서 필드 값을 검색할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] The Elastic Security capability that suggests existing field values while a user authors endpoint policy artifacts queries Elastic Defend event data with Kibana&#39;s internal Elasticsearch account instead of the account of the requesting user. Only Kibana feature privileges are verified, and the caller&#39;s Elasticsearch index privileges are not. An authenticated user who holds Elastic Security feature privileges but no read access to the Elastic Defend event indices can therefore retrieve field values from that data, including process command line arguments, which commonly contain tokens, credentials, connection strings, and other sensitive operational detail from protected hosts.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -410,7 +474,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Elasticsearch does not validate a size value taken from a user-supplied input before that value is used to reserve memory for an internal data structure. An authenticated user holding only read privileges can submit a single small crafted request to a product API endpoint that causes the node to attempt an excessively large allocation. The resulting memory exhaustion raises a fatal error that terminates the Elasticsearch node process, causing a denial of service for the affected node and degrading cluster health. The defect is not volumetric, so a single request is sufficient regardless of the heap size configured on the target node.
+          [버전범위 불명확] Elasticsearch는 내부 데이터 구조를 위한 메모리를 예약하는 데 해당 값이 사용되기 전에는 사용자 제공 입력에서 가져온 크기 값의 유효성을 검사하지 않습니다. 읽기 권한만 보유한 인증된 사용자는 노드가 지나치게 큰 할당을 시도하게 만드는 작은 단일 요청을 제품 API 엔드포인트에 제출할 수 있습니다. 결과적으로 메모리가 소진되면 Elasticsearch 노드 프로세스를 종료하는 치명적인 오류가 발생하여 영향을 받은 노드에 대한 서비스 거부가 발생하고 클러스터 상태가 저하됩니다. 결함은 체적 결함이 아니므로 대상 노드에 구성된 힙 크기에 관계없이 단일 요청으로 충분합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Elasticsearch does not validate a size value taken from a user-supplied input before that value is used to reserve memory for an internal data structure. An authenticated user holding only read privileges can submit a single small crafted request to a product API endpoint that causes the node to attempt an excessively large allocation. The resulting memory exhaustion raises a fatal error that terminates the Elasticsearch node process, causing a denial of service for the affected node and degrading cluster health. The defect is not volumetric, so a single request is sufficient regardless of the heap size configured on the target node.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -428,7 +496,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] Elasticsearch does not apply its configurable input length restriction to a user-supplied pattern accepted by an intervals query. Compiling a deeply nested pattern drives unbounded recursion that exhausts the thread stack and raises a fatal error, terminating the Elasticsearch node process and causing a denial of service for that node. An authenticated user holding only read-only privileges on a single searchable index can trigger the condition with one small search request.
+          [버전범위 불명확] Elasticsearch는 간격 쿼리에서 허용하는 사용자 제공 패턴에 구성 가능한 입력 길이 제한을 적용하지 않습니다. 깊게 중첩된 패턴을 컴파일하면 스레드 스택을 소진하고 치명적인 오류를 발생시키는 무제한 재귀가 발생하여 Elasticsearch 노드 프로세스가 종료되고 해당 노드에 대한 서비스 거부가 발생합니다. 단일 검색 가능 인덱스에 대해 읽기 전용 권한만 보유한 인증된 사용자는 하나의 작은 검색 요청으로 조건을 트리거할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Elasticsearch does not apply its configurable input length restriction to a user-supplied pattern accepted by an intervals query. Compiling a deeply nested pattern drives unbounded recursion that exhausts the thread stack and raises a fatal error, terminating the Elasticsearch node process and causing a denial of service for that node. An authenticated user holding only read-only privileges on a single searchable index can trigger the condition with one small search request.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -446,7 +518,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] A flaw in Elasticsearch allows an authenticated user with the privileges required to invoke the simulate pipeline API endpoint (https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate) to submit a request that causes a self-referential data structure to be created. When a specific internal component later processes that structure, the operation recurses without bound and raises a fatal error that is not handled by the surrounding execution path, terminating the affected node process and resulting in a denial of service.
+          [버전범위 불명확] Elasticsearch의 결함으로 인해 시뮬레이션 파이프라인 API 엔드포인트(https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate)를 호출하는 데 필요한 권한이 있는 인증된 사용자가 자체 참조 데이터 구조를 생성하는 요청을 제출할 수 있습니다. 나중에 특정 내부 구성 요소가 해당 구조를 처리하면 작업이 제한 없이 반복되고 주변 실행 경로에서 처리되지 않는 치명적인 오류가 발생하여 영향을 받는 노드 프로세스가 종료되고 결과적으로 서비스 거부가 발생합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user with the privileges required to invoke the simulate pipeline API endpoint (https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate) to submit a request that causes a self-referential data structure to be created. When a specific internal component later processes that structure, the operation recurses without bound and raises a fatal error that is not handled by the surrounding execution path, terminating the affected node process and resulting in a denial of service.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -464,7 +540,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] A flaw in Elasticsearch allows an authenticated user holding only read privileges to submit a small search request containing a crafted user-supplied input. Processing that input causes a specific internal component to allocate memory without any upper bound, and the allocation occurs outside the scope of the existing memory accounting controls that were intended to constrain it. The resulting out-of-memory condition is fatal and terminates the affected node process, causing a denial of service.
+          [버전범위 불명확] Elasticsearch의 결함으로 인해 읽기 권한만 보유한 인증된 사용자가 조작된 사용자 제공 입력이 포함된 소규모 검색 요청을 제출할 수 있습니다. 해당 입력을 처리하면 특정 내부 구성 요소가 상한 없이 메모리를 할당하게 되며 할당은 이를 제한하려는 기존 메모리 계산 제어 범위 외부에서 발생합니다. 결과적인 메모리 부족 상태는 치명적이며 영향을 받은 노드 프로세스를 종료하여 서비스 거부를 유발합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user holding only read privileges to submit a small search request containing a crafted user-supplied input. Processing that input causes a specific internal component to allocate memory without any upper bound, and the allocation occurs outside the scope of the existing memory accounting controls that were intended to constrain it. The resulting out-of-memory condition is fatal and terminates the affected node process, causing a denial of service.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -482,7 +562,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user who can index documents to submit a single small document containing a crafted user-supplied input. Processing one such document occupies a worker thread from a bounded pool for a disproportionate amount of time, degrading the availability of indexing operations on the affected node.
+          [버전범위 불명확] Elasticsearch의 결함으로 인해 문서를 색인화할 수 있는 권한이 낮은 인증된 사용자가 조작된 사용자 제공 입력이 포함된 작은 문서 하나를 제출할 수 있습니다. 그러한 문서 하나를 처리하면 너무 많은 시간 동안 제한된 풀의 작업자 스레드를 차지하게 되어 영향을 받은 노드에서 인덱싱 작업의 가용성이 저하됩니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user who can index documents to submit a single small document containing a crafted user-supplied input. Processing one such document occupies a worker thread from a bounded pool for a disproportionate amount of time, degrading the availability of indexing operations on the affected node.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -500,7 +584,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single request containing a crafted user-supplied input. A specific internal component validates the input using a recursive routine and applies no bound to the length of the value being validated, so the validation causes the thread to exhaust its stack. The resulting fatal error is not handled by the surrounding execution paths and terminates the affected node process, producing a denial of service.
+          [버전범위 불명확] Elasticsearch의 결함으로 인해 권한이 낮은 인증된 사용자가 조작된 사용자 제공 입력이 포함된 단일 요청을 제출할 수 있습니다. 특정 내부 구성 요소는 재귀 루틴을 사용하여 입력의 유효성을 검사하고 유효성이 검사되는 값의 길이에 제한을 적용하지 않으므로 유효성 검사로 인해 스레드가 해당 스택을 소모하게 됩니다. 결과적으로 발생한 치명적인 오류는 주변 실행 경로에서 처리되지 않고 영향을 받은 노드 프로세스를 종료하여 서비스 거부를 발생시킵니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single request containing a crafted user-supplied input. A specific internal component validates the input using a recursive routine and applies no bound to the length of the value being validated, so the validation causes the thread to exhaust its stack. The resulting fatal error is not handled by the surrounding execution paths and terminates the affected node process, producing a denial of service.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -518,7 +606,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          [버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single small request containing a forged opaque identifier. Elasticsearch decodes and deserializes the identifier before confirming that it was legitimately issued by the cluster, and a size value carried inside the identifier drives an allocation that is neither capped nor accounted for by the available memory-usage controls. The resulting out-of-memory condition is fatal and terminates the affected node process, resulting in a denial of service.
+          [버전범위 불명확] Elasticsearch의 결함으로 인해 권한이 낮은 인증된 사용자가 위조된 불투명 식별자가 포함된 작은 요청 하나를 제출할 수 있습니다. Elasticsearch는 식별자가 클러스터에서 합법적으로 발행되었는지 확인하기 전에 식별자를 디코딩하고 역직렬화하며, 식별자 내부에 전달된 크기 값은 사용 가능한 메모리 사용량 제어에 의해 제한되거나 설명되지 않는 할당을 구동합니다. 결과적인 메모리 부족 상태는 치명적이며 영향을 받은 노드 프로세스를 종료하여 서비스 거부를 초래합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single small request containing a forged opaque identifier. Elasticsearch decodes and deserializes the identifier before confirming that it was legitimately issued by the cluster, and a size value carried inside the identifier drives an allocation that is neither capped nor accounted for by the available memory-usage controls. The resulting out-of-memory condition is fatal and terminates the affected node process, resulting in a denial of service.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -536,7 +628,11 @@
         <td class="mono">20260813</td>
         <td>OSV</td>
         <td class="wrap-cell">
-          JupyterLab&#39;s image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```
+          JupyterLab의 이미지 뷰어는 특별히 제작된 이미지 파일을 이미지 뷰어를 통해 연 다음 새 탭에서 열 때 XSS(교차 사이트 스크립팅)를 허용합니다. 이 XSS 문제는 JupyterLab 서버에서 원격 코드 실행(RCE)을 유발하는 데 사용될 수 있습니다. ### 영향 이 취약점으로 인해 임의 코드 실행이 허용됩니다. ### 패치 JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) 및 [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10)에는 패치가 포함되어 있습니다. ### 해결 방법 이미지 뷰어 플러그인을 비활성화합니다. ``` jupyter labextension 비활성화 @jupyterlab/imageviewer-extension:plugin ``` 확인: ``` jupyter labextension list ```
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">JupyterLab&#39;s image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -554,7 +650,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab&#39;s PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava
+          jupyterlab은 Jupyter 노트북 아키텍처를 기반으로 하는 대화형 및 재현 가능한 컴퓨팅을 위한 확장 가능한 환경입니다. 4.5.0부터 4.5.10 및 4.6.2까지 jupyterlab/extensions/manager.py 및 jupyterlab/extensions/pypi.py에서 JupyterLab의 PyPI 확장 관리자는 요청된 설치 이름을 PyPI 패키지 이름 정규화보다 약한 사용자 정의 정규화를 사용하는 차단 목록 항목과 비교하여 Blocked_extensions_uris를 적용합니다. 인증된 사용자는 jupyterlab-git과 같은 차단 목록 패키지에 대해 JupyterLab.Git와 같은 PyPI와 동등한 철자를 요청할 수 있으며, pip가 변형을 동일한 패키지로 확인하더라도 JupyterLab은 설치 요청을 수락합니다. 보안에 영향을 미치려면 패키지 설치, PyPI 확장 관리자, 비활성화되거나 원격 호스트에 위임된 커널 및 터미널을 제한하기 위한 허용 목록 또는 차단 목록이 필요합니다. 우회를 통해 인증된 사용자는 금지된 확장 프로그램을 설치하고 무결성 제한을 해제하며 ava에 영향을 미칠 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab&#39;s PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -572,7 +672,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.20.2rc0부터 0.26.0까지 vllm/renderers/embed_utils.py의 safe_load_prompt_embeds는 torch.sparse.check_sparse_tensor_invariants를 사용합니다. 이 프로세스 전역 저장, 활성화 및 복원 상태는 다음을 통해 POST /v1/chat/completions에 제출된 동시 프롬프트_embeds 부분에 의해 경주될 수 있습니다. AsyncMultiModalItemTracker.resolve_items, asyncio.gather 및 기본 실행 프로그램을 사용하면 활성화_prompt_embeds가 활성화된 경우 CVE-2025-62164 가드에도 불구하고 유효하지 않은 희소 텐서가 tensor.to_dense에 도달할 수 있습니다. 이 문제는 버전 0.26.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -590,7 +694,11 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user&#39;s input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user&#39;s inference result. This issue is fixed in version 0.27.0.
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.27.0 이전에는 activate_kernels.cu의 blockIdx.x * 2 * d의 정수 오버플로로 인해 act_and_mul_kernel이 다른 일괄 처리 사용자의 입력을 소비하게 되어 동일한 추론 일괄 처리에서 처리된 요청이 다른 사용자 추론 결과의 부분 또는 전체 복사본을 수신할 수 있습니다. 이 문제는 버전 0.27.0에서 수정되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user&#39;s input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user&#39;s inference result. This issue is fixed in version 0.27.0.</div>
+          </details>
         </td>
       </tr>
       <tr>
@@ -608,7 +716,11 @@
         <td class="mono">20260813</td>
         <td>OSV+GHSA</td>
         <td class="wrap-cell">
-          MLflow: trace API endpoints lack proper authorization validators In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications.
+          MLflow: 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 3.13.0 이전 MLflow 버전에서는 인증이 활성화된 상태로 실행할 때 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 이를 통해 인증된 사용자는 액세스 권한이 없는 실험에 대한 추적 읽기, 삭제, 수정을 포함하여 모든 추적 작업에 대해 실험 수준 승인 제어를 우회할 수 있습니다. 이 문제는 추적 끝점에 대한 인증 유효성 검사기를 등록하지 않는 `_before_request` 핸들러에서 발생하므로 요청이 유효성 검사 없이 진행됩니다. 이 취약점으로 인해 민감한 데이터가 노출되고, 감사 로그가 파괴되고, 무단 수정이 허용될 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">MLflow: trace API endpoints lack proper authorization validators In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications.</div>
+          </details>
         </td>
       </tr>
     </tbody>

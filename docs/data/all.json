@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-17 12:39:59",
+ "generated_at": "2026-08-17 21:47:13",
  "count": 83,
  "cves": [
   {
@@ -36,7 +36,7 @@
    "published_date": "20260622",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette's trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.",
+   "summary": "vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.3.0부터 0.22.0까지 ASGI 웹 서버의 취약점과 해당 웹 서버에 대한 starlette의 신뢰로 인해 OpenAI API AuthenticationMiddleware의 인증 우회가 가능해졌습니다. 구성된 VLLM_API_KEY 또는 --api-key를 제공하지 않고도 API를 사용할 수 있습니다. 이 취약점은 0.22.0에서 수정되었습니다.",
    "reference_url": "https://github.com/vllm-project/vllm/pull/43426",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -44,7 +44,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "6cd5a44d47f6ada1285323fb69bb71973b1ebb97785c92fe8c1e6186c5a11794",
-   "summary_en": ""
+   "summary_en": "vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette's trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0."
   },
   {
    "cve_id": "CVE-2026-58076",
@@ -58,7 +58,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's serialization layer reconstructed exception nodes by calling `import_string()` on a class name taken from the serialized blob and instantiating it with arguments from the same blob, with no restriction on what could be imported. An operator's `executor_config` reaches that branch, so a Dag author could place a value there that causes an arbitrary callable to be imported and invoked -- for example `subprocess.check_output`, or `builtins.eval` on the `builtins`-prefixed variant. The code runs in the **Scheduler**, which reconstructs serialized Dags in its normal loop with no request involved, and in the **API server**, on any authenticated read of the Dag such as `GET /api/v2/dags/{dag_id}/details`. Both are components the Airflow security model states must never execute Dag-author code, and both hold the metadata database credentials and the JWT signing secret. No non-default configuration is required. This is a **different sink from CVE-2026-33264**, which covered only",
+   "summary": "Apache Airflow의 직렬화 계층은 직렬화된 blob에서 가져온 클래스 이름에 대해 `import_string()`을 호출하고 가져올 수 있는 항목에 대한 제한 없이 동일한 blob의 인수로 인스턴스화하여 예외 노드를 재구성했습니다. 연산자의 `executor_config`가 해당 분기에 도달하므로 Dag 작성자는 임의의 호출 가능 항목을 가져오고 호출하도록 하는 값을 여기에 배치할 수 있습니다. 예를 들어 `subprocess.check_output` 또는 `builtins` 접두사가 붙은 변형의 `buildins.eval`입니다. 코드는 요청 없이 일반 루프에서 직렬화된 Dags를 재구성하는 **스케줄러**와 `GET /api/v2/dags/{dag_id}/details`와 같은 Dag의 인증된 읽기 시 **API 서버**에서 실행됩니다. 둘 다 Airflow 보안 모델에서 Dag 작성자 코드를 실행해서는 안 된다고 명시한 구성 요소이며, 둘 다 메타데이터 데이터베이스 사용자 인증 정보와 JWT 서명 비밀을 보유합니다. 기본이 아닌 구성은 필요하지 않습니다. 이것은 **CVE-2026-33264과는 다른 싱크대입니다.**",
    "reference_url": "https://github.com/apache/airflow/pull/68511",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -66,7 +66,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "53ac96543cf94c3ef80e7e45911e54f9f5faa3c6f12273cbdda2a827e899ad5a",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's serialization layer reconstructed exception nodes by calling `import_string()` on a class name taken from the serialized blob and instantiating it with arguments from the same blob, with no restriction on what could be imported. An operator's `executor_config` reaches that branch, so a Dag author could place a value there that causes an arbitrary callable to be imported and invoked -- for example `subprocess.check_output`, or `builtins.eval` on the `builtins`-prefixed variant. The code runs in the **Scheduler**, which reconstructs serialized Dags in its normal loop with no request involved, and in the **API server**, on any authenticated read of the Dag such as `GET /api/v2/dags/{dag_id}/details`. Both are components the Airflow security model states must never execute Dag-author code, and both hold the metadata database credentials and the JWT signing secret. No non-default configuration is required. This is a **different sink from CVE-2026-33264**, which covered only"
   },
   {
    "cve_id": "CVE-2026-67587",
@@ -80,7 +80,7 @@
    "published_date": "20260812",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Apache Airflow's Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance's `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler's `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either of those fixes does not address this one. Users are advised to upgrade to apache-air",
+   "summary": "Apache Airflow의 Task SDK는 저장된 콜백 경로로 명명된 모듈을 가져오는 생성자를 다시 실행하여 직렬화된 데이터에서 `Callback` 개체를 다시 빌드했습니다. `SyncCallback` 자체가 Airflow 클래스이기 때문에 기본 `allowed_deserialization_classes` 허용 목록을 전달하므로 해당 설정을 강화해도 도움이 되지 않습니다. 따라서 작업 실행 API를 통해 작업 인스턴스의 'next_kwargs'를 제어하는 ​​Dag 작성자는 스케줄러의 'awaiting_input' 시간 제한 스윕이 해당 값을 역직렬화할 때 스케줄러 프로세스 내부로 임의의 모듈을 가져올 수 있습니다. 기본이 아닌 구성은 필요하지 않습니다. 스윕은 무조건 실행됩니다. 3.3.0 이전 버전은 영향을 받지 않습니다. 클래스는 존재하지만 클래스에 도달하는 스케줄러 스윕은 존재하지 않습니다. 이는 역직렬화에 도달하는 다양한 가젯을 다루는 CVE-2026-58076 및 CVE-2026-67260과는 별도의 코드 경로입니다. 이러한 수정 사항 중 하나를 적용해도 이 문제는 해결되지 않습니다. 사용자는 apache-air로 업그레이드하는 것이 좋습니다",
    "reference_url": "https://github.com/apache/airflow/pull/70704",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -88,7 +88,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "86c6f287b4b7fc26721ed6a732ec325a10955eb3854c9698e1d5aca172c62eea",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance's `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler's `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either of those fixes does not address this one. Users are advised to upgrade to apache-air"
   },
   {
    "cve_id": "CVE-2026-72642",
@@ -102,7 +102,7 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] The native inference process that Elasticsearch uses to evaluate uploaded machine learning models accepts a model operation that computes a memory address from an offset supplied inside the model, without validating that the offset stays within the bounds of the underlying storage. A user with the privileges required to upload and deploy a trained model can craft a model that reads and writes memory outside the intended allocation. The result is heap corruption that crashes the inference process, and, with sufficient control over the heap layout, could allow arbitrary code execution in the context of that process.",
+   "summary": "[버전범위 불명확] Elasticsearch가 업로드된 기계 학습 모델을 평가하는 데 사용하는 기본 추론 프로세스는 오프셋이 기본 스토리지의 경계 내에 있는지 확인하지 않고 모델 내부에 제공된 오프셋에서 메모리 주소를 계산하는 모델 작업을 허용합니다. 학습된 모델을 업로드하고 배포하는 데 필요한 권한이 있는 사용자는 의도된 할당 외부의 메모리를 읽고 쓰는 모델을 만들 수 있습니다. 그 결과 추론 프로세스를 중단시키는 힙 손상이 발생하며, 힙 레이아웃을 충분히 제어하면 해당 프로세스의 컨텍스트에서 임의 코드 실행이 허용될 수 있습니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-123/389504",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -110,7 +110,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "4ff0756bb0b870908d94648621b5939633c3b06c487cf6ac17f392a45ddf2d83",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] The native inference process that Elasticsearch uses to evaluate uploaded machine learning models accepts a model operation that computes a memory address from an offset supplied inside the model, without validating that the offset stays within the bounds of the underlying storage. A user with the privileges required to upload and deploy a trained model can craft a model that reads and writes memory outside the intended allocation. The result is heap corruption that crashes the inference process, and, with sufficient control over the heap layout, could allow arbitrary code execution in the context of that process."
   },
   {
    "cve_id": "CVE-2026-57516",
@@ -124,7 +124,7 @@
    "published_date": "20260724",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "## Summary `ray.data.read_webdataset(paths=...)` is a `@PublicAPI(stability=\"alpha\")` reader for WebDataset-format TAR files. Its default `decoder=True` invokes `_default_decoder` on every sample's keys, which routes file extension to a decoder by extension. Two of those branches deserialize attacker-controlled bytes with no validation: - `.pickle` / `.pkl` -> `pickle.loads(value)` - `.pt` / `.pth` -> `torch.load(io.BytesIO(value), weights_only=False)` Both fire during a standard `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` call. No flags, no opt-in, no environment variable. An attacker who can supply a TAR (via S3 share, HuggingFace Hub mirror, email attachment, model-zoo, or any HTTP URL the user passes to `read_webdataset`) achieves arbitrary code execution in the calling Ray process at schema-sample time, before row data is consumed. This is the same class of bug as GHSA-mw35-8rx3-xf9r (Parquet Arrow Extension Type cloudpickle deserialization, patched in 2.55.0): ",
+   "summary": "## 요약 `ray.data.read_webdataset(paths=...)`는 WebDataset 형식 TAR 파일용 `@PublicAPI(stability=\"alpha\")` 리더입니다. 기본 `decoder=True`는 모든 샘플의 키에서 `_default_decoder`를 호출하여 파일 확장자를 확장별로 디코더로 라우팅합니다. 해당 분기 중 두 개는 유효성 검사 없이 공격자가 제어하는 바이트를 역직렬화합니다. - `.pickle` / `.pkl` -> `pickle.loads(value)` - `.pt` / `.pth` -> `torch.load(io.BytesIO(value), Weights_only=False)` 둘 다 표준 `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` 중에 실행됩니다. 전화. 플래그도 없고 선택도 없고 환경 변수도 없습니다. S3 공유, HuggingFace Hub 미러, 이메일 첨부 파일, model-zoo 또는 사용자가 `read_webdataset`에 전달하는 모든 HTTP URL을 통해 TAR을 제공할 수 있는 공격자는 행 데이터가 소비되기 전 스키마 샘플 시간에 호출 Ray 프로세스에서 임의 코드 실행을 달성합니다. 이는 GHSA-mw35-8rx3-xf9r(Parquet Arrow Extension Type cloudpickle deserialization, 2.55.0에서 패치됨)과 동일한 클래스의 버그입니다.",
    "reference_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57516",
    "source": "OSV",
    "ecosystem": "pypi",
@@ -132,7 +132,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211121",
    "content_hash": "7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7",
-   "summary_en": ""
+   "summary_en": "## Summary `ray.data.read_webdataset(paths=...)` is a `@PublicAPI(stability=\"alpha\")` reader for WebDataset-format TAR files. Its default `decoder=True` invokes `_default_decoder` on every sample's keys, which routes file extension to a decoder by extension. Two of those branches deserialize attacker-controlled bytes with no validation: - `.pickle` / `.pkl` -> `pickle.loads(value)` - `.pt` / `.pth` -> `torch.load(io.BytesIO(value), weights_only=False)` Both fire during a standard `ray.data.read_webdataset(...).take_all()` / `.iter_batches()` call. No flags, no opt-in, no environment variable. An attacker who can supply a TAR (via S3 share, HuggingFace Hub mirror, email attachment, model-zoo, or any HTTP URL the user passes to `read_webdataset`) achieves arbitrary code execution in the calling Ray process at schema-sample time, before row data is consumed. This is the same class of bug as GHSA-mw35-8rx3-xf9r (Parquet Arrow Extension Type cloudpickle deserialization, patched in 2.55.0): "
   },
   {
    "cve_id": "CVE-2026-73417",
@@ -146,7 +146,7 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k",
+   "summary": "jupyterlab은 Jupyter 노트북 아키텍처를 기반으로 하는 대화형 및 재현 가능한 컴퓨팅을 위한 확장 가능한 환경입니다. 3.3.0부터 4.5.10 및 4.6.2까지 JupyterLab에서는 설정 편집기의 가져오기 버튼을 사용하여 overrides.json 파일을 통해 노트북 설정을 공유하고 적용할 수 있습니다. packages/notebook-extension/schema/tracker.json 및 packages/notebook-extension/src/index.ts에서 sideBySideLeftMarginOverride 및 sideBySideRightMarginOverride 설정은 스타일 콘텐츠에 삽입되기 전에 제대로 검증되지 않으므로 조작된 설정 파일에 디스플레이 기본 설정만 변경하는 대신 코드로 실행되는 명령이 포함될 수 있습니다. 사용자가 악성 파일을 가져오거나, 공유 설정 위치에 액세스할 수 있는 공격자가 자동으로 적용되는 overrides.json을 심을 수 있습니다. 내장된 코드는 영향을 받는 사용자의 액세스 권한으로 실행되며 노트북과 파일을 읽거나 수정할 수 있고 연결된 k를 포함하여 노트북 서버를 통해 코드를 실행할 수 있습니다.",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -154,7 +154,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "fb58ac6c01a6e6d4d67c760fde8d6b3f6e0ede0ae3f7af007f2a45bef27ba293",
-   "summary_en": ""
+   "summary_en": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k"
   },
   {
    "cve_id": "CVE-2026-72766",
@@ -168,7 +168,7 @@
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.",
+   "summary": "1.123.67 이전의 n8n, 2.31.5 이전의 2.x 및 2.32.1 이전의 2.32.x에는 메시지 필드가 문자열임을 강제하지 않는 Send Email 노드에 유형 혼동 취약점이 포함되어 있습니다. 워크플로 표현식에서 텍스트 또는 HTML 본문 필드로 제공되는 조작된 문자열이 아닌 값은 기본 메일 라이브러리(Nodemailer)에 의해 파일 경로 또는 URL로 해석될 수 있으므로 임의의 로컬 파일 공개 및 서버측 요청 위조(SSRF)가 허용됩니다. 악용하려면 인증되지 않은 웹훅, 노드에 구성된 유효한 SMTP 자격 증명, 본문 필드에 직접 매핑된 신뢰할 수 없는 입력이 포함된 기존 활성 워크플로가 필요합니다. 이는 기본 구성이 아닙니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-2x35-3fw4-9jr4",
    "source": "NVD",
    "ecosystem": "npm",
@@ -176,7 +176,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "ed682bb80fd3005633f2a3161329d51332bfc70c34053cd5cffe2915033a042a",
-   "summary_en": ""
+   "summary_en": "n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration."
   },
   {
    "cve_id": "CVE-2026-8147",
@@ -190,7 +190,7 @@
    "published_date": "20260702",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "MLflow: trace API endpoints lack proper authorization validators In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications.",
+   "summary": "MLflow: 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 3.13.0 이전 MLflow 버전에서는 인증이 활성화된 상태로 실행할 때 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 이를 통해 인증된 사용자는 액세스 권한이 없는 실험에 대한 추적 읽기, 삭제, 수정을 포함하여 모든 추적 작업에 대해 실험 수준 승인 제어를 우회할 수 있습니다. 이 문제는 추적 끝점에 대한 인증 유효성 검사기를 등록하지 않는 `_before_request` 핸들러에서 발생하므로 요청이 유효성 검사 없이 진행됩니다. 이 취약점으로 인해 민감한 데이터가 노출되고, 감사 로그가 파괴되고, 무단 수정이 허용될 수 있습니다.",
    "reference_url": "https://github.com/advisories/GHSA-2cm6-r77w-6g96",
    "source": "OSV+GHSA",
    "ecosystem": "pypi",
@@ -198,7 +198,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211306",
    "content_hash": "04a5c03607e1d091e54d824ff66967e384b9e617d6c6a43a4f0586f0749ef83e",
-   "summary_en": ""
+   "summary_en": "MLflow: trace API endpoints lack proper authorization validators In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications."
   },
   {
    "cve_id": "CVE-2026-72672",
@@ -212,7 +212,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] The Elastic Security capability that suggests existing field values while a user authors endpoint policy artifacts queries Elastic Defend event data with Kibana's internal Elasticsearch account instead of the account of the requesting user. Only Kibana feature privileges are verified, and the caller's Elasticsearch index privileges are not. An authenticated user who holds Elastic Security feature privileges but no read access to the Elastic Defend event indices can therefore retrieve field values from that data, including process command line arguments, which commonly contain tokens, credentials, connection strings, and other sensitive operational detail from protected hosts.",
+   "summary": "[버전범위 불명확] 사용자가 엔드포인트 정책 아티팩트를 작성하는 동안 기존 필드 값을 제안하는 Elastic Security 기능은 요청하는 사용자의 계정 대신 Kibana의 내부 Elasticsearch 계정으로 Elastic Defend 이벤트 데이터를 쿼리합니다. Kibana 기능 권한만 확인되며 호출자의 Elasticsearch 인덱스 권한은 확인되지 않습니다. 따라서 Elastic Security 기능 권한은 있지만 Elastic Defend 이벤트 인덱스에 대한 읽기 액세스 권한이 없는 인증된 사용자는 일반적으로 보호된 호스트의 토큰, 자격 증명, 연결 문자열 및 기타 민감한 운영 세부 정보가 포함된 프로세스 명령줄 인수를 포함하여 해당 데이터에서 필드 값을 검색할 수 있습니다.",
    "reference_url": "https://discuss.elastic.co/t/kibana-9-4-5-security-update-esa-2026-89/389536",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -220,7 +220,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "8348f5a6b75377e66f52d0f27d0642b51bdde0cdcf910307e6478ed51b997857",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] The Elastic Security capability that suggests existing field values while a user authors endpoint policy artifacts queries Elastic Defend event data with Kibana's internal Elasticsearch account instead of the account of the requesting user. Only Kibana feature privileges are verified, and the caller's Elasticsearch index privileges are not. An authenticated user who holds Elastic Security feature privileges but no read access to the Elastic Defend event indices can therefore retrieve field values from that data, including process command line arguments, which commonly contain tokens, credentials, connection strings, and other sensitive operational detail from protected hosts."
   },
   {
    "cve_id": "CVE-2026-4035",
@@ -234,7 +234,7 @@
    "published_date": "20260603",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "A vulnerability in mlflow/mlflow versions prior to 3.11.0 allows for the resolution of environment variables in AI Gateway secrets, which can be exploited to exfiltrate sensitive server-side environment credentials to an attacker-controlled endpoint. This issue arises because the `api_key` field in gateway secrets can accept `$ENV_VAR` references, which are resolved against the MLflow server's environment during runtime. The resolved secrets are then sent in provider authentication headers to the configured upstream `api_base`. This vulnerability can be exploited by low-privileged authenticated users in basic-auth deployments or by unauthenticated users in default deployments without `basic-auth`. The impact includes potential leakage of sensitive credentials such as cloud artifact credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`), which could lead to artifact poisoning and cross-boundary code execution in downstream environments. The issue is fixed in version 3.11.0.",
+   "summary": "3.11.0 이전 mlflow/mlflow 버전의 취약점으로 인해 AI 게이트웨이 비밀의 환경 변수를 확인할 수 있으며, 이를 악용하여 민감한 서버 측 환경 자격 증명을 공격자가 제어하는 ​​엔드포인트로 유출할 수 있습니다. 이 문제는 게이트웨이 비밀의 `api_key` 필드가 런타임 중에 MLflow 서버 환경에 대해 확인되는 `$ENV_VAR` 참조를 허용할 수 있기 때문에 발생합니다. 그런 다음 확인된 비밀은 공급자 인증 헤더에 포함되어 구성된 업스트림 `api_base`로 전송됩니다. 이 취약점은 기본 인증 배포에서 권한이 낮은 인증된 사용자 또는 '기본 인증'이 없는 기본 배포에서 인증되지 않은 사용자가 악용할 수 있습니다. 영향에는 클라우드 아티팩트 자격 증명(`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)과 같은 민감한 자격 증명의 잠재적 유출이 포함되며, 이로 인해 다운스트림 환경에서 아티팩트 중독 및 경계 간 코드 실행이 발생할 수 있습니다. 이 문제는 버전 3.11.0에서 해결되었습니다.",
    "reference_url": "https://github.com/mlflow/mlflow/commit/4a3f2f720cb4f058c9e0c5b883e0acc9ab64a7f3",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -242,7 +242,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "e8952f5bf7b128d7a3eb33a0cf734b78320b8fdba228f4d52890b2972a4f5b49",
-   "summary_en": ""
+   "summary_en": "A vulnerability in mlflow/mlflow versions prior to 3.11.0 allows for the resolution of environment variables in AI Gateway secrets, which can be exploited to exfiltrate sensitive server-side environment credentials to an attacker-controlled endpoint. This issue arises because the `api_key` field in gateway secrets can accept `$ENV_VAR` references, which are resolved against the MLflow server's environment during runtime. The resolved secrets are then sent in provider authentication headers to the configured upstream `api_base`. This vulnerability can be exploited by low-privileged authenticated users in basic-auth deployments or by unauthenticated users in default deployments without `basic-auth`. The impact includes potential leakage of sensitive credentials such as cloud artifact credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`), which could lead to artifact poisoning and cross-boundary code execution in downstream environments. The issue is fixed in version 3.11.0."
   },
   {
    "cve_id": "CVE-2026-68968",
@@ -256,7 +256,7 @@
    "published_date": "20260812",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Apache Airflow's Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic's `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag's queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.",
+   "summary": "Apache Airflow의 Backfill API는 `backfill_id` 경로 세그먼트가 구문 분석에 실패할 때마다 호출자가 제공한 Dag ID에 대한 요청을 승인했습니다. 권한 부여 종속성은 이를 `int()`로 구문 분석하는 반면 경로 핸들러는 이를 `int()` 값을 허용하는 pydantic의 `NonNegativeInt`로 구문 분석합니다(`1.0`은 `1`로 강제 변환). FastAPI는 엔드포인트 유효성 검사 전에 종속성을 해결하므로 두 가지가 서로 다른 Dags에서 작동했습니다. 따라서 단일 Dag에 대한 편집 권한을 보유한 인증된 사용자는 다른 Dag의 대기 중인 실행을 '실패'로 이동하는 것을 포함하여 다른 Dag에 속한 백필을 읽고, 일시 중지하고, 취소할 수 있습니다. 기본이 아닌 구성은 필요하지 않으며 백필 ID는 순차적이므로 대상을 찾는 것이 쉽습니다. 사용자는 경로가 선언하는 것과 동일한 유형으로 백필 ID를 구문 분석하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70889",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -264,7 +264,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "f52aae4bf87fd60d62216f32e3b04eecbbe638e01923424ec7026493a5c9afc3",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic's `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag's queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare."
   },
   {
    "cve_id": "CVE-2026-45804",
@@ -278,7 +278,7 @@
    "published_date": "20260715",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "Diffusers is the a library for pretrained diffusion models. Prior to 0.38.0, Diffusers' DiffusionPipeline.from_pretrained flow can bypass the trust_remote_code guard because download() validates model_index.json and custom pipeline code before later loading from a cached folder that can change, allowing a Hub repository with custom .py pipeline code to execute through the custom pipeline flow without passing custom_pipeline or trust_remote_code=True. This issue is fixed in version 0.38.0.",
+   "summary": "Diffusers는 사전 훈련된 확산 모델을 위한 라이브러리입니다. 0.38.0 이전에는 Diffusers의 DiffusionPipeline.from_pretrained 흐름이 trust_remote_code 가드를 우회할 수 있습니다. download()는 나중에 변경할 수 있는 캐시된 폴더에서 로드하기 전에 model_index.json 및 사용자 정의 파이프라인 코드를 검증하여 사용자 정의 .py 파이프라인 코드가 있는 허브 저장소가 custom_pipeline 또는 trust_remote_code=True를 전달하지 않고도 사용자 정의 파이프라인 흐름을 통해 실행될 수 있도록 하기 때문입니다. 이 문제는 버전 0.38.0에서 해결되었습니다.",
    "reference_url": "https://github.com/huggingface/diffusers/commit/a37f6f8394ac2a7ee8360c3abea811efe54512b1",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -286,7 +286,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "372941f3167fdff749191cba7e8d479b35aad8a75516b7b4ca62df59c3d3d139",
-   "summary_en": ""
+   "summary_en": "Diffusers is the a library for pretrained diffusion models. Prior to 0.38.0, Diffusers' DiffusionPipeline.from_pretrained flow can bypass the trust_remote_code guard because download() validates model_index.json and custom pipeline code before later loading from a cached folder that can change, allowing a Hub repository with custom .py pipeline code to execute through the custom pipeline flow without passing custom_pipeline or trust_remote_code=True. This issue is fixed in version 0.38.0."
   },
   {
    "cve_id": "CVE-2026-68968",
@@ -300,7 +300,7 @@
    "published_date": "20260812",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Apache Airflow's Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic's `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag's queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.",
+   "summary": "Apache Airflow의 Backfill API는 `backfill_id` 경로 세그먼트가 구문 분석에 실패할 때마다 호출자가 제공한 Dag ID에 대한 요청을 승인했습니다. 권한 부여 종속성은 이를 `int()`로 구문 분석하는 반면 경로 핸들러는 이를 `int()` 값을 허용하는 pydantic의 `NonNegativeInt`로 구문 분석합니다(`1.0`은 `1`로 강제 변환). FastAPI는 엔드포인트 유효성 검사 전에 종속성을 해결하므로 두 가지가 서로 다른 Dags에서 작동했습니다. 따라서 단일 Dag에 대한 편집 권한을 보유한 인증된 사용자는 다른 Dag의 대기 중인 실행을 '실패'로 이동하는 것을 포함하여 다른 Dag에 속한 백필을 읽고, 일시 중지하고, 취소할 수 있습니다. 기본이 아닌 구성은 필요하지 않으며 백필 ID는 순차적이므로 대상을 찾는 것이 쉽습니다. 사용자는 경로가 선언하는 것과 동일한 유형으로 백필 ID를 구문 분석하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70889",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -308,7 +308,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "f52aae4bf87fd60d62216f32e3b04eecbbe638e01923424ec7026493a5c9afc3",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic's `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag's queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare."
   },
   {
    "cve_id": "CVE-2026-25990",
@@ -366,7 +366,7 @@
    "published_date": "20260717",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.3.0 and 7.0.0-alpha03, ByteArrayProtoReader32.skipGroup() and ProtoReader.skipGroup() in wire-runtime do not validate that a LENGTH_DELIMITED field length is non-negative before skip(), allowing a crafted protobuf varint encoding -128 as a signed Int to make skip(-128) move the internal position negative and make the next readByte() throw ArrayIndexOutOfBoundsException instead of the documented IOException or ProtocolException, which can crash services using ProtoAdapter.decode(byte[]) on untrusted payloads. This issue is fixed in versions 6.3.0 and 7.0.0-alpha03.",
+   "summary": "Wire는 Android, Kotlin, Swift, Java용 gRPC 및 프로토콜 버퍼를 제공합니다. 6.3.0 및 7.0.0-alpha03 이전에는 wire-runtime의 ByteArrayProtoReader32.skipGroup() 및 ProtoReader.skipGroup()이 Skip() 이전에 LENGTH_DELIMITED 필드 길이가 음수가 아닌지 확인하지 않으므로, 제작된 protobuf varint 인코딩 -128을 서명된 Int로 허용하여 Skip(-128)이 내부 위치를 음수로 이동하고 다음 readByte()는 신뢰할 수 없는 페이로드에서 ProtoAdapter.decode(byte[])를 사용하여 서비스를 중단시킬 수 있는 문서화된 IOException 또는 ProtocolException 대신 ArrayIndexOutOfBoundsException을 발생시킵니다. 이 문제는 버전 6.3.0 및 7.0.0-alpha03에서 해결되었습니다.",
    "reference_url": "https://github.com/square/wire/commit/47d5b0dba53935d5332cd41a80a353b3fc90e7b0",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -374,7 +374,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "8d9d3f28521ee369bc0530c8ea4fb30788c40ff76b66af0add38c83f2cb8a2ad",
-   "summary_en": ""
+   "summary_en": "Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.3.0 and 7.0.0-alpha03, ByteArrayProtoReader32.skipGroup() and ProtoReader.skipGroup() in wire-runtime do not validate that a LENGTH_DELIMITED field length is non-negative before skip(), allowing a crafted protobuf varint encoding -128 as a signed Int to make skip(-128) move the internal position negative and make the next readByte() throw ArrayIndexOutOfBoundsException instead of the documented IOException or ProtocolException, which can crash services using ProtoAdapter.decode(byte[]) on untrusted payloads. This issue is fixed in versions 6.3.0 and 7.0.0-alpha03."
   },
   {
    "cve_id": "CVE-2026-44289",
@@ -388,7 +388,7 @@
    "published_date": "20260513",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "protobufjs compiles protobuf definitions into JavaScript (JS) functions. Prior to 7.5.6 and 8.0.2, protobufjs could recurse without a depth limit while decoding nested protobuf data. This affected both skipping unknown group fields and generated decoding of nested message fields. A crafted protobuf binary payload could cause the JavaScript call stack to be exhausted during decoding. This vulnerability is fixed in 7.5.6 and 8.0.2.",
+   "summary": "protobufjs는 protobuf 정의를 JavaScript(JS) 함수로 컴파일합니다. 7.5.6 및 8.0.2 이전에는 protobufjs가 중첩된 protobuf 데이터를 디코딩하는 동안 깊이 제한 없이 반복될 수 있었습니다. 이는 알 수 없는 그룹 필드 건너뛰기와 중첩된 메시지 필드의 생성된 디코딩 모두에 영향을 미쳤습니다. 제작된 protobuf 바이너리 페이로드로 인해 디코딩 중에 JavaScript 호출 스택이 소진될 수 있습니다. 이 취약점은 7.5.6 및 8.0.2에서 수정되었습니다.",
    "reference_url": "https://github.com/protobufjs/protobuf.js/security/advisories/GHSA-685m-2w69-288q",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -396,7 +396,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "e0c9e688d094fb9d932caaed67ff88add549b52a48244e3eb20af11c6aa332c3",
-   "summary_en": ""
+   "summary_en": "protobufjs compiles protobuf definitions into JavaScript (JS) functions. Prior to 7.5.6 and 8.0.2, protobufjs could recurse without a depth limit while decoding nested protobuf data. This affected both skipping unknown group fields and generated decoding of nested message fields. A crafted protobuf binary payload could cause the JavaScript call stack to be exhausted during decoding. This vulnerability is fixed in 7.5.6 and 8.0.2."
   },
   {
    "cve_id": "CVE-2026-67260",
@@ -410,7 +410,7 @@
    "published_date": "20260812",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new `awaiting_input` task state swept by the scheduler. That sweep deserializes the task instance's `next_kwargs` without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an arbitrary module import and object instantiation inside the scheduler process, or terminate the scheduler job. No non-default configuration is required: the sweep runs unconditionally every 15 seconds, and the default `allowed_deserialization_classes` setting does not cover this code path. Versions before 3.3.0 are not affected, because human-in-the-loop tasks deferred onto the triggerer instead. This is a different code path from CVE-2026-58076, which covers the same unguarded exception-node deserialization reached elsewhere — deployments that applied that fix must upgrade for this issue as well. Users are advised to upgrade to apache-airflow 3.3.1 or later.",
+   "summary": "Apache Airflow 3.3.0은 인간 참여 루프(Human-In-The-Loop) 작업을 트리거러에서 스케줄러가 스윕하는 새로운 `awaiting_input` 작업 상태로 이동했습니다. 이러한 스윕은 허용 목록 없이 작업 인스턴스의 'next_kwargs'를 역직렬화하므로 작업 실행 API를 통해 해당 값을 제어하는 ​​Dag 작성자는 스케줄러 프로세스 내에서 임의 모듈 가져오기 및 객체 인스턴스화를 유발하거나 스케줄러 작업을 종료할 수 있습니다. 기본 구성이 아닌 구성은 필요하지 않습니다. 스윕은 15초마다 무조건 실행되며 기본 'allowed_deserialization_classes' 설정은 이 코드 경로를 다루지 않습니다. 3.3.0 이전 버전은 인간이 개입하는 작업이 트리거러에 연기되므로 영향을 받지 않습니다. 이는 다른 곳에서 발생한 동일한 보호되지 않은 예외 노드 역직렬화를 다루는 CVE-2026-58076과는 다른 코드 경로입니다. 해당 수정 사항을 적용한 배포도 이 문제에 대해 업그레이드해야 합니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70685",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -418,7 +418,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "81aacbeb6813b8813e5f6f925163cc9114f7c634cb301f2a980594f29b055391",
-   "summary_en": ""
+   "summary_en": "Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new `awaiting_input` task state swept by the scheduler. That sweep deserializes the task instance's `next_kwargs` without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an arbitrary module import and object instantiation inside the scheduler process, or terminate the scheduler job. No non-default configuration is required: the sweep runs unconditionally every 15 seconds, and the default `allowed_deserialization_classes` setting does not cover this code path. Versions before 3.3.0 are not affected, because human-in-the-loop tasks deferred onto the triggerer instead. This is a different code path from CVE-2026-58076, which covers the same unguarded exception-node deserialization reached elsewhere — deployments that applied that fix must upgrade for this issue as well. Users are advised to upgrade to apache-airflow 3.3.1 or later."
   },
   {
    "cve_id": "CVE-2026-59714",
@@ -432,7 +432,7 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 before 0.10.0, any authenticated user can overwrite the content of a message in a channel they do not belong to (including private and DM channels) by sending a chat completion request with a channel:-prefixed chat_id and a target message_id. The channel: path routes pipeline output through _make_channel_emitter, which writes to the Messages table using the caller-supplied message_id without binding it to the channel. This issue is fixed in version 0.10.0.",
+   "summary": "Open WebUI는 확장 가능하고 기능이 풍부하며 사용자 친화적인 자체 호스팅 AI 플랫폼입니다. 0.9.5부터 0.10.0까지 인증된 사용자는 채널: 접두사가 붙은 chat_id 및 대상 message_id를 사용하여 채팅 완료 요청을 보내 자신이 속하지 않은 채널(개인 및 DM 채널 포함)에서 메시지 내용을 덮어쓸 수 있습니다. 채널: 경로는 채널에 바인딩하지 않고 호출자가 제공한 message_id를 사용하여 메시지 테이블에 쓰는 _make_channel_emitter를 통해 파이프라인 출력을 라우팅합니다. 이 문제는 버전 0.10.0에서 해결되었습니다.",
    "reference_url": "https://github.com/open-webui/open-webui/commit/ac3449cac91e62b08a7c28e54fcd044d14dea791",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -440,7 +440,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "97fc52e5cdd6964c0941950655e02af8eaf54c320da0771123c2a96cfb90b27b",
-   "summary_en": ""
+   "summary_en": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 before 0.10.0, any authenticated user can overwrite the content of a message in a channel they do not belong to (including private and DM channels) by sending a chat completion request with a channel:-prefixed chat_id and a target message_id. The channel: path routes pipeline output through _make_channel_emitter, which writes to the Messages table using the caller-supplied message_id without binding it to the channel. This issue is fixed in version 0.10.0."
   },
   {
    "cve_id": "CVE-2026-72771",
@@ -454,7 +454,7 @@
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.",
+   "summary": "2.32.1 이전의 n8n 버전은 사용자가 제공한 기본 또는 엔드포인트 URL이 구성된 경우 여러 AI 및 LLM 노드에서 허용된 HTTP 요청 도메인 허용 목록을 적용하지 못합니다. 공유 자격 증명에 대한 사용 전용 액세스 권한이 있는 낮은 권한의 워크플로 편집자는 공격자가 제어하는 ​​호스트로 요청을 리디렉션하고 기본 서비스에 재사용하기 위해 자격 증명 비밀을 유출할 수 있습니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-64xh-79j6-r5v8",
    "source": "NVD",
    "ecosystem": "npm",
@@ -462,7 +462,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "bda9b58f40089f689f1fe5dc52321ea9443ebb176f5baba1f301d4176cb6d32c",
-   "summary_en": ""
+   "summary_en": "n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services."
   },
   {
    "cve_id": "CVE-2026-73415",
@@ -476,7 +476,7 @@
    "published_date": "20260722",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "JupyterLab's image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```",
+   "summary": "JupyterLab의 이미지 뷰어는 특별히 제작된 이미지 파일을 이미지 뷰어를 통해 연 다음 새 탭에서 열 때 XSS(교차 사이트 스크립팅)를 허용합니다. 이 XSS 문제는 JupyterLab 서버에서 원격 코드 실행(RCE)을 유발하는 데 사용될 수 있습니다. ### 영향 이 취약점으로 인해 임의 코드 실행이 허용됩니다. ### 패치 JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) 및 [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10)에는 패치가 포함되어 있습니다. ### 해결 방법 이미지 뷰어 플러그인을 비활성화합니다. ``` jupyter labextension 비활성화 @jupyterlab/imageviewer-extension:plugin ``` 확인: ``` jupyter labextension list ```",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-gx64-gj6p-pc4c",
    "source": "OSV",
    "ecosystem": "pypi",
@@ -484,7 +484,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211215",
    "content_hash": "5bf371c1f6044ee3c134d07dd14c135937aba2ea36790209e6ac3f560688e862",
-   "summary_en": ""
+   "summary_en": "JupyterLab's image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```"
   },
   {
    "cve_id": "CVE-2026-72749",
@@ -498,7 +498,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact The Edit Fields (Set) node assigned output fields through a dot-notation path setter without restricting the field name, so an authenticated user could name a field after an inherited built-in method path and corrupt a shared global in the main Node.js process. Because that global was used on the request-authentication path, the instance then failed every authenticated request, causing a instance-wide denial of service for all users until the process was restarted. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or restrict workflow creation and execution permissions for untrusted users. - Monitor for unexpected process-wide HTTP 500 errors and restart the process p",
+   "summary": "## 영향 Edit Fields (Set) 노드는 필드 이름을 제한하지 않고 점 표기법 경로 설정기를 통해 출력 필드를 할당했기 때문에 인증된 사용자는 상속된 내장 메서드 경로를 따라 필드 이름을 지정하고 기본 Node.js 프로세스에서 공유 전역을 손상시킬 수 있습니다. 해당 전역이 요청 인증 경로에 사용되었기 때문에 인스턴스는 인증된 모든 요청에 ​​실패했으며 프로세스가 다시 시작될 때까지 모든 사용자에 대해 인스턴스 전체 서비스 거부가 발생했습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 신뢰할 수 없는 사용자에 대한 워크플로 생성 및 실행 권한을 비활성화하거나 제한합니다. - 예상치 못한 프로세스 전체 HTTP 500 오류를 모니터링하고 프로세스를 다시 시작합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-xwx6-jjhv-84p8",
    "source": "OSV",
    "ecosystem": "npm",
@@ -506,7 +506,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "ad8dee88da2fdab78539d2bebb74eef109ed88723477fa472e9f4ac20f8d9cfc",
-   "summary_en": ""
+   "summary_en": "## Impact The Edit Fields (Set) node assigned output fields through a dot-notation path setter without restricting the field name, so an authenticated user could name a field after an inherited built-in method path and corrupt a shared global in the main Node.js process. Because that global was used on the request-authentication path, the instance then failed every authenticated request, causing a instance-wide denial of service for all users until the process was restarted. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or restrict workflow creation and execution permissions for untrusted users. - Monitor for unexpected process-wide HTTP 500 errors and restart the process p"
   },
   {
    "cve_id": "CVE-2026-72762",
@@ -520,7 +520,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact The n8n Edit Image node passed its output format to the underlying image library without validation, so a crafted value could write bytes to a location outside the node's working directory. An authenticated user able to run workflows could use this to write arbitrary files in the n8n instance. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Edit Image node by adding `n8n-nodes-base.editImage` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+   "summary": "## 영향 n8n Edit Image 노드는 검증 없이 출력 형식을 기본 이미지 라이브러리에 전달했으므로 조작된 값이 노드의 작업 디렉터리 외부 위치에 바이트를 쓸 수 있었습니다. 워크플로를 실행할 수 있는 인증된 사용자는 이를 사용하여 n8n 인스턴스에 임의의 파일을 쓸 수 있습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.editImage`를 추가하여 이미지 편집 노드를 비활성화합니다. 이러한 해결 방법은 위험을 완전히 해결하지 못하므로 단기 완화 조치로만 사용해야 합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-xmc9-4f2h-jf9c",
    "source": "OSV",
    "ecosystem": "npm",
@@ -528,7 +528,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "5a7d685b291a5821421e82c1f6c637058172cc188c5bbe89ac1eb0d32ba2557c",
-   "summary_en": ""
+   "summary_en": "## Impact The n8n Edit Image node passed its output format to the underlying image library without validation, so a crafted value could write bytes to a location outside the node's working directory. An authenticated user able to run workflows could use this to write arbitrary files in the n8n instance. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Edit Image node by adding `n8n-nodes-base.editImage` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures."
   },
   {
    "cve_id": "CVE-2026-72763",
@@ -542,7 +542,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact n8n's credential-access checks validated only a node's top-level credentials, not credentials referenced inside an Execute Sub-workflow node's inline workflow JSON. A member with editor access to a shared workflow could reference a credential they were not permitted to use inside that inline JSON; it passed both save-time and runtime validation and resolved in the parent workflow's project context, letting the member use or exfiltrate a credential they could not otherwise access. Exploitation requires workflow sharing to be enabled and the attacker to have been explicitly granted Editor access to a shared workflow. The attacker must also know the target credential's ID. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict workfl",
+   "summary": "## 영향 n8n의 자격 증명 액세스 검사에서는 하위 워크플로 실행 노드의 인라인 워크플로 JSON 내에서 참조되는 자격 증명이 아닌 노드의 최상위 자격 증명만 검증했습니다. 공유 워크플로에 대한 편집자 액세스 권한이 있는 구성원은 해당 인라인 JSON 내에서 사용이 허용되지 않은 자격 증명을 참조할 수 있습니다. 이는 저장 시간과 런타임 검증을 모두 통과했으며 상위 워크플로의 프로젝트 컨텍스트에서 해결되어 구성원이 다른 방법으로는 액세스할 수 없었던 자격 증명을 사용하거나 추출할 수 있게 되었습니다. 악용하려면 작업 흐름 공유가 활성화되어야 하며 공격자에게 공유 작업 흐름에 대한 편집자 액세스 권한이 명시적으로 부여되어야 합니다. 공격자는 대상 자격 증명의 ID도 알아야 합니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 작업 제한",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-cj9h-qx8g-pq2g",
    "source": "OSV",
    "ecosystem": "npm",
@@ -550,7 +550,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "ef6f97e8707dc58d98649d88b71a886fa3580f4b26c671f787d8a4578cde5926",
-   "summary_en": ""
+   "summary_en": "## Impact n8n's credential-access checks validated only a node's top-level credentials, not credentials referenced inside an Execute Sub-workflow node's inline workflow JSON. A member with editor access to a shared workflow could reference a credential they were not permitted to use inside that inline JSON; it passed both save-time and runtime validation and resolved in the parent workflow's project context, letting the member use or exfiltrate a credential they could not otherwise access. Exploitation requires workflow sharing to be enabled and the attacker to have been explicitly granted Editor access to a shared workflow. The attacker must also know the target credential's ID. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict workfl"
   },
   {
    "cve_id": "CVE-2026-72765",
@@ -564,7 +564,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact An authenticated user with permission to create or modify workflows could abuse crafted expressions using arrow functions to bypass the expression sandbox, triggering unintended system command execution on the host running n8n. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Restrict workflow creation and editing permissions to fully trusted users only. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+   "summary": "## 영향 워크플로를 생성하거나 수정할 권한이 있는 인증된 사용자는 화살표 기능을 사용하여 조작된 표현식을 남용하여 표현식 샌드박스를 우회하여 n8n을 실행하는 호스트에서 의도하지 않은 시스템 명령 실행을 트리거할 수 있습니다. ## 패치 이 문제는 n8n 버전 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 완전히 신뢰할 수 있는 사용자에게만 워크플로 생성 및 편집 권한을 제한합니다. 이러한 해결 방법은 위험을 완전히 해결하지 못하므로 단기 완화 조치로만 사용해야 합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-gv7g-jm28-cr3m",
    "source": "OSV",
    "ecosystem": "npm",
@@ -572,7 +572,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "2b6d8b23cee4b58ec220ef60e474ae64e73e282d0a485ce75259d051b7d3a835",
-   "summary_en": ""
+   "summary_en": "## Impact An authenticated user with permission to create or modify workflows could abuse crafted expressions using arrow functions to bypass the expression sandbox, triggering unintended system command execution on the host running n8n. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Restrict workflow creation and editing permissions to fully trusted users only. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures."
   },
   {
    "cve_id": "CVE-2026-72767",
@@ -586,7 +586,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact Authenticated n8n users with rights to create and execute workflows could achieve code execution on the n8n host. Using the Git node, under the default `git` security settings, by staging a crafted local repository, an attacker could cause `git` to run hooks, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected where authenticated users can create and execute workflows using the Git node. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n instance to limit the impact of arbitrary code executio",
+   "summary": "## 영향 워크플로를 생성하고 실행할 수 있는 권한이 있는 인증된 n8n 사용자는 n8n 호스트에서 코드를 실행할 수 있습니다. 기본 `git` 보안 설정에서 Git 노드를 사용하여 조작된 로컬 저장소를 준비함으로써 공격자는 n8n 프로세스 사용자로 임의 명령을 실행하여 `git`이 후크를 실행하도록 할 수 있습니다. 인증된 사용자가 Git 노드를 사용하여 워크플로를 생성하고 실행할 수 있는 경우 자체 호스팅 인스턴스와 클라우드 인스턴스 모두 영향을 받습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.git`을 추가하여 Git 노드를 비활성화합니다. - 임의 코드 실행의 영향을 제한하기 위해 n8n 인스턴스에서 네트워크 송신을 제한합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-rcv6-pvrj-4xcg",
    "source": "OSV",
    "ecosystem": "npm",
@@ -594,7 +594,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "560a07e31630b60fd6ee35871f3c6095159cf89bfab9d08121031f3d00afafdd",
-   "summary_en": ""
+   "summary_en": "## Impact Authenticated n8n users with rights to create and execute workflows could achieve code execution on the n8n host. Using the Git node, under the default `git` security settings, by staging a crafted local repository, an attacker could cause `git` to run hooks, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected where authenticated users can create and execute workflows using the Git node. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n instance to limit the impact of arbitrary code executio"
   },
   {
    "cve_id": "CVE-2026-72770",
@@ -608,7 +608,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact Authenticated n8n users with workflow create/execute rights could use the Git node's fetch, pull, or push-tags operations to bypass the repository-path containment checks that already protected clone and push. By pointing an allowlisted remote configuration value at a local path outside the intended sandbox, an attacker could pull an arbitrary local git repository into the workspace and subsequently read its files and history. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measure",
+   "summary": "## 영향 워크플로 생성/실행 권한이 있는 인증된 n8n 사용자는 Git 노드의 가져오기, 가져오기 또는 푸시 태그 작업을 사용하여 이미 복제 및 푸시를 보호하는 저장소 경로 포함 확인을 우회할 수 있습니다. 공격자는 의도된 샌드박스 외부의 로컬 경로에서 허용 목록에 있는 원격 구성 값을 가리켜 임의의 로컬 Git 저장소를 작업 공간으로 가져온 다음 해당 파일과 기록을 읽을 수 있습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.git`을 추가하여 Git 노드를 비활성화합니다. 이러한 해결 방법은 위험을 완전히 해결하지 못하므로 단기 완화 조치로만 사용해야 합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-gf29-4f56-r2jf",
    "source": "OSV",
    "ecosystem": "npm",
@@ -616,7 +616,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "fda9432dc6d9be1ceeb4324dc44f6f40fbe6c510000d53557091e5c47806b2e0",
-   "summary_en": ""
+   "summary_en": "## Impact Authenticated n8n users with workflow create/execute rights could use the Git node's fetch, pull, or push-tags operations to bypass the repository-path containment checks that already protected clone and push. By pointing an allowlisted remote configuration value at a local path outside the intended sandbox, an attacker could pull an arbitrary local git repository into the workspace and subsequently read its files and history. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measure"
   },
   {
    "cve_id": "CVE-2026-72772",
@@ -630,7 +630,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact In an n8n instance, when a validly-signed incoming token was matched to a local account by its email claim, the service did not check that the trusted key's permitted role ceiling covered that account, nor that the email claim was verified. As a result, anyone able to obtain a token accepted by one of the configured trusted keys, for example a trusted issuer that emitted unverified email addresses, could authenticate as any existing user, gaining full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured. ## Patches The issue has been fixed in n8n version 2.32.1. Users should upgrade to this version or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Disable the embed login feature by setting `N8N_TOKEN_EXCHANGE_ENABLED=false`. - If embed login cannot be disabled, restrict ne",
+   "summary": "## 영향 n8n 인스턴스에서 유효하게 서명된 수신 토큰이 이메일 청구를 통해 로컬 계정과 일치했을 때 서비스는 신뢰할 수 있는 키의 허용된 역할 한도가 해당 계정에 적용되는지 또는 이메일 청구가 확인되었는지 확인하지 않았습니다. 결과적으로 구성된 신뢰할 수 있는 키 중 하나에서 허용하는 토큰을 얻을 수 있는 사람(예: 확인되지 않은 이메일 주소를 생성한 신뢰할 수 있는 발급자)은 누구나 기존 사용자로 인증하여 전체 계정 제어권을 얻을 수 있습니다. 이 문제는 내장된 로그인 기능이 활성화되어 있고 하나 이상의 신뢰할 수 있는 키 소스가 구성된 인스턴스에만 영향을 미칩니다. ## 패치 이 문제는 n8n 버전 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자가 이 버전 이상으로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - `N8N_TOKEN_EXCHANGE_ENABLED=false`를 설정하여 내장 로그인 기능을 비활성화합니다. - 로그인 삽입을 비활성화할 수 없는 경우에는 로그인을 제한하세요.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-8342-988q-86cr",
    "source": "OSV",
    "ecosystem": "npm",
@@ -638,7 +638,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "4602b348c08b49155147b14e5928333e8f58bf9d1df53aafc0a61a5cb5b99fff",
-   "summary_en": ""
+   "summary_en": "## Impact In an n8n instance, when a validly-signed incoming token was matched to a local account by its email claim, the service did not check that the trusted key's permitted role ceiling covered that account, nor that the email claim was verified. As a result, anyone able to obtain a token accepted by one of the configured trusted keys, for example a trusted issuer that emitted unverified email addresses, could authenticate as any existing user, gaining full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured. ## Patches The issue has been fixed in n8n version 2.32.1. Users should upgrade to this version or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Disable the embed login feature by setting `N8N_TOKEN_EXCHANGE_ENABLED=false`. - If embed login cannot be disabled, restrict ne"
   },
   {
    "cve_id": "CVE-2026-72774",
@@ -652,7 +652,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact An authenticated member with edit access to a shared workflow could reference another user's credential in an HTTP Request node while specifying the credential type through an expression. Because the pre-execution permission check compared the unresolved expression instead of the real credential type, the ownership check was skipped and the credential was loaded at execution time, letting the member use or exfiltrate a credential they were never granted. Exploitation required knowing the target credential's identifier. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Exclude the HTTP Request node by adding `n8n-nodes-base.httpRequest` to the `NODES_EXCLUDE` environment varia",
+   "summary": "## 영향 공유 워크플로에 대한 편집 액세스 권한이 있는 인증된 구성원은 표현식을 통해 자격 증명 유형을 지정하는 동안 HTTP 요청 노드에서 다른 사용자의 자격 증명을 참조할 수 있습니다. 실행 전 권한 확인에서는 실제 자격 증명 유형이 아닌 확인되지 않은 표현식을 비교했기 때문에 소유권 확인을 건너뛰고 실행 시 자격 증명을 로드하여 구성원이 부여되지 않은 자격 증명을 사용하거나 유출할 수 있게 했습니다. 악용하려면 대상 자격 증명의 식별자를 알아야 합니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.httpRequest`를 추가하여 HTTP 요청 노드를 제외합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-6qc9-mqvw-jg7x",
    "source": "OSV",
    "ecosystem": "npm",
@@ -660,7 +660,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "808f5155b0dcbf80aa14f63067fd62d797088a61d56ba19bc7f1511cb41d21f0",
-   "summary_en": ""
+   "summary_en": "## Impact An authenticated member with edit access to a shared workflow could reference another user's credential in an HTTP Request node while specifying the credential type through an expression. Because the pre-execution permission check compared the unresolved expression instead of the real credential type, the ownership check was skipped and the credential was loaded at execution time, letting the member use or exfiltrate a credential they were never granted. Exploitation required knowing the target credential's identifier. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Exclude the HTTP Request node by adding `n8n-nodes-base.httpRequest` to the `NODES_EXCLUDE` environment varia"
   },
   {
    "cve_id": "CVE-2026-27765",
@@ -674,7 +674,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Improper input validation for some vLLM Hardware Plugin for Intel(R) Gaudi(R) software before version 0.16.0 within Ring 3: User Applications may allow a denial of service. Authorized adversary with an authenticated user combined with a low complexity attack may enable denial of service. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires no user interaction. The potential vulnerability may impact the confidentiality (none), integrity (none) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.",
+   "summary": "[버전범위 불명확] 링 3 내에서 버전 0.16.0 이전 Intel(R) Gaudi(R) 소프트웨어용 일부 vLLM 하드웨어 플러그인에 대한 잘못된 입력 검증: 사용자 애플리케이션이 서비스 거부를 허용할 수 있습니다. 인증된 사용자를 사용하는 승인된 공격자와 복잡성이 낮은 공격이 결합되어 서비스 거부가 발생할 수 있습니다. 이 결과는 특별한 내부 지식 없이 공격 요구 사항이 존재하지 않고 사용자 상호 작용이 필요하지 않은 경우 로컬 액세스를 통해 잠재적으로 발생할 수 있습니다. 잠재적 취약성은 취약한 시스템의 기밀성(없음), 무결성(없음) 및 가용성(높음)에 영향을 미쳐 후속 시스템 기밀성(없음), 무결성(없음) 및 가용성(없음)에 영향을 미칠 수 있습니다.",
    "reference_url": "https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01487.html",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -682,7 +682,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "7b83cac5906b8cdcd8cc333ed59fcc9e3155a4896a43af75a55bfdd28daad108",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Improper input validation for some vLLM Hardware Plugin for Intel(R) Gaudi(R) software before version 0.16.0 within Ring 3: User Applications may allow a denial of service. Authorized adversary with an authenticated user combined with a low complexity attack may enable denial of service. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires no user interaction. The potential vulnerability may impact the confidentiality (none), integrity (none) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts."
   },
   {
    "cve_id": "CVE-2026-49296",
@@ -696,7 +696,7 @@
    "published_date": "20260707",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "apache-airflow DAG source authorization bypass exposes co-located DAG source Before apache-airflow 3.3.0, a user authorized to read one Dag could disclose the source of other Dags co-located in the same source file. `GET /api/v2/dagSources/{dag_id}` — and the equivalent Dag-source view in the UI — returned the entire source file without redacting Dags the caller was not authorized to read, bypassing per-DAG read authorization. Deployments that co-locate multiple Dags in a single file and rely on per-DAG access control to limit source visibility are affected; single-Dag-per-file deployments are not. Upgrade to apache-airflow 3.3.0 or later.",
+   "summary": "apache-airflow DAG 소스 권한 부여 우회는 함께 배치된 DAG 소스를 노출합니다. apache-airflow 3.3.0 이전에는 하나의 Dag를 읽을 권한이 있는 사용자가 동일한 소스 파일에 함께 배치된 다른 Dags의 소스를 공개할 수 있었습니다. `GET /api/v2/dagSources/{dag_id}` — 및 UI의 동등한 Dag 소스 보기 — 호출자가 읽을 권한이 없는 Dags를 수정하지 않고 전체 소스 파일을 반환했으며, DAG별 읽기 권한을 우회했습니다. 단일 파일에 여러 Dag를 함께 배치하고 DAG별 액세스 제어를 사용하여 소스 가시성을 제한하는 배포가 영향을 받습니다. 파일당 단일 Dag 배포는 그렇지 않습니다. apache-airflow 3.3.0 이상으로 업그레이드하세요.",
    "reference_url": "https://github.com/advisories/GHSA-4fh7-7jx4-8f6c",
    "source": "OSV+GHSA",
    "ecosystem": "pypi",
@@ -704,7 +704,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211702",
    "content_hash": "49c121898e47ed7a451c12aba74f33e193f7956e470a03937e51b6145c995068",
-   "summary_en": ""
+   "summary_en": "apache-airflow DAG source authorization bypass exposes co-located DAG source Before apache-airflow 3.3.0, a user authorized to read one Dag could disclose the source of other Dags co-located in the same source file. `GET /api/v2/dagSources/{dag_id}` — and the equivalent Dag-source view in the UI — returned the entire source file without redacting Dags the caller was not authorized to read, bypassing per-DAG read authorization. Deployments that co-locate multiple Dags in a single file and rely on per-DAG access control to limit source visibility are affected; single-Dag-per-file deployments are not. Upgrade to apache-airflow 3.3.0 or later."
   },
   {
    "cve_id": "CVE-2026-59244",
@@ -718,7 +718,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task's Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type.",
+   "summary": "Apache Airflow의 비밀 마스커는 렌더링된 템플릿 UI에서 값이 dict인 'var.json' 변수 값을 마스킹하지 않았습니다. dict 값이 'isinstance(str)' 가드에 실패했습니다. 따라서 JSON 변수로 저장되고 'var.json'을 통해 템플릿에서 참조된 비밀은 해당 작업의 렌더링된 템플릿 보기에 액세스할 수 있는 모든 사용자에게 일반 텍스트로 표시되었습니다. 사용자는 유형에 관계없이 중첩된 변수 값을 마스킹하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/68975",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -726,7 +726,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "2485e83395d6f3cc485e0b78b3824ec7c28fb4bbde45abbb091a6734f064e045",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task's Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type."
   },
   {
    "cve_id": "CVE-2026-65017",
@@ -740,7 +740,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's Config API did not mask team-scoped sensitive configuration values in multi-team deployments. When an administrator has enabled multi-team mode and exposed the Config API, an authenticated Viewer holding only configuration-read access — with no prior access to the secret — could read a team-scoped Celery broker URL, including its embedded credentials, in cleartext, while the equivalent global option was correctly masked. The secrets masker matched only base section and option names and did not normalize team-prefixed sections before the sensitivity check (CWE-200). This is a distinct masker bypass from CVE-2026-48828 and CVE-2026-48892: deployments that upgraded to apache-airflow 3.3.0 to address those issues remain affected by this team-scoped variant. Users are advised to upgrade to apache-airflow 3.3.1 or later, which normalizes team-scoped sections before masking.",
+   "summary": "Apache Airflow의 Config API는 다중 팀 배포에서 팀 범위의 민감한 구성 값을 마스킹하지 않았습니다. 관리자가 다중 팀 모드를 활성화하고 Config API를 노출한 경우, 구성 읽기 액세스만 보유한 인증된 뷰어(비밀에 대한 사전 액세스는 없음)는 내장된 자격 증명을 포함하여 팀 범위의 Celery 브로커 URL을 일반 텍스트로 읽을 수 있었으며 이에 상응하는 전역 옵션은 올바르게 마스킹되었습니다. 비밀 마스커는 기본 섹션 및 옵션 이름만 일치했으며 민감도 검사 전에 팀 접두사 섹션을 정규화하지 않았습니다(CWE-200). 이는 CVE-2026-48828 및 CVE-2026-48892과는 별개의 마스커 우회입니다. 이러한 문제를 해결하기 위해 apache-airflow 3.3.0으로 업그레이드한 배포는 이 팀 범위 변형의 영향을 받습니다. 사용자는 마스킹하기 전에 팀 범위 섹션을 정규화하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70755",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -748,7 +748,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "2f80120d2820e2d21d8342cd08c1c95202a0607069ecc481f92f07fc3b24cdd1",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's Config API did not mask team-scoped sensitive configuration values in multi-team deployments. When an administrator has enabled multi-team mode and exposed the Config API, an authenticated Viewer holding only configuration-read access — with no prior access to the secret — could read a team-scoped Celery broker URL, including its embedded credentials, in cleartext, while the equivalent global option was correctly masked. The secrets masker matched only base section and option names and did not normalize team-prefixed sections before the sensitivity check (CWE-200). This is a distinct masker bypass from CVE-2026-48828 and CVE-2026-48892: deployments that upgraded to apache-airflow 3.3.0 to address those issues remain affected by this team-scoped variant. Users are advised to upgrade to apache-airflow 3.3.1 or later, which normalizes team-scoped sections before masking."
   },
   {
    "cve_id": "CVE-2026-68868",
@@ -762,7 +762,7 @@
    "published_date": "20260812",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "The Google Cloud Secret Manager secrets backend in Apache Airflow's Google provider never applied the team scope when resolving Connections and Variables: the caller's `team_name` was accepted by the backend but dropped at the internal call boundary, so every lookup resolved against the team-agnostic secret name. In a deployment running multi-team mode with this backend, a task or Dag belonging to one team resolved another team's Connection or Variable, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-google 22.3.0 or later, which builds and applies the team-scoped secret name.",
+   "summary": "Apache Airflow의 Google 제공업체에 있는 Google Cloud Secret Manager 비밀번호 백엔드는 연결 및 변수를 확인할 때 팀 범위를 적용하지 않았습니다. 호출자의 `team_name`은 백엔드에서 허용되었지만 내부 호출 경계에서 삭제되었으므로 모든 조회는 팀에 구애받지 않는 비밀번호 이름을 기준으로 확인되었습니다. 이 백엔드를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀에 속한 작업 또는 Dag는 다른 팀의 연결 또는 변수를 확인하여 해당 자격 증명을 완전히 얻었습니다. 다중 팀 모드를 활성화하고 이 백엔드를 사용하는 것 외에는 특별한 구성이 필요하지 않습니다. 사용자는 팀 범위 보안 비밀 이름을 구축하고 적용하는 apache-airflow-providers-google 22.3.0 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70869",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -770,7 +770,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "cc8d1decc58de4ef2c8ad1802deddf3847ad561af967a146b41cf4b799ea546d",
-   "summary_en": ""
+   "summary_en": "The Google Cloud Secret Manager secrets backend in Apache Airflow's Google provider never applied the team scope when resolving Connections and Variables: the caller's `team_name` was accepted by the backend but dropped at the internal call boundary, so every lookup resolved against the team-agnostic secret name. In a deployment running multi-team mode with this backend, a task or Dag belonging to one team resolved another team's Connection or Variable, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-google 22.3.0 or later, which builds and applies the team-scoped secret name."
   },
   {
    "cve_id": "CVE-2026-68871",
@@ -784,7 +784,7 @@
    "published_date": "20260810",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "The Yandex Lockbox secrets backend in Apache Airflow's Yandex provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team's namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-yandex 4.5.1 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.",
+   "summary": "Apache Airflow Yandex 공급자의 Yandex Lockbox 비밀 백엔드는 팀 범위 조회가 누락되었을 때 팀 독립적 조회를 통해 팀 범위 연결 또는 변수 ID를 확인했습니다. 이 백엔드를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀의 호출자는 해당 팀의 네임스페이스를 설명하는 ID를 제공하고 전체 자격 증명을 획득하여 다른 팀에 속한 비밀을 확인할 수 있습니다. 다중 팀 모드를 활성화하고 이 백엔드를 사용하는 것 외에는 특별한 구성이 필요하지 않습니다. 사용자는 apache-airflow-providers-yandex 4.5.1 이상으로 업그레이드하는 것이 좋습니다. 이는 팀 네임스페이스의 이름을 지정할 수 있는 ID에 대해 팀에 구애받지 않는 폴스루를 거부합니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70877",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -792,7 +792,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "35bc5ca92906ab8cb948e6a89a17b566d9bfd299210425a8b68b8669db6947ea",
-   "summary_en": ""
+   "summary_en": "The Yandex Lockbox secrets backend in Apache Airflow's Yandex provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team's namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-yandex 4.5.1 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace."
   },
   {
    "cve_id": "CVE-2026-68872",
@@ -806,7 +806,7 @@
    "published_date": "20260810",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "The AWS Systems Manager Parameter Store and Secrets Manager backends in Apache Airflow's Amazon provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with either backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team's namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using one of these backends. Users are advised to upgrade to apache-airflow-providers-amazon 9.34.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.",
+   "summary": "Apache Airflow의 Amazon 공급자에 있는 AWS Systems Manager Parameter Store 및 Secrets Manager 백엔드는 팀 범위 조회가 누락되었을 때 팀 독립적 조회를 통해 팀 범위 연결 또는 변수 ID를 확인했습니다. 두 백엔드 중 하나를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀의 호출자는 해당 팀의 네임스페이스를 설명하는 ID를 제공하고 전체 자격 증명을 획득하여 다른 팀에 속한 비밀을 확인할 수 있습니다. 다중 팀 모드를 활성화하고 이러한 백엔드 중 하나를 사용하는 것 외에는 특별한 구성이 필요하지 않습니다. 사용자는 팀 네임스페이스의 이름을 지정할 수 있는 ID에 대해 팀에 구애받지 않는 폴스루를 거부하는 apache-airflow-providers-amazon 9.34.0 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70878",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -814,7 +814,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "69af73e323b3b3a4faa384654899a55d396ec8e9165df29be4eff577b73872ff",
-   "summary_en": ""
+   "summary_en": "The AWS Systems Manager Parameter Store and Secrets Manager backends in Apache Airflow's Amazon provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with either backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team's namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using one of these backends. Users are advised to upgrade to apache-airflow-providers-amazon 9.34.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace."
   },
   {
    "cve_id": "CVE-2026-68969",
@@ -828,7 +828,7 @@
    "published_date": "20260812",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI's *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised ",
+   "summary": "Apache Airflow는 대량 엔드포인트(`PATCH /api/v2/variables` 및 `PATCH /api/v2/connections`)를 통해 제출될 때 일반 텍스트로 감사 로그에 변수 값과 연결 `추가` 콘텐츠를 기록했습니다. 감사 로그 마스킹은 최상위 요청 필드만 인식했으며 대량 요청은 엔터티를 두 수준 아래에 중첩하므로 마스킹이 적용되지 않았습니다. 변수 또는 연결 읽기를 전혀 보유할 필요가 없는 감사 로그 읽기 액세스 권한이 있는 인증된 사용자는 해당 비밀을 그대로 복구할 수 있으며 연결 '추가' 복사본은 연결 테이블이 암호화하는 동안 암호화되지 않은 상태로 로그에 저장됩니다. Airflow UI의 *변수 가져오기* 작업은 이 엔드포인트에 게시되므로 일반 연산자 가져오기는 파일의 모든 비밀을 로그에 기록합니다. 이는 CVE-2026-50204과 다른 코드 경로입니다. 이 수정 사항은 3.3.0에 제공되고 단일 엔터티 끝점만 다루므로 해당 권고에 따라 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자에게 조언합니다",
    "reference_url": "https://github.com/apache/airflow/pull/70890",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -836,7 +836,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "eb08402da447e81d0c1db317530974b187c2375f361e492690203451572c4146",
-   "summary_en": ""
+   "summary_en": "Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI's *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised "
   },
   {
    "cve_id": "CVE-2026-68970",
@@ -850,7 +850,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matched neither and was returned unmasked. Any authenticated user able to read the logs or rendered templates of a task that references such a Variable could recover the values, with no special configuration required. This is the list-shaped counterpart of CVE-2026-59244, whose fix covered the dict case only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised to upgrade to apache-airflow 3.3.1 or later.",
+   "summary": "Apache Airflow의 작업 SDK는 JSON 값이 목록인 변수의 콘텐츠를 마스킹하지 않았으므로 해당 모양에 저장된 비밀은 작업 로그 및 렌더링된 템플릿 UI에 일반 텍스트로 표시되었습니다. 역직렬화된 값이 문자열 또는 사전인 경우에만 마스킹이 적용되었습니다. 최상위 수준의 목록은 둘 다 일치하지 않으며 마스크되지 않은 상태로 반환되었습니다. 이러한 변수를 참조하는 작업의 로그 또는 렌더링된 템플릿을 읽을 수 있는 인증된 사용자는 특별한 구성이 필요 없이 값을 복구할 수 있습니다. 이는 dict 사례만 수정한 CVE-2026-59244의 목록 모양 대응이므로 해당 권고에 대한 응답으로 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70891",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -858,7 +858,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "7ecdae8cc5ab41f6866c4529c6f73fbf9b420f5f2c0ba938a1cec5e8e8e42b5a",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matched neither and was returned unmasked. Any authenticated user able to read the logs or rendered templates of a task that references such a Variable could recover the values, with no special configuration required. This is the list-shaped counterpart of CVE-2026-59244, whose fix covered the dict case only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised to upgrade to apache-airflow 3.3.1 or later."
   },
   {
    "cve_id": "CVE-2026-68971",
@@ -872,7 +872,7 @@
    "published_date": "20260812",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Apache Airflow's asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:<team>` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team's XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the Dag's team at both sites.",
+   "summary": "Apache Airflow의 자산 구체화 엔드포인트(`POST /api/v2/assets/{asset_id}/materialize`)와 `wait_dag_run_until_finished`에 대한 XCom 결과 확인은 다른 모든 인증 사이트와 달리 팀 없이 대상 Dag를 인증했습니다. 팀 인식 인증 관리자는 해당 필드를 기준으로 팀 범위 Dag와 전역 Dag를 구별합니다. 예를 들어 Keycloak 인증 관리자는 `DAG:<team>` 대신 `DAG` 리소스를 확인하므로 요청을 제어해야 하는 팀 범위 권한은 절대 참조되지 않습니다. 팀 인식 인증 관리자를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀의 인증된 사용자는 다른 팀에 속한 Dag 실행을 트리거하여 자체 `dag_run_id` 및 `conf`를 제공하고 다른 팀의 XCom 값을 읽을 수 있습니다. FAB 인증 관리자를 사용한 배포는 다중 팀 지원이 없으므로 영향을 받지 않습니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하여 두 사이트 모두에서 Dag 팀을 해결하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70893",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -880,7 +880,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "d4cd14ceed64ccf3bdbfc90057ebbd69c68a53aa5a867c99afae1df89b28f67b",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:<team>` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team's XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the Dag's team at both sites."
   },
   {
    "cve_id": "CVE-2026-72636",
@@ -894,7 +894,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Uncontrolled Recursion (CWE-674) in the Elasticsearch wildcard matching helper can lead to a denial of service via Excessive Allocation (CAPEC-130). The matcher used to resolve wildcard patterns against names is implemented recursively and had no bound on recursion depth or on the total number of match operations performed. A search request containing a wildcard pattern with a large number of wildcard groups, evaluated against a sufficiently long name, exhausts the thread stack. Elasticsearch treats a stack overflow as an unrecoverable condition and shuts the node down, so the request terminates the affected node rather than failing gracefully.",
+   "summary": "[버전범위 불명확] Elasticsearch 와일드카드 일치 도우미의 제어되지 않은 재귀(CWE-674)는 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. 이름에 대한 와일드카드 패턴을 확인하는 데 사용되는 매처는 재귀적으로 구현되며 재귀 깊이나 수행되는 총 일치 작업 수에 대한 제한이 없습니다. 충분히 긴 이름에 대해 평가된 다수의 와일드카드 그룹이 있는 와일드카드 패턴을 포함하는 검색 요청은 스레드 스택을 소모합니다. Elasticsearch는 스택 오버플로를 복구할 수 없는 조건으로 처리하고 노드를 종료하므로 요청은 정상적으로 실패하지 않고 영향을 받은 노드를 종료합니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-133/389499",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -902,7 +902,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "a3f6c619a1dba8e915c204980f227429c958ea496b7a1913a58b0e37ec84137e",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Uncontrolled Recursion (CWE-674) in the Elasticsearch wildcard matching helper can lead to a denial of service via Excessive Allocation (CAPEC-130). The matcher used to resolve wildcard patterns against names is implemented recursively and had no bound on recursion depth or on the total number of match operations performed. A search request containing a wildcard pattern with a large number of wildcard groups, evaluated against a sufficiently long name, exhausts the thread stack. Elasticsearch treats a stack overflow as an unrecoverable condition and shuts the node down, so the request terminates the affected node rather than failing gracefully."
   },
   {
    "cve_id": "CVE-2026-72638",
@@ -916,7 +916,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only low-privileged index creation permissions can submit a single request containing a specially crafted, malformed custom analysis definition that is resolved recursively without a cycle or depth check, exhausting the thread stack and terminating the affected node.",
+   "summary": "[버전범위 불명확] Elasticsearch의 통제되지 않은 재귀(CWE-674)는 입력 데이터 조작(CAPEC-153)을 통해 서비스 거부로 이어질 수 있습니다. 낮은 권한의 인덱스 생성 권한만 보유한 인증된 사용자는 주기 또는 깊이 검사 없이 재귀적으로 해결되어 스레드 스택을 소진하고 영향을 받는 노드를 종료하는 특수 제작되고 잘못된 형식의 사용자 지정 분석 정의가 포함된 단일 요청을 제출할 수 있습니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-119/389498",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -924,7 +924,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "965fdacc64b9391b352413813b6fb193d9374c5d780e96c36990fe6b1cb3f724",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Input Data Manipulation (CAPEC-153). An authenticated user holding only low-privileged index creation permissions can submit a single request containing a specially crafted, malformed custom analysis definition that is resolved recursively without a cycle or depth check, exhausting the thread stack and terminating the affected node."
   },
   {
    "cve_id": "CVE-2026-72639",
@@ -938,7 +938,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Elasticsearch does not enforce an upper bound on a user-supplied count accepted by a search highlighting option, and the allocation derived from that count is not accounted against any circuit breaker. An authenticated user holding only read privileges on a single searchable index can submit one small search request that causes the node to reserve an excessively large internal data structure. The allocation occurs before the existing highlighting safety limits are evaluated, so memory exhaustion raises a fatal error that terminates the Elasticsearch node process. This results in a denial of service for the affected node and degrades cluster routing and health. The defect is not volumetric and does not depend on the size of the indexed data, so a single request is sufficient.",
+   "summary": "[버전범위 불명확] Elasticsearch는 검색 강조 표시 옵션에서 허용하는 사용자 제공 개수에 상한을 적용하지 않으며, 해당 개수에서 파생된 할당은 회로 차단기에 대해 고려되지 않습니다. 단일 검색 가능 인덱스에 대해 읽기 권한만 보유한 인증된 사용자는 노드가 지나치게 큰 내부 데이터 구조를 예약하게 만드는 작은 검색 요청을 제출할 수 있습니다. 기존 강조 표시 안전 한도가 평가되기 전에 할당이 발생하므로 메모리 소모로 인해 Elasticsearch 노드 프로세스가 종료되는 치명적인 오류가 발생합니다. 이로 인해 영향을 받은 노드에 대한 서비스 거부가 발생하고 클러스터 라우팅 및 상태가 저하됩니다. 결함은 체적이 아니며 인덱싱된 데이터의 크기에 의존하지 않으므로 단일 요청으로 충분합니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-120/389503",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -946,7 +946,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "221faa62db1fd72fb76a2c81de23c1a70c58d0e129ff9248dd4128f9f9cb9960",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Elasticsearch does not enforce an upper bound on a user-supplied count accepted by a search highlighting option, and the allocation derived from that count is not accounted against any circuit breaker. An authenticated user holding only read privileges on a single searchable index can submit one small search request that causes the node to reserve an excessively large internal data structure. The allocation occurs before the existing highlighting safety limits are evaluated, so memory exhaustion raises a fatal error that terminates the Elasticsearch node process. This results in a denial of service for the affected node and degrades cluster routing and health. The defect is not volumetric and does not depend on the size of the indexed data, so a single request is sufficient."
   },
   {
    "cve_id": "CVE-2026-72645",
@@ -960,7 +960,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only read privileges on a single index can submit one small, specially crafted search request that causes an excessively large memory allocation, exhausting the JVM heap and terminating the affected node.",
+   "summary": "[버전범위 불명확] Elasticsearch에서 과도한 크기 값(CWE-789)을 사용한 메모리 할당은 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. 단일 인덱스에 대해 읽기 권한만 보유하고 있는 인증된 사용자는 과도하게 큰 메모리 할당을 유발하여 JVM 힙을 소진하고 영향을 받는 노드를 종료시키는 특수하게 조작된 작은 검색 요청 하나를 제출할 수 있습니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-116/389502",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -968,7 +968,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "3281e70b6e571055c24074575d164776cf8160ed78cbb1ebd528062bcd9e56dd",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user holding only read privileges on a single index can submit one small, specially crafted search request that causes an excessively large memory allocation, exhausting the JVM heap and terminating the affected node."
   },
   {
    "cve_id": "CVE-2026-72647",
@@ -982,7 +982,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Serialized Data with Nested Payloads (CAPEC-230). An authenticated user holding only read privileges on a single index can submit one specially crafted search request whose deeply nested structure is processed without a depth limit, exhausting the thread stack and terminating the affected node.",
+   "summary": "[버전범위 불명확] Elasticsearch의 통제되지 않은 재귀(CWE-674)는 중첩 페이로드가 포함된 직렬화된 데이터(CAPEC-230)를 통해 서비스 거부로 이어질 수 있습니다. 단일 인덱스에 대해 읽기 권한만 보유한 인증된 사용자는 깊게 중첩된 구조가 깊이 제한 없이 처리되어 스레드 스택이 소진되고 영향을 받은 노드가 종료되는 특수 제작된 검색 요청 하나를 제출할 수 있습니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-118/389497",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -990,7 +990,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "5e9d34cf6e488ebf9bcf902713cb4ee6cf7176965cc2dab96b7ef0e2967cb0b5",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to denial of service via Serialized Data with Nested Payloads (CAPEC-230). An authenticated user holding only read privileges on a single index can submit one specially crafted search request whose deeply nested structure is processed without a depth limit, exhausting the thread stack and terminating the affected node."
   },
   {
    "cve_id": "CVE-2026-72656",
@@ -1004,7 +1004,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.",
+   "summary": "[버전범위 불명확] Elasticsearch의 ES|QL 쿼리 처리에서 과도한 크기 값(CWE-789)을 사용한 메모리 할당은 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. ES|QL 쿼리를 제출할 수 있는 인증된 사용자는 평가를 통해 무제한의 힙 메모리를 할당하는 특별히 제작된 쿼리를 보낼 수 있으며, 이로 인해 수신 노드에서 사용 가능한 힙이 소진되고 노드를 사용할 수 없게 됩니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-18-0-9-0-0-security-update-esa-2026-111/389495",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1012,7 +1012,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "27c688da04d2f63c2be3ed203563f2b2f74c922b880f089e68369c1bb462788e",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable."
   },
   {
    "cve_id": "CVE-2026-72678",
@@ -1026,7 +1026,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Elasticsearch does not validate a size value taken from a user-supplied input before that value is used to reserve memory for an internal data structure. An authenticated user holding only read privileges can submit a single small crafted request to a product API endpoint that causes the node to attempt an excessively large allocation. The resulting memory exhaustion raises a fatal error that terminates the Elasticsearch node process, causing a denial of service for the affected node and degrading cluster health. The defect is not volumetric, so a single request is sufficient regardless of the heap size configured on the target node.",
+   "summary": "[버전범위 불명확] Elasticsearch는 내부 데이터 구조를 위한 메모리를 예약하는 데 해당 값이 사용되기 전에는 사용자 제공 입력에서 가져온 크기 값의 유효성을 검사하지 않습니다. 읽기 권한만 보유한 인증된 사용자는 노드가 지나치게 큰 할당을 시도하게 만드는 작은 단일 요청을 제품 API 엔드포인트에 제출할 수 있습니다. 결과적으로 메모리가 소진되면 Elasticsearch 노드 프로세스를 종료하는 치명적인 오류가 발생하여 영향을 받은 노드에 대한 서비스 거부가 발생하고 클러스터 상태가 저하됩니다. 결함은 체적 결함이 아니므로 대상 노드에 구성된 힙 크기에 관계없이 단일 요청으로 충분합니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-80/389507",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1034,7 +1034,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "ce400f7643683743221160c12b72ce834fca5156a18a58459f0611ee99dc717e",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Elasticsearch does not validate a size value taken from a user-supplied input before that value is used to reserve memory for an internal data structure. An authenticated user holding only read privileges can submit a single small crafted request to a product API endpoint that causes the node to attempt an excessively large allocation. The resulting memory exhaustion raises a fatal error that terminates the Elasticsearch node process, causing a denial of service for the affected node and degrading cluster health. The defect is not volumetric, so a single request is sufficient regardless of the heap size configured on the target node."
   },
   {
    "cve_id": "CVE-2026-72679",
@@ -1048,7 +1048,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Elasticsearch does not apply its configurable input length restriction to a user-supplied pattern accepted by an intervals query. Compiling a deeply nested pattern drives unbounded recursion that exhausts the thread stack and raises a fatal error, terminating the Elasticsearch node process and causing a denial of service for that node. An authenticated user holding only read-only privileges on a single searchable index can trigger the condition with one small search request.",
+   "summary": "[버전범위 불명확] Elasticsearch는 간격 쿼리에서 허용하는 사용자 제공 패턴에 구성 가능한 입력 길이 제한을 적용하지 않습니다. 깊게 중첩된 패턴을 컴파일하면 스레드 스택을 소진하고 치명적인 오류를 발생시키는 무제한 재귀가 발생하여 Elasticsearch 노드 프로세스가 종료되고 해당 노드에 대한 서비스 거부가 발생합니다. 단일 검색 가능 인덱스에 대해 읽기 전용 권한만 보유한 인증된 사용자는 하나의 작은 검색 요청으로 조건을 트리거할 수 있습니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-81/389501",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1056,7 +1056,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "57a3afa82f10843ee98a31830353e69238754a3251db13b82d424f99345bee14",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Elasticsearch does not apply its configurable input length restriction to a user-supplied pattern accepted by an intervals query. Compiling a deeply nested pattern drives unbounded recursion that exhausts the thread stack and raises a fatal error, terminating the Elasticsearch node process and causing a denial of service for that node. An authenticated user holding only read-only privileges on a single searchable index can trigger the condition with one small search request."
   },
   {
    "cve_id": "CVE-2026-72683",
@@ -1070,7 +1070,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user with the privileges required to invoke the simulate pipeline API endpoint (https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate) to submit a request that causes a self-referential data structure to be created. When a specific internal component later processes that structure, the operation recurses without bound and raises a fatal error that is not handled by the surrounding execution path, terminating the affected node process and resulting in a denial of service.",
+   "summary": "[버전범위 불명확] Elasticsearch의 결함으로 인해 시뮬레이션 파이프라인 API 엔드포인트(https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate)를 호출하는 데 필요한 권한이 있는 인증된 사용자가 자체 참조 데이터 구조를 생성하는 요청을 제출할 수 있습니다. 나중에 특정 내부 구성 요소가 해당 구조를 처리하면 작업이 제한 없이 반복되고 주변 실행 경로에서 처리되지 않는 치명적인 오류가 발생하여 영향을 받는 노드 프로세스가 종료되고 결과적으로 서비스 거부가 발생합니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-19-9-3-8-9-4-4-security-update-esa-2026-75/389496",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1078,7 +1078,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "11050ec74455e801e506c3edc5320879f4a4ceb81967bbae582cae9fedd4f9f2",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user with the privileges required to invoke the simulate pipeline API endpoint (https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-ingest-simulate) to submit a request that causes a self-referential data structure to be created. When a specific internal component later processes that structure, the operation recurses without bound and raises a fatal error that is not handled by the surrounding execution path, terminating the affected node process and resulting in a denial of service."
   },
   {
    "cve_id": "CVE-2026-72684",
@@ -1092,7 +1092,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user holding only read privileges to submit a small search request containing a crafted user-supplied input. Processing that input causes a specific internal component to allocate memory without any upper bound, and the allocation occurs outside the scope of the existing memory accounting controls that were intended to constrain it. The resulting out-of-memory condition is fatal and terminates the affected node process, causing a denial of service.",
+   "summary": "[버전범위 불명확] Elasticsearch의 결함으로 인해 읽기 권한만 보유한 인증된 사용자가 조작된 사용자 제공 입력이 포함된 소규모 검색 요청을 제출할 수 있습니다. 해당 입력을 처리하면 특정 내부 구성 요소가 상한 없이 메모리를 할당하게 되며 할당은 이를 제한하려는 기존 메모리 계산 제어 범위 외부에서 발생합니다. 결과적인 메모리 부족 상태는 치명적이며 영향을 받은 노드 프로세스를 종료하여 서비스 거부를 유발합니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-76/389508",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1100,7 +1100,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "4821fe7ad14c29dca9c8907364597535ce2a971e1ae9c0ffcf3b0086bb20f1ca",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] A flaw in Elasticsearch allows an authenticated user holding only read privileges to submit a small search request containing a crafted user-supplied input. Processing that input causes a specific internal component to allocate memory without any upper bound, and the allocation occurs outside the scope of the existing memory accounting controls that were intended to constrain it. The resulting out-of-memory condition is fatal and terminates the affected node process, causing a denial of service."
   },
   {
    "cve_id": "CVE-2026-72686",
@@ -1114,7 +1114,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single request containing a crafted user-supplied input. A specific internal component validates the input using a recursive routine and applies no bound to the length of the value being validated, so the validation causes the thread to exhaust its stack. The resulting fatal error is not handled by the surrounding execution paths and terminates the affected node process, producing a denial of service.",
+   "summary": "[버전범위 불명확] Elasticsearch의 결함으로 인해 권한이 낮은 인증된 사용자가 조작된 사용자 제공 입력이 포함된 단일 요청을 제출할 수 있습니다. 특정 내부 구성 요소는 재귀 루틴을 사용하여 입력의 유효성을 검사하고 유효성이 검사되는 값의 길이에 제한을 적용하지 않으므로 유효성 검사로 인해 스레드가 해당 스택을 소모하게 됩니다. 결과적으로 발생한 치명적인 오류는 주변 실행 경로에서 처리되지 않고 영향을 받은 노드 프로세스를 종료하여 서비스 거부를 발생시킵니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-78/389505",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1122,7 +1122,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "b8a5a84135ebf5f6df6c89bcae6efe6f4cc48144e5074bdb3007d7d2ea661c10",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single request containing a crafted user-supplied input. A specific internal component validates the input using a recursive routine and applies no bound to the length of the value being validated, so the validation causes the thread to exhaust its stack. The resulting fatal error is not handled by the surrounding execution paths and terminates the affected node process, producing a denial of service."
   },
   {
    "cve_id": "CVE-2026-72687",
@@ -1136,7 +1136,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single small request containing a forged opaque identifier. Elasticsearch decodes and deserializes the identifier before confirming that it was legitimately issued by the cluster, and a size value carried inside the identifier drives an allocation that is neither capped nor accounted for by the available memory-usage controls. The resulting out-of-memory condition is fatal and terminates the affected node process, resulting in a denial of service.",
+   "summary": "[버전범위 불명확] Elasticsearch의 결함으로 인해 권한이 낮은 인증된 사용자가 위조된 불투명 식별자가 포함된 작은 요청 하나를 제출할 수 있습니다. Elasticsearch는 식별자가 클러스터에서 합법적으로 발행되었는지 확인하기 전에 식별자를 디코딩하고 역직렬화하며, 식별자 내부에 전달된 크기 값은 사용 가능한 메모리 사용량 제어에 의해 제한되거나 설명되지 않는 할당을 구동합니다. 결과적인 메모리 부족 상태는 치명적이며 영향을 받은 노드 프로세스를 종료하여 서비스 거부를 초래합니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-79/389506",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1144,7 +1144,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "d8ad8b5e25c88cc9ab6f59c417043de58710e565281a692ad1ca22282c410e4b",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user to submit a single small request containing a forged opaque identifier. Elasticsearch decodes and deserializes the identifier before confirming that it was legitimately issued by the cluster, and a size value carried inside the identifier drives an allocation that is neither capped nor accounted for by the available memory-usage controls. The resulting out-of-memory condition is fatal and terminates the affected node process, resulting in a denial of service."
   },
   {
    "cve_id": "CVE-2026-54007",
@@ -1158,7 +1158,7 @@
    "published_date": "20260617",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Open WebUI: Cross-origin postMessage confirmation bypass via action:submit ### Summary The chat message listener allows non-same-origin `input:prompt` and `action:submit` messages, so an external site can set prompt text and trigger `submitPrompt()` in an authenticated victim session. I validated this with a cross-origin attacker page that auto-posted messages and caused unauthorized `POST /api/v1/chats/new` and `POST /api/chat/completions` requests containing attacker-controlled prompts. This enables cross-site forced actions and model/tool execution under victim privileges without consent. ### Details The chat page's window message listener in `src/lib/components/chat/Chat.svelte` processes message types including `input:prompt` and `action:submit` without adequately enforcing same-origin restrictions. Based on code around lines ~597-616, input text is set directly from `event.data.text`; `action:submit` proceeds to `submitPrompt()` on the current prompt. The logic does not apply a s",
+   "summary": "Open WebUI: action:submit ###을 통한 교차 출처 postMessage 확인 우회 요약 채팅 메시지 리스너는 출처가 동일하지 않은 `input:prompt` 및 `action:submit` 메시지를 허용하므로 외부 사이트는 인증된 피해자 세션에서 프롬프트 텍스트를 설정하고 `submitPrompt()`를 트리거할 수 있습니다. 메시지를 자동 게시하고 공격자가 제어하는 ​​프롬프트가 포함된 승인되지 않은 `POST /api/v1/chats/new` 및 `POST /api/chat/completions` 요청을 유발하는 교차 출처 공격자 페이지를 통해 이를 검증했습니다. 이를 통해 동의 없이 피해자 권한으로 사이트 간 강제 작업 및 모델/도구 실행이 가능해집니다. ### 세부 정보 `src/lib/comComponents/chat/Chat.svelte`에 있는 채팅 페이지의 창 메시지 리스너는 동일 출처 제한을 적절하게 적용하지 않고 `input:prompt` 및 `action:submit`을 포함한 메시지 유형을 처리합니다. ~597-616 줄 주변의 코드를 기반으로 입력 텍스트는 `event.data.text`에서 직접 설정됩니다. `action:submit`은 현재 프롬프트에서 `submitPrompt()`로 진행됩니다. 논리는 s를 적용하지 않습니다.",
    "reference_url": "https://github.com/advisories/GHSA-3vv5-8xxp-4f55",
    "source": "GHSA",
    "ecosystem": "pypi",
@@ -1166,7 +1166,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211306",
    "content_hash": "efbcc96ec53827b1775cb7f441ca8bd8eeacb82db09e1759eea8f6557eda9ec4",
-   "summary_en": ""
+   "summary_en": "Open WebUI: Cross-origin postMessage confirmation bypass via action:submit ### Summary The chat message listener allows non-same-origin `input:prompt` and `action:submit` messages, so an external site can set prompt text and trigger `submitPrompt()` in an authenticated victim session. I validated this with a cross-origin attacker page that auto-posted messages and caused unauthorized `POST /api/v1/chats/new` and `POST /api/chat/completions` requests containing attacker-controlled prompts. This enables cross-site forced actions and model/tool execution under victim privileges without consent. ### Details The chat page's window message listener in `src/lib/components/chat/Chat.svelte` processes message types including `input:prompt` and `action:submit` without adequately enforcing same-origin restrictions. Based on code around lines ~597-616, input text is set directly from `event.data.text`; `action:submit` proceeds to `submitPrompt()` on the current prompt. The logic does not apply a s"
   },
   {
    "cve_id": "CVE-2026-14548",
@@ -1180,7 +1180,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to overwrite the administrator-configured translation API token with an arbitrary value.",
+   "summary": "1.7.3을 통한 Ray Enterprise Translation WordPress 플러그인은 AJAX 작업 중 하나에 대해 어떠한 기능이나 nonce 검사도 수행하지 않으므로 구독자를 포함한 모든 인증된 사용자가 관리자가 구성한 번역 API 토큰을 임의의 값으로 덮어쓸 수 있습니다.",
    "reference_url": "https://wpscan.com/vulnerability/e1e0e945-db49-4e27-b143-ef3520a39db9/",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1188,7 +1188,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "614098353ccde1c84f7d268652de33c334d7b5c82e599f7ab5d1baf32345be66",
-   "summary_en": ""
+   "summary_en": "The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to overwrite the administrator-configured translation API token with an arbitrary value."
   },
   {
    "cve_id": "CVE-2026-73559",
@@ -1202,7 +1202,7 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.19.0부터 0.26.0까지 vllm/entrypoints/openai/completion/protocol.py의 /v1/completions CompletionRequest.prompt 필드는 제한되지 않은 list[str] 또는 list[list[int]], vllm/renderers/inputs/preprocess.py의 프롬프트_to_seq() 및 OnlineRenderer.preprocess_completion()을 허용합니다. vllm/renderers/online_renderer.py는 모든 요소를 확장하고 vllm/entrypoints/openai/completion/serving.py는 프롬프트당 하나의 엔진 생성기와 응답 슬롯을 생성하여 인증된 API 클라이언트가 하나의 요청으로 CPU, 메모리, 비동기 예약 용량, 엔진 요청 슬롯 및 응답 버퍼링을 소진할 수 있도록 합니다. 이 문제는 버전 0.26.0에서 해결되었습니다.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1210,7 +1210,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "182992c17cc191c6eb6aff3cf7bbbb221c74cc33216765069b306db27203c09a",
-   "summary_en": ""
+   "summary_en": "vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0."
   },
   {
    "cve_id": "CVE-2026-18632",
@@ -1224,7 +1224,7 @@
    "published_date": "20260803",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "A security flaw has been discovered in langgenius dify up to 1.14.2. This issue affects the function jinja2.Template of the file api/core/helper/code_executor/jinja2/jinja2_transformer.py of the component Jinja2 Handler. The manipulation results in improper neutralization of special elements used in a template engine. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+   "summary": "langgenius dify 1.14.2까지 보안 결함이 발견되었습니다. 이 문제는 Jinja2 Handler 구성 요소의 api/core/helper/code_executor/jinja2/jinja2_transformer.py 파일의 jinja2.Template 기능에 영향을 미칩니다. 조작으로 인해 템플릿 엔진에 사용되는 특수 요소가 부적절하게 무력화됩니다. 공격은 원격으로 시작될 수 있습니다. 이 익스플로잇은 대중에게 공개되었으며 공격에 사용될 수 있습니다. 해당 공급업체는 이 공개에 대해 조기에 연락을 받았지만 어떤 식으로도 응답하지 않았습니다.",
    "reference_url": "https://github.com/CVE-Hunter-Leo/CVE/issues/14",
    "source": "NVD",
    "ecosystem": "github",
@@ -1232,7 +1232,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "fe3e16d9cea85e0d6b05e263e92515489e1246efec478cbfb6bff011f735d3e3",
-   "summary_en": ""
+   "summary_en": "A security flaw has been discovered in langgenius dify up to 1.14.2. This issue affects the function jinja2.Template of the file api/core/helper/code_executor/jinja2/jinja2_transformer.py of the component Jinja2 Handler. The manipulation results in improper neutralization of special elements used in a template engine. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way."
   },
   {
    "cve_id": "CVE-2026-73557",
@@ -1246,7 +1246,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.20.2rc0부터 0.26.0까지 vllm/renderers/embed_utils.py의 safe_load_prompt_embeds는 torch.sparse.check_sparse_tensor_invariants를 사용합니다. 이 프로세스 전역 저장, 활성화 및 복원 상태는 다음을 통해 POST /v1/chat/completions에 제출된 동시 프롬프트_embeds 부분에 의해 경주될 수 있습니다. AsyncMultiModalItemTracker.resolve_items, asyncio.gather 및 기본 실행 프로그램을 사용하면 활성화_prompt_embeds가 활성화된 경우 CVE-2025-62164 가드에도 불구하고 유효하지 않은 희소 텐서가 tensor.to_dense에 도달할 수 있습니다. 이 문제는 버전 0.26.0에서 해결되었습니다.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/793cf79c89d4049124e756915468ac30318f2e50",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1254,7 +1254,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "811b6bb07ab8167983454c678a9e6d9b34769ebb335ae702e7fe79ca9e28ff12",
-   "summary_en": ""
+   "summary_en": "vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0."
   },
   {
    "cve_id": "CVE-2026-73416",
@@ -1268,7 +1268,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab's PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava",
+   "summary": "jupyterlab은 Jupyter 노트북 아키텍처를 기반으로 하는 대화형 및 재현 가능한 컴퓨팅을 위한 확장 가능한 환경입니다. 4.5.0부터 4.5.10 및 4.6.2까지 jupyterlab/extensions/manager.py 및 jupyterlab/extensions/pypi.py에서 JupyterLab의 PyPI 확장 관리자는 요청된 설치 이름을 PyPI 패키지 이름 정규화보다 약한 사용자 정의 정규화를 사용하는 차단 목록 항목과 비교하여 Blocked_extensions_uris를 적용합니다. 인증된 사용자는 jupyterlab-git과 같은 차단 목록 패키지에 대해 JupyterLab.Git와 같은 PyPI와 동등한 철자를 요청할 수 있으며, pip가 변형을 동일한 패키지로 확인하더라도 JupyterLab은 설치 요청을 수락합니다. 보안에 영향을 미치려면 패키지 설치, PyPI 확장 관리자, 비활성화되거나 원격 호스트에 위임된 커널 및 터미널을 제한하기 위한 허용 목록 또는 차단 목록이 필요합니다. 우회를 통해 인증된 사용자는 금지된 확장 프로그램을 설치하고 무결성 제한을 해제하며 ava에 영향을 미칠 수 있습니다.",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1276,7 +1276,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "d8efd07456e4f4bfb02fda80acd5fc1c31bace7b837f15c6bf86b3b68879b018",
-   "summary_en": ""
+   "summary_en": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 4.5.0 until 4.5.10 and 4.6.2, in jupyterlab/extensions/manager.py and jupyterlab/extensions/pypi.py, JupyterLab's PyPI extension manager enforces blocked_extensions_uris by comparing requested install names to blocklist entries with custom normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as JupyterLab.Git for a blocklisted package such as jupyterlab-git, and JupyterLab accepts the install request even though pip resolves the variant to the same package. Security impact requires an allowlist or blocklist intended to restrict package installation, the PyPI Extension Manager, and kernels and terminals that are disabled or delegated to remote hosts. The bypass lets an authenticated user install a prohibited extension, defeat integrity restrictions, and affect ava"
   },
   {
    "cve_id": "CVE-2026-73627",
@@ -1312,7 +1312,7 @@
    "published_date": "20260810",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. From 1.0.0 to 1.15.0, AnythingLLM's unauthenticated account-recovery flow in server/utils/PasswordRecovery/index.js uses recoverAccount() to deduplicate the raw recoveryCodes values before trimming them, so one valid code submitted twice with different surrounding whitespace can satisfy the two-code check. Each normalized value can also match the same stored hash instead of consuming a distinct hash. An attacker who knows the target username and one recovery code can call POST /api/system/recover-account in multi-user mode, receive a password-reset token, and use POST /api/system/reset-password to take over the account, including an administrator account.",
+   "summary": "AnythingLLM은 모든 LLM이 채팅 중에 참조로 사용할 수 있는 컨텍스트로 콘텐츠를 변환하는 애플리케이션입니다. 1.0.0에서 1.15.0까지, server/utils/PasswordRecovery/index.js에 있는 AnythingLLM의 인증되지 않은 계정 복구 흐름은 RecoverAccount()를 사용하여 원시 RecoveryCodes 값을 잘라내기 전에 중복을 제거합니다. 따라서 서로 다른 주변 공백을 사용하여 두 번 제출된 하나의 유효한 코드가 두 코드 검사를 충족할 수 있습니다. 정규화된 각 값은 고유한 해시를 사용하는 대신 저장된 동일한 해시와 일치할 수도 있습니다. 대상 사용자 이름과 하나의 복구 코드를 알고 있는 공격자는 다중 사용자 모드에서 POST /api/system/recover-account를 호출하고 비밀번호 재설정 토큰을 받은 다음 POST /api/system/reset-password를 사용하여 관리자 계정을 포함한 계정을 탈취할 수 있습니다.",
    "reference_url": "https://github.com/Mintplex-Labs/anything-llm/commit/61766d06b77b903f66dc4afd8dffb3a39012db14",
    "source": "NVD",
    "ecosystem": "github",
@@ -1320,7 +1320,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "a7e2378d75db371a0a030a5424dc5b8c740f084017224de32b08ca2a82b7365d",
-   "summary_en": ""
+   "summary_en": "AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. From 1.0.0 to 1.15.0, AnythingLLM's unauthenticated account-recovery flow in server/utils/PasswordRecovery/index.js uses recoverAccount() to deduplicate the raw recoveryCodes values before trimming them, so one valid code submitted twice with different surrounding whitespace can satisfy the two-code check. Each normalized value can also match the same stored hash instead of consuming a distinct hash. An attacker who knows the target username and one recovery code can call POST /api/system/recover-account in multi-user mode, receive a password-reset token, and use POST /api/system/reset-password to take over the account, including an administrator account."
   },
   {
    "cve_id": "CVE-2026-59242",
@@ -1334,7 +1334,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's XCom `GET /api/v2/{...}/xcomEntries/{key}?deserialize=true` endpoint passed a string-literal payload through `BaseXCom.deserialize_value` without the `_check_forbidden_xcom_keys` guard, allowing an authenticated API user with XCom write-and-read access to instantiate arbitrary `airflow.*` classes on the API server (CWE-502). An authenticated user who can write an XCom value and then read it back with `deserialize=true` triggers the unsafe instantiation. Users are advised to upgrade to apache-airflow 3.3.1 or later, which rejects reserved XCom serialization keys submitted as JSON string literals.",
+   "summary": "Apache Airflow의 XCom `GET /api/v2/{...}/xcomEntries/{key}?deserialize=true` 엔드포인트는 `_check_forbidden_xcom_keys` 가드 없이 `BaseXCom.deserialize_value`를 통해 문자열 리터럴 페이로드를 전달하여 XCom 쓰기 및 읽기 액세스 권한이 있는 인증된 API 사용자가 API 서버(CWE-502)에서 임의의 `airflow.*` 클래스를 인스턴스화할 수 있도록 허용합니다. XCom 값을 쓴 다음 `deserialize=true`를 사용하여 다시 읽을 수 있는 인증된 사용자는 안전하지 않은 인스턴스화를 트리거합니다. 사용자는 JSON 문자열 리터럴로 제출된 예약된 XCom 직렬화 키를 거부하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.",
    "reference_url": "https://github.com/apache/airflow/pull/69378",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1342,7 +1342,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "2190da810d91f58b43804a2f84d46a452d81bb997ea0d4bcafc8aa60606f73d4",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's XCom `GET /api/v2/{...}/xcomEntries/{key}?deserialize=true` endpoint passed a string-literal payload through `BaseXCom.deserialize_value` without the `_check_forbidden_xcom_keys` guard, allowing an authenticated API user with XCom write-and-read access to instantiate arbitrary `airflow.*` classes on the API server (CWE-502). An authenticated user who can write an XCom value and then read it back with `deserialize=true` triggers the unsafe instantiation. Users are advised to upgrade to apache-airflow 3.3.1 or later, which rejects reserved XCom serialization keys submitted as JSON string literals."
   },
   {
    "cve_id": "CVE-2026-68076",
@@ -1356,7 +1356,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team's scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowed to contain. When the guard did not apply, the lookup fell through to an unconditional global read that resolved the stored `AIRFLOW_CONN__<TEAM>___<ID>` variable regardless of which team asked. In multi-team mode an authenticated user of one team could therefore have `POST /api/v2/connections/test` resolve another team's Connection and authenticate outward with that team's credentials; the endpoint uses the credentials rather than returning them. Exploitation requires `[core] multi_team` enabled, `[core] test_connection` set to `Enabled` (it ships `Disabled`), team-scoped secrets provisioned as environment variables in the API-server process, and knowledge of the encoded identifier. Redire",
+   "summary": "Apache Airflow의 환경 변수 비밀 백엔드는 잘못된 팀 범위의 팀 범위 연결 또는 변수를 해결했습니다. 이를 방지하기 위한 가드는 팀 범위가 제공되지 않은 경우에만 실행되었으며 해당 패턴은 팀 이름에 포함될 수 있는 밑줄이 포함된 팀 이름과 일치할 수 없습니다. 가드가 적용되지 않으면 어떤 팀이 요청했는지에 관계없이 저장된 `AIRFLOW_CONN__<TEAM>___<ID>` 변수를 해결하는 무조건 전역 읽기로 조회가 진행되었습니다. 다중 팀 모드에서는 한 팀의 인증된 사용자가 `POST /api/v2/connections/test`를 통해 다른 팀의 연결을 확인하고 해당 팀의 자격 증명을 사용하여 외부적으로 인증할 수 있습니다. 엔드포인트는 자격 증명을 반환하는 대신 자격 증명을 사용합니다. 악용하려면 `[core] multi_team` 활성화, `[core] test_connection`을 `Enabled`로 설정(`Disabled`로 제공), API 서버 프로세스에서 환경 변수로 프로비저닝된 팀 범위 비밀, 인코딩된 식별자에 대한 지식이 필요합니다. 리다이어",
    "reference_url": "https://github.com/apache/airflow/pull/70736",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1364,7 +1364,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "11ef680d8f537041daf38e1cc0276d376f30c75f9466d7bcbdc49cb4ebd9de8e",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team's scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowed to contain. When the guard did not apply, the lookup fell through to an unconditional global read that resolved the stored `AIRFLOW_CONN__<TEAM>___<ID>` variable regardless of which team asked. In multi-team mode an authenticated user of one team could therefore have `POST /api/v2/connections/test` resolve another team's Connection and authenticate outward with that team's credentials; the endpoint uses the credentials rather than returning them. Exploitation requires `[core] multi_team` enabled, `[core] test_connection` set to `Enabled` (it ships `Disabled`), team-scoped secrets provisioned as environment variables in the API-server process, and knowledge of the encoded identifier. Redire"
   },
   {
    "cve_id": "CVE-2026-21387",
@@ -1378,7 +1378,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Protection mechanism failure for some Intel(R) LLM Library for PyTorch within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.",
+   "summary": "[버전범위 불명확] 링 3 내 PyTorch용 일부 Intel(R) LLM 라이브러리에 대한 보호 메커니즘 오류: 사용자 응용 프로그램으로 인해 권한 상승이 허용될 수 있습니다. 권한 있는 사용자를 사용하는 권한 없는 소프트웨어 공격과 복잡성이 낮은 공격을 결합하면 권한 상승이 가능할 수 있습니다. 이 결과는 특별한 내부 지식 없이 공격 요구 사항이 존재하고 수동적인 사용자 상호 작용이 필요한 경우 로컬 액세스를 통해 잠재적으로 발생할 수 있습니다. 잠재적 취약성은 취약한 시스템의 기밀성(높음), 무결성(높음) 및 가용성(높음)에 영향을 미쳐 후속 시스템 기밀성(없음), 무결성(없음) 및 가용성(없음)에 영향을 미칠 수 있습니다.",
    "reference_url": "https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01465.html",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1386,7 +1386,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "fda47e8e2c2e72e514bc690df76b78a4823ebdf2da46d2c844bd5fb68c289106",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Protection mechanism failure for some Intel(R) LLM Library for PyTorch within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts."
   },
   {
    "cve_id": "CVE-2026-24693",
@@ -1400,7 +1400,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Protection mechanism failure for some Intel(R) oneCCL Bindings for PyTorch before version v2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.",
+   "summary": "[버전범위 불명확] 링 3 내 버전 v2.8.0 이전의 PyTorch용 일부 Intel(R) oneCCL 바인딩에 대한 보호 메커니즘 실패: 사용자 응용 프로그램이 권한 상승을 허용할 수 있습니다. 권한 있는 사용자를 사용하는 권한 없는 소프트웨어 공격과 복잡성이 낮은 공격을 결합하면 권한 상승이 가능할 수 있습니다. 이 결과는 특별한 내부 지식 없이 공격 요구 사항이 존재하고 수동적인 사용자 상호 작용이 필요한 경우 로컬 액세스를 통해 잠재적으로 발생할 수 있습니다. 잠재적 취약성은 취약한 시스템의 기밀성(높음), 무결성(높음) 및 가용성(높음)에 영향을 미쳐 후속 시스템 기밀성(없음), 무결성(없음) 및 가용성(없음)에 영향을 미칠 수 있습니다.",
    "reference_url": "https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01464.html",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1408,7 +1408,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "53140a8954773cde00cdc27791527d7b15903517442a15b36b6bfacd9c28f36b",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Protection mechanism failure for some Intel(R) oneCCL Bindings for PyTorch before version v2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts."
   },
   {
    "cve_id": "CVE-2026-20728",
@@ -1422,7 +1422,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Protection mechanism failure for some Intel Extension for TensorFlow software before version 2.15.0.3 within Ring 3: User Applications may allow an escalation of privilege. System software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.",
+   "summary": "[버전범위 불명확] 링 3 내 버전 2.15.0.3 이전의 일부 TensorFlow용 Intel Extension 소프트웨어에 대한 보호 메커니즘 오류: 사용자 응용 프로그램에서 권한 상승을 허용할 수 있습니다. 낮은 복잡성 공격과 결합된 권한 있는 사용자를 사용하는 시스템 소프트웨어 공격으로 권한 상승이 가능해질 수 있습니다. 이 결과는 특별한 내부 지식 없이 공격 요구 사항이 존재하고 수동적인 사용자 상호 작용이 필요한 경우 로컬 액세스를 통해 잠재적으로 발생할 수 있습니다. 잠재적 취약성은 취약한 시스템의 기밀성(높음), 무결성(높음) 및 가용성(높음)에 영향을 미쳐 후속 시스템 기밀성(없음), 무결성(없음) 및 가용성(없음)에 영향을 미칠 수 있습니다.",
    "reference_url": "https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01458.html",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1430,7 +1430,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "221effbf55b882f036f7e418729929b45f89457556c68d1eddc38b943ca520f8",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Protection mechanism failure for some Intel Extension for TensorFlow software before version 2.15.0.3 within Ring 3: User Applications may allow an escalation of privilege. System software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts."
   },
   {
    "cve_id": "CVE-2026-68870",
@@ -1444,7 +1444,7 @@
    "published_date": "20260810",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "The Azure Key Vault secrets backend in Apache Airflow's Microsoft Azure provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team's namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-microsoft-azure 14.1.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.",
+   "summary": "Apache Airflow의 Microsoft Azure 공급자의 Azure Key Vault 비밀 백엔드는 팀 범위 조회가 누락된 경우 팀 독립적 조회를 통해 팀 범위 연결 또는 변수 ID를 확인했습니다. 이 백엔드를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀의 호출자는 해당 팀의 네임스페이스를 설명하는 ID를 제공하고 전체 자격 증명을 획득하여 다른 팀에 속한 비밀을 확인할 수 있습니다. 다중 팀 모드를 활성화하고 이 백엔드를 사용하는 것 외에는 특별한 구성이 필요하지 않습니다. 사용자는 apache-airflow-providers-microsoft-azure 14.1.0 이상으로 업그레이드하는 것이 좋습니다. 이는 팀 네임스페이스의 이름을 지정할 수 있는 ID에 대해 팀에 구애받지 않는 폴스루를 거부합니다.",
    "reference_url": "https://github.com/apache/airflow/pull/70876",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1452,7 +1452,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "47c1a733cfb27580878cfe3798a1ee76d5ab2536bebc8026e565442cf4659088",
-   "summary_en": ""
+   "summary_en": "The Azure Key Vault secrets backend in Apache Airflow's Microsoft Azure provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team's namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-microsoft-azure 14.1.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace."
   },
   {
    "cve_id": "CVE-2024-12720",
@@ -1466,7 +1466,7 @@
    "published_date": "20250320",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file tokenization_nougat_fast.py. The vulnerability occurs in the post_process_single() function, where a regular expression processes specially crafted input. The issue stems from the regex exhibiting exponential time complexity under certain conditions, leading to excessive backtracking. This can result in significantly high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.46.3.",
+   "summary": "Huggingface/transformers 라이브러리, 특히 tokenization_nougat_fast.py 파일에서 ReDoS(정규식 서비스 거부) 취약점이 발견되었습니다. 취약점은 정규 표현식이 특수하게 조작된 입력을 처리하는 post_process_single() 함수에서 발생합니다. 이 문제는 특정 조건에서 기하급수적인 시간 복잡성을 나타내는 정규 표현식으로 인해 발생하며 이로 인해 과도한 역추적이 발생합니다. 이로 인해 CPU 사용량이 상당히 높아지고 잠재적인 애플리케이션 가동 중지 시간이 발생하여 DoS(서비스 거부) 시나리오가 효과적으로 생성될 수 있습니다. 영향을 받는 버전은 v4.46.3입니다.",
    "reference_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-12720",
    "source": "OSV",
    "ecosystem": "pypi",
@@ -1474,7 +1474,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211215",
    "content_hash": "16cd995e6217264c6b6abf1a9d6bf5bd3251ff53b4f6468f3c2d7fbc958f73bc",
-   "summary_en": ""
+   "summary_en": "A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file tokenization_nougat_fast.py. The vulnerability occurs in the post_process_single() function, where a regular expression processes specially crafted input. The issue stems from the regex exhibiting exponential time complexity under certain conditions, leading to excessive backtracking. This can result in significantly high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.46.3."
   },
   {
    "cve_id": "CVE-2026-72750",
@@ -1488,7 +1488,7 @@
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node's Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional 'Query Parameters' field to bind values via positional placeholders.",
+   "summary": "1.123.67, 2.31.5 및 2.32.1 이전의 n8n에는 표현식 값을 SQL 문자열에 직접 보간하는 Snowflake 노드의 쿼리 실행 작업에 SQL 주입 취약점이 포함되어 있습니다. 워크플로 작성자가 신뢰할 수 없고 외부에서 제어되는 식 데이터를 원시 SQL 쿼리에 직접 포함하는 경우 해당 데이터는 매개 변수화되지 않으므로 SQL 삽입이 허용됩니다. 이 수정 사항은 위치 자리 표시자를 통해 값을 바인딩하기 위한 선택적 '쿼리 매개 변수' 필드를 추가합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-652q-gvq3-74qv",
    "source": "NVD",
    "ecosystem": "npm",
@@ -1496,7 +1496,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "dd90ef43f7102c7b85e2e1fa4dd6104127559aadb181f68ef9a56cbe555eb050",
-   "summary_en": ""
+   "summary_en": "n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node's Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional 'Query Parameters' field to bind values via positional placeholders."
   },
   {
    "cve_id": "CVE-2026-73555",
@@ -1510,7 +1510,7 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.26.0 이전에는 vllm/entrypoints/openai/server_utils.py의 유효성 검사_Exception_handler가 FastAPI RequestValidationError 개체를 str(exc)로 변환하고, vllm/entrypoints/utils.py의 sanitize_message는 역추적 스타일 파일 경로를 제거하지 않아 /v1/chat/completions에 대한 인증되지 않은 잘못된 JSON 요청을 허용합니다. /v1/completions, /tokenize 및 /detokenize는 OS 사용자 이름, 홈 및 가상 환경 경로, Python 버전, 내부 패키지 구조, 줄 번호 및 엔드포인트 핸들러 이름을 공개합니다. 이 문제는 버전 0.26.0에서 해결되었습니다.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1518,7 +1518,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "d4d930fbaf8c48cc9abf3ffa38332dc7a62dc08414507b29f8e7a9f2bb60394c",
-   "summary_en": ""
+   "summary_en": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0."
   },
   {
    "cve_id": "CVE-2026-73556",
@@ -1532,7 +1532,7 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.26.0 이전에는 vllm/v1/structured_output/backend_lm_format_enforcer.py의 Structured_outputs.regex 매개변수가 compile_regex_with_timeout 또는 verify_structured_output_request_lm_format_enforcer의 유효성 검사 없이 lmformatenforcer.RegexParser에 전달되어 인증되지 않은 /v1/completions 요청을 허용합니다. lm-format-enforcer 백엔드는 CPU 코어를 소비하고 치명적인 정규 표현식으로 구조화된 출력 엔진 경로를 정지시킵니다. 이 문제는 버전 0.26.0에서 해결되었습니다.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/c9a788eedc412acceaa5112e0d44624b49841577",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1540,7 +1540,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "7890d488a89eefa90923161b65d1243838408bf2126344abfed2e00bc73c9448",
-   "summary_en": ""
+   "summary_en": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0."
   },
   {
    "cve_id": "CVE-2026-73558",
@@ -1554,7 +1554,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user's input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user's inference result. This issue is fixed in version 0.27.0.",
+   "summary": "vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.27.0 이전에는 activate_kernels.cu의 blockIdx.x * 2 * d의 정수 오버플로로 인해 act_and_mul_kernel이 다른 일괄 처리 사용자의 입력을 소비하게 되어 동일한 추론 일괄 처리에서 처리된 요청이 다른 사용자 추론 결과의 부분 또는 전체 복사본을 수신할 수 있습니다. 이 문제는 버전 0.27.0에서 수정되었습니다.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/451227cb3ff07989698fed982c2d3e4300257924",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1562,7 +1562,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "86dd53f5c1d7bbff4235bab0bf4f94d648b29c82fec8c6504c2ded1a7713b58b",
-   "summary_en": ""
+   "summary_en": "vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user's input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user's inference result. This issue is fixed in version 0.27.0."
   },
   {
    "cve_id": "CVE-2026-35502",
@@ -1576,7 +1576,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Deserialization of untrusted data for some Intel(R) Extension for PyTorch before version 2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with an unauthenticated user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires active user interaction. The potential vulnerability may impact the confidentiality (low), integrity (low) and availability (low) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.",
+   "summary": "[버전범위 불명확] 링 3 내에서 버전 2.8.0 이전의 PyTorch용 일부 Intel(R) 확장에 대한 신뢰할 수 없는 데이터의 역직렬화: 사용자 응용 프로그램은 권한 상승을 허용할 수 있습니다. 권한이 없는 소프트웨어 공격자가 인증되지 않은 사용자를 사용하고 복잡도가 낮은 공격을 결합하면 권한 상승이 가능해질 수 있습니다. 이 결과는 특별한 내부 지식 없이 공격 요구 사항이 존재하지 않고 적극적인 사용자 상호 작용이 필요한 경우 로컬 액세스를 통해 잠재적으로 발생할 수 있습니다. 잠재적 취약성은 취약한 시스템의 기밀성(낮음), 무결성(낮음) 및 가용성(낮음)에 영향을 미쳐 후속 시스템 기밀성(없음), 무결성(없음) 및 가용성(없음)에 영향을 미칠 수 있습니다.",
    "reference_url": "https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01497.html",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1584,7 +1584,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "f319e90153bdedb013a2dd633ff431807678181c0c1f0b9318c9e79a760b96fb",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] Deserialization of untrusted data for some Intel(R) Extension for PyTorch before version 2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with an unauthenticated user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires active user interaction. The potential vulnerability may impact the confidentiality (low), integrity (low) and availability (low) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts."
   },
   {
    "cve_id": "CVE-2025-9266",
@@ -1598,7 +1598,7 @@
    "published_date": "20260806",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] The Accelerate theme for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the enqueue_scripts() function in all versions up to, and including, 1.5.3. This makes it possible for authenticated attackers, with Subscriber-level access and above, to install and activate the ThemeGrill Demo Importer plugin.",
+   "summary": "[버전범위 불명확] WordPress의 Accelerate 테마는 1.5.3까지의 모든 버전에서 enqueue_scripts() 함수에 대한 기능 검사 누락으로 인해 데이터 무단 수정에 취약합니다. 이를 통해 구독자 수준 이상의 액세스 권한을 가진 인증된 공격자가 ThemeGrill Demo Importer 플러그인을 설치하고 활성화할 수 있습니다.",
    "reference_url": "https://themes.trac.wordpress.org/changeset/283564/accelerate/1.5.4/inc/admin/class-accelerate-admin.php",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1606,7 +1606,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "8fd4bdaf27dee7e4994cab791eb3a568f595cd53aab3280156fe89bb7e04df23",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] The Accelerate theme for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the enqueue_scripts() function in all versions up to, and including, 1.5.3. This makes it possible for authenticated attackers, with Subscriber-level access and above, to install and activate the ThemeGrill Demo Importer plugin."
   },
   {
    "cve_id": "CVE-2026-54183",
@@ -1620,7 +1620,7 @@
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "Apache Airflow's secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker's recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown unmasked in the Variables UI. The exposure is limited to the UI: any authenticated user who can see the Variable in the UI can already read its full value through the Variables REST API, so this does not disclose data the user could not otherwise obtain — the masking is a shoulder-surfing defense for the UI, not an access-control boundary. This is an incomplete-fix follow-up to CVE-2026-42358, whose fix made only the dictionary walk unbounded; lists, tuples, and sets beyond the depth limit remained unmasked in the UI. Deployments that applied the CVE-2026-42358 fix should also upgrade to address this residual case. Upgrade to apache-airflow 3.3.1 or later.",
+   "summary": "Apache Airflow의 비밀 마스커는 UI에 표시될 때 중요한 키 이름 아래에 저장된 값을 숨깁니다. 마스커의 재귀 깊이 제한은 목록, 튜플 또는 해당 제한을 초과하는 설정 내에 중첩된 값으로 내려오지 않았으므로 깊이 중첩된 값을 보유하는 Airflow 변수는 변수 UI에서 마스크 해제된 것으로 표시되었습니다. 노출은 UI로 제한됩니다. UI에서 변수를 볼 수 있는 인증된 사용자는 이미 변수 REST API를 통해 전체 값을 읽을 수 있으므로 사용자가 다른 방법으로는 얻을 수 없는 데이터를 공개하지 않습니다. 마스킹은 액세스 제어 경계가 아니라 UI에 대한 어깨 서핑 방어입니다. 이것은 사전만 무제한으로 이동하도록 수정한 CVE-2026-42358에 대한 불완전한 수정 후속 조치입니다. 깊이 제한을 초과하는 목록, 튜플 및 세트는 UI에서 마스크되지 않은 상태로 유지되었습니다. 이 잔여 사례를 해결하려면 CVE-2026-42358 수정 사항을 적용한 배포도 업그레이드해야 합니다. apache-airflow 3.3.1 이상으로 업그레이드하세요.",
    "reference_url": "https://github.com/apache/airflow/pull/68422",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1628,7 +1628,7 @@
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
    "content_hash": "e74b660c8f034dea8b8dd449ba02f8450ae7c315b2458b169236bee0ef1ac5aa",
-   "summary_en": ""
+   "summary_en": "Apache Airflow's secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker's recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown unmasked in the Variables UI. The exposure is limited to the UI: any authenticated user who can see the Variable in the UI can already read its full value through the Variables REST API, so this does not disclose data the user could not otherwise obtain — the masking is a shoulder-surfing defense for the UI, not an access-control boundary. This is an incomplete-fix follow-up to CVE-2026-42358, whose fix made only the dictionary walk unbounded; lists, tuples, and sets beyond the depth limit remained unmasked in the UI. Deployments that applied the CVE-2026-42358 fix should also upgrade to address this residual case. Upgrade to apache-airflow 3.3.1 or later."
   },
   {
    "cve_id": "CVE-2026-72685",
@@ -1642,7 +1642,7 @@
    "published_date": "20260813",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user who can index documents to submit a single small document containing a crafted user-supplied input. Processing one such document occupies a worker thread from a bounded pool for a disproportionate amount of time, degrading the availability of indexing operations on the affected node.",
+   "summary": "[버전범위 불명확] Elasticsearch의 결함으로 인해 문서를 색인화할 수 있는 권한이 낮은 인증된 사용자가 조작된 사용자 제공 입력이 포함된 작은 문서 하나를 제출할 수 있습니다. 그러한 문서 하나를 처리하면 너무 많은 시간 동안 제한된 풀의 작업자 스레드를 차지하게 되어 영향을 받은 노드에서 인덱싱 작업의 가용성이 저하됩니다.",
    "reference_url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-security-update-esa-2026-77/389500",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1650,7 +1650,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211219",
    "content_hash": "1a80b0b0cf0c23f930ff7ed86d375149857d9f0ea016b5296b304d386ed272e8",
-   "summary_en": ""
+   "summary_en": "[버전범위 불명확] A flaw in Elasticsearch allows a low-privileged authenticated user who can index documents to submit a single small document containing a crafted user-supplied input. Processing one such document occupies a worker thread from a bounded pool for a disproportionate amount of time, degrading the availability of indexing operations on the affected node."
   },
   {
    "cve_id": "CVE-2026-14549",
@@ -1664,7 +1664,7 @@
    "published_date": "20260811",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to add or delete the site's configured languages.",
+   "summary": "1.7.3을 통한 Ray Enterprise Translation WordPress 플러그인은 AJAX 작업 중 하나에 대한 기능이나 nonce 검사를 수행하지 않으므로 구독자를 포함한 인증된 사용자가 사이트의 구성된 언어를 추가하거나 삭제할 수 있습니다.",
    "reference_url": "https://wpscan.com/vulnerability/3dd9bf3b-7fe4-4a58-ad05-1fc0bfb85413/",
    "source": "NVD",
    "ecosystem": "pypi",
@@ -1672,7 +1672,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211613",
    "content_hash": "a55f5f0ff204e5753e87f26747812cc1794c2975c613b2e2a83606671000bcff",
-   "summary_en": ""
+   "summary_en": "The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to add or delete the site's configured languages."
   },
   {
    "cve_id": "CVE-2025-1194",
@@ -1686,7 +1686,7 @@
    "published_date": "20250429",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file `tokenization_gpt_neox_japanese.py` of the GPT-NeoX-Japanese model. The vulnerability occurs in the SubWordJapaneseTokenizer class, where regular expressions process specially crafted inputs. The issue stems from a regex exhibiting exponential complexity under certain conditions, leading to excessive backtracking. This can result in high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.48.1 (latest).",
+   "summary": "Huggingface/transformers 라이브러리, 특히 GPT-NeoX-일본어 모델의 'tokenization_gpt_neox_japanese.py' 파일에서 정규식 서비스 거부(ReDoS) 취약점이 발견되었습니다. 취약점은 정규 표현식이 특수하게 조작된 입력을 처리하는 SubWord일본어Tokenizer 클래스에서 발생합니다. 이 문제는 특정 조건에서 기하급수적인 복잡성을 나타내는 정규 표현식으로 인해 발생하며 이로 인해 과도한 역추적이 발생합니다. 이로 인해 CPU 사용량이 높아지고 잠재적인 애플리케이션 가동 중지 시간이 발생하여 DoS(서비스 거부) 시나리오가 효과적으로 생성될 수 있습니다. 영향을 받는 버전은 v4.48.1(최신)입니다.",
    "reference_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-1194",
    "source": "OSV",
    "ecosystem": "pypi",
@@ -1694,7 +1694,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211215",
    "content_hash": "04c432fabf9a1348706544d2750500420c18c0f3c912b9d25bdf568c94be86db",
-   "summary_en": ""
+   "summary_en": "A Regular Expression Denial of Service (ReDoS) vulnerability was identified in the huggingface/transformers library, specifically in the file `tokenization_gpt_neox_japanese.py` of the GPT-NeoX-Japanese model. The vulnerability occurs in the SubWordJapaneseTokenizer class, where regular expressions process specially crafted inputs. The issue stems from a regex exhibiting exponential complexity under certain conditions, leading to excessive backtracking. This can result in high CPU usage and potential application downtime, effectively creating a Denial of Service (DoS) scenario. The affected version is v4.48.1 (latest)."
   },
   {
    "cve_id": "CVE-2026-59222",
@@ -1708,7 +1708,7 @@
    "published_date": "20260724",
    "modified_date": "20260813",
    "kev_yn": "N",
-   "summary": "Open WebUI: /api/v1/channels/{id}/members exposes full user model including sensitive credentials ### Summary The channel members endpoint serializes and returns **full user models** for channel participants, including settings objects. A normal user in a DM can retrieve admin-only sensitive configuration such as webhook URLs and tool server key material (`settings.ui.toolServers[].key`), which is not available via standard user info APIs. ### Details The endpoint GET `/api/v1/channels/{id}/members` returns the full serialized user model for every member in the channel. In both the DM and non-DM code paths, the handler constructs the response with `[UserModelResponse(**user.model_dump(), is_active=...)]` and returns it as the users list. Because `UserModel` (`models/users.py`) includes a settings object (`UserSettings`) and arbitrary UI configuration (`settings.ui`), the endpoint exposes other users' sensitive configuration to any channel participant. Practically, a regular user who pa",
+   "summary": "WebUI 열기: /api/v1/channels/{id}/members는 민감한 자격 증명을 포함한 전체 사용자 모델을 노출합니다. ### 요약 채널 구성원 엔드포인트는 설정 개체를 포함하여 채널 참가자에 대한 **전체 사용자 모델**을 직렬화하고 반환합니다. DM의 일반 사용자는 표준 사용자 정보 API를 통해 사용할 수 없는 웹훅 URL 및 도구 서버 키 자료(`settings.ui.toolServers[].key`)와 같은 관리자 전용 민감한 구성을 검색할 수 있습니다. ### 세부 정보 GET 엔드포인트 `/api/v1/channels/{id}/members`는 채널의 모든 멤버에 대해 직렬화된 전체 사용자 모델을 반환합니다. DM 및 비DM 코드 경로 모두에서 핸들러는 `[UserModelResponse(**user.model_dump(), is_active=...)]`를 사용하여 응답을 구성하고 이를 사용자 목록으로 반환합니다. `UserModel`(`models/users.py`)에는 설정 개체(`UserSettings`)와 임의의 UI 구성(`settings.ui`)이 포함되어 있으므로 엔드포인트는 다른 사용자의 민감한 구성을 모든 채널 참가자에게 노출합니다. 실제로, PA를 사용하는 일반 사용자는",
    "reference_url": "https://github.com/advisories/GHSA-gh7p-78x6-jw6m",
    "source": "GHSA",
    "ecosystem": "pypi",
@@ -1716,7 +1716,7 @@
    "last_seen_run": "20260815211214",
    "collected_at": "20260815211306",
    "content_hash": "94dee714f0970ae10c8350454c4cda6b61aea65f0f728504143224cae7d4ccc9",
-   "summary_en": ""
+   "summary_en": "Open WebUI: /api/v1/channels/{id}/members exposes full user model including sensitive credentials ### Summary The channel members endpoint serializes and returns **full user models** for channel participants, including settings objects. A normal user in a DM can retrieve admin-only sensitive configuration such as webhook URLs and tool server key material (`settings.ui.toolServers[].key`), which is not available via standard user info APIs. ### Details The endpoint GET `/api/v1/channels/{id}/members` returns the full serialized user model for every member in the channel. In both the DM and non-DM code paths, the handler constructs the response with `[UserModelResponse(**user.model_dump(), is_active=...)]` and returns it as the users list. Because `UserModel` (`models/users.py`) includes a settings object (`UserSettings`) and arbitrary UI configuration (`settings.ui`), the endpoint exposes other users' sensitive configuration to any channel participant. Practically, a regular user who pa"
   },
   {
    "cve_id": "CVE-2026-72764",
@@ -1730,7 +1730,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact n8n's JavaScript task runner shared one module cache across all users' Code-node executions, so a user able to run a Code node could poison a cached module and alter other users' Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance. It does not constitute a sandbox escape or remote code execution. All multi-user n8n instances running the JS task runner with built-in or external modules enabled are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable built-in and external module access in Code nodes by unsetting `NODE_FUNCTION_ALLOW_BUILTIN` and `NO",
+   "summary": "## 영향 n8n의 JavaScript 작업 실행기는 모든 사용자의 코드 노드 실행에서 하나의 모듈 캐시를 공유하므로 코드 노드를 실행할 수 있는 사용자는 캐시된 모듈을 손상시키고 동일한 실행기에서 다른 사용자의 코드 노드 실행을 변경하여 기밀성, 무결성 또는 가용성에 영향을 미칠 수 있습니다. 이는 단일 n8n 인스턴스 내의 사용자 간 격리 중단입니다. 이는 샌드박스 이스케이프 또는 원격 코드 실행을 구성하지 않습니다. 내장 또는 외부 모듈이 활성화된 JS 작업 실행기를 실행하는 모든 다중 사용자 n8n 인스턴스가 영향을 받습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 'NODE_FUNCTION_ALLOW_BUILTIN' 및 'NO'를 설정 해제하여 코드 노드에서 내장 및 외부 모듈 액세스를 비활성화합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-9cmh-xcqm-5hqr",
    "source": "OSV",
    "ecosystem": "npm",
@@ -1738,7 +1738,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "7060e365ae603fb1ff90b36552890b96b78784f9bc292e21995160841584864b",
-   "summary_en": ""
+   "summary_en": "## Impact n8n's JavaScript task runner shared one module cache across all users' Code-node executions, so a user able to run a Code node could poison a cached module and alter other users' Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance. It does not constitute a sandbox escape or remote code execution. All multi-user n8n instances running the JS task runner with built-in or external modules enabled are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable built-in and external module access in Code nodes by unsetting `NODE_FUNCTION_ALLOW_BUILTIN` and `NO"
   },
   {
    "cve_id": "CVE-2026-72768",
@@ -1752,7 +1752,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact On an n8n instance with SSRF protection enabled, the MCP Client node sent requests to a user-supplied endpoint without routing them through that protection and without pinning the resolved address. An authenticated user who could create or edit a workflow could therefore cause the server to connect to internal or otherwise blocked hosts and read the responses back through the workflow, exposing internal services the SSRF protection was meant to protect. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the MCP Client node by adding it to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n host to block access to internal and link-local address ranges",
+   "summary": "## 영향 SSRF 보호가 활성화된 n8n 인스턴스에서 MCP 클라이언트 노드는 해당 보호를 통해 라우팅하지 않고 확인된 주소를 고정하지 않고 사용자 제공 엔드포인트에 요청을 보냈습니다. 따라서 워크플로를 생성하거나 편집할 수 있는 인증된 사용자는 서버가 내부 또는 차단된 호스트에 연결하도록 하고 워크플로를 통해 응답을 다시 읽어 SSRF 보호가 보호해야 하는 내부 서비스를 노출시킬 수 있습니다. ## 패치 이 문제는 n8n 버전 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 MCP 클라이언트 노드를 추가하여 비활성화합니다. - n8n 호스트에서 네트워크 송신을 제한하여 내부 및 링크 로컬 주소 범위에 대한 액세스를 차단합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-vhf8-cg2h-cg3p",
    "source": "OSV",
    "ecosystem": "npm",
@@ -1760,7 +1760,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "519ec880bfb9365ea5964014a781b570c86813cef1a9843519cb04d8f5eaccde",
-   "summary_en": ""
+   "summary_en": "## Impact On an n8n instance with SSRF protection enabled, the MCP Client node sent requests to a user-supplied endpoint without routing them through that protection and without pinning the resolved address. An authenticated user who could create or edit a workflow could therefore cause the server to connect to internal or otherwise blocked hosts and read the responses back through the workflow, exposing internal services the SSRF protection was meant to protect. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the MCP Client node by adding it to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n host to block access to internal and link-local address ranges"
   },
   {
    "cve_id": "CVE-2026-72769",
@@ -1774,7 +1774,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact An authenticated user able to create or edit a workflow expression could abuse the expression engine's array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process, leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the VM expression engine if an alternative is available for your deployment. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+   "summary": "## 영향 워크플로 표현식을 생성하거나 편집할 수 있는 인증된 사용자는 표현식 엔진의 배열 요소 액세스를 남용하여 내장된 호스트에 대한 참조를 얻고 기본 n8n 프로세스에서 해당 프로토타입을 오염시켜 서비스 거부를 초래할 수 있습니다. VM 표현 엔진을 실행하는 자체 호스팅 및 클라우드 인스턴스가 모두 영향을 받습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 배포에 대안이 있는 경우 VM 식 엔진을 비활성화합니다. 이러한 해결 방법은 위험을 완전히 해결하지 못하므로 단기 완화 조치로만 사용해야 합니다.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-hx4h-vr3m-45vh",
    "source": "OSV",
    "ecosystem": "npm",
@@ -1782,7 +1782,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "d711ca17efc1b6fee4fcc6fd2ec4adc58f65aab7c7cd62f790be291e35cf8d34",
-   "summary_en": ""
+   "summary_en": "## Impact An authenticated user able to create or edit a workflow expression could abuse the expression engine's array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process, leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the VM expression engine if an alternative is available for your deployment. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures."
   },
   {
    "cve_id": "CVE-2026-72773",
@@ -1796,7 +1796,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact The component `@n8n/computer-use` file-search tool confined searches to a configured base directory. A crafted search pattern could bypass the confinement check and expand to locations outside that directory, causing the tool to return the names and contents of files anywhere the daemon's OS user could read. Any deployment where an actor could influence the tool's search input was affected; the result was disclosure of arbitrary local files outside the intended sandbox. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or remove AI agent workflows that use the `computer-use` package until the instance is patched. - Ensure the n8n process runs under a dedicated low-privilege user",
+   "summary": "## 영향 구성 요소 `@n8n/computer-use` 파일 검색 도구는 검색을 구성된 기본 디렉터리로 제한했습니다. 조작된 검색 패턴은 제한 검사를 우회하고 해당 디렉터리 외부 위치로 확장하여 도구가 데몬의 OS 사용자가 읽을 수 있는 모든 위치에서 파일의 이름과 내용을 반환하도록 할 수 있습니다. 행위자가 도구의 검색 입력에 영향을 미칠 수 있는 모든 배포가 영향을 받았습니다. 그 결과 의도한 샌드박스 외부의 임의 로컬 파일이 공개되었습니다. ## 패치 이 문제는 n8n 버전 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 인스턴스가 패치될 때까지 '컴퓨터 사용' 패키지를 사용하는 AI 에이전트 워크플로를 비활성화하거나 제거합니다. - n8n 프로세스가 낮은 권한의 전용 사용자로 실행되는지 확인하세요.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-pf2q-pxhf-hgmw",
    "source": "OSV",
    "ecosystem": "npm",
@@ -1804,7 +1804,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "4947a6a363a5c22e2d7f40e3557e8c439b426f40305532c248e47b545f8f980b",
-   "summary_en": ""
+   "summary_en": "## Impact The component `@n8n/computer-use` file-search tool confined searches to a configured base directory. A crafted search pattern could bypass the confinement check and expand to locations outside that directory, causing the tool to return the names and contents of files anywhere the daemon's OS user could read. Any deployment where an actor could influence the tool's search input was affected; the result was disclosure of arbitrary local files outside the intended sandbox. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or remove AI agent workflows that use the `computer-use` package until the instance is patched. - Ensure the n8n process runs under a dedicated low-privilege user"
   },
   {
    "cve_id": "CVE-2026-72775",
@@ -1818,7 +1818,7 @@
    "published_date": "20260722",
    "modified_date": "20260812",
    "kev_yn": "N",
-   "summary": "## Impact The Postgres Trigger node interpolated user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping, so an authenticated user could inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential's privileges. Successful exploitation allows full read and write access to the connected PostgreSQL database. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5 and 2.32.1. Users should upgrade to these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the PostgresTrigger node by adding `n8n-nodes-base.postgresTrigger` to the `NODES_EXCLUDE` environment variable. - Ensure PostgreSQL credentials used with n8n are configured with the minimum required privileges and do not use SUPER",
+   "summary": "## 영향 Postgres Trigger 노드는 적절한 이스케이프 처리 없이 사용자가 제공한 식별자 매개 변수(채널, 함수 및 트리거 이름)를 SQL 문에 삽입하여 인증된 사용자가 구성된 자격 증명의 권한으로 연결된 PostgreSQL 데이터베이스에 대해 실행되는 임의 SQL을 주입할 수 있었습니다. 성공적으로 활용하면 연결된 PostgreSQL 데이터베이스에 대한 전체 읽기 및 쓰기 액세스가 허용됩니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이 버전 이상으로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.postgresTrigger`를 추가하여 PostgresTrigger 노드를 비활성화합니다. - n8n과 함께 사용되는 PostgreSQL 자격 증명이 최소 필수 권한으로 구성되어 있고 SUPER를 사용하지 않는지 확인하세요.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-jqwr-vx3p-r266",
    "source": "OSV",
    "ecosystem": "npm",
@@ -1826,7 +1826,7 @@
    "last_seen_run": "20260814211606",
    "collected_at": "20260814211606",
    "content_hash": "197a5be48d7cb5f9cd283488447b1a78fa57fe8d7bb522e0ae8bd68ded49d909",
-   "summary_en": ""
+   "summary_en": "## Impact The Postgres Trigger node interpolated user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping, so an authenticated user could inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential's privileges. Successful exploitation allows full read and write access to the connected PostgreSQL database. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5 and 2.32.1. Users should upgrade to these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the PostgresTrigger node by adding `n8n-nodes-base.postgresTrigger` to the `NODES_EXCLUDE` environment variable. - Ensure PostgreSQL credentials used with n8n are configured with the minimum required privileges and do not use SUPER"
   }
  ]
 }

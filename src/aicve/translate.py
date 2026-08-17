@@ -301,18 +301,110 @@ def translate_findings(findings: Sequence[Finding], scope, store=None) -> Transl
         translator.close()
 
 
-if __name__ == "__main__":
-    # 단독 확인:  python -m src.aicve.translate "영문 문장"
-    import sys
+def backfill(store, scope, limit: Optional[int] = None,
+             retranslate: bool = False) -> TranslateStat:
+    """DB 에 이미 쌓인 건을 한 번에 번역한다.
 
-    sample = " ".join(sys.argv[1:]) or (
+    수집 단계의 번역은 '그 실행에서 수집된 건' 에만 적용된다.
+    번역 기능을 켜기 전에 쌓인 건이나, 일시적으로 번역이 실패했던 건은
+    매일 실행이 최근 며칠치만 다시 훑기 때문에 영영 영문으로 남는다.
+    이 함수가 그 구멍을 메운다.
+
+    retranslate=False 면 아직 번역 안 된 건(summary_en 이 빈 건)만 처리한다.
+    """
+    from .store import content_hash, rows_to_findings
+
+    config = TranslateConfig.from_output(scope.output)
+    if not config.enabled:
+        log.warning("settings.yml 의 output.translate.enabled 가 꺼져 있습니다.")
+        return TranslateStat(provider=config.provider)
+
+    rows = store.fetch_all_cves()
+    targets = [r for r in rows
+               if retranslate or not (r.get("summary_en") or "").strip()]
+    if limit:
+        targets = targets[:limit]
+
+    log.info("번역 대상 %d건 (전체 %d건 중)", len(targets), len(rows))
+    if not targets:
+        log.info("이미 모두 번역돼 있습니다.")
+        return TranslateStat(provider=config.provider)
+
+    findings = rows_to_findings(targets)
+    if retranslate:
+        for finding in findings:              # 다시 번역하려면 원문을 되살린다
+            if finding.summary_en:
+                finding.summary = finding.summary_en
+
+    translator = Translator(config, store)
+    try:
+        stat = translator.apply(
+            findings, int(scope.output.get("summary_max_len", 1000)))
+    finally:
+        translator.close()
+
+    # 값만 갱신한다. 회차 정보(first/last_seen_run)는 그대로 둔다 —
+    # 재수집이 아니라 표기 보정이므로 이력이 바뀌면 안 된다.
+    original = {(r["cve_id"], r["sw_name"]): r for r in targets}
+    for finding in findings:
+        row = original[(finding.cve_id, finding.sw_name)]
+        store.conn.execute(
+            "UPDATE cve SET summary=?, summary_en=?, content_hash=? "
+            "WHERE cve_id=? AND sw_name=?",
+            (finding.summary, finding.summary_en, content_hash(finding),
+             finding.cve_id, finding.sw_name))
+    store.conn.commit()
+    log.info("DB 반영 완료: %d건", len(findings))
+    return stat
+
+
+def _main() -> int:
+    """python -m src.aicve.translate  [--backfill] [문장]"""
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        prog="python -m src.aicve.translate",
+        description="SUMMARY 번역 도구 (한 문장 확인 / DB 일괄 번역)")
+    parser.add_argument("text", nargs="*", help="번역해 볼 영문 문장")
+    parser.add_argument("--backfill", action="store_true",
+                        help="DB 에 이미 쌓인 건 중 아직 번역 안 된 것을 번역")
+    parser.add_argument("--retranslate", action="store_true",
+                        help="이미 번역된 건도 다시 번역 (제공자를 바꿨을 때)")
+    parser.add_argument("--limit", type=int, default=None, help="처리 건수 제한")
+    parser.add_argument("--db", default="data/cve.db")
+    parser.add_argument("--config", default="config/settings.yml")
+    parser.add_argument("--watchlist", default="config/watchlist.yml")
+    args = parser.parse_args()
+
+    if args.backfill or args.retranslate:
+        from .logutil import new_run_id, setup_logging
+        from .scope import resolve_scope
+        from .store import SqliteStore
+
+        setup_logging(new_run_id())
+        scope = resolve_scope(cli={}, settings_path=args.config,
+                              watchlist_path=args.watchlist)
+        store = SqliteStore(args.db)
+        try:
+            stat = backfill(store, scope, args.limit, args.retranslate)
+            print(stat.summary())
+        finally:
+            store.close()
+        return 0
+
+    sample = " ".join(args.text) or (
         "A flaw was found in vLLM (CVE-2025-32444). A malicious client can send a "
         "crafted prompt causing unbounded memory allocation, resulting in denial of "
         "service. See https://osv.dev/vulnerability/GHSA-xxxx-yyyy-zzzz for details.")
-    cfg = TranslateConfig(enabled=True,
-                          provider=os.environ.get("TRANSLATE_PROVIDER", "google"))
-    tr = Translator(cfg)
+    config = TranslateConfig(enabled=True,
+                             provider=os.environ.get("TRANSLATE_PROVIDER", "google"))
+    translator = Translator(config)
     print(f"[원문] {sample}\n")
-    print(f"[번역] {tr.translate_text(sample)}\n")
-    print(tr.stat.summary())
-    tr.close()
+    print(f"[번역] {translator.translate_text(sample)}\n")
+    print(translator.stat.summary())
+    translator.close()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(_main())
