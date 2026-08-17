@@ -13,6 +13,7 @@ CVSS 점수와 영문 요약은 NVD 가 가장 정확해 병합 시 우선 채�
 from __future__ import annotations
 
 import os
+import re
 import time
 from datetime import date, timedelta
 from typing import Any, Dict, Iterable, List, Optional, Tuple
@@ -131,13 +132,121 @@ def _matching_cpes(cve: Dict[str, Any], tokens: set) -> List[Dict[str, Any]]:
     return hits
 
 
-def _is_relevant(cve: Dict[str, Any], target: Dict[str, Any], tokens: set) -> bool:
-    """keywordSearch 는 오탐이 섞이므로 CPE 또는 설명으로 한 번 더 확인한다."""
+# 제품명이 '권고문의 주어' 임을 알려주는 표시
+#   "vLLM is an inference engine" / "Apache Airflow's serializer" / "n8n before 1.2.3"
+#   "... in Elasticsearch can lead to denial of service"
+#     ↑ CWE 번호가 앞에 붙어 제품명이 뒤로 밀리는 권고문(Elastic 계열)이 많아
+#       조동사(can/may/could)도 주어 표시로 인정한다. 이걸 빼면 진짜 건을 놓친다.
+_SUBJECT_MARKER = re.compile(
+    r"^\s*(?:'s\b|s'\b"
+    r"|(?:is|are|was|were|has|have|allows?|contains?|fails?|does|do|did)\b"
+    r"|(?:can|could|may|might|will|would)\b"
+    r"|(?:before|prior\s+to|through|thru|up\s+to|versions?|version)\b"
+    r"|v?\d+\.\d)", re.I)
+
+# 주어부를 찾지 못했을 때 대신 볼 앞부분 길이
+SUBJECT_WINDOW = 80
+
+# 서술어가 시작되는 지점. 이 앞까지가 '주어부' 다.
+#   "CyberPanel before 3.0.0 contains ..."          주어부 = "CyberPanel"
+#   "Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to ..."
+#                                                    주어부 = "... in Elasticsearch"
+_PREDICATE_START = re.compile(
+    r"\b(?:is|are|was|were|has|have|allows?|contains?|fails?|does|do|did"
+    r"|can|could|may|might|will|would"
+    r"|before|prior\s+to|through|thru|versions?|version)\b", re.I)
+
+
+def _subject_phrase(text: str) -> str:
+    """서술어 앞까지(= 주어부)를 잘라낸다."""
+    match = _PREDICATE_START.search(text)
+    return text[:match.start()] if match else text[:SUBJECT_WINDOW]
+
+
+def _mentions(text: str, name: str) -> List[int]:
+    """제품명이 '낱말로' 등장하는 위치들.
+
+    'elasticsearch_memory' 처럼 더 긴 식별자의 일부인 것은 언급으로 치지 않는다.
+    """
+    positions: List[int] = []
+    start = 0
+    while True:
+        position = text.find(name, start)
+        if position < 0:
+            return positions
+        end = position + len(name)
+        start = end
+        before = text[position - 1] if position else " "
+        after = text[end] if end < len(text) else " "
+        if before.isalnum() or before == "_" or after.isalnum() or after == "_":
+            continue
+        positions.append(position)
+
+
+def _subject_names(target: Dict[str, Any]) -> List[str]:
+    """주어 판정에 쓸 제품명들. 짧고 흔한 별칭은 오탐이 커서 제외한다."""
+    names = [str(target["canonical_name"])]
+    if target.get("cpe_keyword"):
+        names.append(str(target["cpe_keyword"]))
+    for alias in target.get("aliases") or []:
+        text = str(alias)
+        if len(text) >= 5 and "/" not in text:
+            names.append(text)
+    seen: List[str] = []
+    for name in names:
+        key = name.lower()
+        if key and key not in seen:
+            seen.append(key)
+    return seen
+
+
+def _is_subject(description: str, target: Dict[str, Any]) -> bool:
+    """제품이 이 권고문의 '대상' 인지 판정한다.
+
+    NVD keywordSearch 는 설명에 이름이 스치기만 해도 물어온다.
+    예) CyberPanel 취약점인데 "WebTerminal FastAPI SSH service" 라는 이유로 FastAPI 에,
+        etcd 취약점인데 "Watch gRPC API" 라는 이유로 gRPC 에 붙는다.
+    실제 대상인 경우 제품명은 거의 항상 첫 문장 도입부에 주어로 등장한다.
+    """
+    text = (description or "").lower()
+    if not text:
+        return False
+    phrase = _subject_phrase(text)
+
+    for name in _subject_names(target):
+        positions = _mentions(text, name)
+        if not positions:
+            continue
+        # (a) 주어부 안에 이름이 있으면 이 권고문의 대상이다
+        #     "CyberPanel before 3.0.0 ... FastAPI SSH service" 의 주어부는
+        #     "CyberPanel" 뿐이라 FastAPI 는 여기서 걸러진다.
+        if _mentions(phrase, name):
+            return True
+        # (b) 뒤에 주어 표시가 붙어 있으면 대상으로 본다
+        #     "... of Elasticsearch can lead to ..." 처럼 주어부 판정이 빗나가는 문장 대비
+        for position in positions:
+            if _SUBJECT_MARKER.match(text[position + len(name):]):
+                return True
+    return False
+
+
+def _is_relevant(cve: Dict[str, Any], target: Dict[str, Any],
+                 tokens: set) -> Tuple[bool, str]:
+    """keywordSearch 결과가 정말 이 제품 건인지 확인한다.
+
+    돌려주는 값: (채택 여부, 사유)
+
+      1. CPE 가 이 제품과 맞으면      → 채택 (NVD 가 분석해 붙인 식별자라 가장 확실)
+      2. CPE 는 있는데 다른 제품이면  → 제외 (NVD 가 "이건 그 제품 건" 이라고 판단한 것)
+      3. CPE 가 아직 없으면(신규 CVE) → 설명에서 '주어' 인지로 판정
+    """
     if _matching_cpes(cve, tokens):
-        return True
-    text = _description(cve).lower()
-    keyword = str(target.get("cpe_keyword") or target["canonical_name"]).lower()
-    return keyword in text
+        return True, "cpe"
+    if any(True for _ in _cpe_matches(cve)):
+        return False, "cpe-mismatch"
+    if _is_subject(_description(cve), target):
+        return True, "subject"
+    return False, "mention-only"
 
 
 def _ranges_and_fixed(cve: Dict[str, Any], tokens: set,
@@ -187,6 +296,7 @@ def collect(scope) -> SourceResult:
             keyword = str(target.get("cpe_keyword") or target["canonical_name"])
             tokens = _product_tokens(target)
             collected_ids: set = set()
+            rejected = 0
 
             for win_start, win_end in windows:
                 start_index = 0
@@ -209,7 +319,11 @@ def collect(scope) -> SourceResult:
                             continue
                         if str(cve.get("vulnStatus", "")).lower() == "rejected":
                             continue
-                        if not _is_relevant(cve, target, tokens):
+                        relevant, reason = _is_relevant(cve, target, tokens)
+                        if not relevant:
+                            rejected += 1
+                            log.debug("제외 %s ← %s (%s)",
+                                      cve_id, target["canonical_name"], reason)
                             continue
                         collected_ids.add(cve_id)
 
@@ -238,8 +352,9 @@ def collect(scope) -> SourceResult:
                     if start_index >= total or not vulnerabilities:
                         break
 
-            log.info("[%d/%d] %s: %d건", index, len(scope.targets),
-                     target["canonical_name"], len(collected_ids))
+            log.info("[%d/%d] %s: %d건%s", index, len(scope.targets),
+                     target["canonical_name"], len(collected_ids),
+                     f" (관련 없어 제외 {rejected}건)" if rejected else "")
 
         log.info("NVD 수집 완료: %d건", len(result.findings))
 
