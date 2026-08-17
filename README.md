@@ -422,6 +422,26 @@ python -m src.aicve.main --backfill 30
 --config / --watchlist / --db / --out-dir / --docs-dir / --templates / --mail-list
 ```
 
+### 결과 확인 (DB 조회)
+
+"메일이 실제로 나갔나", "지난주에 뭘 보냈나" 를 확인하는 도구입니다. **읽기 전용**이라 안전합니다.
+
+```bash
+python -m src.aicve.report                      # 최근 실행 + 메일 성공/실패 요약
+python -m src.aicve.report --mails              # 메일 발송 로그 전체 (수신자·시각·상태)
+python -m src.aicve.report --run 20260816211121 # 특정 회차 상세 (CVE 목록 + 발송 로그)
+python -m src.aicve.report --cves               # 누적 CVE 목록
+python -m src.aicve.report --stats              # 심각도·S/W별 통계
+python -m src.aicve.report --sql "SELECT * FROM mail_log WHERE status='FAILED'"
+```
+
+최신 DB 를 보려면 실행 전에 `git pull` 로 저장소를 받아 두세요(워크플로가 매일 `data/cve.db` 를 커밋합니다).
+
+> 같은 내용을 **[열람 페이지](#6-열람-페이지)** 에서도 볼 수 있습니다.
+> 설치 없이 보려면 대시보드 실행 이력 표의 `메일(성공/실패)` 칸과 `보기` 링크를 쓰세요.
+> GUI 로 DB 를 직접 열어 보고 싶으면 무료 프로그램
+> [DB Browser for SQLite](https://sqlitebrowser.org/) 에서 `data/cve.db` 를 열면 됩니다.
+
 ### 소스별 단독 실행 (디버깅용)
 
 ```bash
