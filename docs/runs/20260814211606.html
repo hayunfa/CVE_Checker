@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-17 20:53:48</div>
+    <div class="stamp">최종 생성 2026-08-17 12:39:59</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (34건)</h2>
+<h2>이 회차 CVE (32건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -235,24 +235,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/python-pillow/Pillow/commit/9000313cc5d4a31bdcdd6d7f0781101abab553aa" target="_blank" rel="noopener">CVE-2026-25990</a>
-        </td>
-        <td>Pillow</td>
-        <td>python</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=10.3.0,&lt;12.1.1</td>
-        <td class="mono">12.1.1</td>
-        <td>-</td>
-        <td class="mono">20260211</td>
-        <td class="mono">20260812</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Pillow is a Python imaging library. From 10.3.0 to before 12.1.1, an out-of-bounds write may be triggered when loading a specially crafted PSD image. This vulnerability is fixed in 12.1.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01487.html" target="_blank" rel="noopener">CVE-2026-27765</a>
         </td>
         <td>vLLM</td>
@@ -285,24 +267,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           [버전범위 불명확] Deserialization of untrusted data for some Intel(R) Extension for PyTorch before version 2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with an unauthenticated user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires active user interaction. The potential vulnerability may impact the confidentiality (low), integrity (low) and availability (low) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/python-pillow/Pillow/commit/3cb854e8b2bab43f40e342e665f9340d861aa628" target="_blank" rel="noopener">CVE-2026-40192</a>
-        </td>
-        <td>Pillow</td>
-        <td>python</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=10.3.0,&lt;12.2.0</td>
-        <td class="mono">12.2.0</td>
-        <td>-</td>
-        <td class="mono">20260415</td>
-        <td class="mono">20260812</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.
         </td>
       </tr>
       <tr>

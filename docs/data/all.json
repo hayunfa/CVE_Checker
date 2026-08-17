@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-17 20:53:48",
+ "generated_at": "2026-08-17 12:39:59",
  "count": 83,
  "cves": [
   {
@@ -12,17 +12,17 @@
    "cvss_score": 9.1,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
    "published_date": "20260320",
-   "modified_date": "20260814",
+   "modified_date": "20260817",
    "kev_yn": "N",
-   "summary": "gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, \"deny\" rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback \"allow\" rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi",
+   "summary": "gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 \"거부\" 규칙은 들어오는 요청과 일치하지 못하여 대체 \"허용\" 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것",
    "reference_url": "https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260816211121",
-   "collected_at": "20260816211125",
+   "last_seen_run": "20260817123833",
+   "collected_at": "20260817123838",
    "content_hash": "308df6b2d4bb752b7c0b1d8fa17d3a0a0993e5e9e26e5461632909c5612e7fe0",
-   "summary_en": ""
+   "summary_en": "gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, \"deny\" rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback \"allow\" rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi"
   },
   {
    "cve_id": "CVE-2026-48746",
@@ -320,17 +320,17 @@
    "cvss_score": 7.5,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
    "published_date": "20260211",
-   "modified_date": "20260812",
+   "modified_date": "20260817",
    "kev_yn": "N",
-   "summary": "Pillow is a Python imaging library. From 10.3.0 to before 12.1.1, an out-of-bounds write may be triggered when loading a specially crafted PSD image. This vulnerability is fixed in 12.1.1.",
+   "summary": "Pillow는 Python 이미징 라이브러리입니다. 10.3.0부터 12.1.1 이전까지 특별히 제작된 PSD 이미지를 로드할 때 범위를 벗어난 쓰기가 트리거될 수 있습니다. 이 취약점은 12.1.1에서 수정되었습니다.",
    "reference_url": "https://github.com/python-pillow/Pillow/commit/9000313cc5d4a31bdcdd6d7f0781101abab553aa",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260817123833",
+   "collected_at": "20260817123838",
    "content_hash": "3c261b76d8354c57bd932557458fd810d13c9bebe0683b1055a8ceca554c146e",
-   "summary_en": ""
+   "summary_en": "Pillow is a Python imaging library. From 10.3.0 to before 12.1.1, an out-of-bounds write may be triggered when loading a specially crafted PSD image. This vulnerability is fixed in 12.1.1."
   },
   {
    "cve_id": "CVE-2026-40192",
@@ -342,17 +342,17 @@
    "cvss_score": 7.5,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
    "published_date": "20260415",
-   "modified_date": "20260812",
+   "modified_date": "20260817",
    "kev_yn": "N",
-   "summary": "Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.",
+   "summary": "Pillow는 Python 이미징 라이브러리입니다. 버전 10.3.0부터 12.1.1까지는 FITS 이미지를 디코딩할 때 읽는 GZIP 압축 데이터의 양을 제한하지 않아 압축 해제 폭탄 공격에 취약해졌습니다. 특별히 제작된 FITS 파일은 무제한 메모리 소비를 유발하여 서비스 거부(OOM 충돌 또는 심각한 성능 저하)로 이어질 수 있습니다. 사용자가 즉시 업그레이드할 수 없는 경우 해결 방법으로 FITS를 제외한 특정 이미지 형식만 열어야 합니다.",
    "reference_url": "https://github.com/python-pillow/Pillow/commit/3cb854e8b2bab43f40e342e665f9340d861aa628",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260814211606",
-   "collected_at": "20260814211613",
+   "last_seen_run": "20260817123833",
+   "collected_at": "20260817123838",
    "content_hash": "20a12436fa54c47ea1ee8abac3f44310596888c4496965fc0af813a644548754",
-   "summary_en": ""
+   "summary_en": "Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround."
   },
   {
    "cve_id": "CVE-2026-45799",
@@ -1290,15 +1290,15 @@
    "published_date": "20260813",
    "modified_date": "20260815",
    "kev_yn": "N",
-   "summary": "JupyterLab (pip package 'jupyterlab') versions >=4.1.0,<=4.5.9 and >=4.6.0,<=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the 'lock all' mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10.",
+   "summary": "JupyterLab(pip 패키지 'jupyterlab') 버전 >=4.1.0,<=4.5.9 및 >=4.6.0,<=4.6.1에는 플러그인 관리자 잠금 규칙 시행 우회가 포함되어 있습니다. 두 가지 서버 측 시행 공백을 통해 인증된 사용자는 /lab/api/plugins 엔드포인트에 직접 요청하여 잠긴 플러그인을 활성화 또는 비활성화함으로써 관리자 잠금 규칙을 우회할 수 있습니다(다중 플러그인 확장의 하위 플러그인 및 '모두 잠금' 메커니즘을 통해 잠긴 플러그인 포함). 이는 데이터 무결성에 영향을 미치고 잠긴 플러그인을 통해 구현된 강화 또는 제한 사항(예: 다운로드/업로드 제한)을 우회할 수 있습니다. 버전 4.6.2 및 4.5.10에서 수정되었습니다.",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-h5v5-8746-g7mm",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
-   "last_seen_run": "20260816211121",
-   "collected_at": "20260816211125",
+   "last_seen_run": "20260817123833",
+   "collected_at": "20260817123838",
    "content_hash": "d88e85744666e46326adf0fa3a3d0ac7ac62ae2e9feda7b6f2487dd3569b558c",
-   "summary_en": ""
+   "summary_en": "JupyterLab (pip package 'jupyterlab') versions >=4.1.0,<=4.5.9 and >=4.6.0,<=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the 'lock all' mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10."
   },
   {
    "cve_id": "CVE-2026-72917",
