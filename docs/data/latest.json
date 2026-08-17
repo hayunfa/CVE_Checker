@@ -1,6 +1,6 @@
 {
  "run_id": "20260816211121",
- "generated_at": "2026-08-16 21:12:26",
+ "generated_at": "2026-08-17 20:42:01",
  "scope_desc": "SCOPE lookback=3 sev>=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300",
  "count": 29,
  "cves": [
@@ -23,7 +23,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "d8b3d2afb80f546086ec2eca4fbd21cc8454d9de3bf979c80bc952918f9bea06"
+   "content_hash": "d8b3d2afb80f546086ec2eca4fbd21cc8454d9de3bf979c80bc952918f9bea06",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-19918",
@@ -44,7 +45,8 @@
    "first_seen_run": "20260816211121",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "f258e40c9a60708ce45c1789778eb053819217ac1a773bace40b7e94d69989a7"
+   "content_hash": "f258e40c9a60708ce45c1789778eb053819217ac1a773bace40b7e94d69989a7",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-33186",
@@ -65,7 +67,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "308df6b2d4bb752b7c0b1d8fa17d3a0a0993e5e9e26e5461632909c5612e7fe0"
+   "content_hash": "308df6b2d4bb752b7c0b1d8fa17d3a0a0993e5e9e26e5461632909c5612e7fe0",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-4035",
@@ -86,7 +89,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "e8952f5bf7b128d7a3eb33a0cf734b78320b8fdba228f4d52890b2972a4f5b49"
+   "content_hash": "e8952f5bf7b128d7a3eb33a0cf734b78320b8fdba228f4d52890b2972a4f5b49",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-48746",
@@ -107,7 +111,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "6cd5a44d47f6ada1285323fb69bb71973b1ebb97785c92fe8c1e6186c5a11794"
+   "content_hash": "6cd5a44d47f6ada1285323fb69bb71973b1ebb97785c92fe8c1e6186c5a11794",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-54183",
@@ -128,7 +133,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "e74b660c8f034dea8b8dd449ba02f8450ae7c315b2458b169236bee0ef1ac5aa"
+   "content_hash": "e74b660c8f034dea8b8dd449ba02f8450ae7c315b2458b169236bee0ef1ac5aa",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-57516",
@@ -149,7 +155,8 @@
    "first_seen_run": "20260814053105",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211121",
-   "content_hash": "7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7"
+   "content_hash": "7df643b2399a04316ddaef40ab0d90b17b6ebbf2a2ef7d0daf57f55e3d417ee7",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-58076",
@@ -170,7 +177,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "53ac96543cf94c3ef80e7e45911e54f9f5faa3c6f12273cbdda2a827e899ad5a"
+   "content_hash": "53ac96543cf94c3ef80e7e45911e54f9f5faa3c6f12273cbdda2a827e899ad5a",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-59242",
@@ -191,7 +199,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "2190da810d91f58b43804a2f84d46a452d81bb997ea0d4bcafc8aa60606f73d4"
+   "content_hash": "2190da810d91f58b43804a2f84d46a452d81bb997ea0d4bcafc8aa60606f73d4",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-59244",
@@ -212,28 +221,30 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "2485e83395d6f3cc485e0b78b3824ec7c28fb4bbde45abbb091a6734f064e045"
+   "content_hash": "2485e83395d6f3cc485e0b78b3824ec7c28fb4bbde45abbb091a6734f064e045",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-59714",
    "sw_name": "Open WebUI",
    "vendor": "Open WebUI",
-   "affected_range": "*",
-   "fixed_version": "",
+   "affected_range": "<0.10.0",
+   "fixed_version": "0.10.0",
    "severity": "HIGH",
    "cvss_score": 7.1,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:L",
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 before 0.10.0, any authenticated user can overwrite the content of a message in a channel they do not belong to (including private and DM channels) by sending a chat completion request with a channel:-prefixed chat_id and a target message_id. The channel: path routes pipeline output through _make_channel_emitter, which writes to the Messages table using the caller-supplied message_id without binding it to the channel. This issue is fixed in version 0.10.0.",
+   "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 before 0.10.0, any authenticated user can overwrite the content of a message in a channel they do not belong to (including private and DM channels) by sending a chat completion request with a channel:-prefixed chat_id and a target message_id. The channel: path routes pipeline output through _make_channel_emitter, which writes to the Messages table using the caller-supplied message_id without binding it to the channel. This issue is fixed in version 0.10.0.",
    "reference_url": "https://github.com/open-webui/open-webui/commit/ac3449cac91e62b08a7c28e54fcd044d14dea791",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "4ddabe9be9deaa68f99ed3f0d4ed142011f6d920c636c8c2a1ade7e773832a26"
+   "content_hash": "97fc52e5cdd6964c0941950655e02af8eaf54c320da0771123c2a96cfb90b27b",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-65017",
@@ -254,13 +265,14 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "2f80120d2820e2d21d8342cd08c1c95202a0607069ecc481f92f07fc3b24cdd1"
+   "content_hash": "2f80120d2820e2d21d8342cd08c1c95202a0607069ecc481f92f07fc3b24cdd1",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-67614",
    "sw_name": "FastAPI",
    "vendor": "FastAPI",
-   "affected_range": "*",
+   "affected_range": "<3.0.0",
    "fixed_version": "",
    "severity": "CRITICAL",
    "cvss_score": 9.8,
@@ -268,14 +280,15 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] CyberPanel before 3.0.0 contains a hard-coded JWT secret vulnerability in the WebTerminal FastAPI SSH service that allows unauthenticated remote attackers to forge valid authentication tokens and obtain an interactive root shell via WebSocket on port 8888. Attackers can craft a forged JWT signed with the hardcoded secret value, specifying ssh_user=root, to authenticate to the terminal service without any valid credentials and receive a root shell.",
+   "summary": "CyberPanel before 3.0.0 contains a hard-coded JWT secret vulnerability in the WebTerminal FastAPI SSH service that allows unauthenticated remote attackers to forge valid authentication tokens and obtain an interactive root shell via WebSocket on port 8888. Attackers can craft a forged JWT signed with the hardcoded secret value, specifying ssh_user=root, to authenticate to the terminal service without any valid credentials and receive a root shell.",
    "reference_url": "https://cyberpanel.net/KnowledgeBase/home/change-logs/",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "1559da3dc638fdeb54020c4b271e1814dc38c77ca85d7e061475aeeab33b03d0"
+   "content_hash": "5a3e047230297f54a1decdddaf73f152e7b03506522b3558e61ba3d5d622b24b",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-68076",
@@ -296,7 +309,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "11ef680d8f537041daf38e1cc0276d376f30c75f9466d7bcbdc49cb4ebd9de8e"
+   "content_hash": "11ef680d8f537041daf38e1cc0276d376f30c75f9466d7bcbdc49cb4ebd9de8e",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-68970",
@@ -317,7 +331,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "7ecdae8cc5ab41f6866c4529c6f73fbf9b420f5f2c0ba938a1cec5e8e8e42b5a"
+   "content_hash": "7ecdae8cc5ab41f6866c4529c6f73fbf9b420f5f2c0ba938a1cec5e8e8e42b5a",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-72631",
@@ -338,7 +353,8 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "211ffe480e6cd88b3f487f9517603108fb3f773b17a849e06bb67c6824143e46"
+   "content_hash": "211ffe480e6cd88b3f487f9517603108fb3f773b17a849e06bb67c6824143e46",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-72642",
@@ -359,13 +375,14 @@
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "4ff0756bb0b870908d94648621b5939633c3b06c487cf6ac17f392a45ddf2d83"
+   "content_hash": "4ff0756bb0b870908d94648621b5939633c3b06c487cf6ac17f392a45ddf2d83",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-72750",
    "sw_name": "n8n",
    "vendor": "n8n GmbH",
-   "affected_range": "*",
+   "affected_range": "<2.32.1",
    "fixed_version": "",
    "severity": "MEDIUM",
    "cvss_score": 5.3,
@@ -373,20 +390,21 @@
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node's Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional 'Query Parameters' field to bind values via positional placeholders.",
+   "summary": "n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node's Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional 'Query Parameters' field to bind values via positional placeholders.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-652q-gvq3-74qv",
    "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "9efd275fbd8cddc7c83f2cca923b9323ea990c7c0c04b21bf151d80ec24bc2fe"
+   "content_hash": "dd90ef43f7102c7b85e2e1fa4dd6104127559aadb181f68ef9a56cbe555eb050",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-72766",
    "sw_name": "n8n",
    "vendor": "n8n GmbH",
-   "affected_range": "*",
+   "affected_range": "<1.123.67|<2.31.5|<2.32.1",
    "fixed_version": "",
    "severity": "HIGH",
    "cvss_score": 8.2,
@@ -394,20 +412,21 @@
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.",
+   "summary": "n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-2x35-3fw4-9jr4",
    "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "4396af3930cd8bf6895b5abd70ce24bbe8d0b400e9eb5c56088c86a72188fa95"
+   "content_hash": "ed682bb80fd3005633f2a3161329d51332bfc70c34053cd5cffe2915033a042a",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-72771",
    "sw_name": "n8n",
    "vendor": "n8n GmbH",
-   "affected_range": "*",
+   "affected_range": "<2.32.1",
    "fixed_version": "",
    "severity": "HIGH",
    "cvss_score": 7.1,
@@ -415,41 +434,21 @@
    "published_date": "20260811",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.",
+   "summary": "n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.",
    "reference_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-64xh-79j6-r5v8",
    "source": "NVD",
    "ecosystem": "npm",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "3ace6e22fd709a3eb0751bba6d56bbb0e8acc9ed98c9af8bc0d3586fe6c12eda"
-  },
-  {
-   "cve_id": "CVE-2026-73417",
-   "sw_name": "JupyterLab",
-   "vendor": "Project Jupyter",
-   "affected_range": "*",
-   "fixed_version": "",
-   "severity": "HIGH",
-   "cvss_score": 8.6,
-   "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:H/VA:L/SC:N/SI:N/SA:L/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
-   "published_date": "20260813",
-   "modified_date": "20260814",
-   "kev_yn": "N",
-   "summary": "[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k",
-   "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
-   "source": "NVD",
-   "ecosystem": "pypi",
-   "first_seen_run": "20260814211606",
-   "last_seen_run": "20260816211121",
-   "collected_at": "20260816211125",
-   "content_hash": "aa9abe28657ffeeacfbfbe4ee19ea98213f4ce6f3f8145982a4230787844f8fc"
+   "content_hash": "bda9b58f40089f689f1fe5dc52321ea9443ebb176f5baba1f301d4176cb6d32c",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73417",
    "sw_name": "Jupyter Notebook",
    "vendor": "Project Jupyter",
-   "affected_range": "*",
+   "affected_range": ">=3.3.0,<4.6.2",
    "fixed_version": "",
    "severity": "HIGH",
    "cvss_score": 8.6,
@@ -457,20 +456,43 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k",
+   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "aa9abe28657ffeeacfbfbe4ee19ea98213f4ce6f3f8145982a4230787844f8fc"
+   "content_hash": "fb58ac6c01a6e6d4d67c760fde8d6b3f6e0ede0ae3f7af007f2a45bef27ba293",
+   "summary_en": ""
+  },
+  {
+   "cve_id": "CVE-2026-73417",
+   "sw_name": "JupyterLab",
+   "vendor": "Project Jupyter",
+   "affected_range": ">=3.3.0,<4.6.2",
+   "fixed_version": "",
+   "severity": "HIGH",
+   "cvss_score": 8.6,
+   "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:H/VA:L/SC:N/SI:N/SA:L/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+   "published_date": "20260813",
+   "modified_date": "20260814",
+   "kev_yn": "N",
+   "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user's access and can read or modify notebooks and files and run code through the notebook server, including on a connected k",
+   "reference_url": "https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999",
+   "source": "NVD",
+   "ecosystem": "pypi",
+   "first_seen_run": "20260814211606",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
+   "content_hash": "fb58ac6c01a6e6d4d67c760fde8d6b3f6e0ede0ae3f7af007f2a45bef27ba293",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73487",
    "sw_name": "Pandas",
    "vendor": "NumFOCUS",
-   "affected_range": "*",
+   "affected_range": "<3.1.3",
    "fixed_version": "",
    "severity": "CRITICAL",
    "cvss_score": 9.0,
@@ -478,140 +500,147 @@
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] Flowise before 3.1.3 contains a regex-based Python code validator bypass in CSV and Airtable Agent nodes that allows unauthenticated attackers to inject malicious code via prompt injection. Attackers can exploit unblocked pandas functions like pd.read_json() to exfiltrate datasets, perform SSRF against internal services, or achieve code execution through the unauthenticated prediction API.",
+   "summary": "Flowise before 3.1.3 contains a regex-based Python code validator bypass in CSV and Airtable Agent nodes that allows unauthenticated attackers to inject malicious code via prompt injection. Attackers can exploit unblocked pandas functions like pd.read_json() to exfiltrate datasets, perform SSRF against internal services, or achieve code execution through the unauthenticated prediction API.",
    "reference_url": "https://github.com/FlowiseAI/Flowise/security/advisories/GHSA-w7x8-q2gp-5cgg",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "5839b52a78b00b8a45dd6106e5f11f16710b8f46385a40caa10a3f0bd7e05c17"
+   "content_hash": "da7b20422131fe4e09e097dac2da5284fa6790b9a6cbae706c47234855b32925",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73499",
    "sw_name": "gRPC",
    "vendor": "gRPC Authors",
-   "affected_range": "*",
-   "fixed_version": "",
+   "affected_range": "<3.5.33",
+   "fixed_version": "3.5.33",
    "severity": "HIGH",
    "cvss_score": 7.1,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260812",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a user granted READ permission on a single exact key can use the Watch gRPC API with clientv3.WithFromKey() to receive watch events for every key lexicographically greater than or equal to the permitted key. In server/etcdserver/api/v3rpc/watch.go, the open-ended RangeEnd sentinel is rewritten before the RBAC permission check in server/auth/range_perm_cache.go function isRangeOpPermitted, causing the request to be treated as an exact-key watch. Range/Get and DeleteRange requests are not affected, and the issue affects only clusters with authentication enabled. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
+   "summary": "etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a user granted READ permission on a single exact key can use the Watch gRPC API with clientv3.WithFromKey() to receive watch events for every key lexicographically greater than or equal to the permitted key. In server/etcdserver/api/v3rpc/watch.go, the open-ended RangeEnd sentinel is rewritten before the RBAC permission check in server/auth/range_perm_cache.go function isRangeOpPermitted, causing the request to be treated as an exact-key watch. Range/Get and DeleteRange requests are not affected, and the issue affects only clusters with authentication enabled. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
    "reference_url": "https://github.com/etcd-io/etcd/commit/6643f80602461a6095c9b294b6512fd9719bef41",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "20b99ebac1fd165c9938442747c974b25ffbbb72d53da74d8c5cea3f15d9a908"
-  },
-  {
-   "cve_id": "CVE-2026-73555",
-   "sw_name": "vLLM",
-   "vendor": "vLLM Project",
-   "affected_range": "*",
-   "fixed_version": "",
-   "severity": "MEDIUM",
-   "cvss_score": 5.3,
-   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
-   "published_date": "20260813",
-   "modified_date": "20260814",
-   "kev_yn": "N",
-   "summary": "[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
-   "reference_url": "https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324",
-   "source": "NVD",
-   "ecosystem": "pypi",
-   "first_seen_run": "20260814211606",
-   "last_seen_run": "20260816211121",
-   "collected_at": "20260816211125",
-   "content_hash": "428293af8e873b88a03e7fa4b3c029750cb56af1ae8ee2f1c32862ad72749832"
+   "content_hash": "6c4fa36838dac7cfac3e92a8fd59c6c0108f64a67db387e605f0df5fc2f78dd9",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73555",
    "sw_name": "FastAPI",
    "vendor": "FastAPI",
-   "affected_range": "*",
-   "fixed_version": "",
+   "affected_range": "<0.26.0",
+   "fixed_version": "0.26.0",
    "severity": "MEDIUM",
    "cvss_score": 5.3,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "428293af8e873b88a03e7fa4b3c029750cb56af1ae8ee2f1c32862ad72749832"
+   "content_hash": "d4d930fbaf8c48cc9abf3ffa38332dc7a62dc08414507b29f8e7a9f2bb60394c",
+   "summary_en": ""
+  },
+  {
+   "cve_id": "CVE-2026-73555",
+   "sw_name": "vLLM",
+   "vendor": "vLLM Project",
+   "affected_range": "<0.26.0",
+   "fixed_version": "0.26.0",
+   "severity": "MEDIUM",
+   "cvss_score": 5.3,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+   "published_date": "20260813",
+   "modified_date": "20260814",
+   "kev_yn": "N",
+   "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
+   "reference_url": "https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324",
+   "source": "NVD",
+   "ecosystem": "pypi",
+   "first_seen_run": "20260814211606",
+   "last_seen_run": "20260816211121",
+   "collected_at": "20260816211125",
+   "content_hash": "d4d930fbaf8c48cc9abf3ffa38332dc7a62dc08414507b29f8e7a9f2bb60394c",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73556",
    "sw_name": "vLLM",
    "vendor": "vLLM Project",
-   "affected_range": "*",
-   "fixed_version": "",
+   "affected_range": "<0.26.0",
+   "fixed_version": "0.26.0",
    "severity": "MEDIUM",
    "cvss_score": 5.3,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/c9a788eedc412acceaa5112e0d44624b49841577",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "4f228464cf77fa64cd0dcc869a87e7766cd2b638377680b9b7263b3e3cbf0202"
+   "content_hash": "7890d488a89eefa90923161b65d1243838408bf2126344abfed2e00bc73c9448",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73559",
    "sw_name": "vLLM",
    "vendor": "vLLM Project",
-   "affected_range": "*",
-   "fixed_version": "",
+   "affected_range": ">=0.19.0,<0.26.0",
+   "fixed_version": "0.26.0",
    "severity": "MEDIUM",
    "cvss_score": 6.5,
    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
    "published_date": "20260813",
    "modified_date": "20260814",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.",
+   "summary": "vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.",
    "reference_url": "https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "4f2a910506a80148e0643b3c364baa265d9083095c53f5a9763c885afd8e5e9b"
+   "content_hash": "182992c17cc191c6eb6aff3cf7bbbb221c74cc33216765069b306db27203c09a",
+   "summary_en": ""
   },
   {
    "cve_id": "CVE-2026-73627",
    "sw_name": "JupyterLab",
    "vendor": "Project Jupyter",
-   "affected_range": "*",
-   "fixed_version": "",
+   "affected_range": "<4.5.10",
+   "fixed_version": "4.5.10",
    "severity": "MEDIUM",
    "cvss_score": 6.0,
    "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:H/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
    "published_date": "20260813",
    "modified_date": "20260815",
    "kev_yn": "N",
-   "summary": "[버전범위 불명확] JupyterLab (pip package 'jupyterlab') versions >=4.1.0,<=4.5.9 and >=4.6.0,<=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the 'lock all' mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10.",
+   "summary": "JupyterLab (pip package 'jupyterlab') versions >=4.1.0,<=4.5.9 and >=4.6.0,<=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the 'lock all' mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10.",
    "reference_url": "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-h5v5-8746-g7mm",
    "source": "NVD",
    "ecosystem": "pypi",
    "first_seen_run": "20260814211606",
    "last_seen_run": "20260816211121",
    "collected_at": "20260816211125",
-   "content_hash": "d8014b35a3caf41caf5116d96bf616d2ec7a81482ad6866b86b2a543dc71ada4"
+   "content_hash": "d88e85744666e46326adf0fa3a3d0ac7ac62ae2e9feda7b6f2487dd3569b558c",
+   "summary_en": ""
   }
  ]
 }

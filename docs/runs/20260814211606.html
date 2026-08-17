@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-16 21:12:26</div>
+    <div class="stamp">최종 생성 2026-08-17 20:42:01</div>
   </div>
 </header>
 <div class="wrap">
@@ -121,7 +121,9 @@
         <td class="mono">20260806</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Accelerate theme for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the enqueue_scripts() function in all versions up to, and including, 1.5.3. This makes it possible for authenticated attackers, with Subscriber-level access and above, to install and activate the ThemeGrill Demo Importer plugin.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] The Accelerate theme for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the enqueue_scripts() function in all versions up to, and including, 1.5.3. This makes it possible for authenticated attackers, with Subscriber-level access and above, to install and activate the ThemeGrill Demo Importer plugin.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -131,13 +133,15 @@
         <td>Anyscale</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
-        <td class="mono">*</td>
+        <td class="mono">&lt;=1.7.3</td>
         <td class="mono">-</td>
         <td>-</td>
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to overwrite the administrator-configured translation API token with an arbitrary value.</td>
+        <td class="wrap-cell">
+          The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to overwrite the administrator-configured translation API token with an arbitrary value.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -147,13 +151,15 @@
         <td>Anyscale</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>4.3</td>
-        <td class="mono">*</td>
+        <td class="mono">&lt;=1.7.3</td>
         <td class="mono">-</td>
         <td>-</td>
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to add or delete the site&#39;s configured languages.</td>
+        <td class="wrap-cell">
+          The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to add or delete the site&#39;s configured languages.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -163,13 +169,15 @@
         <td>LangGenius</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.3</td>
-        <td class="mono">*</td>
+        <td class="mono">&lt;=1.14.2</td>
         <td class="mono">-</td>
         <td>-</td>
         <td class="mono">20260803</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] A security flaw has been discovered in langgenius dify up to 1.14.2. This issue affects the function jinja2.Template of the file api/core/helper/code_executor/jinja2/jinja2_transformer.py of the component Jinja2 Handler. The manipulation results in improper neutralization of special elements used in a template engine. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.</td>
+        <td class="wrap-cell">
+          A security flaw has been discovered in langgenius dify up to 1.14.2. This issue affects the function jinja2.Template of the file api/core/helper/code_executor/jinja2/jinja2_transformer.py of the component Jinja2 Handler. The manipulation results in improper neutralization of special elements used in a template engine. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -179,13 +187,15 @@
         <td>Elastic</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.1</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;0.8.3</td>
+        <td class="mono">0.8.3</td>
         <td>-</td>
         <td class="mono">20260806</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Insecure direct object reference in the mongodb_memory, elasticsearch_memory, and mem0_memory tools in Amazon Strands Agents Tools before 0.8.3 might allow remote authenticated users to access, modify, or delete memories belonging to other tenants by influencing the LLM to emit tool calls with a forged namespace parameter. To remediate this issue, users should upgrade to version 0.8.3.</td>
+        <td class="wrap-cell">
+          Insecure direct object reference in the mongodb_memory, elasticsearch_memory, and mem0_memory tools in Amazon Strands Agents Tools before 0.8.3 might allow remote authenticated users to access, modify, or delete memories belonging to other tenants by influencing the LLM to emit tool calls with a forged namespace parameter. To remediate this issue, users should upgrade to version 0.8.3.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -201,7 +211,9 @@
         <td class="mono">20260809</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] A flaw has been found in NightTrek Ollama-mcp up to 80cf2e17cfc144963a475b619093a2d13c13dbc9. This affects an unknown part of the file src/index.ts. This manipulation of the argument name/modelfile/source/destination causes command injection. The attack can only be executed locally. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] A flaw has been found in NightTrek Ollama-mcp up to 80cf2e17cfc144963a475b619093a2d13c13dbc9. This affects an unknown part of the file src/index.ts. This manipulation of the argument name/modelfile/source/destination causes command injection. The attack can only be executed locally. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The project was informed of the problem early through an issue report but has not responded yet.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -211,13 +223,15 @@
         <td>Snowflake</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>8.1</td>
-        <td class="mono">*</td>
+        <td class="mono">&lt;1.13.0</td>
         <td class="mono">-</td>
         <td>-</td>
         <td class="mono">20260812</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Insufficient input sanitization in Snowflake Python API (`snowflake.core`) versions prior to 1.13.0 allowed confused-deputy privilege escalation through two related weaknesses: path traversal (CWE-22) via unencoded `..` identifier path segments, and HTTP parameter pollution (CWE-141) via unencoded `&amp;`/`#`/`=` characters in query string values. An attacker with access to a downstream application built on snowflake.core could exploit the path traversal by supplying `..` as an object name, causing `snowflake.core` to issue REST requests against a parent resource or exploit the parameter pollution by injecting `&amp;`/`#`/`=` into a free-form name field to override constraints on swap, clone, or rename operations — all executed under the application&#39;s privileged session. Successful exploitation requires the attacker to control an identifier or object-name string in an application built on snowflake.core that passes it to `snowflake.core` under a higher-privileged Snowflake session (</td>
+        <td class="wrap-cell">
+          Insufficient input sanitization in Snowflake Python API (`snowflake.core`) versions prior to 1.13.0 allowed confused-deputy privilege escalation through two related weaknesses: path traversal (CWE-22) via unencoded `..` identifier path segments, and HTTP parameter pollution (CWE-141) via unencoded `&amp;`/`#`/`=` characters in query string values. An attacker with access to a downstream application built on snowflake.core could exploit the path traversal by supplying `..` as an object name, causing `snowflake.core` to issue REST requests against a parent resource or exploit the parameter pollution by injecting `&amp;`/`#`/`=` into a free-form name field to override constraints on swap, clone, or rename operations — all executed under the application&#39;s privileged session. Successful exploitation requires the attacker to control an identifier or object-name string in an application built on snowflake.core that passes it to `snowflake.core` under a higher-privileged Snowflake session (
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -233,7 +247,9 @@
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Protection mechanism failure for some Intel Extension for TensorFlow software before version 2.15.0.3 within Ring 3: User Applications may allow an escalation of privilege. System software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Protection mechanism failure for some Intel Extension for TensorFlow software before version 2.15.0.3 within Ring 3: User Applications may allow an escalation of privilege. System software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -249,7 +265,9 @@
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Protection mechanism failure for some Intel(R) LLM Library for PyTorch within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Protection mechanism failure for some Intel(R) LLM Library for PyTorch within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -265,7 +283,9 @@
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Protection mechanism failure for some Intel(R) oneCCL Bindings for PyTorch before version v2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Protection mechanism failure for some Intel(R) oneCCL Bindings for PyTorch before version v2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with a privileged user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are present without special internal knowledge and requires passive user interaction. The potential vulnerability may impact the confidentiality (high), integrity (high) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -281,7 +301,9 @@
         <td class="mono">20260211</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">Pillow is a Python imaging library. From 10.3.0 to before 12.1.1, an out-of-bounds write may be triggered when loading a specially crafted PSD image. This vulnerability is fixed in 12.1.1.</td>
+        <td class="wrap-cell">
+          Pillow is a Python imaging library. From 10.3.0 to before 12.1.1, an out-of-bounds write may be triggered when loading a specially crafted PSD image. This vulnerability is fixed in 12.1.1.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -297,7 +319,27 @@
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Improper input validation for some vLLM Hardware Plugin for Intel(R) Gaudi(R) software before version 0.16.0 within Ring 3: User Applications may allow a denial of service. Authorized adversary with an authenticated user combined with a low complexity attack may enable denial of service. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires no user interaction. The potential vulnerability may impact the confidentiality (none), integrity (none) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Improper input validation for some vLLM Hardware Plugin for Intel(R) Gaudi(R) software before version 0.16.0 within Ring 3: User Applications may allow a denial of service. Authorized adversary with an authenticated user combined with a low complexity attack may enable denial of service. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires no user interaction. The potential vulnerability may impact the confidentiality (none), integrity (none) and availability (high) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Trusted-AI/adversarial-robustness-toolbox" target="_blank" rel="noopener">CVE-2026-31228</a>
+        </td>
+        <td>Kubeflow</td>
+        <td>Kubeflow</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.8</td>
+        <td class="mono">&lt;=1.20.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260512</td>
+        <td class="mono">20260812</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          The Adversarial Robustness Toolbox (ART) thru 1.20.1 contains a remote code execution vulnerability in its Kubeflow component. The robustness evaluation function for PyTorch models uses the unsafe eval() function to dynamically evaluate user-supplied strings for the LossFn and Optimizer parameters without any sanitization or security restrictions. An attacker can exploit this by providing a specially crafted string that contains arbitrary Python code, which will be executed when eval() is called, leading to complete compromise of the system running the ART evaluation.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -307,29 +349,15 @@
         <td>PyTorch Foundation</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
         <td>9.8</td>
-        <td class="mono">*</td>
+        <td class="mono">&lt;=1.20.1</td>
         <td class="mono">-</td>
         <td>-</td>
         <td class="mono">20260512</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Adversarial Robustness Toolbox (ART) thru 1.20.1 contains a remote code execution vulnerability in its Kubeflow component. The robustness evaluation function for PyTorch models uses the unsafe eval() function to dynamically evaluate user-supplied strings for the LossFn and Optimizer parameters without any sanitization or security restrictions. An attacker can exploit this by providing a specially crafted string that contains arbitrary Python code, which will be executed when eval() is called, leading to complete compromise of the system running the ART evaluation.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Trusted-AI/adversarial-robustness-toolbox" target="_blank" rel="noopener">CVE-2026-31228</a>
+        <td class="wrap-cell">
+          The Adversarial Robustness Toolbox (ART) thru 1.20.1 contains a remote code execution vulnerability in its Kubeflow component. The robustness evaluation function for PyTorch models uses the unsafe eval() function to dynamically evaluate user-supplied strings for the LossFn and Optimizer parameters without any sanitization or security restrictions. An attacker can exploit this by providing a specially crafted string that contains arbitrary Python code, which will be executed when eval() is called, leading to complete compromise of the system running the ART evaluation.
         </td>
-        <td>Kubeflow</td>
-        <td>Kubeflow</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.8</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260512</td>
-        <td class="mono">20260812</td>
-        <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Adversarial Robustness Toolbox (ART) thru 1.20.1 contains a remote code execution vulnerability in its Kubeflow component. The robustness evaluation function for PyTorch models uses the unsafe eval() function to dynamically evaluate user-supplied strings for the LossFn and Optimizer parameters without any sanitization or security restrictions. An attacker can exploit this by providing a specially crafted string that contains arbitrary Python code, which will be executed when eval() is called, leading to complete compromise of the system running the ART evaluation.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -345,7 +373,9 @@
         <td class="mono">20260811</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Deserialization of untrusted data for some Intel(R) Extension for PyTorch before version 2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with an unauthenticated user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires active user interaction. The potential vulnerability may impact the confidentiality (low), integrity (low) and availability (low) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Deserialization of untrusted data for some Intel(R) Extension for PyTorch before version 2.8.0 within Ring 3: User Applications may allow an escalation of privilege. Unprivileged software adversary with an unauthenticated user combined with a low complexity attack may enable escalation of privilege. This result may potentially occur via local access when attack requirements are not present without special internal knowledge and requires active user interaction. The potential vulnerability may impact the confidentiality (low), integrity (low) and availability (low) of the vulnerable system, resulting in subsequent system confidentiality (none), integrity (none) and availability (none) impacts.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -361,7 +391,9 @@
         <td class="mono">20260415</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.</td>
+        <td class="wrap-cell">
+          Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -371,29 +403,15 @@
         <td>Google</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;8.0.2</td>
+        <td class="mono">7.5.6</td>
         <td>-</td>
         <td class="mono">20260513</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] protobufjs compiles protobuf definitions into JavaScript (JS) functions. Prior to 7.5.6 and 8.0.2, protobufjs could recurse without a depth limit while decoding nested protobuf data. This affected both skipping unknown group fields and generated decoding of nested message fields. A crafted protobuf binary payload could cause the JavaScript call stack to be exhausted during decoding. This vulnerability is fixed in 7.5.6 and 8.0.2.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/square/wire/commit/47d5b0dba53935d5332cd41a80a353b3fc90e7b0" target="_blank" rel="noopener">CVE-2026-45799</a>
+        <td class="wrap-cell">
+          protobufjs compiles protobuf definitions into JavaScript (JS) functions. Prior to 7.5.6 and 8.0.2, protobufjs could recurse without a depth limit while decoding nested protobuf data. This affected both skipping unknown group fields and generated decoding of nested message fields. A crafted protobuf binary payload could cause the JavaScript call stack to be exhausted during decoding. This vulnerability is fixed in 7.5.6 and 8.0.2.
         </td>
-        <td>protobuf</td>
-        <td>Google</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260717</td>
-        <td class="mono">20260812</td>
-        <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.3.0 and 7.0.0-alpha03, ByteArrayProtoReader32.skipGroup() and ProtoReader.skipGroup() in wire-runtime do not validate that a LENGTH_DELIMITED field length is non-negative before skip(), allowing a crafted protobuf varint encoding -128 as a signed Int to make skip(-128) move the internal position negative and make the next readByte() throw ArrayIndexOutOfBoundsException instead of the documented IOException or ProtocolException, which can crash services using ProtoAdapter.decode(byte[]) on untrusted payloads. This issue is fixed in versions 6.3.0 and 7.0.0-alpha03.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -403,13 +421,33 @@
         <td>gRPC Authors</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;7.0.0-alpha03</td>
+        <td class="mono">6.3.0</td>
         <td>-</td>
         <td class="mono">20260717</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.3.0 and 7.0.0-alpha03, ByteArrayProtoReader32.skipGroup() and ProtoReader.skipGroup() in wire-runtime do not validate that a LENGTH_DELIMITED field length is non-negative before skip(), allowing a crafted protobuf varint encoding -128 as a signed Int to make skip(-128) move the internal position negative and make the next readByte() throw ArrayIndexOutOfBoundsException instead of the documented IOException or ProtocolException, which can crash services using ProtoAdapter.decode(byte[]) on untrusted payloads. This issue is fixed in versions 6.3.0 and 7.0.0-alpha03.</td>
+        <td class="wrap-cell">
+          Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.3.0 and 7.0.0-alpha03, ByteArrayProtoReader32.skipGroup() and ProtoReader.skipGroup() in wire-runtime do not validate that a LENGTH_DELIMITED field length is non-negative before skip(), allowing a crafted protobuf varint encoding -128 as a signed Int to make skip(-128) move the internal position negative and make the next readByte() throw ArrayIndexOutOfBoundsException instead of the documented IOException or ProtocolException, which can crash services using ProtoAdapter.decode(byte[]) on untrusted payloads. This issue is fixed in versions 6.3.0 and 7.0.0-alpha03.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/square/wire/commit/47d5b0dba53935d5332cd41a80a353b3fc90e7b0" target="_blank" rel="noopener">CVE-2026-45799</a>
+        </td>
+        <td>protobuf</td>
+        <td>Google</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;7.0.0-alpha03</td>
+        <td class="mono">6.3.0</td>
+        <td>-</td>
+        <td class="mono">20260717</td>
+        <td class="mono">20260812</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.3.0 and 7.0.0-alpha03, ByteArrayProtoReader32.skipGroup() and ProtoReader.skipGroup() in wire-runtime do not validate that a LENGTH_DELIMITED field length is non-negative before skip(), allowing a crafted protobuf varint encoding -128 as a signed Int to make skip(-128) move the internal position negative and make the next readByte() throw ArrayIndexOutOfBoundsException instead of the documented IOException or ProtocolException, which can crash services using ProtoAdapter.decode(byte[]) on untrusted payloads. This issue is fixed in versions 6.3.0 and 7.0.0-alpha03.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -425,7 +463,9 @@
         <td class="mono">20260715</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">Diffusers is the a library for pretrained diffusion models. Prior to 0.38.0, Diffusers&#39; DiffusionPipeline.from_pretrained flow can bypass the trust_remote_code guard because download() validates model_index.json and custom pipeline code before later loading from a cached folder that can change, allowing a Hub repository with custom .py pipeline code to execute through the custom pipeline flow without passing custom_pipeline or trust_remote_code=True. This issue is fixed in version 0.38.0.</td>
+        <td class="wrap-cell">
+          Diffusers is the a library for pretrained diffusion models. Prior to 0.38.0, Diffusers&#39; DiffusionPipeline.from_pretrained flow can bypass the trust_remote_code guard because download() validates model_index.json and custom pipeline code before later loading from a cached folder that can change, allowing a Hub repository with custom .py pipeline code to execute through the custom pipeline flow without passing custom_pipeline or trust_remote_code=True. This issue is fixed in version 0.38.0.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -441,7 +481,9 @@
         <td class="mono">20260707</td>
         <td class="mono">20260812</td>
         <td>OSV+GHSA</td>
-        <td class="wrap-cell">apache-airflow DAG source authorization bypass exposes co-located DAG source Before apache-airflow 3.3.0, a user authorized to read one Dag could disclose the source of other Dags co-located in the same source file. `GET /api/v2/dagSources/{dag_id}` — and the equivalent Dag-source view in the UI — returned the entire source file without redacting Dags the caller was not authorized to read, bypassing per-DAG read authorization. Deployments that co-locate multiple Dags in a single file and rely on per-DAG access control to limit source visibility are affected; single-Dag-per-file deployments are not. Upgrade to apache-airflow 3.3.0 or later.</td>
+        <td class="wrap-cell">
+          apache-airflow DAG source authorization bypass exposes co-located DAG source Before apache-airflow 3.3.0, a user authorized to read one Dag could disclose the source of other Dags co-located in the same source file. `GET /api/v2/dagSources/{dag_id}` — and the equivalent Dag-source view in the UI — returned the entire source file without redacting Dags the caller was not authorized to read, bypassing per-DAG read authorization. Deployments that co-locate multiple Dags in a single file and rely on per-DAG access control to limit source visibility are affected; single-Dag-per-file deployments are not. Upgrade to apache-airflow 3.3.0 or later.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -451,13 +493,15 @@
         <td>Apache Software Foundation</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.3</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;3.3.0</td>
+        <td class="mono">3.3.1</td>
         <td>-</td>
         <td class="mono">20260812</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new `awaiting_input` task state swept by the scheduler. That sweep deserializes the task instance&#39;s `next_kwargs` without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an arbitrary module import and object instantiation inside the scheduler process, or terminate the scheduler job. No non-default configuration is required: the sweep runs unconditionally every 15 seconds, and the default `allowed_deserialization_classes` setting does not cover this code path. Versions before 3.3.0 are not affected, because human-in-the-loop tasks deferred onto the triggerer instead. This is a different code path from CVE-2026-58076, which covers the same unguarded exception-node deserialization reached elsewhere — deployments that applied that fix must upgrade for this issue as well. Users are advised to upgrade to apache-airflow 3.3.1 or later.</td>
+        <td class="wrap-cell">
+          Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new `awaiting_input` task state swept by the scheduler. That sweep deserializes the task instance&#39;s `next_kwargs` without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an arbitrary module import and object instantiation inside the scheduler process, or terminate the scheduler job. No non-default configuration is required: the sweep runs unconditionally every 15 seconds, and the default `allowed_deserialization_classes` setting does not cover this code path. Versions before 3.3.0 are not affected, because human-in-the-loop tasks deferred onto the triggerer instead. This is a different code path from CVE-2026-58076, which covers the same unguarded exception-node deserialization reached elsewhere — deployments that applied that fix must upgrade for this issue as well. Users are advised to upgrade to apache-airflow 3.3.1 or later.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -467,13 +511,15 @@
         <td>Apache Software Foundation</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;22.3.0</td>
+        <td class="mono">22.3.0</td>
         <td>-</td>
         <td class="mono">20260812</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Google Cloud Secret Manager secrets backend in Apache Airflow&#39;s Google provider never applied the team scope when resolving Connections and Variables: the caller&#39;s `team_name` was accepted by the backend but dropped at the internal call boundary, so every lookup resolved against the team-agnostic secret name. In a deployment running multi-team mode with this backend, a task or Dag belonging to one team resolved another team&#39;s Connection or Variable, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-google 22.3.0 or later, which builds and applies the team-scoped secret name.</td>
+        <td class="wrap-cell">
+          The Google Cloud Secret Manager secrets backend in Apache Airflow&#39;s Google provider never applied the team scope when resolving Connections and Variables: the caller&#39;s `team_name` was accepted by the backend but dropped at the internal call boundary, so every lookup resolved against the team-agnostic secret name. In a deployment running multi-team mode with this backend, a task or Dag belonging to one team resolved another team&#39;s Connection or Variable, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-google 22.3.0 or later, which builds and applies the team-scoped secret name.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -483,13 +529,15 @@
         <td>Apache Software Foundation</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.3</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;14.1.0</td>
+        <td class="mono">14.1.0</td>
         <td>-</td>
         <td class="mono">20260810</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Azure Key Vault secrets backend in Apache Airflow&#39;s Microsoft Azure provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-microsoft-azure 14.1.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.</td>
+        <td class="wrap-cell">
+          The Azure Key Vault secrets backend in Apache Airflow&#39;s Microsoft Azure provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-microsoft-azure 14.1.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -499,13 +547,15 @@
         <td>Apache Software Foundation</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;4.5.1</td>
+        <td class="mono">4.5.1</td>
         <td>-</td>
         <td class="mono">20260810</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The Yandex Lockbox secrets backend in Apache Airflow&#39;s Yandex provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-yandex 4.5.1 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.</td>
+        <td class="wrap-cell">
+          The Yandex Lockbox secrets backend in Apache Airflow&#39;s Yandex provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-yandex 4.5.1 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -515,13 +565,15 @@
         <td>Apache Software Foundation</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;9.34.0</td>
+        <td class="mono">9.34.0</td>
         <td>-</td>
         <td class="mono">20260810</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] The AWS Systems Manager Parameter Store and Secrets Manager backends in Apache Airflow&#39;s Amazon provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with either backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using one of these backends. Users are advised to upgrade to apache-airflow-providers-amazon 9.34.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.</td>
+        <td class="wrap-cell">
+          The AWS Systems Manager Parameter Store and Secrets Manager backends in Apache Airflow&#39;s Amazon provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with either backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using one of these backends. Users are advised to upgrade to apache-airflow-providers-amazon 9.34.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -537,7 +589,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact The Edit Fields (Set) node assigned output fields through a dot-notation path setter without restricting the field name, so an authenticated user could name a field after an inherited built-in method path and corrupt a shared global in the main Node.js process. Because that global was used on the request-authentication path, the instance then failed every authenticated request, causing a instance-wide denial of service for all users until the process was restarted. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or restrict workflow creation and execution permissions for untrusted users. - Monitor for unexpected process-wide HTTP 500 errors and restart the process p</td>
+        <td class="wrap-cell">
+          ## Impact The Edit Fields (Set) node assigned output fields through a dot-notation path setter without restricting the field name, so an authenticated user could name a field after an inherited built-in method path and corrupt a shared global in the main Node.js process. Because that global was used on the request-authentication path, the instance then failed every authenticated request, causing a instance-wide denial of service for all users until the process was restarted. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or restrict workflow creation and execution permissions for untrusted users. - Monitor for unexpected process-wide HTTP 500 errors and restart the process p
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -553,7 +607,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact The n8n Edit Image node passed its output format to the underlying image library without validation, so a crafted value could write bytes to a location outside the node&#39;s working directory. An authenticated user able to run workflows could use this to write arbitrary files in the n8n instance. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Edit Image node by adding `n8n-nodes-base.editImage` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.</td>
+        <td class="wrap-cell">
+          ## Impact The n8n Edit Image node passed its output format to the underlying image library without validation, so a crafted value could write bytes to a location outside the node&#39;s working directory. An authenticated user able to run workflows could use this to write arbitrary files in the n8n instance. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Edit Image node by adding `n8n-nodes-base.editImage` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -569,7 +625,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact n8n&#39;s credential-access checks validated only a node&#39;s top-level credentials, not credentials referenced inside an Execute Sub-workflow node&#39;s inline workflow JSON. A member with editor access to a shared workflow could reference a credential they were not permitted to use inside that inline JSON; it passed both save-time and runtime validation and resolved in the parent workflow&#39;s project context, letting the member use or exfiltrate a credential they could not otherwise access. Exploitation requires workflow sharing to be enabled and the attacker to have been explicitly granted Editor access to a shared workflow. The attacker must also know the target credential&#39;s ID. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict workfl</td>
+        <td class="wrap-cell">
+          ## Impact n8n&#39;s credential-access checks validated only a node&#39;s top-level credentials, not credentials referenced inside an Execute Sub-workflow node&#39;s inline workflow JSON. A member with editor access to a shared workflow could reference a credential they were not permitted to use inside that inline JSON; it passed both save-time and runtime validation and resolved in the parent workflow&#39;s project context, letting the member use or exfiltrate a credential they could not otherwise access. Exploitation requires workflow sharing to be enabled and the attacker to have been explicitly granted Editor access to a shared workflow. The attacker must also know the target credential&#39;s ID. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict workfl
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -585,7 +643,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact n8n&#39;s JavaScript task runner shared one module cache across all users&#39; Code-node executions, so a user able to run a Code node could poison a cached module and alter other users&#39; Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance. It does not constitute a sandbox escape or remote code execution. All multi-user n8n instances running the JS task runner with built-in or external modules enabled are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable built-in and external module access in Code nodes by unsetting `NODE_FUNCTION_ALLOW_BUILTIN` and `NO</td>
+        <td class="wrap-cell">
+          ## Impact n8n&#39;s JavaScript task runner shared one module cache across all users&#39; Code-node executions, so a user able to run a Code node could poison a cached module and alter other users&#39; Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance. It does not constitute a sandbox escape or remote code execution. All multi-user n8n instances running the JS task runner with built-in or external modules enabled are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable built-in and external module access in Code nodes by unsetting `NODE_FUNCTION_ALLOW_BUILTIN` and `NO
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -601,7 +661,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact An authenticated user with permission to create or modify workflows could abuse crafted expressions using arrow functions to bypass the expression sandbox, triggering unintended system command execution on the host running n8n. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Restrict workflow creation and editing permissions to fully trusted users only. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.</td>
+        <td class="wrap-cell">
+          ## Impact An authenticated user with permission to create or modify workflows could abuse crafted expressions using arrow functions to bypass the expression sandbox, triggering unintended system command execution on the host running n8n. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Restrict workflow creation and editing permissions to fully trusted users only. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -617,7 +679,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact Authenticated n8n users with rights to create and execute workflows could achieve code execution on the n8n host. Using the Git node, under the default `git` security settings, by staging a crafted local repository, an attacker could cause `git` to run hooks, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected where authenticated users can create and execute workflows using the Git node. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n instance to limit the impact of arbitrary code executio</td>
+        <td class="wrap-cell">
+          ## Impact Authenticated n8n users with rights to create and execute workflows could achieve code execution on the n8n host. Using the Git node, under the default `git` security settings, by staging a crafted local repository, an attacker could cause `git` to run hooks, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected where authenticated users can create and execute workflows using the Git node. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n instance to limit the impact of arbitrary code executio
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -633,7 +697,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact On an n8n instance with SSRF protection enabled, the MCP Client node sent requests to a user-supplied endpoint without routing them through that protection and without pinning the resolved address. An authenticated user who could create or edit a workflow could therefore cause the server to connect to internal or otherwise blocked hosts and read the responses back through the workflow, exposing internal services the SSRF protection was meant to protect. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the MCP Client node by adding it to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n host to block access to internal and link-local address ranges</td>
+        <td class="wrap-cell">
+          ## Impact On an n8n instance with SSRF protection enabled, the MCP Client node sent requests to a user-supplied endpoint without routing them through that protection and without pinning the resolved address. An authenticated user who could create or edit a workflow could therefore cause the server to connect to internal or otherwise blocked hosts and read the responses back through the workflow, exposing internal services the SSRF protection was meant to protect. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the MCP Client node by adding it to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n host to block access to internal and link-local address ranges
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -649,7 +715,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact An authenticated user able to create or edit a workflow expression could abuse the expression engine&#39;s array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process, leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the VM expression engine if an alternative is available for your deployment. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.</td>
+        <td class="wrap-cell">
+          ## Impact An authenticated user able to create or edit a workflow expression could abuse the expression engine&#39;s array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process, leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the VM expression engine if an alternative is available for your deployment. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -665,7 +733,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact Authenticated n8n users with workflow create/execute rights could use the Git node&#39;s fetch, pull, or push-tags operations to bypass the repository-path containment checks that already protected clone and push. By pointing an allowlisted remote configuration value at a local path outside the intended sandbox, an attacker could pull an arbitrary local git repository into the workspace and subsequently read its files and history. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measure</td>
+        <td class="wrap-cell">
+          ## Impact Authenticated n8n users with workflow create/execute rights could use the Git node&#39;s fetch, pull, or push-tags operations to bypass the repository-path containment checks that already protected clone and push. By pointing an allowlisted remote configuration value at a local path outside the intended sandbox, an attacker could pull an arbitrary local git repository into the workspace and subsequently read its files and history. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measure
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -681,7 +751,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact In an n8n instance, when a validly-signed incoming token was matched to a local account by its email claim, the service did not check that the trusted key&#39;s permitted role ceiling covered that account, nor that the email claim was verified. As a result, anyone able to obtain a token accepted by one of the configured trusted keys, for example a trusted issuer that emitted unverified email addresses, could authenticate as any existing user, gaining full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured. ## Patches The issue has been fixed in n8n version 2.32.1. Users should upgrade to this version or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Disable the embed login feature by setting `N8N_TOKEN_EXCHANGE_ENABLED=false`. - If embed login cannot be disabled, restrict ne</td>
+        <td class="wrap-cell">
+          ## Impact In an n8n instance, when a validly-signed incoming token was matched to a local account by its email claim, the service did not check that the trusted key&#39;s permitted role ceiling covered that account, nor that the email claim was verified. As a result, anyone able to obtain a token accepted by one of the configured trusted keys, for example a trusted issuer that emitted unverified email addresses, could authenticate as any existing user, gaining full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured. ## Patches The issue has been fixed in n8n version 2.32.1. Users should upgrade to this version or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Disable the embed login feature by setting `N8N_TOKEN_EXCHANGE_ENABLED=false`. - If embed login cannot be disabled, restrict ne
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -697,7 +769,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact The component `@n8n/computer-use` file-search tool confined searches to a configured base directory. A crafted search pattern could bypass the confinement check and expand to locations outside that directory, causing the tool to return the names and contents of files anywhere the daemon&#39;s OS user could read. Any deployment where an actor could influence the tool&#39;s search input was affected; the result was disclosure of arbitrary local files outside the intended sandbox. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or remove AI agent workflows that use the `computer-use` package until the instance is patched. - Ensure the n8n process runs under a dedicated low-privilege user</td>
+        <td class="wrap-cell">
+          ## Impact The component `@n8n/computer-use` file-search tool confined searches to a configured base directory. A crafted search pattern could bypass the confinement check and expand to locations outside that directory, causing the tool to return the names and contents of files anywhere the daemon&#39;s OS user could read. Any deployment where an actor could influence the tool&#39;s search input was affected; the result was disclosure of arbitrary local files outside the intended sandbox. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or remove AI agent workflows that use the `computer-use` package until the instance is patched. - Ensure the n8n process runs under a dedicated low-privilege user
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -713,7 +787,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact An authenticated member with edit access to a shared workflow could reference another user&#39;s credential in an HTTP Request node while specifying the credential type through an expression. Because the pre-execution permission check compared the unresolved expression instead of the real credential type, the ownership check was skipped and the credential was loaded at execution time, letting the member use or exfiltrate a credential they were never granted. Exploitation required knowing the target credential&#39;s identifier. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Exclude the HTTP Request node by adding `n8n-nodes-base.httpRequest` to the `NODES_EXCLUDE` environment varia</td>
+        <td class="wrap-cell">
+          ## Impact An authenticated member with edit access to a shared workflow could reference another user&#39;s credential in an HTTP Request node while specifying the credential type through an expression. Because the pre-execution permission check compared the unresolved expression instead of the real credential type, the ownership check was skipped and the credential was loaded at execution time, letting the member use or exfiltrate a credential they were never granted. Exploitation required knowing the target credential&#39;s identifier. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Exclude the HTTP Request node by adding `n8n-nodes-base.httpRequest` to the `NODES_EXCLUDE` environment varia
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -729,7 +805,9 @@
         <td class="mono">20260722</td>
         <td class="mono">20260812</td>
         <td>OSV</td>
-        <td class="wrap-cell">## Impact The Postgres Trigger node interpolated user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping, so an authenticated user could inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential&#39;s privileges. Successful exploitation allows full read and write access to the connected PostgreSQL database. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5 and 2.32.1. Users should upgrade to these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the PostgresTrigger node by adding `n8n-nodes-base.postgresTrigger` to the `NODES_EXCLUDE` environment variable. - Ensure PostgreSQL credentials used with n8n are configured with the minimum required privileges and do not use SUPER</td>
+        <td class="wrap-cell">
+          ## Impact The Postgres Trigger node interpolated user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping, so an authenticated user could inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential&#39;s privileges. Successful exploitation allows full read and write access to the connected PostgreSQL database. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5 and 2.32.1. Users should upgrade to these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the PostgresTrigger node by adding `n8n-nodes-base.postgresTrigger` to the `NODES_EXCLUDE` environment variable. - Ensure PostgreSQL credentials used with n8n are configured with the minimum required privileges and do not use SUPER
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -739,13 +817,15 @@
         <td>Mintplex Labs</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
         <td>5.9</td>
-        <td class="mono">*</td>
+        <td class="mono">&gt;=1.0.0,&lt;1.15.0</td>
         <td class="mono">-</td>
         <td>-</td>
         <td class="mono">20260810</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. From 1.0.0 to 1.15.0, AnythingLLM&#39;s unauthenticated account-recovery flow in server/utils/PasswordRecovery/index.js uses recoverAccount() to deduplicate the raw recoveryCodes values before trimming them, so one valid code submitted twice with different surrounding whitespace can satisfy the two-code check. Each normalized value can also match the same stored hash instead of consuming a distinct hash. An attacker who knows the target username and one recovery code can call POST /api/system/recover-account in multi-user mode, receive a password-reset token, and use POST /api/system/reset-password to take over the account, including an administrator account.</td>
+        <td class="wrap-cell">
+          AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. From 1.0.0 to 1.15.0, AnythingLLM&#39;s unauthenticated account-recovery flow in server/utils/PasswordRecovery/index.js uses recoverAccount() to deduplicate the raw recoveryCodes values before trimming them, so one valid code submitted twice with different surrounding whitespace can satisfy the two-code check. Each normalized value can also match the same stored hash instead of consuming a distinct hash. An attacker who knows the target username and one recovery code can call POST /api/system/recover-account in multi-user mode, receive a password-reset token, and use POST /api/system/reset-password to take over the account, including an administrator account.
+        </td>
       </tr>
       <tr>
         <td class="mono">
@@ -755,13 +835,15 @@
         <td>Project Jupyter</td>
         <td class="sev sev-HIGH">HIGH</td>
         <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
+        <td class="mono">&lt;4.6.2</td>
+        <td class="mono">4.5.10</td>
         <td>-</td>
         <td class="mono">20260812</td>
         <td class="mono">20260812</td>
         <td>NVD</td>
-        <td class="wrap-cell">[버전범위 불명확] jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. Prior to 4.5.10 and 4.6.2, in packages/imageviewer/src/widget.ts, JupyterLab&#39;s ImageViewer uses URL.createObjectURL for a specially crafted SVG image and revokes the blob URL too early, allowing the image to retain an executable same-origin context when it is opened through the image viewer and then opened in a new browser tab. The resulting cross-site scripting can be used to execute arbitrary code on the JupyterLab server. This issue is fixed in versions 4.5.10 and 4.6.2.</td>
+        <td class="wrap-cell">
+          jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. Prior to 4.5.10 and 4.6.2, in packages/imageviewer/src/widget.ts, JupyterLab&#39;s ImageViewer uses URL.createObjectURL for a specially crafted SVG image and revokes the blob URL too early, allowing the image to retain an executable same-origin context when it is opened through the image viewer and then opened in a new browser tab. The resulting cross-site scripting can be used to execute arbitrary code on the JupyterLab server. This issue is fixed in versions 4.5.10 and 4.6.2.
+        </td>
       </tr>
     </tbody>
   </table>

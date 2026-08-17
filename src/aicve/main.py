@@ -221,6 +221,21 @@ def run(args: argparse.Namespace) -> int:
             range_max_len=int(scope.output.get("range_max_len", 500)),
             summary_max_len=int(scope.output.get("summary_max_len", 1000)),
         )
+        # 소스가 버전 정보를 안 준 건은 요약문에서 2차 추출한다.
+        # ('*' 는 내부망 도구가 '모든 버전 영향' 으로 읽어 오탐을 만든다)
+        # 반드시 번역 전에 — 패턴이 영문 표현 기준이다.
+        try:
+            from .summary_range import recover_missing_ranges
+
+            recovered = recover_missing_ranges(
+                merged,
+                range_max_len=int(scope.output.get("range_max_len", 500)),
+                summary_max_len=int(scope.output.get("summary_max_len", 1000)))
+            if recovered:
+                stats["RANGE_RECOVERED"] = recovered
+        except Exception:
+            log.exception("요약문 범위 추출 실패 — '*' 로 두고 계속합니다.")
+
         filtered = filter_by_severity(merged, scope)
         log.info("병합 %d건 → 심각도 필터(%s, KEV 예외) 통과 %d건",
                  len(merged), scope.min_severity, len(filtered))
