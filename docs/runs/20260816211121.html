@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-17 21:18:18</div>
+    <div class="stamp">최종 생성 2026-08-18 21:15:41</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (19건)</h2>
+<h2>이 회차 CVE (17건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -197,28 +197,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/apache/airflow/pull/68511" target="_blank" rel="noopener">CVE-2026-58076</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 직렬화 계층은 직렬화된 blob에서 가져온 클래스 이름에 대해 `import_string()`을 호출하고 가져올 수 있는 항목에 대한 제한 없이 동일한 blob의 인수로 인스턴스화하여 예외 노드를 재구성했습니다. 연산자의 `executor_config`가 해당 분기에 도달하므로 Dag 작성자는 임의의 호출 가능 항목을 가져오고 호출하도록 하는 값을 여기에 배치할 수 있습니다. 예를 들어 `subprocess.check_output` 또는 `builtins` 접두사가 붙은 변형의 `buildins.eval`입니다. 코드는 요청 없이 일반 루프에서 직렬화된 Dags를 재구성하는 **스케줄러**와 `GET /api/v2/dags/{dag_id}/details`와 같은 Dag의 인증된 읽기 시 **API 서버**에서 실행됩니다. 둘 다 Airflow 보안 모델에서 Dag 작성자 코드를 실행해서는 안 된다고 명시한 구성 요소이며, 둘 다 메타데이터 데이터베이스 사용자 인증 정보와 JWT 서명 비밀을 보유합니다. 기본이 아닌 구성은 필요하지 않습니다. 이것은 **CVE-2026-33264과는 다른 싱크대입니다.**
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s serialization layer reconstructed exception nodes by calling `import_string()` on a class name taken from the serialized blob and instantiating it with arguments from the same blob, with no restriction on what could be imported. An operator&#39;s `executor_config` reaches that branch, so a Dag author could place a value there that causes an arbitrary callable to be imported and invoked -- for example `subprocess.check_output`, or `builtins.eval` on the `builtins`-prefixed variant. The code runs in the **Scheduler**, which reconstructs serialized Dags in its normal loop with no request involved, and in the **API server**, on any authenticated read of the Dag such as `GET /api/v2/dags/{dag_id}/details`. Both are components the Airflow security model states must never execute Dag-author code, and both hold the metadata database credentials and the JWT signing secret. No non-default configuration is required. This is a **different sink from CVE-2026-33264**, which covered only</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/apache/airflow/pull/69378" target="_blank" rel="noopener">CVE-2026-59242</a>
         </td>
         <td>Airflow</td>
@@ -236,28 +214,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s XCom `GET /api/v2/{...}/xcomEntries/{key}?deserialize=true` endpoint passed a string-literal payload through `BaseXCom.deserialize_value` without the `_check_forbidden_xcom_keys` guard, allowing an authenticated API user with XCom write-and-read access to instantiate arbitrary `airflow.*` classes on the API server (CWE-502). An authenticated user who can write an XCom value and then read it back with `deserialize=true` triggers the unsafe instantiation. Users are advised to upgrade to apache-airflow 3.3.1 or later, which rejects reserved XCom serialization keys submitted as JSON string literals.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/68975" target="_blank" rel="noopener">CVE-2026-59244</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 비밀 마스커는 렌더링된 템플릿 UI에서 값이 dict인 &#39;var.json&#39; 변수 값을 마스킹하지 않았습니다. dict 값이 &#39;isinstance(str)&#39; 가드에 실패했습니다. 따라서 JSON 변수로 저장되고 &#39;var.json&#39;을 통해 템플릿에서 참조된 비밀은 해당 작업의 렌더링된 템플릿 보기에 액세스할 수 있는 모든 사용자에게 일반 텍스트로 표시되었습니다. 사용자는 유형에 관계없이 중첩된 변수 값을 마스킹하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task&#39;s Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type.</div>
           </details>
         </td>
       </tr>
