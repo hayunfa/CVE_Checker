@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-18 21:15:41</div>
+    <div class="stamp">최종 생성 2026-08-19 21:18:09</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (17건)</h2>
+<h2>이 회차 CVE (11건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -126,50 +126,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">A vulnerability in mlflow/mlflow versions prior to 3.11.0 allows for the resolution of environment variables in AI Gateway secrets, which can be exploited to exfiltrate sensitive server-side environment credentials to an attacker-controlled endpoint. This issue arises because the `api_key` field in gateway secrets can accept `$ENV_VAR` references, which are resolved against the MLflow server&#39;s environment during runtime. The resolved secrets are then sent in provider authentication headers to the configured upstream `api_base`. This vulnerability can be exploited by low-privileged authenticated users in basic-auth deployments or by unauthenticated users in default deployments without `basic-auth`. The impact includes potential leakage of sensitive credentials such as cloud artifact credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`), which could lead to artifact poisoning and cross-boundary code execution in downstream environments. The issue is fixed in version 3.11.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/pull/43426" target="_blank" rel="noopener">CVE-2026-48746</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&gt;=0.3.0,&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td>-</td>
-        <td class="mono">20260622</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.3.0부터 0.22.0까지 ASGI 웹 서버의 취약점과 해당 웹 서버에 대한 starlette의 신뢰로 인해 OpenAI API AuthenticationMiddleware의 인증 우회가 가능해졌습니다. 구성된 VLLM_API_KEY 또는 --api-key를 제공하지 않고도 API를 사용할 수 있습니다. 이 취약점은 0.22.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette&#39;s trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/68422" target="_blank" rel="noopener">CVE-2026-54183</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 비밀 마스커는 UI에 표시될 때 중요한 키 이름 아래에 저장된 값을 숨깁니다. 마스커의 재귀 깊이 제한은 목록, 튜플 또는 해당 제한을 초과하는 설정 내에 중첩된 값으로 내려오지 않았으므로 깊이 중첩된 값을 보유하는 Airflow 변수는 변수 UI에서 마스크 해제된 것으로 표시되었습니다. 노출은 UI로 제한됩니다. UI에서 변수를 볼 수 있는 인증된 사용자는 이미 변수 REST API를 통해 전체 값을 읽을 수 있으므로 사용자가 다른 방법으로는 얻을 수 없는 데이터를 공개하지 않습니다. 마스킹은 액세스 제어 경계가 아니라 UI에 대한 어깨 서핑 방어입니다. 이것은 사전만 무제한으로 이동하도록 수정한 CVE-2026-42358에 대한 불완전한 수정 후속 조치입니다. 깊이 제한을 초과하는 목록, 튜플 및 세트는 UI에서 마스크되지 않은 상태로 유지되었습니다. 이 잔여 사례를 해결하려면 CVE-2026-42358 수정 사항을 적용한 배포도 업그레이드해야 합니다. apache-airflow 3.3.1 이상으로 업그레이드하세요.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker&#39;s recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown unmasked in the Variables UI. The exposure is limited to the UI: any authenticated user who can see the Variable in the UI can already read its full value through the Variables REST API, so this does not disclose data the user could not otherwise obtain — the masking is a shoulder-surfing defense for the UI, not an access-control boundary. This is an incomplete-fix follow-up to CVE-2026-42358, whose fix made only the dictionary walk unbounded; lists, tuples, and sets beyond the depth limit remained unmasked in the UI. Deployments that applied the CVE-2026-42358 fix should also upgrade to address this residual case. Upgrade to apache-airflow 3.3.1 or later.</div>
           </details>
         </td>
       </tr>
@@ -263,50 +219,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/apache/airflow/pull/70736" target="_blank" rel="noopener">CVE-2026-68076</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.4</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 환경 변수 비밀 백엔드는 잘못된 팀 범위의 팀 범위 연결 또는 변수를 해결했습니다. 이를 방지하기 위한 가드는 팀 범위가 제공되지 않은 경우에만 실행되었으며 해당 패턴은 팀 이름에 포함될 수 있는 밑줄이 포함된 팀 이름과 일치할 수 없습니다. 가드가 적용되지 않으면 어떤 팀이 요청했는지에 관계없이 저장된 `AIRFLOW_CONN__&lt;TEAM&gt;___&lt;ID&gt;` 변수를 해결하는 무조건 전역 읽기로 조회가 진행되었습니다. 다중 팀 모드에서는 한 팀의 인증된 사용자가 `POST /api/v2/connections/test`를 통해 다른 팀의 연결을 확인하고 해당 팀의 자격 증명을 사용하여 외부적으로 인증할 수 있습니다. 엔드포인트는 자격 증명을 반환하는 대신 자격 증명을 사용합니다. 악용하려면 `[core] multi_team` 활성화, `[core] test_connection`을 `Enabled`로 설정(`Disabled`로 제공), API 서버 프로세스에서 환경 변수로 프로비저닝된 팀 범위 비밀, 인코딩된 식별자에 대한 지식이 필요합니다. 리다이어
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team&#39;s scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowed to contain. When the guard did not apply, the lookup fell through to an unconditional global read that resolved the stored `AIRFLOW_CONN__&lt;TEAM&gt;___&lt;ID&gt;` variable regardless of which team asked. In multi-team mode an authenticated user of one team could therefore have `POST /api/v2/connections/test` resolve another team&#39;s Connection and authenticate outward with that team&#39;s credentials; the endpoint uses the credentials rather than returning them. Exploitation requires `[core] multi_team` enabled, `[core] test_connection` set to `Enabled` (it ships `Disabled`), team-scoped secrets provisioned as environment variables in the API-server process, and knowledge of the encoded identifier. Redire</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/70891" target="_blank" rel="noopener">CVE-2026-68970</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 작업 SDK는 JSON 값이 목록인 변수의 콘텐츠를 마스킹하지 않았으므로 해당 모양에 저장된 비밀은 작업 로그 및 렌더링된 템플릿 UI에 일반 텍스트로 표시되었습니다. 역직렬화된 값이 문자열 또는 사전인 경우에만 마스킹이 적용되었습니다. 최상위 수준의 목록은 둘 다 일치하지 않으며 마스크되지 않은 상태로 반환되었습니다. 이러한 변수를 참조하는 작업의 로그 또는 렌더링된 템플릿을 읽을 수 있는 인증된 사용자는 특별한 구성이 필요 없이 값을 복구할 수 있습니다. 이는 dict 사례만 수정한 CVE-2026-59244의 목록 모양 대응이므로 해당 권고에 대한 응답으로 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matched neither and was returned unmasked. Any authenticated user able to read the logs or rendered templates of a task that references such a Variable could recover the values, with no special configuration required. This is the list-shaped counterpart of CVE-2026-59244, whose fix covered the dict case only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised to upgrade to apache-airflow 3.3.1 or later.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-123/389504" target="_blank" rel="noopener">CVE-2026-72642</a>
         </td>
         <td>Elasticsearch</td>
@@ -395,28 +307,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999" target="_blank" rel="noopener">CVE-2026-73417</a>
-        </td>
-        <td>JupyterLab</td>
-        <td>Project Jupyter</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.6</td>
-        <td class="mono">&gt;=3.3.0,&lt;4.6.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260813</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          jupyterlab은 Jupyter 노트북 아키텍처를 기반으로 하는 대화형 및 재현 가능한 컴퓨팅을 위한 확장 가능한 환경입니다. 3.3.0부터 4.5.10 및 4.6.2까지 JupyterLab에서는 설정 편집기의 가져오기 버튼을 사용하여 overrides.json 파일을 통해 노트북 설정을 공유하고 적용할 수 있습니다. packages/notebook-extension/schema/tracker.json 및 packages/notebook-extension/src/index.ts에서 sideBySideLeftMarginOverride 및 sideBySideRightMarginOverride 설정은 스타일 콘텐츠에 삽입되기 전에 제대로 검증되지 않으므로 조작된 설정 파일에 디스플레이 기본 설정만 변경하는 대신 코드로 실행되는 명령이 포함될 수 있습니다. 사용자가 악성 파일을 가져오거나, 공유 설정 위치에 액세스할 수 있는 공격자가 자동으로 적용되는 overrides.json을 심을 수 있습니다. 내장된 코드는 영향을 받는 사용자의 액세스 권한으로 실행되며 노트북과 파일을 읽거나 수정할 수 있고 연결된 k를 포함하여 노트북 서버를 통해 코드를 실행할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user&#39;s access and can read or modify notebooks and files and run code through the notebook server, including on a connected k</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324" target="_blank" rel="noopener">CVE-2026-73555</a>
         </td>
         <td>vLLM</td>
@@ -456,28 +346,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e" target="_blank" rel="noopener">CVE-2026-73559</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.19.0,&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260813</td>
-        <td class="mono">20260814</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.19.0부터 0.26.0까지 vllm/entrypoints/openai/completion/protocol.py의 /v1/completions CompletionRequest.prompt 필드는 제한되지 않은 list[str] 또는 list[list[int]], vllm/renderers/inputs/preprocess.py의 프롬프트_to_seq() 및 OnlineRenderer.preprocess_completion()을 허용합니다. vllm/renderers/online_renderer.py는 모든 요소를 확장하고 vllm/entrypoints/openai/completion/serving.py는 프롬프트당 하나의 엔진 생성기와 응답 슬롯을 생성하여 인증된 API 클라이언트가 하나의 요청으로 CPU, 메모리, 비동기 예약 용량, 엔진 요청 슬롯 및 응답 버퍼링을 소진할 수 있도록 합니다. 이 문제는 버전 0.26.0에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.</div>
           </details>
         </td>
       </tr>

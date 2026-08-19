@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-18 21:15:41</div>
+    <div class="stamp">최종 생성 2026-08-19 21:18:09</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (25건)</h2>
+<h2>이 회차 CVE (22건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -199,28 +199,6 @@
         <td class="mono">
 <a href="https://github.com/apache/airflow/pull/70889" target="_blank" rel="noopener">CVE-2026-68968</a>
         </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260813</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 Backfill API는 `backfill_id` 경로 세그먼트가 구문 분석에 실패할 때마다 호출자가 제공한 Dag ID에 대한 요청을 승인했습니다. 권한 부여 종속성은 이를 `int()`로 구문 분석하는 반면 경로 핸들러는 이를 `int()` 값을 허용하는 pydantic의 `NonNegativeInt`로 구문 분석합니다(`1.0`은 `1`로 강제 변환). FastAPI는 엔드포인트 유효성 검사 전에 종속성을 해결하므로 두 가지가 서로 다른 Dags에서 작동했습니다. 따라서 단일 Dag에 대한 편집 권한을 보유한 인증된 사용자는 다른 Dag의 대기 중인 실행을 &#39;실패&#39;로 이동하는 것을 포함하여 다른 Dag에 속한 백필을 읽고, 일시 중지하고, 취소할 수 있습니다. 기본이 아닌 구성은 필요하지 않으며 백필 ID는 순차적이므로 대상을 찾는 것이 쉽습니다. 사용자는 경로가 선언하는 것과 동일한 유형으로 백필 ID를 구문 분석하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/70889" target="_blank" rel="noopener">CVE-2026-68968</a>
-        </td>
         <td>FastAPI</td>
         <td>FastAPI</td>
         <td class="sev sev-HIGH">HIGH</td>
@@ -236,28 +214,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/70890" target="_blank" rel="noopener">CVE-2026-68969</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20260813</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow는 대량 엔드포인트(`PATCH /api/v2/variables` 및 `PATCH /api/v2/connections`)를 통해 제출될 때 일반 텍스트로 감사 로그에 변수 값과 연결 `추가` 콘텐츠를 기록했습니다. 감사 로그 마스킹은 최상위 요청 필드만 인식했으며 대량 요청은 엔터티를 두 수준 아래에 중첩하므로 마스킹이 적용되지 않았습니다. 변수 또는 연결 읽기를 전혀 보유할 필요가 없는 감사 로그 읽기 액세스 권한이 있는 인증된 사용자는 해당 비밀을 그대로 복구할 수 있으며 연결 &#39;추가&#39; 복사본은 연결 테이블이 암호화하는 동안 암호화되지 않은 상태로 로그에 저장됩니다. Airflow UI의 *변수 가져오기* 작업은 이 엔드포인트에 게시되므로 일반 연산자 가져오기는 파일의 모든 비밀을 로그에 기록합니다. 이는 CVE-2026-50204과 다른 코드 경로입니다. 이 수정 사항은 3.3.0에 제공되고 단일 엔터티 끝점만 다루므로 해당 권고에 따라 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자에게 조언합니다
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI&#39;s *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised </div>
           </details>
         </td>
       </tr>
@@ -632,28 +588,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user&#39;s input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user&#39;s inference result. This issue is fixed in version 0.27.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-2cm6-r77w-6g96" target="_blank" rel="noopener">CVE-2026-8147</a>
-        </td>
-        <td>MLflow</td>
-        <td>Databricks</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&gt;=2.14.0rc0,&lt;3.13.0rc0</td>
-        <td class="mono">3.13.0rc0</td>
-        <td>-</td>
-        <td class="mono">20260702</td>
-        <td class="mono">20260813</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          MLflow: 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 3.13.0 이전 MLflow 버전에서는 인증이 활성화된 상태로 실행할 때 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 이를 통해 인증된 사용자는 액세스 권한이 없는 실험에 대한 추적 읽기, 삭제, 수정을 포함하여 모든 추적 작업에 대해 실험 수준 승인 제어를 우회할 수 있습니다. 이 문제는 추적 끝점에 대한 인증 유효성 검사기를 등록하지 않는 `_before_request` 핸들러에서 발생하므로 요청이 유효성 검사 없이 진행됩니다. 이 취약점으로 인해 민감한 데이터가 노출되고, 감사 로그가 파괴되고, 무단 수정이 허용될 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">MLflow: trace API endpoints lack proper authorization validators In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications.</div>
           </details>
         </td>
       </tr>
