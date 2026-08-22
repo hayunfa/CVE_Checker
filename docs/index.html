@@ -69,25 +69,25 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-21 21:15:48</div>
+    <div class="stamp">최종 생성 2026-08-22 21:13:43</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260821211417
+    <div><b>최근 실행</b> 20260822211231
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-08-21 21:14:17 ~ 2026-08-21 21:15:48</div>
+    <div class="muted">2026-08-22 21:12:31 ~ 2026-08-22 21:13:43</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
   <div class="card kpi"><div class="n">131</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">56</div><div class="l">최근 실행 수집</div></div>
-  <div class="card kpi"><div class="n">6</div><div class="l">신규</div></div>
-  <div class="card kpi"><div class="n">1</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">35</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
 </div>
 
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<h2>최근 실행 이력 (최대 10회)</h2>
+<h2>최근 실행 이력 (최대 11회)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -242,6 +242,20 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-08-22 21:12:31</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
+        <td class="mono" style="font-size:11px;">KEV=1674 OSV=4 NVD=33 GHSA=5 RANGE_RECOVERED=17 TRANSLATE=0건 번역 / 35건 캐시</td>
+        <td>35</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td>0 / 0</td>
+        <td><a href="runs/20260822211231.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-08-21 21:14:17</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -395,7 +409,7 @@
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (56건)</h2>
+<h2>최근 실행의 신규·변경 CVE (35건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -480,19 +494,6 @@
         <td class="mono">20260320</td>
         <td>NVD</td>
         <td class="wrap-cell" title="gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi">gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-c545-x2rh-82fc" target="_blank" rel="noopener">CVE-2026-33665</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.2</td>
-        <td class="mono">&lt;1.121.0|&gt;=2.0.0-rc.0,&lt;2.4.0</td>
-        <td class="mono">1.121.0</td>
-        <td class="mono">20260325</td>
-        <td>GHSA</td>
-        <td class="wrap-cell" title="n8n: LDAP Email-Based Account Linking Allows Privilege Escalation and Account Takeover ## Impact When LDAP authentication is enabled, n8n automatically linked an LDAP identity to an existing local account if the LDAP email attribute matched the local account&#39;s email. An authenticated LDAP user who could control their own LDAP email attribute could set it to match another user&#39;s email — including an administrator&#39;s — and upon login gain full access to that account. The account linkage persisted even if the LDAP email was later reverted, resulting in a permanent account takeover. - LDAP authentication must be configured and active (non-default). ## Patches The issue has been fixed in n8n versions 2.4.0 and 1.121.0. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Disable LDAP authentication until the instance can be upgraded.">n8n: LDAP 이메일 기반 계정 연결로 권한 상승 및 계정 탈취 허용 ## 영향 LDAP 인증이 활성화되면 LDAP 이메일 속성이 로컬 계정의 이메일과 일치하는 경우 n8n은 자동으로 LDAP ID를 기존 로컬 계정에 연결했습니다. 자신의 LDAP 이메일 속성을 제어할 수 있는 인증된 LDAP 사용자는 관리자를 포함한 다른 사용자의 이메일과 일치하도록 설정하고 로그인 시 해당 계정에 대한 전체 액세스 권한을 얻을 수 있습니다. 나중에 LDAP 이메일을 되돌려도 계정 연결이 유지되어 영구적인 계정 탈취가 발생했습니다. - LDAP 인증이 구성되고 활성화되어야 합니다(기본값 아님). ## 패치 이 문제는 n8n 버전 2.4.0 및 1.121.0에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음 임시 완화 방법을 고려해야 합니다. - 인스턴스를 업그레이드할 수 있을 때까지 LDAP 인증을 비활성화합니다.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -626,71 +627,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/vllm-project/vllm/pull/43426" target="_blank" rel="noopener">CVE-2026-48746</a>
-        </td>
-        <td>vLLM</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&gt;=0.3.0,&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td class="mono">20260622</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette&#39;s trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.">vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.3.0부터 0.22.0까지 ASGI 웹 서버의 취약점과 해당 웹 서버에 대한 starlette의 신뢰로 인해 OpenAI API AuthenticationMiddleware의 인증 우회가 가능해졌습니다. 구성된 VLLM_API_KEY 또는 --api-key를 제공하지 않고도 API를 사용할 수 있습니다. 이 취약점은 0.22.0에서 수정되었습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="http://www.openwall.com/lists/oss-security/2026/07/07/5" target="_blank" rel="noopener">CVE-2026-49296</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td class="mono">20260707</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Before apache-airflow 3.3.0, a user authorized to read one Dag could disclose the source of other Dags co-located in the same source file. `GET /api/v2/dagSources/{dag_id}` — and the equivalent Dag-source view in the UI — returned the entire source file without redacting Dags the caller was not authorized to read, bypassing per-DAG read authorization. Deployments that co-locate multiple Dags in a single file and rely on per-DAG access control to limit source visibility are affected; single-Dag-per-file deployments are not. Upgrade to apache-airflow 3.3.0 or later.">apache-airflow 3.3.0 이전에는 하나의 Dag를 읽을 권한이 있는 사용자가 동일한 소스 파일에 함께 위치한 다른 Dag의 소스를 공개할 수 있었습니다. `GET /api/v2/dagSources/{dag_id}` — 및 UI의 동등한 Dag 소스 보기 — 호출자가 읽을 권한이 없는 Dags를 수정하지 않고 전체 소스 파일을 반환했으며, DAG별 읽기 권한을 우회했습니다. 단일 파일에 여러 Dag를 함께 배치하고 DAG별 액세스 제어를 사용하여 소스 가시성을 제한하는 배포가 영향을 받습니다. 파일당 단일 Dag 배포는 그렇지 않습니다. apache-airflow 3.3.0 이상으로 업그레이드하세요.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/z5mrdq6c60f2wyx4cc64cj8nv0dxd9lo" target="_blank" rel="noopener">CVE-2026-54183</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker&#39;s recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown unmasked in the Variables UI. The exposure is limited to the UI: any authenticated user who can see the Variable in the UI can already read its full value through the Variables REST API, so this does not disclose data the user could not otherwise obtain — the masking is a shoulder-surfing defense for the UI, not an access-control boundary. This is an incomplete-fix follow-up to CVE-2026-42358, whose fix made only the dictionary walk unbounded; lists, tuples, and sets beyond the depth limit remained unmasked in the UI. Deployments that applied the CVE-2026-42358 fix should also upgrade to address this residual case. Upgrade to apache-airflow 3.3.1 or later.">Apache Airflow의 비밀 마스커는 UI에 표시될 때 중요한 키 이름 아래에 저장된 값을 숨깁니다. 마스커의 재귀 깊이 제한은 목록, 튜플 또는 해당 제한을 초과하는 설정 내에 중첩된 값으로 내려오지 않았으므로 깊이 중첩된 값을 보유하는 Airflow 변수는 변수 UI에서 마스크 해제된 것으로 표시되었습니다. 노출은 UI로 제한됩니다. UI에서 변수를 볼 수 있는 인증된 사용자는 이미 변수 REST API를 통해 전체 값을 읽을 수 있으므로 사용자가 다른 방법으로는 얻을 수 없는 데이터를 공개하지 않습니다. 마스킹은 액세스 제어 경계가 아니라 UI에 대한 어깨 서핑 방어입니다. 이것은 사전만 무제한으로 이동하도록 수정한 CVE-2026-42358에 대한 불완전한 수정 후속 조치입니다. 깊이 제한을 초과하는 목록, 튜플 및 세트는 UI에서 마스크되지 않은 상태로 유지되었습니다. 이 잔여 사례를 해결하려면 CVE-2026-42358 수정 사항을 적용한 배포도 업그레이드해야 합니다. apache-airflow 3.3.1 이상으로 업그레이드하세요.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-wcwg-c5fc-9vrc" target="_blank" rel="noopener">CVE-2026-5497</a>
-        </td>
-        <td>vLLM</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=0.8.0,&lt;0.19.0</td>
-        <td class="mono">0.19.0</td>
-        <td class="mono">20260611</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="vLLM versions 0.8.0 and later are vulnerable to an Out-of-Memory (OOM) Denial of Service (DoS) attack due to unbounded frame count processing in the `VideoMediaIO.load_base64()` method. When processing `video/jpeg` data URLs, the method splits the base64 data string on commas to extract individual JPEG frames without enforcing a frame count limit. An attacker can exploit this by crafting a single API request containing thousands of comma-separated base64-encoded JPEG frames in a data URL, causing the server to decode all frames into memory and crash due to excessive memory consumption. This vulnerability is reachable via the OpenAI-compatible chat completions API and does not require authentication.">vLLM 버전 0.8.0 이상은 `VideoMediaIO.load_base64()` 메서드의 무제한 프레임 수 처리로 인해 메모리 부족(OOM) 서비스 거부(DoS) 공격에 취약합니다. &#39;video/jpeg&#39; 데이터 URL을 처리할 때 이 메서드는 base64 데이터 문자열을 쉼표로 분할하여 프레임 수 제한을 적용하지 않고 개별 JPEG 프레임을 추출합니다. 공격자는 데이터 URL에 수천 개의 쉼표로 구분된 base64로 인코딩된 JPEG 프레임이 포함된 단일 API 요청을 작성하여 서버가 모든 프레임을 메모리로 디코딩하고 과도한 메모리 소비로 인해 충돌을 일으키는 방식으로 이를 악용할 수 있습니다. 이 취약점은 OpenAI 호환 채팅 완료 API를 통해 도달할 수 있으며 인증이 필요하지 않습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="http://www.openwall.com/lists/oss-security/2026/08/12/7" target="_blank" rel="noopener">CVE-2026-59244</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task&#39;s Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type.">Apache Airflow의 비밀 마스커는 렌더링된 템플릿 UI에서 값이 dict인 &#39;var.json&#39; 변수 값을 마스킹하지 않았습니다. dict 값이 &#39;isinstance(str)&#39; 가드에 실패했습니다. 따라서 JSON 변수로 저장되고 &#39;var.json&#39;을 통해 템플릿에서 참조된 비밀은 해당 작업의 렌더링된 템플릿 보기에 액세스할 수 있는 모든 사용자에게 일반 텍스트로 표시되었습니다. 사용자는 유형에 관계없이 중첩된 변수 값을 마스킹하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/mlflow/mlflow/commit/ba949522477cbd5915aa55d29b0cfad7d5ddf939" target="_blank" rel="noopener">CVE-2026-64849</a>
 <span class="kev">KEV</span>        </td>
         <td>MLflow</td>
@@ -701,188 +637,6 @@
         <td class="mono">20260817</td>
         <td>NVD+OSV</td>
         <td class="wrap-cell" title="MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. Prior to 3.15.0, the unauthenticated POST /api/2.0/mlflow/webhooks/{id}/test endpoint calls _validate_webhook_url() in mlflow/utils/validation.py only for the original URL while mlflow/webhooks/delivery.py follows redirects and re-resolves the hostname without pinning the validated address, allowing attackers to reach internal or cloud metadata services and receive response_status and response_body. This issue is fixed in version 3.15.0.">MLflow는 에이전트, 대규모 언어 모델 및 기계 학습 모델을 위한 오픈 소스 AI 엔지니어링 플랫폼입니다. 3.15.0 이전에는 인증되지 않은 POST /api/2.0/mlflow/webhooks/{id}/test 엔드포인트가 원래 URL에 대해서만 mlflow/utils/validation.py에서 _validate_webhook_url()을 호출하는 반면, mlflow/webhooks/delivery.py는 리디렉션을 따르고 검증된 주소를 고정하지 않고 호스트 이름을 다시 확인하므로 공격자가 내부 또는 클라우드 메타데이터 서비스에 도달하고 response_status 및 response_body. 이 문제는 버전 3.15.0에서 해결되었습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-65598" target="_blank" rel="noopener">CVE-2026-65598</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&lt;1.123.64|&gt;=2.30.0,&lt;2.30.1|&gt;=2.0.0-rc.0,&lt;2.29.8</td>
-        <td class="mono">1.123.64</td>
-        <td class="mono">20260722</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="## Impact A TOCTOU race condition in the Git node&#39;s `clone` operation lets an authenticated user bypass its path restrictions by swapping a directory for a symlink after the path is validated but before the clone runs. This plants a crafted repository in the community node directory, which n8n loads as a custom node on the next restart, and since nodes execute JavaScript, this yields arbitrary code execution on the server. Both self-hosted and cloud instances are affected, where authenticated users can create and run workflows using the Git node. ## Patches Users should upgrade to the patched version once available to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n instance to prevent co">## 영향 Git 노드의 `clone` 작업에서 TOCTOU 경쟁 조건을 사용하면 인증된 사용자가 경로가 검증된 후 복제가 실행되기 전에 디렉토리를 심볼릭 링크로 교체하여 경로 제한을 우회할 수 있습니다. 이렇게 하면 n8n이 다음에 다시 시작할 때 사용자 정의 노드로 로드되는 커뮤니티 노드 디렉터리에 조작된 저장소가 심어지고 노드가 JavaScript를 실행하므로 서버에서 임의의 코드가 실행됩니다. 인증된 사용자가 Git 노드를 사용하여 워크플로를 생성하고 실행할 수 있는 자체 호스팅 및 클라우드 인스턴스가 모두 영향을 받습니다. ## 패치 사용자는 취약점을 교정할 수 있게 되면 패치 버전으로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.git`을 추가하여 Git 노드를 비활성화합니다. - 공동 방지를 위해 n8n 인스턴스에서 네트워크 송신을 제한합니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/vygr0fh82cjzjp5k4vtfmboxryvm3lyn" target="_blank" rel="noopener">CVE-2026-67260</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.3</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new `awaiting_input` task state swept by the scheduler. That sweep deserializes the task instance&#39;s `next_kwargs` without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an arbitrary module import and object instantiation inside the scheduler process, or terminate the scheduler job. No non-default configuration is required: the sweep runs unconditionally every 15 seconds, and the default `allowed_deserialization_classes` setting does not cover this code path. Versions before 3.3.0 are not affected, because human-in-the-loop tasks deferred onto the triggerer instead. This is a different code path from CVE-2026-58076, which covers the same unguarded exception-node deserialization reached elsewhere — deployments that applied that fix must upgrade for this issue as well. Users are advised to upgrade to apache-airflow 3.3.1 or later.">Apache Airflow 3.3.0은 인간 참여 루프(Human-In-The-Loop) 작업을 트리거러에서 스케줄러가 스윕하는 새로운 `awaiting_input` 작업 상태로 이동했습니다. 이러한 스윕은 허용 목록 없이 작업 인스턴스의 &#39;next_kwargs&#39;를 역직렬화하므로 작업 실행 API를 통해 해당 값을 제어하는 ​​Dag 작성자는 스케줄러 프로세스 내에서 임의 모듈 가져오기 및 객체 인스턴스화를 유발하거나 스케줄러 작업을 종료할 수 있습니다. 기본 구성이 아닌 구성은 필요하지 않습니다. 스윕은 15초마다 무조건 실행되며 기본 &#39;allowed_deserialization_classes&#39; 설정은 이 코드 경로를 다루지 않습니다. 3.3.0 이전 버전은 인간이 개입하는 작업이 트리거러에 연기되므로 영향을 받지 않습니다. 이는 다른 곳에서 발생한 동일한 보호되지 않은 예외 노드 역직렬화를 다루는 CVE-2026-58076과는 다른 코드 경로입니다. 해당 수정 사항을 적용한 배포도 이 문제에 대해 업그레이드해야 합니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/o00ww4n69qojvsckb464dtwd2nhzy6t0" target="_blank" rel="noopener">CVE-2026-67587</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance&#39;s `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler&#39;s `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either of those fixes does not address this one. Users are advised to upgrade to apache-airflow 3.3.1 ">Apache Airflow의 Task SDK는 저장된 콜백 경로로 명명된 모듈을 가져오는 생성자를 다시 실행하여 직렬화된 데이터에서 `Callback` 개체를 다시 빌드했습니다. `SyncCallback` 자체가 Airflow 클래스이기 때문에 기본 `allowed_deserialization_classes` 허용 목록을 전달하므로 해당 설정을 강화해도 도움이 되지 않습니다. 따라서 작업 실행 API를 통해 작업 인스턴스의 &#39;next_kwargs&#39;를 제어하는 ​​Dag 작성자는 스케줄러의 &#39;awaiting_input&#39; 시간 제한 스윕이 해당 값을 역직렬화할 때 스케줄러 프로세스 내부로 임의의 모듈을 가져올 수 있습니다. 기본이 아닌 구성은 필요하지 않습니다. 스윕은 무조건 실행됩니다. 3.3.0 이전 버전은 영향을 받지 않습니다. 클래스는 존재하지만 클래스에 도달하는 스케줄러 스윕은 존재하지 않습니다. 이는 역직렬화에 도달하는 다양한 가젯을 다루는 CVE-2026-58076 및 CVE-2026-67260과는 별도의 코드 경로입니다. 이러한 수정 사항 중 하나를 적용해도 이 문제는 해결되지 않습니다. 사용자는 apache-airflow 3.3.1로 업그레이드하는 것이 좋습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="http://www.openwall.com/lists/oss-security/2026/08/12/11" target="_blank" rel="noopener">CVE-2026-68076</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.4</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team&#39;s scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowed to contain. When the guard did not apply, the lookup fell through to an unconditional global read that resolved the stored `AIRFLOW_CONN__&lt;TEAM&gt;___&lt;ID&gt;` variable regardless of which team asked. In multi-team mode an authenticated user of one team could therefore have `POST /api/v2/connections/test` resolve another team&#39;s Connection and authenticate outward with that team&#39;s credentials; the endpoint uses the credentials rather than returning them. Exploitation requires `[core] multi_team` enabled, `[core] test_connection` set to `Enabled` (it ships `Disabled`), team-scoped secrets provisioned as environment variables in the API-server process, and knowledge of the encoded identifier. Redire">Apache Airflow의 환경 변수 비밀 백엔드는 잘못된 팀 범위의 팀 범위 연결 또는 변수를 해결했습니다. 이를 방지하기 위한 가드는 팀 범위가 제공되지 않은 경우에만 실행되었으며 해당 패턴은 팀 이름에 포함될 수 있는 밑줄이 포함된 팀 이름과 일치할 수 없습니다. 가드가 적용되지 않으면 어떤 팀이 요청했는지에 관계없이 저장된 `AIRFLOW_CONN__&lt;TEAM&gt;___&lt;ID&gt;` 변수를 해결하는 무조건 전역 읽기로 조회가 진행되었습니다. 다중 팀 모드에서는 한 팀의 인증된 사용자가 `POST /api/v2/connections/test`를 통해 다른 팀의 연결을 확인하고 해당 팀의 자격 증명을 사용하여 외부적으로 인증할 수 있습니다. 엔드포인트는 자격 증명을 반환하는 대신 자격 증명을 사용합니다. 악용하려면 `[core] multi_team` 활성화, `[core] test_connection`을 `Enabled`로 설정(`Disabled`로 제공), API 서버 프로세스에서 환경 변수로 프로비저닝된 팀 범위 비밀, 인코딩된 식별자에 대한 지식이 필요합니다. 리다이어</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/70889" target="_blank" rel="noopener">CVE-2026-68968</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.">Apache Airflow의 Backfill API는 `backfill_id` 경로 세그먼트가 구문 분석에 실패할 때마다 호출자가 제공한 Dag ID에 대한 요청을 승인했습니다. 권한 부여 종속성은 이를 `int()`로 구문 분석하는 반면 경로 핸들러는 이를 `int()` 값을 허용하는 pydantic의 `NonNegativeInt`로 구문 분석합니다(`1.0`은 `1`로 강제 변환). FastAPI는 엔드포인트 유효성 검사 전에 종속성을 해결하므로 두 가지가 서로 다른 Dags에서 작동했습니다. 따라서 단일 Dag에 대한 편집 권한을 보유한 인증된 사용자는 다른 Dag의 대기 중인 실행을 &#39;실패&#39;로 이동하는 것을 포함하여 다른 Dag에 속한 백필을 읽고, 일시 중지하고, 취소할 수 있습니다. 기본이 아닌 구성은 필요하지 않으며 백필 ID는 순차적이므로 대상을 찾는 것이 쉽습니다. 사용자는 경로가 선언하는 것과 동일한 유형으로 백필 ID를 구문 분석하는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://www.cve.org/CVERecord?id=CVE-2026-50204" target="_blank" rel="noopener">CVE-2026-68969</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI&#39;s *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised ">Apache Airflow는 대량 엔드포인트(`PATCH /api/v2/variables` 및 `PATCH /api/v2/connections`)를 통해 제출될 때 일반 텍스트로 감사 로그에 변수 값과 연결 `추가` 콘텐츠를 기록했습니다. 감사 로그 마스킹은 최상위 요청 필드만 인식했으며 대량 요청은 엔터티를 두 수준 아래에 중첩하므로 마스킹이 적용되지 않았습니다. 변수 또는 연결 읽기를 전혀 보유할 필요가 없는 감사 로그 읽기 액세스 권한이 있는 인증된 사용자는 해당 비밀을 그대로 복구할 수 있으며 연결 &#39;추가&#39; 복사본은 연결 테이블이 암호화하는 동안 암호화되지 않은 상태로 로그에 저장됩니다. Airflow UI의 *변수 가져오기* 작업은 이 엔드포인트에 게시되므로 일반 연산자 가져오기는 파일의 모든 비밀을 로그에 기록합니다. 이는 CVE-2026-50204과 다른 코드 경로입니다. 이 수정 사항은 3.3.0에 제공되고 단일 엔터티 끝점만 다루므로 해당 권고에 따라 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자에게 조언합니다</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/kkrlnbsk47oght4h38mcd3h2kcb8dt28" target="_blank" rel="noopener">CVE-2026-68970</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matched neither and was returned unmasked. Any authenticated user able to read the logs or rendered templates of a task that references such a Variable could recover the values, with no special configuration required. This is the list-shaped counterpart of CVE-2026-59244, whose fix covered the dict case only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised to upgrade to apache-airflow 3.3.1 or later.">Apache Airflow의 작업 SDK는 JSON 값이 목록인 변수의 콘텐츠를 마스킹하지 않았으므로 해당 모양에 저장된 비밀은 작업 로그 및 렌더링된 템플릿 UI에 일반 텍스트로 표시되었습니다. 역직렬화된 값이 문자열 또는 사전인 경우에만 마스킹이 적용되었습니다. 최상위 수준의 목록은 둘 다 일치하지 않으며 마스크되지 않은 상태로 반환되었습니다. 이러한 변수를 참조하는 작업의 로그 또는 렌더링된 템플릿을 읽을 수 있는 인증된 사용자는 특별한 구성이 필요 없이 값을 복구할 수 있습니다. 이는 dict 사례만 수정한 CVE-2026-59244의 목록 모양 대응이므로 해당 권고에 대한 응답으로 업그레이드된 배포는 계속 영향을 받으며 다시 업그레이드해야 합니다. 사용자는 apache-airflow 3.3.1 이상으로 업그레이드하는 것이 좋습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/security/advisories/GHSA-3xpf-xq7r-v8c5" target="_blank" rel="noopener">CVE-2026-70486</a>
-        </td>
-        <td>Open WebUI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.2</td>
-        <td class="mono">&gt;=0.9.0,&lt;0.11.0</td>
-        <td class="mono">0.11.0</td>
-        <td class="mono">20260804</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="## Summary Any authenticated user with access to a terminal server could get script of their choosing to run in the Open WebUI origin itself. The HTML file preview rendered terminal-served files in an iframe whose sandbox always granted `allow-same-origin` alongside `allow-scripts`, and the file is served from a path on the application&#39;s own origin, so the sandbox provided no isolation at all. Script in a previewed file could read the victim&#39;s session token and take over the account. ## Preconditions - At least one terminal server configured by an admin (`TERMINAL_SERVER_CONNECTIONS`, empty by default) and reachable by the victim. Deployments with no terminal server configured are not affected. - The attacker needs a normal authenticated account with access to that terminal server, no admin rights. - No victim interaction beyond having the chat open: a `display_file` tool call opens the preview automatically. - `TERMINAL_PROXY_HEADERS` unset, which is the default. An operator who had a">## 요약 터미널 서버에 액세스할 수 있는 인증된 사용자는 Open WebUI 원본 자체에서 실행하기로 선택한 스크립트를 얻을 수 있습니다. HTML 파일 미리보기는 샌드박스가 항상 `allow-scripts`와 함께 `allow-same-origin`을 부여하는 iframe에서 터미널 제공 파일을 렌더링했으며 파일은 애플리케이션 자체 원본의 경로에서 제공되므로 샌드박스는 전혀 격리를 제공하지 않았습니다. 미리보기 파일의 스크립트는 피해자의 세션 토큰을 읽고 계정을 인수할 수 있습니다. ## 전제 조건 - 관리자가 구성하고(`TERMINAL_SERVER_CONNECTIONS`, 기본적으로 비어 있음) 피해자가 연결할 수 있는 하나 이상의 터미널 서버. 터미널 서버가 구성되지 않은 배포는 영향을 받지 않습니다. - 공격자는 관리자 권한 없이 해당 터미널 서버에 액세스할 수 있는 일반 인증 계정이 필요합니다. - 채팅을 여는 것 외에는 피해자 상호작용이 없습니다. &#39;display_file&#39; 도구 호출을 통해 자동으로 미리보기가 열립니다. - &#39;TERMINAL_PROXY_HEADERS&#39;가 설정 해제되어 있으며 이는 기본값입니다. 가지고 있던 오퍼레이터</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/security/advisories/GHSA-73cq-mcgh-379c" target="_blank" rel="noopener">CVE-2026-70489</a>
-        </td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.9.0,&lt;0.11.0</td>
-        <td class="mono">0.11.0</td>
-        <td class="mono">20260804</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="## Summary In every affected release, automation recurrence parsing anchors minutely and hourly rules at a fixed date of 2000-01-01 and then walks forward one interval at a time to find the next run. A single `FREQ=MINUTELY` rule therefore enumerates roughly a quarter-century of occurrences, synchronously, on the event loop that also serves the scheduler, HTTP and WebSocket traffic. Nothing bounds the walk, and nothing moves it off the loop. ## Preconditions Any user who can create an automation. `USER_PERMISSIONS_FEATURES_AUTOMATIONS` defaults to `false`, so on a default deployment only an admin can reach the create path; it becomes reachable by ordinary users on any deployment that has granted the automations feature, which is the normal way to make the feature usable. `UVICORN_WORKERS` defaults to 1, so there is no second worker to absorb the stall. The rule needs no unusual syntax: `FREQ=MINUTELY` with no `DTSTART`, or with a `DTSTART` set well in the past, is enough. ## Impact Ava">## 요약 영향을 받는 모든 릴리스에서 자동화 반복 구문 분석 앵커는 고정 날짜 2000-01-01에 분별 및 시간별 규칙을 적용한 후 한 번에 한 간격씩 앞으로 이동하여 다음 실행을 찾습니다. 따라서 단일 `FREQ=MINUTELY` 규칙은 스케줄러, HTTP 및 WebSocket 트래픽도 제공하는 이벤트 루프에서 대략 25년 동안의 발생 횟수를 동기적으로 열거합니다. 걷기의 경계를 정하는 것은 없으며 루프 밖으로 이동시키는 것도 없습니다. ## 전제 조건 자동화를 생성할 수 있는 모든 사용자입니다. `USER_PERMISSIONS_FEATURES_AUTOMATIONS`의 기본값은 `false`이므로 기본 배포에서는 관리자만 생성 경로에 접근할 수 있습니다. 자동화 기능을 부여한 모든 배포에서 일반 사용자가 접근할 수 있게 되며, 이는 기능을 사용할 수 있게 만드는 일반적인 방법입니다. `UVICORN_WORKERS`의 기본값은 1이므로 지연을 흡수할 두 번째 작업자가 없습니다. 이 규칙에는 특이한 구문이 필요하지 않습니다. `DTSTART`가 없거나 과거에 잘 설정된 `DTSTART`가 있는 `FREQ=MINUTELY`이면 충분합니다. ## 임팩트 아바</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.64" target="_blank" rel="noopener">CVE-2026-71539</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.9</td>
-        <td class="mono">&lt;2.30.1</td>
-        <td class="mono">1.123.64</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n is an open source workflow automation platform. Prior to 1.123.64, 2.29.8, and 2.30.1, the Git node clone operation allows an authenticated workflow user to swap a validated directory for a symlink before cloning, planting a crafted repository in the community node directory that loads as a custom JavaScript node after restart and executes arbitrary code on the server. This issue is fixed in versions 1.123.64, 2.29.8, and 2.30.1.">n8n은 오픈 소스 워크플로 자동화 플랫폼입니다. 1.123.64, 2.29.8 및 2.30.1 이전 버전에서는 Git 노드 복제 작업을 통해 인증된 워크플로 사용자가 복제하기 전에 검증된 디렉터리를 심볼릭 링크로 교체할 수 있으며, 다시 시작한 후 사용자 정의 JavaScript 노드로 로드되고 서버에서 임의 코드를 실행하는 커뮤니티 노드 디렉터리에 제작된 저장소를 심을 수 있습니다. 이 문제는 버전 1.123.64, 2.29.8 및 2.30.1에서 해결되었습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-gx64-gj6p-pc4c" target="_blank" rel="noopener">CVE-2026-73415</a>
-        </td>
-        <td>JupyterLab</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=4.6.0,&lt;4.6.2|&lt;4.5.10</td>
-        <td class="mono">4.6.2</td>
-        <td class="mono">20260722</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="JupyterLab&#39;s image viewer allows for cross-site scripting (XSS) when a specially-crafted image file is opened through the image viewer and then opened in a new tab. This XSS issue can be used to cause remote code execution (RCE) on the JupyterLab server. ### Impact This vulnerability allows for arbitrary code execution. ### Patches JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) and [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10) contain the patch. ### Workarounds Disable the image viewer plugin: ``` jupyter labextension disable @jupyterlab/imageviewer-extension:plugin ``` Confirm with: ``` jupyter labextension list ```">JupyterLab의 이미지 뷰어는 특별히 제작된 이미지 파일을 이미지 뷰어를 통해 연 다음 새 탭에서 열 때 XSS(교차 사이트 스크립팅)를 허용합니다. 이 XSS 문제는 JupyterLab 서버에서 원격 코드 실행(RCE)을 유발하는 데 사용될 수 있습니다. ### 영향 이 취약점으로 인해 임의 코드 실행이 허용됩니다. ### 패치 JupyterLab [`v4.6.2`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.6.2) 및 [`v4.5.10`](https://github.com/jupyterlab/jupyterlab/releases/tag/v4.5.10)에는 패치가 포함되어 있습니다. ### 해결 방법 이미지 뷰어 플러그인을 비활성화합니다. ``` jupyter labextension 비활성화 @jupyterlab/imageviewer-extension:plugin ``` 확인: ``` jupyter labextension list ```</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-89vp-jrxv-24w8" target="_blank" rel="noopener">CVE-2026-73416</a>
-        </td>
-        <td>JupyterLab</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>-</td>
-        <td class="mono">&gt;=4.6.0,&lt;4.6.2|&gt;=4.5.0,&lt;4.5.10</td>
-        <td class="mono">4.6.2</td>
-        <td class="mono">20260722</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="JupyterLab&#39;s PyPI extension manager enforces `blocked_extensions_uris` by comparing the requested install name to blocklist entries with a custom string normalization that is weaker than PyPI package-name canonicalization. An authenticated user can request a PyPI-equivalent spelling such as `JupyterLab.Git` for a blocklisted package such as `jupyterlab-git`; JupyterLab accepts the install request even though pip resolves the variant to the same package. This has security implications only for deployments that combine all of the following: - an allowlist/blocklist configured with the intent of restricting which packages users can install; - the (default) PyPI Extension Manager enabled; and - kernels and terminals disabled or delegated to remote hosts (otherwise a user with kernel access can install packages directly regardless of this check) ### Impact The vulnerability lets an authenticated user install a package the operator specifically intended to block, defeating the allowlist/bloc">JupyterLab의 PyPI 확장 관리자는 요청된 설치 이름을 PyPI 패키지 이름 정규화보다 약한 사용자 지정 문자열 정규화를 사용하는 차단 목록 항목과 비교하여 `blocked_extensions_uris`를 시행합니다. 인증된 사용자는 `jupyterlab-git`과 같은 차단 목록 패키지에 대해 `JupyterLab.Git`과 같은 PyPI와 동등한 철자를 요청할 수 있습니다. pip가 변형을 동일한 패키지로 확인하더라도 JupyterLab은 설치 요청을 수락합니다. 이는 다음 사항을 모두 결합한 배포에만 보안에 영향을 미칩니다. - 사용자가 설치할 수 있는 패키지를 제한하려는 의도로 구성된 허용 목록/차단 목록 - (기본) PyPI 확장 관리자가 활성화되었습니다. - 커널 및 터미널이 비활성화되거나 원격 호스트에 위임됨(그렇지 않으면 커널 액세스 권한이 있는 사용자가 이 확인에 관계없이 직접 패키지를 설치할 수 있음) ### 영향 이 취약점을 통해 인증된 사용자는 운영자가 특별히 차단하려고 의도한 패키지를 설치하여 허용 목록/블록을 무효화할 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-pppj-hq3g-57pj" target="_blank" rel="noopener">CVE-2026-73417</a>
-        </td>
-        <td>JupyterLab</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=4.6.0,&lt;4.6.2|&gt;=3.3.0,&lt;4.5.10</td>
-        <td class="mono">4.6.2</td>
-        <td class="mono">20260722</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="JupyterLab 4.5+ allows notebook settings to be shared and applied through an `overrides.json` file using the `Import` button in the Settings Editor. Certain notebook display settings were not properly validated before being applied. As a result, a crafted settings file could contain hidden instructions that run as code inside JupyterLab when imported, instead of only changing a display preference. Because importing a settings file appears harmless, a user could import a file shared by another party without realizing it could do more. On multi-tenant file systems without proper permission control, another user could plant a malicious `overrides.json`. &gt; CVE assignment pending, GitHub CNA is experiencing severe backlog ### Impact When a malicious settings file is applied, the embedded code runs with the same access as the affected user. This could allow an attacker to read or modify that user&#39;s notebooks and files, and to run code on the user&#39;s behalf through the notebook server, includi">JupyterLab 4.5+에서는 설정 편집기의 &#39;가져오기&#39; 버튼을 사용하여 &#39;overrides.json&#39; 파일을 통해 노트북 설정을 공유하고 적용할 수 있습니다. 특정 노트북 디스플레이 설정이 적용되기 전에 제대로 검증되지 않았습니다. 결과적으로 조작된 설정 파일에는 디스플레이 기본 설정만 변경하는 대신 가져올 때 JupyterLab 내에서 코드로 실행되는 숨겨진 지침이 포함될 수 있습니다. 설정 파일을 가져오는 것이 무해해 보이기 때문에 사용자는 다른 사람이 공유한 파일을 가져올 수 있다는 사실을 깨닫지 못한 채 가져올 수 있습니다. 적절한 권한 제어가 없는 다중 테넌트 파일 시스템에서는 다른 사용자가 악성 &#39;overrides.json&#39;을 심을 수 있습니다. &gt; CVE 할당 보류 중, GitHub CNA에 심각한 백로그가 발생했습니다. ### 영향 악성 설정 파일이 적용되면 영향을 받은 사용자와 동일한 액세스 권한으로 포함된 코드가 실행됩니다. 이를 통해 공격자는 해당 사용자의 노트북과 파일을 읽거나 수정할 수 있으며 다음을 포함한 노트북 서버를 통해 사용자를 대신하여 코드를 실행할 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73559" target="_blank" rel="noopener">CVE-2026-73559</a>
-        </td>
-        <td>vLLM</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.19.0,&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td class="mono">20260813</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="## Summary The `/v1/completions` request model accepts `prompt` as a list of text prompts or a list of token-id prompts without any outer prompt-count bound. The serving path turns each element into a separate engine input, creates one engine generator per element, merges all generators, and allocates a response slot per prompt. An authenticated API client can therefore turn one request into an attacker-chosen number of backend subrequests before any aggregate request-count budget is enforced. ## Technical Details `CompletionRequest.prompt` allows both list-shaped prompt inputs and scalar prompts: ```python # vllm/entrypoints/openai/completion/protocol.py prompt: ( list[Annotated[int, Field(ge=0)]] | list[list[Annotated[int, Field(ge=0)]]] | str | list[str] | None ) = None ``` The validator only requires some prompt-like input to be present: ```python def validate_prompt_and_prompt_embeds(cls, data): prompt = data.get(&#34;prompt&#34;) prompt_embeds = data.get(&#34;prompt_embeds&#34;) ... if prompt_is">## 요약 `/v1/completions` 요청 모델은 `프롬프트`를 외부 프롬프트 수 제한 없이 텍스트 프롬프트 목록 또는 토큰 ID 프롬프트 목록으로 허용합니다. 제공 경로는 각 요소를 별도의 엔진 입력으로 바꾸고, 요소당 하나의 엔진 생성기를 생성하고, 모든 생성기를 병합하고, 프롬프트당 응답 슬롯을 할당합니다. 따라서 인증된 API 클라이언트는 총 요청 수 예산이 시행되기 전에 하나의 요청을 공격자가 선택한 수의 백엔드 하위 요청으로 바꿀 수 있습니다. ## 기술 세부 사항 `CompletionRequest.prompt`는 목록 모양의 프롬프트 입력과 스칼라 프롬프트를 모두 허용합니다: ```python # vllm/entrypoints/openai/completion/protocol.py 프롬프트: ( list[Annotated[int, Field(ge=0)]] | list[list[Annotated[int, Field(ge=0)]]] | str | list[str] | None ) = None ``` 유효성 검사기는 일부만 필요합니다. 프롬프트와 같은 입력이 있어야 함: ```python def verify_prompt_and_prompt_embeds(cls, data): 프롬프트 = data.get(&#34;prompt&#34;) 프롬프트_embeds = data.get(&#34;prompt_embeds&#34;) ... if 프롬프트_is</td>
       </tr>
       <tr>
         <td class="mono">
@@ -1117,19 +871,6 @@
         <td class="mono">20260821</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] to_abs_path in scripts/iib/tool.py normalised the requested path with os.path.normpath, which collapses dot segments but does not resolve symbolic links. A symlink placed inside a scanned directory therefore satisfies the containment comparison performed by is_path_trusted in scripts/iib/api.py while pointing outside that directory, and FileResponse follows the link when serving the response, so a link created in an image directory and targeting a file such as /etc/passwd discloses that file. Whether the check applies depends on get_enable_access_control in scripts/iib/tool.py: it returns true when IIB_ACCESS_CONTROL is set to enable, false when set to disable, and otherwise true when the host Stable Diffusion WebUI was started with share, ngrok, listen or server_name, falling back to false. Confinement is therefore active in the network-exposed WebUI deployments that rely on it, while a standalone run with no such option serves every readable file regardless of this flaw. T">[버전범위 불명확] scripts/iib/tool.py의 to_abs_path는 점 세그먼트를 축소하지만 기호 링크를 해결하지 않는 os.path.normpath를 사용하여 요청된 경로를 정규화했습니다. 따라서 스캔된 디렉터리 내부에 배치된 심볼릭 링크는 해당 디렉터리 외부를 가리키는 동안 scripts/iib/api.py에서 is_path_trusted가 수행한 포함 비교를 충족하고 FileResponse는 응답을 제공할 때 링크를 따르므로 이미지 디렉터리에서 생성되고 /etc/passwd와 같은 파일을 대상으로 하는 링크가 해당 파일을 공개합니다. 검사 적용 여부는 scripts/iib/tool.py의 get_enable_access_control에 따라 다릅니다. IIB_ACCESS_Control이 활성화로 설정된 경우 true를 반환하고, 비활성화로 설정된 경우 false를 반환하며, 그렇지 않으면 호스트 Stable Diffusion WebUI가 share, ngrok, Listen 또는 server_name으로 시작된 경우 true를 반환하고 false로 돌아갑니다. 따라서 제한은 이에 의존하는 네트워크 노출 WebUI 배포에서 활성화되는 반면, 그러한 옵션이 없는 독립 실행형 실행은 이 결함에 관계없이 읽을 수 있는 모든 파일을 제공합니다. 티</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-8147" target="_blank" rel="noopener">CVE-2026-8147</a>
-        </td>
-        <td>MLflow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&gt;=2.14.0rc0,&lt;3.13.0rc0</td>
-        <td class="mono">3.13.0rc0</td>
-        <td class="mono">20260702</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="In MLflow versions prior to 3.13.0, when running with authentication enabled, the trace API endpoints lack proper authorization validators. This allows any authenticated user to bypass experiment-level authorization controls on all trace operations, including reading, deleting, and modifying traces on experiments they do not have permission to access. The issue arises from the `_before_request` handler, which does not register authorization validators for trace endpoints, resulting in requests proceeding without validation. This vulnerability can expose sensitive data, destroy audit logs, and allow unauthorized modifications.">3.13.0 이전의 MLflow 버전에서는 인증이 활성화된 상태로 실행하면 추적 API 엔드포인트에 적절한 권한 부여 유효성 검사기가 부족합니다. 이를 통해 인증된 사용자는 액세스 권한이 없는 실험에 대한 추적 읽기, 삭제, 수정을 포함하여 모든 추적 작업에 대해 실험 수준 승인 제어를 우회할 수 있습니다. 이 문제는 추적 끝점에 대한 인증 유효성 검사기를 등록하지 않는 `_before_request` 핸들러에서 발생하므로 요청이 유효성 검사 없이 진행됩니다. 이 취약점은 민감한 데이터를 노출시키고, 감사 로그를 파괴하고, 무단 수정을 허용할 수 있습니다.</td>
       </tr>
     </tbody>
   </table>
