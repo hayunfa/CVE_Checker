@@ -69,25 +69,25 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-22 21:13:43</div>
+    <div class="stamp">최종 생성 2026-08-23 21:13:56</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260822211231
+    <div><b>최근 실행</b> 20260823211220
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-08-22 21:12:31 ~ 2026-08-22 21:13:43</div>
+    <div class="muted">2026-08-23 21:12:20 ~ 2026-08-23 21:13:56</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
   <div class="card kpi"><div class="n">131</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">35</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">28</div><div class="l">최근 실행 수집</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">신규</div></div>
-  <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">1</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
 </div>
 
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<h2>최근 실행 이력 (최대 11회)</h2>
+<h2>최근 실행 이력 (최대 12회)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -242,6 +242,21 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-08-23 21:12:20</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
+        <td class="mono" style="font-size:11px;">KEV=1674 OSV=4 NVD=25 GHSA=5 RANGE_RECOVERED=17 TRANSLATE=0건 번역 / 1건 실패</td>
+        <td>28</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td><a href="output/CVE_20260823.xls">CVE_20260823.xls</a>
+</td>
+        <td>3 / 0</td>
+        <td><a href="runs/20260823211220.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-08-22 21:12:31</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -409,7 +424,7 @@
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (35건)</h2>
+<h2>최근 실행의 신규·변경 CVE (28건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -468,32 +483,6 @@
         <td class="mono">20260820</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] Hugging Face PyTorch Image Models checkpoint Deserialization of Untrusted Data Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Hugging Face PyTorch Image Models. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file. The specific flaw exists within the parsing of checkpoints. The issue results from the lack of proper validation of user-supplied data, which can result in deserialization of untrusted data. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-27987.">[버전범위 불명확] Hugging Face PyTorch 이미지 모델 체크포인트 신뢰할 수 없는 데이터의 역직렬화 원격 코드 실행 취약점. 이 취약점을 통해 원격 공격자는 영향을 받는 Hugging Face PyTorch 이미지 모델 설치에서 임의 코드를 실행할 수 있습니다. 이 취약점을 악용하려면 대상이 악성 페이지를 방문하거나 악성 파일을 열어야 한다는 점에서 사용자 상호 작용이 필요합니다. 특정 결함은 체크포인트 구문 분석 내에 존재합니다. 이 문제는 사용자가 제공한 데이터에 대한 적절한 유효성 검사가 부족하여 발생하며, 이로 인해 신뢰할 수 없는 데이터가 역직렬화될 수 있습니다. 공격자는 이 취약점을 활용하여 현재 프로세스의 컨텍스트에서 코드를 실행할 수 있습니다. ZDI-CAN-27987이었습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/pgvector/pgvector/commit/636a92a3395d2e036ffd40d07aeb400a708ae104" target="_blank" rel="noopener">CVE-2026-18022</a>
-        </td>
-        <td>pgvector</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;0.8.6</td>
-        <td class="mono">0.8.6</td>
-        <td class="mono">20260729</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="Integer wraparound in IVFFlat index build in pgvector before 0.8.6 allows a database user to write data out-of-bounds, which could lead to arbitrary code execution. Only 32-bit systems are affected.">0.8.6 이전의 pgVector에서 IVFFlat 인덱스 빌드의 정수 랩어라운드를 사용하면 데이터베이스 사용자가 경계를 벗어난 데이터를 쓸 수 있어 임의 코드 실행이 발생할 수 있습니다. 32비트 시스템만 영향을 받습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
-        </td>
-        <td>gRPC</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&lt;1.79.3</td>
-        <td class="mono">1.79.3</td>
-        <td class="mono">20260320</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi">gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것</td>
       </tr>
       <tr>
         <td class="mono">
@@ -562,72 +551,7 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47606</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution and information disclosure.">[버전범위 불명확] Linux용 NVIDIA Triton 추론 서버에는 공격자가 절대 경로 통과를 유발할 수 있는 취약점이 포함되어 있습니다. 공격이 성공하면 코드가 실행되고 정보가 공개될 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47627</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.8</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A successful exploit might lead to denial of service.">[버전범위 불명확] Linux용 NVIDIA Triton 추론 서버에는 공격자가 경로 통과를 유발할 수 있는 취약점이 포함되어 있습니다. 공격이 성공하면 서비스 거부가 발생할 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47628</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an allocation of resources without limits. A successful exploit might lead to denial of service.">[버전범위 불명확] Linux용 NVIDIA Triton 추론 서버에는 공격자가 제한 없이 리소스를 할당할 수 있는 취약점이 포함되어 있습니다. 공격이 성공하면 서비스 거부가 발생할 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47629</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause improper input validation. A successful exploit might lead to denial of service.">[버전범위 불명확] Linux용 NVIDIA Triton 추론 서버에는 공격자가 부적절한 입력 유효성 검사를 유발할 수 있는 취약점이 포함되어 있습니다. 공격이 성공하면 서비스 거부가 발생할 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47630</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution.">[버전범위 불명확] Linux용 NVIDIA Triton 추론 서버에는 공격자가 절대 경로 통과를 유발할 수 있는 취약점이 포함되어 있습니다. 악용이 성공하면 코드가 실행될 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/mlflow/mlflow/commit/ba949522477cbd5915aa55d29b0cfad7d5ddf939" target="_blank" rel="noopener">CVE-2026-64849</a>
+<a href="https://github.com/mlflow/mlflow/security/advisories/GHSA-7gwp-5pfp-969j" target="_blank" rel="noopener">CVE-2026-64849</a>
 <span class="kev">KEV</span>        </td>
         <td>MLflow</td>
         <td class="sev sev-CRITICAL">CRITICAL</td>
@@ -635,8 +559,8 @@
         <td class="mono">&lt;3.15.0</td>
         <td class="mono">3.15.0</td>
         <td class="mono">20260817</td>
-        <td>NVD+OSV</td>
-        <td class="wrap-cell" title="MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. Prior to 3.15.0, the unauthenticated POST /api/2.0/mlflow/webhooks/{id}/test endpoint calls _validate_webhook_url() in mlflow/utils/validation.py only for the original URL while mlflow/webhooks/delivery.py follows redirects and re-resolves the hostname without pinning the validated address, allowing attackers to reach internal or cloud metadata services and receive response_status and response_body. This issue is fixed in version 3.15.0.">MLflow는 에이전트, 대규모 언어 모델 및 기계 학습 모델을 위한 오픈 소스 AI 엔지니어링 플랫폼입니다. 3.15.0 이전에는 인증되지 않은 POST /api/2.0/mlflow/webhooks/{id}/test 엔드포인트가 원래 URL에 대해서만 mlflow/utils/validation.py에서 _validate_webhook_url()을 호출하는 반면, mlflow/webhooks/delivery.py는 리디렉션을 따르고 검증된 주소를 고정하지 않고 호스트 이름을 다시 확인하므로 공격자가 내부 또는 클라우드 메타데이터 서비스에 도달하고 response_status 및 response_body. 이 문제는 버전 3.15.0에서 해결되었습니다.</td>
+        <td>OSV</td>
+        <td class="wrap-cell" title="### Summary The default MLflow Tracking Server (`mlflow server`, no authentication, default SQLite backend) exposes the model-registry webhooks API unauthenticated, including a synchronous `POST /api/2.0/mlflow/webhooks/{id}/test` endpoint that returns the upstream response status and body to the caller. The SSRF guard added in PR #20747 (`_validate_webhook_url`, shipped in 3.10.0) resolves the webhook hostname and rejects non-public IPs, but it is bypassable: delivery follows HTTP redirects (no `allow_redirects=False`) and never pins the validated IP. An attacker hosts a public HTTPS endpoint that passes the guard and returns `302 Location: http://169.254.169.254/...` (or `http://127.0.0.1:...`); MLflow follows it and never re-validates the redirect target. Because `/test` reflects the response body, this is an unauthenticated full-read SSRF on a default server. ### Details Three facts combine: 1. Webhook endpoints are unauthenticated on a default server. The only webhook authorizatio">### Summary The default MLflow Tracking Server (`mlflow server`, no authentication, default SQLite backend) exposes the model-registry webhooks API unauthenticated, including a synchronous `POST /api/2.0/mlflow/webhooks/{id}/test` endpoint that returns the upstream response status and body to the caller. The SSRF guard added in PR #20747 (`_validate_webhook_url`, shipped in 3.10.0) resolves the webhook hostname and rejects non-public IPs, but it is bypassable: delivery follows HTTP redirects (no `allow_redirects=False`) and never pins the validated IP. An attacker hosts a public HTTPS endpoint that passes the guard and returns `302 Location: http://169.254.169.254/...` (or `http://127.0.0.1:...`); MLflow follows it and never re-validates the redirect target. Because `/test` reflects the response body, this is an unauthenticated full-read SSRF on a default server. ### Details Three facts combine: 1. Webhook endpoints are unauthenticated on a default server. The only webhook authorizatio</td>
       </tr>
       <tr>
         <td class="mono">
