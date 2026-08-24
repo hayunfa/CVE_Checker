@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실행 20260824211938 — AI CVE Watch</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="../index.html" class="">대시보드</a>
+      <a href="../cve/index.html" class="">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 2026-08-24 21:22:03</div>
+  </div>
+</header>
+<div class="wrap">
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>실행 20260824211938</b>
+      <span class="pill st-SUCCESS">SUCCESS</span></div>
+    <div class="muted">2026-08-24 21:19:38 ~ 2026-08-24 21:22:03</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
+</div>
+
+<div class="grid">
+  <div class="card kpi"><div class="n">10</div><div class="l">수집</div></div>
+  <div class="card kpi"><div class="n">8</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">1</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">잘림</div></div>
+  <div class="card kpi"><div class="n">3</div><div class="l">메일 성공</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">메일 실패</div></div>
+</div>
+
+<div class="card">
+  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1675 OSV=8 NVD=2 GHSA=3 TRANSLATE=0건 번역 / 9건 실패</span></div>
+  <div style="margin-top:7px;">엑셀 정본:
+    <a href="../output/CVE_20260824.xls">CVE_20260824.xls</a>
+    <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
+</div>
+
+<h2>이 회차 CVE (10건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>제작사</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
+        </td>
+        <td>gRPC</td>
+        <td>grpc</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">&lt;1.79.3</td>
+        <td class="mono">1.79.3</td>
+        <td>-</td>
+        <td class="mono">20260320</td>
+        <td class="mono">20260824</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-41523" target="_blank" rel="noopener">CVE-2026-41523</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;0.22.0</td>
+        <td class="mono">0.22.0</td>
+        <td>-</td>
+        <td class="mono">20260616</td>
+        <td class="mono">20260824</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          ### Summary An `assert`-based security check in vLLM&#39;s activation function loading allows any unauthenticated attacker to achieve arbitrary code execution on the server by publishing a malicious HuggingFace model, when vLLM runs in Python optimized mode (`python -O` or `PYTHONOPTIMIZE=1`). ### Details vLLM uses an `assert` statement at [`vllm/model_executor/layers/pooler/activations.py:48`](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/pooler/activations.py#L48) as its sole security control to restrict which activation functions can be loaded from a HuggingFace model&#39;s `config.json`: ```python # vllm/model_executor/layers/pooler/activations.py:35-53 function_name: str | None = None if ( hasattr(config, &#34;sentence_transformers&#34;) and &#34;activation_fn&#34; in config.sentence_transformers ): function_name = config.sentence_transformers[&#34;activation_fn&#34;] elif ( hasattr(config, &#34;sbert_ce_default_activation_function&#34;) and config.sbert_ce_default_activation_function is not 
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-2wm9-hf6c-p5cr" target="_blank" rel="noopener">CVE-2026-45830</a>
+        </td>
+        <td>ChromaDB</td>
+        <td>Chroma</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&gt;=0.4.17,&lt;=1.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260612</td>
+        <td class="mono">20260824</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          ChromaDB allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection A lack of authorization validation in version 0.4.17 or later of the ChromaDB Python project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection regardless of which tenant they belong to.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-xph7-9rjv-w5fr" target="_blank" rel="noopener">CVE-2026-45831</a>
+        </td>
+        <td>ChromaDB</td>
+        <td>Chroma</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&gt;=0.5.0,&lt;=1.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260612</td>
+        <td class="mono">20260824</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          ChromaDB&#39;s SimpleRBACAuthorizationProvider doesn&#39;t check which tenant, database, or collection a permission applies to The SimpleRBACAuthorizationProvider authorization provider in versions 0.5.0 or later of the ChromaDB Python project evaluates whether a user holds a given permission but never checks which tenant, database, or collection that permission applies to allowing users to perform cross tenant actions.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-36p7-vc44-83pf" target="_blank" rel="noopener">CVE-2026-45833</a>
+        </td>
+        <td>ChromaDB</td>
+        <td>Chroma</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>-</td>
+        <td class="mono">&gt;=0.4.17,&lt;=1.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260612</td>
+        <td class="mono">20260824</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          ChromaDB has a code injection vulnerability A code injection vulnerability in version 0.4.17 or later of the ChromaDB Python project allows an authenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_id} if they have the UPDATE_COLLECTION permission.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47155" target="_blank" rel="noopener">CVE-2026-47155</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.22.0</td>
+        <td class="mono">0.22.0</td>
+        <td>-</td>
+        <td class="mono">20260610</td>
+        <td class="mono">20260824</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          ### Summary vLLM&#39;s revision pinning controls do not consistently apply to all artifacts loaded for a model. A deployment that supplies `--revision` or `--code-revision` can still load dynamic code, GGUF files, image processors, retrieval side weights, or same-repository subfolder weights/config from an unpinned/default revision. This is a supply-chain integrity issue for pinned vLLM deployments. Operators can believe they are serving a reviewed model revision while vLLM resolves behavior-affecting nested or sibling artifacts outside that reviewed revision. ### Details The expected invariant is: &gt; When a vLLM operator supplies a model or code revision pin, every code, config, processor, weight file, side weight, and same-repository subfolder artifact loaded as part of that model should resolve under that pin unless vLLM exposes and enforces a separate explicit pin for that artifact. Current `main` was verified affected at commit `3795d7acf431980e62e738493f437ae2a51549da`. Affected sourc
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54234" target="_blank" rel="noopener">CVE-2026-54234</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&gt;=0.17.1,&lt;0.24.0</td>
+        <td class="mono">0.24.0</td>
+        <td>-</td>
+        <td class="mono">20260717</td>
+        <td class="mono">20260824</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          ## Summary A frontend-legal multi-request speculative workload can make vLLM produce an out-of-vocabulary recovered token equal to `vocab_size`, convert that value to `-1` when choosing the next live token for a request, and then feed that `-1` back into the next drafter input ids. On Qwen3 GPTQ this reaches the worker-side drafting / attention path and crashes the engine with a GPU `device-side assert`. The same issue is reachable through the public gRPC request surface by sending a specific overlapping `Generate` / `Abort` sequence. ## Impact - A remote client that can send public gRPC generation requests can crash the shared vLLM engine worker - The triggering request sequence aborts concurrent requests and prevents later requests from completing until the worker is restarted - In shared deployments, this is a service-wide denial of service for other clients, not just a failure isolated to the attacking requests - The failure is reproducible, so repeated request sequences can sustai
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55514" target="_blank" rel="noopener">CVE-2026-55514</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>-</td>
+        <td class="mono">&gt;=0.12.0,&lt;0.24.0</td>
+        <td class="mono">0.24.0</td>
+        <td>-</td>
+        <td class="mono">20260720</td>
+        <td class="mono">20260824</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          ### Summary _Short summary of the problem. Make the impact and severity as clear as possible. For example: An unsafe deserialization vulnerability allows any unauthenticated user to execute arbitrary code on the server._ Sending a pure prompt embeds payload in a `/v1/completions` request with a model using M-RoPE causes the EngineCore to fail an assertion and fatally crash, shutting down the entire server application. Any remote user who is authorized to make a `/v1/completions` endpoint can trivially make such a request and induce a crash. ### Details _Give all details on the vulnerability. Pointing to the incriminated source code is very helpful for the maintainer._ In commit [56669c1](https://github.com/vllm-project/vllm/commit/56669c1f293d5c53b6a19ddf2f78802fa9fff2c2), a simple assert intended to be a type-narrowing assert was added to the `_init_mrope_positions` method in `GPUModelRunner` (the offending line on main at the time of writing: https://github.com/vllm-project/vllm/blob
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55574" target="_blank" rel="noopener">CVE-2026-55574</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;0.24.0</td>
+        <td class="mono">0.24.0</td>
+        <td>-</td>
+        <td class="mono">20260717</td>
+        <td class="mono">20260824</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          ## Summary The `structured_outputs.regex` API parameter passes a user-supplied regex string directly to grammar compiler backends with no compilation timeout. In the xgrammar backend, the string reaches `compile_regex()` with no guard. In the outlines backend, `validate_regex_is_buildable()` blocks structural issues (lookarounds, backreferences) but provides zero protection against exponential DFA state-space explosion. Patterns like `(a+)+b` pass all checks and hang the inference worker. ## Root Cause `backend_xgrammar.py:91` — no timeout: ```python ctx = self.compiler.compile_regex(grammar_spec) ``` `backend_outlines.py:299–330` — structural checks only, no complexity analysis: ```python def validate_regex_is_buildable(regex: str) -&gt; None: sre_parse.parse(regex) # AST parse only — does not detect exponential patterns _check_unsupported(...) # blocks lookarounds/backrefs, not nested quantifiers ``` `backend_outlines.py:64` — no timeout: ```python oc.Index(regex_string, vocabulary.inne
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-76073</a>
+        </td>
+        <td>Label Studio</td>
+        <td>HumanSignal</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260824</td>
+        <td class="mono">20260824</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Label Studio does not scope the annotation detail endpoint to the requesting user&#39;s organization. AnnotationAPI in label_studio/tasks/api.py declares queryset = Annotation.objects.all() and provides no get_queryset override, so the default lookup retrieves any annotation by primary key. The view&#39;s permission_required entries name annotations.view, annotations.change and annotations.delete, and label_studio/core/permissions.py registers every permission with rules.is_authenticated, so the check is satisfied by any logged-in account and no object-level organization test runs. The sibling task endpoint does constrain its queryset with project__organization set to the requester&#39;s active organization, which is the boundary this path omits. Annotation identifiers are sequential integers, so an authenticated user of one organization can enumerate identifiers to read, modify and delete annotations belonging to other organizations on the same instance. The same unscoped queryset appe
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>메일 발송 로그</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr><th>수신자</th><th>상태</th><th>발송시각</th><th>첨부</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">k5131@kida.re.kr</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-08-24 21:22:02</td>
+        <td class="mono">CVE_20260824.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">eclipse6@naver.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-08-24 21:22:03</td>
+        <td class="mono">CVE_20260824.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">hayunfa@gmail.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-08-24 21:22:03</td>
+        <td class="mono">CVE_20260824.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:16px;"><a href="../index.html">← 대시보드로</a></div>
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+</body>
+</html>
