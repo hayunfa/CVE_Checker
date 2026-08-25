@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-24 21:22:03</div>
+    <div class="stamp">최종 생성 2026-08-25 21:20:56</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (27건)</h2>
+<h2>이 회차 CVE (20건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -197,72 +197,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-pq5c-rjhq-qp7p" target="_blank" rel="noopener">CVE-2026-34755</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.7.0,&lt;0.19.0</td>
-        <td class="mono">0.19.0</td>
-        <td>-</td>
-        <td class="mono">20260406</td>
-        <td class="mono">20260821</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.7.0부터 0.19.0 이전까지 vllm/multimodal/media/video.py의 VideoMediaIO.load_base64() 메서드는 비디오/jpeg 데이터 URL을 쉼표로 분할하여 개별 JPEG 프레임을 추출하지만 프레임 수 제한을 적용하지는 않습니다. load_bytes() 코드 경로에 의해 적용되는 num_frames 매개변수(기본값: 32)는 video/jpeg base64 경로에서 완전히 우회됩니다. 공격자는 수천 개의 쉼표로 구분된 Base64 인코딩 JPEG 프레임이 포함된 단일 API 요청을 보내 서버가 모든 프레임을 메모리로 디코딩하고 OOM과 충돌하도록 할 수 있습니다. 이 취약점은 0.19.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). From 0.7.0 to before 0.19.0, the VideoMediaIO.load_base64() method at vllm/multimodal/media/video.py splits video/jpeg data URLs by comma to extract individual JPEG frames, but does not enforce a frame count limit. The num_frames parameter (default: 32), which is enforced by the load_bytes() code path, is completely bypassed in the video/jpeg base64 path. An attacker can send a single API request containing thousands of comma-separated base64-encoded JPEG frames, causing the server to decode all frames into memory and crash with OOM. This vulnerability is fixed in 0.19.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/b111f8a61f100fdca08706f41f29ef3548de7380" target="_blank" rel="noopener">CVE-2026-34756</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.1.0,&lt;0.19.0</td>
-        <td class="mono">0.19.0</td>
-        <td>-</td>
-        <td class="mono">20260406</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.1.0부터 0.19.0 이전까지 vLLM OpenAI 호환 API 서버에 서비스 거부 취약점이 존재합니다. ChatCompletionRequest 및 CompletionRequest Pydantic 모델의 n 매개변수에 대한 상한 검증이 없기 때문에 인증되지 않은 공격자는 천문학적으로 큰 n 값을 가진 단일 HTTP 요청을 보낼 수 있습니다. 이는 Python asyncio 이벤트 루프를 완전히 차단하고 요청이 예약 대기열에 도달하기도 전에 수백만 개의 요청 개체 복사본을 힙에 할당하여 즉각적인 메모리 부족 충돌을 발생시킵니다. 이 취약점은 0.19.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). From 0.1.0 to before 0.19.0, a Denial of Service vulnerability exists in the vLLM OpenAI-compatible API server. Due to the lack of an upper bound validation on the n parameter in the ChatCompletionRequest and CompletionRequest Pydantic models, an unauthenticated attacker can send a single HTTP request with an astronomically large n value. This completely blocks the Python asyncio event loop and causes immediate Out-Of-Memory crashes by allocating millions of request object copies in the heap before the request even reaches the scheduling queue. This vulnerability is fixed in 0.19.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/ggml-org/llama.cpp/commit/389c7d4955ba55c7418afaebf7c23d9ed64ef707" target="_blank" rel="noopener">CVE-2026-39909</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml.ai</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260821</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] b8585 이전의 llama.cpp에는 인증되지 않은 원격 공격자가 계산 그래프를 저장하고, 참조된 버퍼를 해제하고, 공격자가 제어하는 ​​콘텐츠로 해제된 메모리를 회수하여 임의의 읽기 및 쓰기 액세스를 달성할 수 있도록 허용하는 RPC 서버의 GRAPH_RECOMPUTE 핸들러에 use-after-free 취약점이 포함되어 있습니다. 공격자는 RPC 요청을 보내 매달린 포인터가 있는 저장된 그래프의 재실행을 트리거하여 인증이나 사용자 상호 작용 없이 전체 원격 코드 실행을 활성화할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] llama.cpp before b8585 contains a use-after-free vulnerability in the RPC server&#39;s GRAPH_RECOMPUTE handler that allows unauthenticated remote attackers to achieve arbitrary read and write access by storing a computation graph, freeing referenced buffers, and reclaiming freed memory with attacker-controlled content. Attackers can send RPC requests to trigger re-execution of stored graphs with dangling pointers, enabling full remote code execution without requiring authentication or user interaction.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/python-pillow/Pillow/commit/3cb854e8b2bab43f40e342e665f9340d861aa628" target="_blank" rel="noopener">CVE-2026-40192</a>
         </td>
         <td>Pillow</td>
@@ -299,28 +233,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           ### Summary The default MLflow Tracking Server (`mlflow server`, no authentication, default SQLite backend) exposes the model-registry webhooks API unauthenticated, including a synchronous `POST /api/2.0/mlflow/webhooks/{id}/test` endpoint that returns the upstream response status and body to the caller. The SSRF guard added in PR #20747 (`_validate_webhook_url`, shipped in 3.10.0) resolves the webhook hostname and rejects non-public IPs, but it is bypassable: delivery follows HTTP redirects (no `allow_redirects=False`) and never pins the validated IP. An attacker hosts a public HTTPS endpoint that passes the guard and returns `302 Location: http://169.254.169.254/...` (or `http://127.0.0.1:...`); MLflow follows it and never re-validates the redirect target. Because `/test` reflects the response body, this is an unauthenticated full-read SSRF on a default server. ### Details Three facts combine: 1. Webhook endpoints are unauthenticated on a default server. The only webhook authorizatio
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6h4x-896x-fw5m" target="_blank" rel="noopener">CVE-2026-77068</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.7</td>
-        <td class="mono">&lt;2.33.4|&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.33.4 이전의 n8n과 2.34.1 이전의 2.34.x에는 MCP 노드-스키마 로딩에 사용되는 @n8n/workflow-sdk 노드-스키마 로더의 원격 코드 실행 취약점이 포함되어 있습니다. 로더는 경로 순회 시퀀스의 유효성을 검사하지 않고 공격자가 제공한 노드 유형 문자열에서 직접 노드의 스키마 모듈 경로를 파생합니다. global:member 권한이 있는 인증된 사용자는 경로 탐색을 통해 악성 파일을 참조하여 n8n 기본 프로세스에서 코드가 실행될 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.33.4 and 2.34.x before 2.34.1 contain a remote code execution vulnerability in the @n8n/workflow-sdk node-schema loader used for MCP node-schema loading. The loader derives a node&#39;s schema module path directly from the attacker-supplied node type string without validating path-traversal sequences. An authenticated user with global:member privileges can reference malicious files via path traversal, causing code execution in the n8n main process.</div>
-          </details>
         </td>
       </tr>
       <tr>
@@ -386,28 +298,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.33.4, and 2.34.1 contains a stored cross-site scripting vulnerability in the Form node&#39;s completion page. The completion page applied its sandboxing Content-Security-Policy only when respondWith was not set to &#39;redirect&#39;, but responseText was always rendered as raw HTML. An authenticated member could set respondWith to &#39;redirect&#39; via an expression while keeping responseText populated, causing the completion page to serve unsanitized HTML and script from the n8n origin. Any visitor who submitted the resulting public form would have that script execute same-origin with their session.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vfrj-582q-mvcp" target="_blank" rel="noopener">CVE-2026-77073</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.34.1 이전의 n8n 버전에는 인증 유형이 표현식으로 설정된 경우 MCP create_workflow_from_code 도구의 자격 증명 유효성 검사 우회가 포함되어 있습니다. 유효한 MCP Bearer API 키와 대상 자격 증명 ID에 대한 지식을 갖춘 공격자는 다른 프로젝트의 워크플로에서 무단 프로젝트 간 자격 증명 참조를 유지할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 2.34.1 contain a credential validation bypass in the MCP create_workflow_from_code tool when authentication type is set to an expression. Attackers with a valid MCP Bearer API key and knowledge of a target credential ID can persist unauthorized cross-project credential references on workflows in different projects.</div>
           </details>
         </td>
       </tr>
@@ -501,28 +391,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xhmh-8fgr-xqhj" target="_blank" rel="noopener">CVE-2026-77079</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.4</td>
-        <td class="mono">&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.34.1 및 2.33.4 이전의 n8n에는 사용자 정의 프로젝트 역할 삭제(재할당) 경로에 인증 우회가 포함되어 있습니다. 재할당 대상이 있는 사용자 지정 프로젝트 역할을 삭제할 때 코드는 대상 역할이 존재하고 프로젝트 범위에 해당하는지만 확인했으며 프로젝트 수준 권한 부여 확인은 수행하지 않았습니다. 좁은 역할:manageProject 전역 범위만 보유한 사용자는 인스턴스에서 사용 중인 모든 사용자 지정 프로젝트 역할을 삭제하고 해당 소유자(자신 포함)를 기본 제공 프로젝트:관리자 역할에 다시 할당하여 합법적인 액세스 권한이 없는 프로젝트에 대한 전체 관리 제어 권한을 얻을 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.34.1 and 2.33.4 contains an authorization bypass in the custom project role deletion (reassignment) path. When deleting a custom project role with a reassignment target, the code validated only that the target role existed and was project-scoped, performing no project-level authorization check. A user holding only the narrow role:manageProject global scope could delete any custom project role in use on the instance and reassign its holders (including themselves) to the built-in project:admin role, gaining full administrative control of projects they had no legitimate access to.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-r4j2-j3wm-q689" target="_blank" rel="noopener">CVE-2026-77080</a>
         </td>
         <td>n8n</td>
@@ -606,28 +474,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n is a workflow automation platform. In versions prior to 1.123.69, 2.33.4, and 2.34.1, the JavaScript Code node&#39;s VM sandbox did not freeze the sandbox&#39;s Function.prototype, allowing an authenticated user with the ability to create and execute workflows to pollute it from within a Code node execution and recover a reference to the host&#39;s globalThis, resulting in a sandbox escape. The full exploit chain additionally depends on specific modules being available as allowlisted imports in the deployment&#39;s configuration. The issue is fixed in versions 1.123.69, 2.33.4, and 2.34.1.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-m87g-qr43-ccvc" target="_blank" rel="noopener">CVE-2026-77084</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&lt;1.123.69|&lt;2.33.4</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.69 이전의 n8n(및 2.33.4/2.34.1 이전의 2.x)에는 Git 노드의 코드 실행 취약점이 포함되어 있습니다. Git 노드는 특정 저장소-로컬 git 구성 값을 무력화하지 않고 실행했으므로 악의적인 값이 포함된 저장소에 대한 후속 Git 노드 작업은 이를 n8n 프로세스 사용자로 실행합니다. 이는 Git 노드의 자체 구성 제어를 통해서는 도달할 수 없으며 악의적인 값을 심기 위해서는 다른 곳에 별도의 파일 쓰기 취약점이 필요합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69 (and 2.x before 2.33.4 / 2.34.1) contains a code execution vulnerability in the Git node. The Git node executed certain repository-local git configuration values without neutralizing them, so any subsequent Git node operation against a repository containing a malicious value would execute it as the n8n process user. This is not reachable through the Git node&#39;s own configuration controls and requires a separate file-write vulnerability elsewhere to plant the malicious value.</div>
           </details>
         </td>
       </tr>
