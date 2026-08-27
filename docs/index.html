@@ -69,25 +69,25 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-25 21:20:56</div>
+    <div class="stamp">최종 생성 2026-08-27 00:22:50</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260825211821
+    <div><b>최근 실행</b> 20260827002050
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-08-25 21:18:21 ~ 2026-08-25 21:20:56</div>
+    <div class="muted">2026-08-27 00:20:50 ~ 2026-08-27 00:22:50</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
-  <div class="card kpi"><div class="n">142</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">20</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">145</div><div class="l">전체 누적 CVE</div></div>
+  <div class="card kpi"><div class="n">23</div><div class="l">최근 실행 수집</div></div>
   <div class="card kpi"><div class="n">3</div><div class="l">신규</div></div>
-  <div class="card kpi"><div class="n">1</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
 </div>
 
@@ -96,23 +96,23 @@
   <div class="bar-row">
     <div class="nm sev sev-CRITICAL">CRITICAL</div>
     <div class="bar sev-bg-CRITICAL"
-         style="width:42.5px;
+         style="width:41.9px;
                 background:var(--crit);"></div>
     <div class="v">5</div>
   </div>
   <div class="bar-row">
     <div class="nm sev sev-HIGH">HIGH</div>
     <div class="bar sev-bg-HIGH"
-         style="width:543.6px;
+         style="width:553.0px;
                 background:var(--high);"></div>
-    <div class="v">64</div>
+    <div class="v">66</div>
   </div>
   <div class="bar-row">
     <div class="nm sev sev-MEDIUM">MEDIUM</div>
     <div class="bar sev-bg-MEDIUM"
          style="width:620.0px;
                 background:var(--med);"></div>
-    <div class="v">73</div>
+    <div class="v">74</div>
   </div>
   <div class="bar-row">
     <div class="nm sev sev-LOW">LOW</div>
@@ -149,8 +149,13 @@
     </div>
     <div class="bar-row">
       <div class="nm">Elasticsearch</div>
-      <div class="bar" style="width:265.7px;"></div>
-      <div class="v">15</div>
+      <div class="bar" style="width:283.4px;"></div>
+      <div class="v">16</div>
+    </div>
+    <div class="bar-row">
+      <div class="nm">MLflow</div>
+      <div class="bar" style="width:106.3px;"></div>
+      <div class="v">6</div>
     </div>
     <div class="bar-row">
       <div class="nm">Transformers</div>
@@ -161,11 +166,6 @@
       <div class="nm">Triton Inference Server</div>
       <div class="bar" style="width:106.3px;"></div>
       <div class="v">6</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">MLflow</div>
-      <div class="bar" style="width:88.6px;"></div>
-      <div class="v">5</div>
     </div>
     <div class="bar-row">
       <div class="nm">Open WebUI</div>
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<h2>최근 실행 이력 (최대 14회)</h2>
+<h2>최근 실행 이력 (최대 15회)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -242,6 +242,21 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-08-27 00:20:50</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
+        <td class="mono" style="font-size:11px;">KEV=1682 OSV=3 NVD=22 GHSA=2 RANGE_RECOVERED=10 TRANSLATE=0건 번역 / 7건 실패</td>
+        <td>23</td>
+        <td>3</td>
+        <td>0</td>
+        <td>0</td>
+        <td><a href="output/CVE_20260827.xls">CVE_20260827.xls</a>
+</td>
+        <td>3 / 0</td>
+        <td><a href="runs/20260827002050.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-08-25 21:18:21</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -454,7 +469,7 @@
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (20건)</h2>
+<h2>최근 실행의 신규·변경 CVE (23건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -462,6 +477,32 @@
       <th>조치 버전</th><th>공개일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://wpscan.com/vulnerability/e1e0e945-db49-4e27-b143-ef3520a39db9/" target="_blank" rel="noopener">CVE-2026-14548</a>
+        </td>
+        <td>Ray</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;=1.7.3</td>
+        <td class="mono">-</td>
+        <td class="mono">20260811</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to overwrite the administrator-configured translation API token with an arbitrary value.">1.7.3을 통한 Ray Enterprise Translation WordPress 플러그인은 AJAX 작업 중 하나에 대해 어떠한 기능이나 nonce 검사도 수행하지 않으므로 구독자를 포함한 모든 인증된 사용자가 관리자가 구성한 번역 API 토큰을 임의의 값으로 덮어쓸 수 있습니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://wpscan.com/vulnerability/3dd9bf3b-7fe4-4a58-ad05-1fc0bfb85413/" target="_blank" rel="noopener">CVE-2026-14549</a>
+        </td>
+        <td>Ray</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;=1.7.3</td>
+        <td class="mono">-</td>
+        <td class="mono">20260811</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="The Ray Enterprise Translation WordPress plugin through 1.7.3 does not perform any capability or nonce checks on one of its AJAX actions, allowing any authenticated user, including Subscribers, to add or delete the site&#39;s configured languages.">1.7.3을 통한 Ray Enterprise Translation WordPress 플러그인은 AJAX 작업 중 하나에 대한 기능이나 nonce 검사를 수행하지 않으므로 구독자를 포함한 인증된 사용자가 사이트의 구성된 언어를 추가하거나 삭제할 수 있습니다.</td>
+      </tr>
       <tr>
         <td class="mono">
 <a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
@@ -542,94 +583,42 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/advisories/GHSA-2wm9-hf6c-p5cr" target="_blank" rel="noopener">CVE-2026-45830</a>
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-18-9-3-7-9-4-4-security-update-esa-2026-56/388555" target="_blank" rel="noopener">CVE-2026-56144</a>
         </td>
-        <td>ChromaDB</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=0.4.17,&lt;=1.5.9</td>
-        <td class="mono">-</td>
-        <td class="mono">20260612</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell" title="ChromaDB allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection A lack of authorization validation in version 0.4.17 or later of the ChromaDB Python project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection regardless of which tenant they belong to.">ChromaDB allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection A lack of authorization validation in version 0.4.17 or later of the ChromaDB Python project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection regardless of which tenant they belong to.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-xph7-9rjv-w5fr" target="_blank" rel="noopener">CVE-2026-45831</a>
-        </td>
-        <td>ChromaDB</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=0.5.0,&lt;=1.5.9</td>
-        <td class="mono">-</td>
-        <td class="mono">20260612</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell" title="ChromaDB&#39;s SimpleRBACAuthorizationProvider doesn&#39;t check which tenant, database, or collection a permission applies to The SimpleRBACAuthorizationProvider authorization provider in versions 0.5.0 or later of the ChromaDB Python project evaluates whether a user holds a given permission but never checks which tenant, database, or collection that permission applies to allowing users to perform cross tenant actions.">ChromaDB&#39;s SimpleRBACAuthorizationProvider doesn&#39;t check which tenant, database, or collection a permission applies to The SimpleRBACAuthorizationProvider authorization provider in versions 0.5.0 or later of the ChromaDB Python project evaluates whether a user holds a given permission but never checks which tenant, database, or collection that permission applies to allowing users to perform cross tenant actions.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-36p7-vc44-83pf" target="_blank" rel="noopener">CVE-2026-45833</a>
-        </td>
-        <td>ChromaDB</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>-</td>
-        <td class="mono">&gt;=0.4.17,&lt;=1.5.9</td>
-        <td class="mono">-</td>
-        <td class="mono">20260612</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell" title="ChromaDB has a code injection vulnerability A code injection vulnerability in version 0.4.17 or later of the ChromaDB Python project allows an authenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_id} if they have the UPDATE_COLLECTION permission.">ChromaDB has a code injection vulnerability A code injection vulnerability in version 0.4.17 or later of the ChromaDB Python project allows an authenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_id} if they have the UPDATE_COLLECTION permission.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47155" target="_blank" rel="noopener">CVE-2026-47155</a>
-        </td>
-        <td>vLLM</td>
+        <td>Elasticsearch</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td class="mono">20260610</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="### Summary vLLM&#39;s revision pinning controls do not consistently apply to all artifacts loaded for a model. A deployment that supplies `--revision` or `--code-revision` can still load dynamic code, GGUF files, image processors, retrieval side weights, or same-repository subfolder weights/config from an unpinned/default revision. This is a supply-chain integrity issue for pinned vLLM deployments. Operators can believe they are serving a reviewed model revision while vLLM resolves behavior-affecting nested or sibling artifacts outside that reviewed revision. ### Details The expected invariant is: &gt; When a vLLM operator supplies a model or code revision pin, every code, config, processor, weight file, side weight, and same-repository subfolder artifact loaded as part of that model should resolve under that pin unless vLLM exposes and enforces a separate explicit pin for that artifact. Current `main` was verified affected at commit `3795d7acf431980e62e738493f437ae2a51549da`. Affected sourc">### Summary vLLM&#39;s revision pinning controls do not consistently apply to all artifacts loaded for a model. A deployment that supplies `--revision` or `--code-revision` can still load dynamic code, GGUF files, image processors, retrieval side weights, or same-repository subfolder weights/config from an unpinned/default revision. This is a supply-chain integrity issue for pinned vLLM deployments. Operators can believe they are serving a reviewed model revision while vLLM resolves behavior-affecting nested or sibling artifacts outside that reviewed revision. ### Details The expected invariant is: &gt; When a vLLM operator supplies a model or code revision pin, every code, config, processor, weight file, side weight, and same-repository subfolder artifact loaded as part of that model should resolve under that pin unless vLLM exposes and enforces a separate explicit pin for that artifact. Current `main` was verified affected at commit `3795d7acf431980e62e738493f437ae2a51549da`. Affected sourc</td>
+        <td>5.3</td>
+        <td class="mono">&gt;=8.12.0,&lt;8.19.18|&gt;=9.0.0,&lt;9.3.7|&gt;=9.4.0,&lt;9.4.4</td>
+        <td class="mono">-</td>
+        <td class="mono">20260721</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="Incorrect Authorization (CWE-863) in Elasticsearch can allow an authenticated user with limited index privileges to exploit insufficient authorization controls in the ingest simulation feature. By targeting indices they are not authorized to access directly, the user can cause those indices&#39; configured ingest pipelines to execute and return their output, potentially disclosing data processed or enriched by those pipelines. Additionally, the same feature can be used to retrieve index mapping metadata for indices the user are not authorized to access directly.">Incorrect Authorization (CWE-863) in Elasticsearch can allow an authenticated user with limited index privileges to exploit insufficient authorization controls in the ingest simulation feature. By targeting indices they are not authorized to access directly, the user can cause those indices&#39; configured ingest pipelines to execute and return their output, potentially disclosing data processed or enriched by those pipelines. Additionally, the same feature can be used to retrieve index mapping metadata for indices the user are not authorized to access directly.</td>
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54234" target="_blank" rel="noopener">CVE-2026-54234</a>
+<a href="https://github.com/mlflow/mlflow/tree/v3.14.0/mlflow" target="_blank" rel="noopener">CVE-2026-71211</a>
         </td>
-        <td>vLLM</td>
+        <td>MLflow</td>
         <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=0.17.1,&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td class="mono">20260717</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="## Summary A frontend-legal multi-request speculative workload can make vLLM produce an out-of-vocabulary recovered token equal to `vocab_size`, convert that value to `-1` when choosing the next live token for a request, and then feed that `-1` back into the next drafter input ids. On Qwen3 GPTQ this reaches the worker-side drafting / attention path and crashes the engine with a GPU `device-side assert`. The same issue is reachable through the public gRPC request surface by sending a specific overlapping `Generate` / `Abort` sequence. ## Impact - A remote client that can send public gRPC generation requests can crash the shared vLLM engine worker - The triggering request sequence aborts concurrent requests and prevents later requests from completing until the worker is restarted - In shared deployments, this is a service-wide denial of service for other clients, not just a failure isolated to the attacking requests - The failure is reproducible, so repeated request sequences can sustai">## Summary A frontend-legal multi-request speculative workload can make vLLM produce an out-of-vocabulary recovered token equal to `vocab_size`, convert that value to `-1` when choosing the next live token for a request, and then feed that `-1` back into the next drafter input ids. On Qwen3 GPTQ this reaches the worker-side drafting / attention path and crashes the engine with a GPU `device-side assert`. The same issue is reachable through the public gRPC request surface by sending a specific overlapping `Generate` / `Abort` sequence. ## Impact - A remote client that can send public gRPC generation requests can crash the shared vLLM engine worker - The triggering request sequence aborts concurrent requests and prevents later requests from completing until the worker is restarted - In shared deployments, this is a service-wide denial of service for other clients, not just a failure isolated to the attacking requests - The failure is reproducible, so repeated request sequences can sustai</td>
+        <td>7.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260805</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] MLflow&#39;s AI Gateway accepts an auth_config.api_base value when creating a gateway secret (mlflow/server/handlers.py, _create_gateway_secret) with no validation of scheme, host, or IP range; the value is stored verbatim. The gateway proxy endpoint (mlflow/server/gateway_api.py, raw_proxy) subsequently issues an HTTP request to that stored api_base plus a caller-supplied path and returns the full response body.">[버전범위 불명확] MLflow&#39;s AI Gateway accepts an auth_config.api_base value when creating a gateway secret (mlflow/server/handlers.py, _create_gateway_secret) with no validation of scheme, host, or IP range; the value is stored verbatim. The gateway proxy endpoint (mlflow/server/gateway_api.py, raw_proxy) subsequently issues an HTTP request to that stored api_base plus a caller-supplied path and returns the full response body.</td>
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55514" target="_blank" rel="noopener">CVE-2026-55514</a>
+<a href="https://github.com/huggingface/peft" target="_blank" rel="noopener">CVE-2026-71281</a>
         </td>
-        <td>vLLM</td>
+        <td>PEFT</td>
         <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=0.12.0,&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td class="mono">20260720</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="### Summary _Short summary of the problem. Make the impact and severity as clear as possible. For example: An unsafe deserialization vulnerability allows any unauthenticated user to execute arbitrary code on the server._ Sending a pure prompt embeds payload in a `/v1/completions` request with a model using M-RoPE causes the EngineCore to fail an assertion and fatally crash, shutting down the entire server application. Any remote user who is authorized to make a `/v1/completions` endpoint can trivially make such a request and induce a crash. ### Details _Give all details on the vulnerability. Pointing to the incriminated source code is very helpful for the maintainer._ In commit [56669c1](https://github.com/vllm-project/vllm/commit/56669c1f293d5c53b6a19ddf2f78802fa9fff2c2), a simple assert intended to be a type-narrowing assert was added to the `_init_mrope_positions` method in `GPUModelRunner` (the offending line on main at the time of writing: https://github.com/vllm-project/vllm/blob">### Summary _Short summary of the problem. Make the impact and severity as clear as possible. For example: An unsafe deserialization vulnerability allows any unauthenticated user to execute arbitrary code on the server._ Sending a pure prompt embeds payload in a `/v1/completions` request with a model using M-RoPE causes the EngineCore to fail an assertion and fatally crash, shutting down the entire server application. Any remote user who is authorized to make a `/v1/completions` endpoint can trivially make such a request and induce a crash. ### Details _Give all details on the vulnerability. Pointing to the incriminated source code is very helpful for the maintainer._ In commit [56669c1](https://github.com/vllm-project/vllm/commit/56669c1f293d5c53b6a19ddf2f78802fa9fff2c2), a simple assert intended to be a type-narrowing assert was added to the `_init_mrope_positions` method in `GPUModelRunner` (the offending line on main at the time of writing: https://github.com/vllm-project/vllm/blob</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55574" target="_blank" rel="noopener">CVE-2026-55574</a>
-        </td>
-        <td>vLLM</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td class="mono">20260717</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="## Summary The `structured_outputs.regex` API parameter passes a user-supplied regex string directly to grammar compiler backends with no compilation timeout. In the xgrammar backend, the string reaches `compile_regex()` with no guard. In the outlines backend, `validate_regex_is_buildable()` blocks structural issues (lookarounds, backreferences) but provides zero protection against exponential DFA state-space explosion. Patterns like `(a+)+b` pass all checks and hang the inference worker. ## Root Cause `backend_xgrammar.py:91` — no timeout: ```python ctx = self.compiler.compile_regex(grammar_spec) ``` `backend_outlines.py:299–330` — structural checks only, no complexity analysis: ```python def validate_regex_is_buildable(regex: str) -&gt; None: sre_parse.parse(regex) # AST parse only — does not detect exponential patterns _check_unsupported(...) # blocks lookarounds/backrefs, not nested quantifiers ``` `backend_outlines.py:64` — no timeout: ```python oc.Index(regex_string, vocabulary.inne">## Summary The `structured_outputs.regex` API parameter passes a user-supplied regex string directly to grammar compiler backends with no compilation timeout. In the xgrammar backend, the string reaches `compile_regex()` with no guard. In the outlines backend, `validate_regex_is_buildable()` blocks structural issues (lookarounds, backreferences) but provides zero protection against exponential DFA state-space explosion. Patterns like `(a+)+b` pass all checks and hang the inference worker. ## Root Cause `backend_xgrammar.py:91` — no timeout: ```python ctx = self.compiler.compile_regex(grammar_spec) ``` `backend_outlines.py:299–330` — structural checks only, no complexity analysis: ```python def validate_regex_is_buildable(regex: str) -&gt; None: sre_parse.parse(regex) # AST parse only — does not detect exponential patterns _check_unsupported(...) # blocks lookarounds/backrefs, not nested quantifiers ``` `backend_outlines.py:64` — no timeout: ```python oc.Index(regex_string, vocabulary.inne</td>
+        <td>8.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260805</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Hugging Face peft&#39;s LoRA-GA and CorDA initialization modules (src/peft/tuners/lora/corda.py lines ~102 and ~163, and src/peft/tuners/lora/loraga.py line ~101) call torch.load on config-specified cache/covariance files without weights_only=True, bypassing peft&#39;s own safe-loading wrapper used elsewhere in the codebase.">[버전범위 불명확] Hugging Face peft&#39;s LoRA-GA and CorDA initialization modules (src/peft/tuners/lora/corda.py lines ~102 and ~163, and src/peft/tuners/lora/loraga.py line ~101) call torch.load on config-specified cache/covariance files without weights_only=True, bypassing peft&#39;s own safe-loading wrapper used elsewhere in the codebase.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -643,6 +632,58 @@
         <td class="mono">20260427</td>
         <td>NVD</td>
         <td class="wrap-cell" title="A vulnerability was found in vLLM up to 0.19.0. The affected element is the function has_mamba_layers of the file vllm/v1/kv_cache_interface.py of the component KV Block Handler. Performing a manipulation results in uninitialized resource. It is possible to initiate the attack remotely. The attack is considered to have high complexity. The exploitability is described as difficult. The exploit has been made public and could be used. The existence of this vulnerability is still disputed at present. The proposed patch did not fix the issue. A 3rd party explains: &#34;The divergence could be explained by a benign and expected vLLM behavior where vLLM server could group concurrent requests together resulting in different input shapes based on varying request arrival time. The differences in grouped input shapes could call different kernels with could produce difference results due to rounding and differences in order of operations. There is an environment variable VLLM_BATCH_INVARIANT=1 for use">A vulnerability was found in vLLM up to 0.19.0. The affected element is the function has_mamba_layers of the file vllm/v1/kv_cache_interface.py of the component KV Block Handler. Performing a manipulation results in uninitialized resource. It is possible to initiate the attack remotely. The attack is considered to have high complexity. The exploitability is described as difficult. The exploit has been made public and could be used. The existence of this vulnerability is still disputed at present. The proposed patch did not fix the issue. A 3rd party explains: &#34;The divergence could be explained by a benign and expected vLLM behavior where vLLM server could group concurrent requests together resulting in different input shapes based on varying request arrival time. The differences in grouped input shapes could call different kernels with could produce difference results due to rounding and differences in order of operations. There is an environment variable VLLM_BATCH_INVARIANT=1 for use</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-652q-gvq3-74qv" target="_blank" rel="noopener">CVE-2026-72750</a>
+        </td>
+        <td>n8n</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td class="mono">20260811</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the Snowflake node&#39;s Execute Query operation, which interpolates expression values directly into the SQL string. When a workflow author embeds untrusted, externally-controlled expression data directly in a raw SQL query, that data is not parameterized, allowing SQL injection. The fix adds an optional &#39;Query Parameters&#39; field to bind values via positional placeholders.">1.123.67, 2.31.5 및 2.32.1 이전의 n8n에는 표현식 값을 SQL 문자열에 직접 보간하는 Snowflake 노드의 쿼리 실행 작업에 SQL 주입 취약점이 포함되어 있습니다. 워크플로 작성자가 신뢰할 수 없고 외부에서 제어되는 식 데이터를 원시 SQL 쿼리에 직접 포함하는 경우 해당 데이터는 매개 변수화되지 않으므로 SQL 삽입이 허용됩니다. 이 수정 사항은 위치 자리 표시자를 통해 값을 바인딩하기 위한 선택적 &#39;쿼리 매개 변수&#39; 필드를 추가합니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-2x35-3fw4-9jr4" target="_blank" rel="noopener">CVE-2026-72766</a>
+        </td>
+        <td>n8n</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.2</td>
+        <td class="mono">&lt;1.123.67|&lt;2.31.5|&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td class="mono">20260811</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a type confusion vulnerability in the Send Email node, which does not enforce that its message fields are strings. A crafted non-string value supplied from a workflow expression into the text or HTML body field can be interpreted by the underlying mail library (Nodemailer) as a file path or URL, allowing arbitrary local file disclosure and server-side request forgery (SSRF). Exploitation requires a pre-existing active workflow with an unauthenticated webhook, valid SMTP credentials configured on the node, and untrusted input mapped directly into the body field; this is not a default configuration.">1.123.67 이전의 n8n, 2.31.5 이전의 2.x 및 2.32.1 이전의 2.32.x에는 메시지 필드가 문자열임을 강제하지 않는 Send Email 노드에 유형 혼동 취약점이 포함되어 있습니다. 워크플로 표현식에서 텍스트 또는 HTML 본문 필드로 제공되는 조작된 문자열이 아닌 값은 기본 메일 라이브러리(Nodemailer)에 의해 파일 경로 또는 URL로 해석될 수 있으므로 임의의 로컬 파일 공개 및 서버측 요청 위조(SSRF)가 허용됩니다. 악용하려면 인증되지 않은 웹훅, 노드에 구성된 유효한 SMTP 자격 증명, 본문 필드에 직접 매핑된 신뢰할 수 없는 입력이 포함된 기존 활성 워크플로가 필요합니다. 이는 기본 구성이 아닙니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-64xh-79j6-r5v8" target="_blank" rel="noopener">CVE-2026-72771</a>
+        </td>
+        <td>n8n</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td class="mono">20260811</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.">2.32.1 이전의 n8n 버전은 사용자가 제공한 기본 또는 엔드포인트 URL이 구성된 경우 여러 AI 및 LLM 노드에서 허용된 HTTP 요청 도메인 허용 목록을 적용하지 못합니다. 공유 자격 증명에 대한 사용 전용 액세스 권한이 있는 낮은 권한의 워크플로 편집자는 공격자가 제어하는 ​​호스트로 요청을 리디렉션하고 기본 서비스에 재사용하기 위해 자격 증명 비밀을 유출할 수 있습니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73559" target="_blank" rel="noopener">CVE-2026-73559</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.19.0,&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td class="mono">20260813</td>
+        <td>OSV</td>
+        <td class="wrap-cell" title="## Summary The `/v1/completions` request model accepts `prompt` as a list of text prompts or a list of token-id prompts without any outer prompt-count bound. The serving path turns each element into a separate engine input, creates one engine generator per element, merges all generators, and allocates a response slot per prompt. An authenticated API client can therefore turn one request into an attacker-chosen number of backend subrequests before any aggregate request-count budget is enforced. ## Technical Details `CompletionRequest.prompt` allows both list-shaped prompt inputs and scalar prompts: ```python # vllm/entrypoints/openai/completion/protocol.py prompt: ( list[Annotated[int, Field(ge=0)]] | list[list[Annotated[int, Field(ge=0)]]] | str | list[str] | None ) = None ``` The validator only requires some prompt-like input to be present: ```python def validate_prompt_and_prompt_embeds(cls, data): prompt = data.get(&#34;prompt&#34;) prompt_embeds = data.get(&#34;prompt_embeds&#34;) ... if prompt_is">## 요약 `/v1/completions` 요청 모델은 `프롬프트`를 외부 프롬프트 수 제한 없이 텍스트 프롬프트 목록 또는 토큰 ID 프롬프트 목록으로 허용합니다. 제공 경로는 각 요소를 별도의 엔진 입력으로 바꾸고, 요소당 하나의 엔진 생성기를 생성하고, 모든 생성기를 병합하고, 프롬프트당 응답 슬롯을 할당합니다. 따라서 인증된 API 클라이언트는 총 요청 수 예산이 시행되기 전에 하나의 요청을 공격자가 선택한 수의 백엔드 하위 요청으로 바꿀 수 있습니다. ## 기술 세부 사항 `CompletionRequest.prompt`는 목록 모양의 프롬프트 입력과 스칼라 프롬프트를 모두 허용합니다: ```python # vllm/entrypoints/openai/completion/protocol.py 프롬프트: ( list[Annotated[int, Field(ge=0)]] | list[list[Annotated[int, Field(ge=0)]]] | str | list[str] | None ) = None ``` 유효성 검사기는 일부만 필요합니다. 프롬프트와 같은 입력이 있어야 함: ```python def verify_prompt_and_prompt_embeds(cls, data): 프롬프트 = data.get(&#34;prompt&#34;) 프롬프트_embeds = data.get(&#34;prompt_embeds&#34;) ... if 프롬프트_is</td>
       </tr>
       <tr>
         <td class="mono">
@@ -708,6 +749,19 @@
         <td class="mono">20260820</td>
         <td>NVD</td>
         <td class="wrap-cell" title="n8n before 1.123.69 (and 2.x before 2.33.4 / 2.34.1) contains a code execution vulnerability in the Git node. The Git node executed certain repository-local git configuration values without neutralizing them, so any subsequent Git node operation against a repository containing a malicious value would execute it as the n8n process user. This is not reachable through the Git node&#39;s own configuration controls and requires a separate file-write vulnerability elsewhere to plant the malicious value.">1.123.69 이전의 n8n(및 2.33.4/2.34.1 이전의 2.x)에는 Git 노드의 코드 실행 취약점이 포함되어 있습니다. Git 노드는 특정 저장소-로컬 git 구성 값을 무력화하지 않고 실행했으므로 악의적인 값이 포함된 저장소에 대한 후속 Git 노드 작업은 이를 n8n 프로세스 사용자로 실행합니다. 이는 Git 노드의 자체 구성 제어를 통해서는 도달할 수 없으며 악의적인 값을 심기 위해서는 다른 곳에 별도의 파일 쓰기 취약점이 필요합니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/zanllp/infinite-image-browsing" target="_blank" rel="noopener">CVE-2026-77815</a>
+        </td>
+        <td>AUTOMATIC1111 Stable Diffusion WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260821</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] to_abs_path in scripts/iib/tool.py normalised the requested path with os.path.normpath, which collapses dot segments but does not resolve symbolic links. A symlink placed inside a scanned directory therefore satisfies the containment comparison performed by is_path_trusted in scripts/iib/api.py while pointing outside that directory, and FileResponse follows the link when serving the response, so a link created in an image directory and targeting a file such as /etc/passwd discloses that file. Whether the check applies depends on get_enable_access_control in scripts/iib/tool.py: it returns true when IIB_ACCESS_CONTROL is set to enable, false when set to disable, and otherwise true when the host Stable Diffusion WebUI was started with share, ngrok, listen or server_name, falling back to false. Confinement is therefore active in the network-exposed WebUI deployments that rely on it, while a standalone run with no such option serves every readable file regardless of this flaw. T">[버전범위 불명확] scripts/iib/tool.py의 to_abs_path는 점 세그먼트를 축소하지만 기호 링크를 해결하지 않는 os.path.normpath를 사용하여 요청된 경로를 정규화했습니다. 따라서 스캔된 디렉터리 내부에 배치된 심볼릭 링크는 해당 디렉터리 외부를 가리키는 동안 scripts/iib/api.py에서 is_path_trusted가 수행한 포함 비교를 충족하고 FileResponse는 응답을 제공할 때 링크를 따르므로 이미지 디렉터리에서 생성되고 /etc/passwd와 같은 파일을 대상으로 하는 링크가 해당 파일을 공개합니다. 검사 적용 여부는 scripts/iib/tool.py의 get_enable_access_control에 따라 다릅니다. IIB_ACCESS_Control이 활성화로 설정된 경우 true를 반환하고, 비활성화로 설정된 경우 false를 반환하며, 그렇지 않으면 호스트 Stable Diffusion WebUI가 share, ngrok, Listen 또는 server_name으로 시작된 경우 true를 반환하고 false로 돌아갑니다. 따라서 제한은 이에 의존하는 네트워크 노출 WebUI 배포에서 활성화되는 반면, 그러한 옵션이 없는 독립 실행형 실행은 이 결함에 관계없이 읽을 수 있는 모든 파일을 제공합니다. 티</td>
       </tr>
       <tr>
         <td class="mono">
