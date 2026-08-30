@@ -69,23 +69,23 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-29 22:58:20</div>
+    <div class="stamp">최종 생성 2026-08-30 23:03:36</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260829225547
+    <div><b>최근 실행</b> 20260830230106
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-08-29 22:55:47 ~ 2026-08-29 22:58:20</div>
+    <div class="muted">2026-08-30 23:01:06 ~ 2026-08-30 23:03:36</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
   <div class="card kpi"><div class="n">157</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">33</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">31</div><div class="l">최근 실행 수집</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">신규</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<h2>최근 실행 이력 (최대 18회)</h2>
+<h2>최근 실행 이력 (최대 19회)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -242,6 +242,20 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-08-30 23:01:06</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
+        <td class="mono" style="font-size:11px;">KEV=1685 OSV=0 NVD=32 GHSA=0 RANGE_RECOVERED=4 TRANSLATE=0건 번역 / 11건 실패</td>
+        <td>31</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td>0 / 0</td>
+        <td><a href="runs/20260830230106.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-08-29 22:55:47</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -513,7 +527,7 @@
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (33건)</h2>
+<h2>최근 실행의 신규·변경 CVE (31건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -900,19 +914,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-pppj-hq3g-57pj" target="_blank" rel="noopener">CVE-2026-73417</a>
-        </td>
-        <td>JupyterLab</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=4.6.0,&lt;4.6.2|&gt;=3.3.0,&lt;4.5.10</td>
-        <td class="mono">4.6.2</td>
-        <td class="mono">20260722</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="JupyterLab 4.5+ allows notebook settings to be shared and applied through an `overrides.json` file using the `Import` button in the Settings Editor. Certain notebook display settings were not properly validated before being applied. As a result, a crafted settings file could contain hidden instructions that run as code inside JupyterLab when imported, instead of only changing a display preference. Because importing a settings file appears harmless, a user could import a file shared by another party without realizing it could do more. On multi-tenant file systems without proper permission control, another user could plant a malicious `overrides.json`. &gt; CVE assignment pending, GitHub CNA is experiencing severe backlog ### Impact When a malicious settings file is applied, the embedded code runs with the same access as the affected user. This could allow an attacker to read or modify that user&#39;s notebooks and files, and to run code on the user&#39;s behalf through the notebook server, includi">JupyterLab 4.5+에서는 설정 편집기의 &#39;가져오기&#39; 버튼을 사용하여 &#39;overrides.json&#39; 파일을 통해 노트북 설정을 공유하고 적용할 수 있습니다. 특정 노트북 디스플레이 설정이 적용되기 전에 제대로 검증되지 않았습니다. 결과적으로 조작된 설정 파일에는 디스플레이 기본 설정만 변경하는 대신 가져올 때 JupyterLab 내에서 코드로 실행되는 숨겨진 지침이 포함될 수 있습니다. 설정 파일을 가져오는 것이 무해해 보이기 때문에 사용자는 다른 사람이 공유한 파일을 가져올 수 있다는 사실을 깨닫지 못한 채 가져올 수 있습니다. 적절한 권한 제어가 없는 다중 테넌트 파일 시스템에서는 다른 사용자가 악성 &#39;overrides.json&#39;을 심을 수 있습니다. &gt; CVE 할당 보류 중, GitHub CNA에 심각한 백로그가 발생했습니다. ### 영향 악성 설정 파일이 적용되면 영향을 받은 사용자와 동일한 액세스 권한으로 포함된 코드가 실행됩니다. 이를 통해 공격자는 해당 사용자의 노트북과 파일을 읽거나 수정할 수 있으며 다음을 포함한 노트북 서버를 통해 사용자를 대신하여 코드를 실행할 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-whvh-wf3x-g77j" target="_blank" rel="noopener">CVE-2026-73626</a>
         </td>
         <td>JupyterLab</td>
@@ -923,19 +924,6 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] JupyterLab versions &gt;=4.6.0,&lt;=4.6.1 and &lt;=4.5.9 contain an allowlist/blocklist enforcement gap in PyPIExtensionManager.install(). A missing &#39;await&#39; caused the is_install_allowed coroutine to never execute, so the extension allowlist/blocklist check was not enforced for direct callers of install(). The stock JupyterLab HTTP API and Extension Manager UI are not affected, as they perform a separate, correctly awaited check. The issue affects only deployments where a custom extension or downstream integration imports PyPIExtensionManager and calls install() directly with a package name influenced by untrusted input, an allowlist/blocklist is configured, the PyPI Extension Manager is enabled, and kernels and terminals are disabled or delegated to remote hosts. Fixed in JupyterLab 4.6.2 and 4.5.10.">[버전범위 불명확] JupyterLab versions &gt;=4.6.0,&lt;=4.6.1 and &lt;=4.5.9 contain an allowlist/blocklist enforcement gap in PyPIExtensionManager.install(). A missing &#39;await&#39; caused the is_install_allowed coroutine to never execute, so the extension allowlist/blocklist check was not enforced for direct callers of install(). The stock JupyterLab HTTP API and Extension Manager UI are not affected, as they perform a separate, correctly awaited check. The issue affects only deployments where a custom extension or downstream integration imports PyPIExtensionManager and calls install() directly with a package name influenced by untrusted input, an allowlist/blocklist is configured, the PyPI Extension Manager is enabled, and kernels and terminals are disabled or delegated to remote hosts. Fixed in JupyterLab 4.6.2 and 4.5.10.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/e23b19309b8705b21c3b3ff4129c9974ba15a419" target="_blank" rel="noopener">CVE-2026-78684</a>
-        </td>
-        <td>vLLM</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.27.0</td>
-        <td class="mono">-</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="vLLM before 0.27.0 fails to properly classify DeepStream as a GPU backend and omits pixel-limit enforcement in its decode path. Unauthenticated attackers can activate DeepStream at request time to initialize the process-wide GPU decode pool and submit video that bypasses resource controls, causing partial denial of service for concurrent requests.">0.27.0 이전의 vLLM은 DeepStream을 GPU 백엔드로 적절하게 분류하지 못하고 디코드 경로에서 픽셀 제한 적용을 생략합니다. 인증되지 않은 공격자는 요청 시 DeepStream을 활성화하여 프로세스 전체 GPU 디코드 풀을 초기화하고 리소스 제어를 우회하는 비디오를 제출하여 동시 요청에 대한 서비스를 부분적으로 거부할 수 있습니다.</td>
       </tr>
       <tr>
         <td class="mono">
