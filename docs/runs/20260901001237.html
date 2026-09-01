@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실행 20260901001237 — AI CVE Watch</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="../index.html" class="">대시보드</a>
+      <a href="../cve/index.html" class="">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
+  </div>
+</header>
+<div class="wrap">
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>실행 20260901001237</b>
+      <span class="pill st-SUCCESS">SUCCESS</span></div>
+    <div class="muted">2026-09-01 00:12:37 ~ 2026-09-01 00:16:21</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
+</div>
+
+<div class="grid">
+  <div class="card kpi"><div class="n">38</div><div class="l">수집</div></div>
+  <div class="card kpi"><div class="n">11</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">8</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">잘림</div></div>
+  <div class="card kpi"><div class="n">3</div><div class="l">메일 성공</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">메일 실패</div></div>
+</div>
+
+<div class="card">
+  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1687 OSV=1 NVD=39 GHSA=1 RANGE_RECOVERED=25 TRANSLATE=0건 번역 / 20건 실패</span></div>
+  <div style="margin-top:7px;">엑셀 정본:
+    <a href="../output/CVE_20260901.xls">CVE_20260901.xls</a>
+    <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
+</div>
+
+<h2>이 회차 CVE (38건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>제작사</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://www.zerodayinitiative.com/advisories/ZDI-26-523/" target="_blank" rel="noopener">CVE-2026-15679</a>
+        </td>
+        <td>PyTorch</td>
+        <td>PyTorch Foundation</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Hugging Face PyTorch 이미지 모델 체크포인트 신뢰할 수 없는 데이터의 역직렬화 원격 코드 실행 취약점. 이 취약점을 통해 원격 공격자는 영향을 받는 Hugging Face PyTorch 이미지 모델 설치에서 임의 코드를 실행할 수 있습니다. 이 취약점을 악용하려면 대상이 악성 페이지를 방문하거나 악성 파일을 열어야 한다는 점에서 사용자 상호 작용이 필요합니다. 특정 결함은 체크포인트 구문 분석 내에 존재합니다. 이 문제는 사용자가 제공한 데이터에 대한 적절한 유효성 검사가 부족하여 발생하며, 이로 인해 신뢰할 수 없는 데이터가 역직렬화될 수 있습니다. 공격자는 이 취약점을 활용하여 현재 프로세스의 컨텍스트에서 코드를 실행할 수 있습니다. ZDI-CAN-27987이었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Hugging Face PyTorch Image Models checkpoint Deserialization of Untrusted Data Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Hugging Face PyTorch Image Models. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file. The specific flaw exists within the parsing of checkpoints. The issue results from the lack of proper validation of user-supplied data, which can result in deserialization of untrusted data. An attacker can leverage this vulnerability to execute code in the context of the current process. Was ZDI-CAN-27987.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
+        </td>
+        <td>gRPC</td>
+        <td>grpc</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">&lt;1.79.3</td>
+        <td class="mono">1.79.3</td>
+        <td>-</td>
+        <td class="mono">20260320</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="http://crewaiinc.com" target="_blank" rel="noopener">CVE-2026-37009</a>
+        </td>
+        <td>CrewAI</td>
+        <td>CrewAI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260827</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] A SQL injection vulnerability in NL2SQLTool in crewai-tools v1.10.2rc1 allows a remote attacker to execute arbitrary SQL commands via an unsanitized sql_query argument.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43622</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b1886 through b7445 contain a double free vulnerability in the LLaMA-Android JNI wrapper where new_1batch() allocates memory using malloc() while free_1batch() deallocates it using the C++ delete operator, causing heap metadata corruption. Attackers can trigger this memory management mismatch to cause denial of service through process crashes or potentially achieve arbitrary code execution depending on allocator state.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43627</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b1283 through b9058 contain an integer overflow vulnerability in the llama_batch_init() function where unchecked multiplications in malloc() calls can wrap past INT32_MAX when computing allocation sizes. Attackers can pass specially crafted parameters to trigger integer overflow, causing heap corruption and potentially achieving arbitrary code execution through subsequent batch operations that write past allocated buffer boundaries.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43628</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b3978 through b9058 contain an integer underflow and out-of-bounds read vulnerability in the DRY sampler that allows unauthenticated attackers to trigger a heap buffer underflow by sending a crafted HTTP request with dry_allowed_length set to INT32_MIN to the /v1/completions or /v1/chat/completions endpoints. Attackers can exploit this vulnerability to crash the server with SIGSEGV causing denial of service for all connected users, or corrupt token sampling probabilities by reading garbage values from memory before the allocated buffer.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43629</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b4882 through b9058 contain a heap buffer overflow vulnerability in the KV cache state restore path where the state_read_data() function computes write size without overflow checking, allowing attackers with write access to the slot_save_path directory to corrupt heap memory. Attackers can craft malicious state files where cell_count multiplication overflows or exceeds tensor buffer allocation to write attacker-controlled bytes past buffer boundaries, potentially resulting in heap metadata corruption, model weight corruption, or arbitrary code execution via function pointer overwrite.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43630</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b5702 through b7653 contain an out-of-bounds read vulnerability in the recurrent memory state restore path that allows attackers with write access to the slot save directory to read memory past the end of the allocated cells array. Attackers can craft a malicious slot file with an oversized seq_id value to trigger an out-of-bounds read that leaks heap data including pointer values into server logs, defeating ASLR protections and facilitating further exploitation.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43631</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in the vocab pointer of llama-server when the --sleep-idle-seconds feature is enabled, allowing unauthenticated remote attackers to execute arbitrary code. Attackers can trigger the vulnerability by sending requests to affected endpoints while the server transitions to sleep mode, causing concurrent worker threads to dereference a freed vocab pointer that can be reclaimed with attacker-controlled data to achieve remote code execution.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43632</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in llama-server affecting six tokenization endpoints (/tokenize, /detokenize, /infill, /apply-template, /rerank, and /anthropic/count_tokens) that bypass the task queue and access ctx_server.vocab directly on HTTP worker threads. Attackers can exploit a time-of-check-time-of-use race condition where the main thread destroys and frees vocab after the synchronization lock is released but before the handler finishes using it, causing a crash or potential code execution when --sleep-idle-seconds is configured.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/kubeflow/pipelines/commit/a35f97aa4c17b25572369e5022546ab4421bdbdd" target="_blank" rel="noopener">CVE-2026-54745</a>
+        </td>
+        <td>Kubeflow</td>
+        <td>Kubeflow</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>10.0</td>
+        <td class="mono">&lt;2.17.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260828</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Kubeflow Pipelines enables users to build and deploy portable, scalable machine learning workflows. Prior to 2.17.0, the Kubeflow Pipelines frontend exposes an unauthenticated server-side request forgery vulnerability through the /_proxy/ route in frontend/server/proxy-middleware.ts. The _routePathWithReferer() function accepts an arbitrary attacker-controlled HTTP or HTTPS target and passes its origin to createProxyMiddleware without a host allowlist or filtering for loopback, link-local, RFC1918, or cluster-local addresses. The route remains outside the authorization middleware when ENABLE_AUTHZ=true and is reachable through /apis/v1beta1/_proxy/, /apis/v2beta1/_proxy/, /pipeline/apis/v1beta1/_proxy/, and /pipeline/apis/v2beta1/_proxy/, including through a crafted Referer header. Requests can forward attacker-controlled methods, headers such as Authorization, Cookie, and X-Forwarded-For, and POST bodies to reachable internal services, while returning the upstream response
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70638</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b1886 through b7445 contain an integer overflow vulnerability in the LLaMA-Android JNI wrapper where the new_1batch() function multiplies sizeof(llama_seq_id) by an attacker-controlled n_seq_max parameter without overflow validation, causing heap buffer allocation to wrap and allocate insufficient memory. Attackers can exploit this by providing a crafted n_seq_max value through a malicious model file or JNI call to trigger heap corruption and achieve denial of service or arbitrary code execution on Android applications using the LLaMA-Android binding.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70639</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b1886 through b7445 contain a null pointer dereference vulnerability in the LLaMA-Android JNI wrapper where the bench_1model() function fails to validate the model context pointer before dereferencing it. Attackers can supply a malicious, corrupt, or truncated model file to trigger a null context condition, causing a SIGSEGV crash that terminates the Android application process and results in denial of service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70640</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.0</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260806</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp builds b1886 through b7445 contain a race condition use-after-free vulnerability in the LLaMA-Android JNI wrapper where bench_1model() and free_1context() lack synchronization, allowing Thread A to operate on freed memory while Thread B concurrently frees the llama_context. Attackers can exploit this by performing heap spray with attacker-controlled data containing a fake vtable to hijack the vtable pointer at offset +0x30, causing llama_batch_allocr::clear() to dereference arbitrary memory and achieve remote code execution.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-h7x2-h6g9-p789" target="_blank" rel="noopener">CVE-2026-71211</a>
+        </td>
+        <td>MLflow</td>
+        <td>Databricks</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&gt;=3.13.0,&lt;=3.15.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260805</td>
+        <td class="mono">20260831</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          MLflow AI Gateway permits SSRF through an unvalidated api_base MLflow&#39;s AI Gateway accepts an auth_config.api_base value when creating a gateway secret (mlflow/server/handlers.py, _create_gateway_secret) with no validation of scheme, host, or IP range; the value is stored verbatim. The gateway proxy endpoint (mlflow/server/gateway_api.py, raw_proxy) subsequently issues an HTTP request to that stored api_base plus a caller-supplied path and returns the full response body. MLflow&#39;s existing SSRF guard, _validate_webhook_url (which blocks non-global and metadata IPs), is never invoked anywhere in this gateway secret/proxy code path. The CreateGatewaySecret action additionally has no entry in the permission-validator map, so it requires only basic authentication rather than any specific scope, meaning any authenticated user — including read-only accounts — can create a secret pointing at an internal address and reach it via the proxy endpoint, potentially exposing cloud-instance IAM creden
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xwx6-jjhv-84p8" target="_blank" rel="noopener">CVE-2026-72749</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.67, 2.31.5, and 2.32.1 contains a prototype pollution vulnerability in the Edit Fields (Set) node. The node assigns output fields via a dot-notation path setter without restricting the field name, allowing an authenticated user to name a field after an inherited built-in method path and corrupt a shared global in the main Node.js process. Because that global is used on the request-authentication path, the instance then fails every authenticated request, causing an instance-wide denial of service for all users until the process is restarted.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-cj9h-qx8g-pq2g" target="_blank" rel="noopener">CVE-2026-72763</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.2</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.67, 2.31.5, and 2.32.1 validates credential-access only for a node&#39;s top-level credentials and not for credentials referenced inside an Execute Sub-workflow node&#39;s inline workflow JSON. A member with Editor access to a shared workflow (when workflow sharing is enabled) who knows a target credential&#39;s ID can reference that credential in the inline JSON; it passes save-time and runtime validation and resolves in the parent workflow&#39;s project context, allowing the attacker to use or exfiltrate credentials they are not permitted to access.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-gv7g-jm28-cr3m" target="_blank" rel="noopener">CVE-2026-72765</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;2.31.5|&lt;2.32.1</td>
+        <td class="mono">2.31.5</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 2.31.5 and before 2.32.1 contain a sandbox escape vulnerability in expression evaluation. An authenticated user with permission to create or modify workflows can craft expressions using arrow-function bodies to bypass the expression sandbox, triggering system command execution on the host running n8n. The issue is fixed in versions 2.31.5 and 2.32.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vhf8-cg2h-cg3p" target="_blank" rel="noopener">CVE-2026-72768</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.4</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 2.32.1 contain a server-side request forgery protection bypass vulnerability in the MCP Client node that allows authenticated users to bypass SSRF protections. Attackers can craft workflows that send requests to internal or blocked hosts without routing through SSRF protection, exposing internal services and reading responses back through the workflow.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-gf29-4f56-r2jf" target="_blank" rel="noopener">CVE-2026-72770</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;1.123.67</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.67 contain a path traversal vulnerability in the Git node&#39;s fetch, pull, and push-tags operations that allows authenticated users to bypass repository-path containment checks. Attackers with workflow create/execute rights can point allowlisted remote configurations at local paths outside the sandbox to pull arbitrary git repositories and read their files and history.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-pf2q-pxhf-hgmw" target="_blank" rel="noopener">CVE-2026-72773</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.9</td>
+        <td class="mono">&lt;2.31.5|&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 2.31.5 and 2.32.x before 2.32.1 contain a path-confinement bypass in the @n8n/computer-use file-search (search_files) tool. A crafted search pattern can bypass the base-directory confinement check and expand to locations outside the configured directory, causing the tool to return the names and contents of arbitrary local files readable by the daemon&#39;s OS user. Any deployment where an actor can influence the tool&#39;s search input is affected.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jqwr-vx3p-r266" target="_blank" rel="noopener">CVE-2026-72775</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.8</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the PostgresTrigger node, which interpolates user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping. An authenticated user can inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential&#39;s privileges, allowing full read and write access.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6h4x-896x-fw5m" target="_blank" rel="noopener">CVE-2026-77068</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;2.33.4|&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          2.33.4 이전의 n8n과 2.34.1 이전의 2.34.x에는 MCP 노드-스키마 로딩에 사용되는 @n8n/workflow-sdk 노드-스키마 로더의 원격 코드 실행 취약점이 포함되어 있습니다. 로더는 경로 순회 시퀀스의 유효성을 검사하지 않고 공격자가 제공한 노드 유형 문자열에서 직접 노드의 스키마 모듈 경로를 파생합니다. global:member 권한이 있는 인증된 사용자는 경로 탐색을 통해 악성 파일을 참조하여 n8n 기본 프로세스에서 코드가 실행될 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.33.4 and 2.34.x before 2.34.1 contain a remote code execution vulnerability in the @n8n/workflow-sdk node-schema loader used for MCP node-schema loading. The loader derives a node&#39;s schema module path directly from the attacker-supplied node type string without validating path-traversal sequences. An authenticated user with global:member privileges can reference malicious files via path traversal, causing code execution in the n8n main process.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-953p-jm2c-8h5j" target="_blank" rel="noopener">CVE-2026-77070</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69, 2.33.4 및 2.34.1 이전의 n8n에는 MongoDB 연산자를 삭제하지 않고 표현식 확인 후 Query 매개변수를 JSON으로 구문 분석하는 MongoDB 노드의 찾기, 삭제 및 집계 작업에 NoSQL 주입 취약점이 포함되어 있습니다. 해결된 쿼리(예: 외부 제어 데이터를 통해)에 영향을 미칠 수 있는 공격자는 $ne 또는 $where와 같은 연산자를 주입하여 의도된 단일 문서 조회를 전체 컬렉션 공개, 전체 컬렉션 삭제 또는 데이터베이스 서버의 기타 작업으로 전환할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.33.4, and 2.34.1 contains a NoSQL injection vulnerability in the MongoDB node&#39;s Find, Delete, and Aggregate operations, which parse the Query parameter as JSON after expression resolution without sanitizing MongoDB operators. An attacker who can influence the resolved query (e.g., via externally-controlled data) can inject operators such as $ne or $where, turning an intended single-document lookup into full-collection disclosure, full-collection deletion, or other operations on the database server.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-f4f3-2g67-4vhm" target="_blank" rel="noopener">CVE-2026-77071</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69, 2.33.4 및 2.34.1 이전의 n8n에는 Supabase 노드의 Row Get Many, 삭제 및 업데이트 작업에 PostgREST 필터 주입 취약점이 포함되어 있습니다. 이 취약점은 이스케이프 없이 표현식 바인딩 가능한 값을 연결하여 필터 쿼리를 작성했습니다. 공격자는 모든 행과 일치하도록 필터를 확대하는 조건을 주입하여 의도한 단일 행 작업을 전체 테이블 공개, 삭제 또는 수정으로 전환할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.33.4, and 2.34.1 contains a PostgREST filter injection vulnerability in the Supabase node&#39;s Row Get Many, Delete, and Update operations, which built filter queries by concatenating an expression-bindable value without escaping. An attacker could inject a condition that widened the filter to match every row, turning an intended single-row operation into full-table disclosure, deletion, or modification.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-rmr5-775f-jvm2" target="_blank" rel="noopener">CVE-2026-77072</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.4</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69, 2.33.4 및 2.34.1 이전의 n8n에는 양식 노드의 완료 페이지에 저장된 교차 사이트 스크립팅 취약점이 포함되어 있습니다. 완료 페이지는 responseWith가 &#39;리디렉션&#39;으로 설정되지 않은 경우에만 샌드박싱 Content-Security-Policy를 적용했지만 responseText는 항상 원시 HTML로 렌더링되었습니다. 인증된 구성원은 responseText를 채운 상태로 표현식을 통해 &#39;리디렉션&#39;으로 responseWith를 설정할 수 있으며, 이로 인해 완료 페이지가 n8n 원본에서 정리되지 않은 HTML 및 스크립트를 제공하게 됩니다. 결과 공개 양식을 제출한 모든 방문자는 해당 스크립트가 세션과 동일한 출처를 실행하게 됩니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.33.4, and 2.34.1 contains a stored cross-site scripting vulnerability in the Form node&#39;s completion page. The completion page applied its sandboxing Content-Security-Policy only when respondWith was not set to &#39;redirect&#39;, but responseText was always rendered as raw HTML. An authenticated member could set respondWith to &#39;redirect&#39; via an expression while keeping responseText populated, causing the completion page to serve unsanitized HTML and script from the n8n origin. Any visitor who submitted the resulting public form would have that script execute same-origin with their session.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vfrj-582q-mvcp" target="_blank" rel="noopener">CVE-2026-77073</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          2.34.1 이전의 n8n 버전에는 인증 유형이 표현식으로 설정된 경우 MCP create_workflow_from_code 도구의 자격 증명 유효성 검사 우회가 포함되어 있습니다. 유효한 MCP Bearer API 키와 대상 자격 증명 ID에 대한 지식을 갖춘 공격자는 다른 프로젝트의 워크플로에서 무단 프로젝트 간 자격 증명 참조를 유지할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 2.34.1 contain a credential validation bypass in the MCP create_workflow_from_code tool when authentication type is set to an expression. Attackers with a valid MCP Bearer API key and knowledge of a target credential ID can persist unauthorized cross-project credential references on workflows in different projects.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-233r-fpgw-fx8x" target="_blank" rel="noopener">CVE-2026-77074</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.0</td>
+        <td class="mono">&lt;1.123.69</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69 이전의 n8n 버전에는 인증된 사용자가 MVG 프리미티브를 삽입할 수 있도록 허용하는 이미지 편집 노드의 텍스트 그리기 작업에 서버측 요청 위조 취약점이 포함되어 있습니다. 공격자는 악의적인 텍스트 값을 조작하여 임의의 주소에 대한 블라인드 아웃바운드 HTTP 요청을 발행하거나 로컬 파일에 액세스할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.69 contain a server-side request forgery vulnerability in the Edit Image node&#39;s Draw Text operation that allows authenticated users to inject MVG primitives. Attackers can craft malicious text values to issue blind outbound HTTP requests to arbitrary addresses or access local files.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-fh4c-9rr2-p7qc" target="_blank" rel="noopener">CVE-2026-77075</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.4</td>
+        <td class="mono">&lt;1.123.69|&lt;2.33.4|&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69 이전의 n8n, 2.33.4 이전의 2.x, 2.34.1 이전의 2.34.x에는 리소스 로케이터 필드 링크 미리 보기 렌더링에 표현식 삽입 취약점이 포함되어 있습니다. 편집기는 표현식 구문을 확인하지 않고 필드의 저장된 값을 노드 유형의 URL 템플릿에 직접 연결했습니다. 인증된 구성원은 악의적인 값을 저장할 수 있으므로 다른 사용자가 편집기에서 영향을 받은 노드를 열면 삽입된 표현식이 피해자의 인증된 세션(교차 사용자 스크립트 실행)에서 JavaScript로 평가됩니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.x before 2.33.4, and 2.34.x before 2.34.1 contain an expression injection vulnerability in resource-locator field link preview rendering. The editor spliced the field&#39;s stored value directly into the node type&#39;s URL template without checking for expression syntax. An authenticated member can store a malicious value so that when another user opens the affected node in the editor, the injected expression is evaluated as JavaScript in the victim&#39;s authenticated session (cross-user script execution).</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9fqj-7wc5-cwhx" target="_blank" rel="noopener">CVE-2026-77076</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69, 2.33.4 및 2.34.1 이전의 n8n 버전에는 GraphQL 노드에 정보 공개 취약성이 포함되어 있습니다. GraphQL 요청이 연결 수준에서 실패하면 노드는 n8n의 표준 오류 유형으로 래핑하는 대신 기본 HTTP 클라이언트 오류를 ​​변경하지 않고 다시 발생시킵니다. 해당 오류에는 실행 엔진이 그대로 유지하는 해독된 자격 증명 비밀을 포함하여 라이브 요청의 헤더가 포함되어 있습니다. 결과 실행을 읽을 수 있는 인증된 사용자는 저장된 실행 데이터에서 해독된 자격 증명 비밀을 검색할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.69, 2.33.4, and 2.34.1 contain an information disclosure vulnerability in the GraphQL node. When a GraphQL request fails at the connection level, the node re-throws the underlying HTTP client error unchanged instead of wrapping it in n8n&#39;s standard error type. That error contains the live request&#39;s headers, including a decrypted credential secret, which the execution engine persists verbatim. Any authenticated user able to read the resulting execution can retrieve the decrypted credential secret from the stored run data.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-m3hg-p5r9-fg9h" target="_blank" rel="noopener">CVE-2026-77077</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.2</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69, 2.33.4 및 2.34.1 이전의 n8n 버전에는 JavaScript 작업 실행기 VM 샌드박스 이스케이프가 포함되어 있습니다. 러너의 프로토타입 동결 루틴은 globalThis 함수를 다루지만 EventEmitter와 같은 내부 모듈 생성자는 다루지 않으므로 코드 노드 액세스 권한이 있는 인증된 사용자가 프로토타입 오염을 이용하여 러너 컨테이너 내에서 임의의 명령을 실행할 수 있습니다. 오염된 프로토타입은 프로세스 전체 개체이기 때문에 동일한 공유 실행기에서 다른 테넌트의 코드 노드 실행 전반에 걸쳐 손상이 지속됩니다. 작업 실행기가 활성화되지 않은 v1.x 인스턴스에서는 코드 노드 JavaScript가 기본 n8n 프로세스에서 직접 실행되므로 영향이 더 커질 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.69, 2.33.4, and 2.34.1 contain a JavaScript task runner VM sandbox escape. The runner&#39;s prototype-freezing routine covers globalThis functions but not internal module constructors such as EventEmitter, allowing an authenticated user with Code node access to exploit prototype pollution to execute arbitrary commands within the runner container. Because the polluted prototype is a process-wide object, the corruption persists across other tenants&#39; Code node executions on the same shared runner. On v1.x instances without task runners enabled, Code node JavaScript runs directly in the main n8n process, where the impact could be higher.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xhmh-8fgr-xqhj" target="_blank" rel="noopener">CVE-2026-77079</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.4</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          2.34.1 및 2.33.4 이전의 n8n에는 사용자 정의 프로젝트 역할 삭제(재할당) 경로에 인증 우회가 포함되어 있습니다. 재할당 대상이 있는 사용자 지정 프로젝트 역할을 삭제할 때 코드는 대상 역할이 존재하고 프로젝트 범위에 해당하는지만 확인했으며 프로젝트 수준 권한 부여 확인은 수행하지 않았습니다. 좁은 역할:manageProject 전역 범위만 보유한 사용자는 인스턴스에서 사용 중인 모든 사용자 지정 프로젝트 역할을 삭제하고 해당 소유자(자신 포함)를 기본 제공 프로젝트:관리자 역할에 다시 할당하여 합법적인 액세스 권한이 없는 프로젝트에 대한 전체 관리 제어 권한을 얻을 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.34.1 and 2.33.4 contains an authorization bypass in the custom project role deletion (reassignment) path. When deleting a custom project role with a reassignment target, the code validated only that the target role existed and was project-scoped, performing no project-level authorization check. A user holding only the narrow role:manageProject global scope could delete any custom project role in use on the instance and reassign its holders (including themselves) to the built-in project:admin role, gaining full administrative control of projects they had no legitimate access to.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-r4j2-j3wm-q689" target="_blank" rel="noopener">CVE-2026-77080</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;1.123.69|&lt;2.33.4|&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69 이전의 n8n, 2.33.4 이전의 2.x, 2.34.1 이전의 2.34.x에는 Snowflake 노드의 임의 파일 읽기 및 쓰기 취약점이 포함되어 있습니다. 이 취약점은 n8n의 파일 액세스 제한을 적용하지 않고 클라이언트 측 명령을 포함한 자유 형식 쿼리 실행 입력을 Snowflake SDK에 직접 전달합니다. 사용 가능한 Snowflake 자격 증명이 있는 인증된 사용자는 n8n 호스트에서 로컬 파일을 업로드하거나 기존 파일을 준비된 파일로 덮어쓸 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.x before 2.33.4, and 2.34.x before 2.34.1 contain an arbitrary file read and write vulnerability in the Snowflake node, which passes free-form Execute Query input, including client-side commands, directly to the Snowflake SDK without applying n8n&#39;s file-access restrictions. An authenticated user with usable Snowflake credentials can upload a local file from the n8n host or overwrite an existing file with a staged one.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-wcv8-x773-j96r" target="_blank" rel="noopener">CVE-2026-77081</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.1</td>
+        <td class="mono">&lt;1.123.69|&lt;2.33.4|&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69 이전의 n8n, 2.33.4 이전의 2.x, 2.34.1 이전의 2.x에는 GraphQL 노드에 허용된 도메인 우회가 포함되어 있습니다. 노드의 인증 매개변수가 표현식 모드로 설정되면 모든 인증 기반 자격 증명 선택기가 활성으로 처리됩니다. 서로 다른 유형의 두 가지 자격 증명이 연결된 경우 노드는 두 자격 증명 모두의 자료를 계속 연결하면서 첫 번째 자격 증명에만 허용 도메인 정책을 적용합니다. 워크플로 작성 권한이 있는 인증된 사용자는 도메인 제한 자격 증명을 공격자가 제어하는 ​​엔드포인트로 보내고 유출된 자격 증명의 권한으로 이를 유출할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.x before 2.33.4, and 2.x before 2.34.1 contain an allowed-domains bypass in the GraphQL node. When the node&#39;s Authentication parameter is set to expression mode, every authentication-gated credential selector is treated as active; if two credentials of different types are attached, the node enforces the allowed-domains policy of only the first credential while still attaching material from both. An authenticated user with workflow-authoring rights can thereby send a domain-restricted credential to an attacker-controlled endpoint, exfiltrating it with the leaked credential&#39;s permissions.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-q3fv-295f-qfpf" target="_blank" rel="noopener">CVE-2026-77082</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;1.123.69|&lt;2.33.4|&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69 이전의 n8n, 2.33.4 이전의 2.x 및 2.34.1 이전의 2.34.x에는 필터 및 스위치 노드에 정규식 서비스 거부(ReDoS) 취약점이 포함되어 있습니다. 이 취약점은 새로운 RegExp()를 사용하여 사용자 제공 정규식 패턴을 컴파일하고 복잡성 검증이나 실행 시간 초과 없이 작업자 스레드에서 동기식으로 실행합니다. 정교하게 만들어진 정규식 패턴은 처리된 데이터 항목별로 작업자를 장기간 차단하여 동일한 작업자에 대한 다른 워크플로 실행을 지연시킬 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69, 2.x before 2.33.4, and 2.34.x before 2.34.1 contains a regular expression denial of service (ReDoS) vulnerability in the Filter and Switch nodes, which compile user-supplied regex patterns with new RegExp() and execute them synchronously on the worker thread without complexity validation or execution timeout. A crafted regex pattern can block the worker for an extended period per data item processed, delaying other workflow executions on the same worker.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-c9c6-rq46-h25v" target="_blank" rel="noopener">CVE-2026-77083</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.0</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">1.123.69</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n은 워크플로우 자동화 플랫폼입니다. 1.123.69, 2.33.4 및 2.34.1 이전 버전에서는 JavaScript Code 노드의 VM 샌드박스가 샌드박스의 Function.prototype을 고정하지 않았으므로 인증된 사용자가 워크플로를 생성 및 실행하여 Code 노드 실행 내에서 이를 오염시키고 호스트의 globalThis에 대한 참조를 복구하여 샌드박스 이스케이프가 발생하도록 허용했습니다. 전체 익스플로잇 체인은 배포 구성에서 허용 목록에 있는 가져오기로 사용 가능한 특정 모듈에 따라 달라집니다. 이 문제는 버전 1.123.69, 2.33.4 및 2.34.1에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n is a workflow automation platform. In versions prior to 1.123.69, 2.33.4, and 2.34.1, the JavaScript Code node&#39;s VM sandbox did not freeze the sandbox&#39;s Function.prototype, allowing an authenticated user with the ability to create and execute workflows to pollute it from within a Code node execution and recover a reference to the host&#39;s globalThis, resulting in a sandbox escape. The full exploit chain additionally depends on specific modules being available as allowlisted imports in the deployment&#39;s configuration. The issue is fixed in versions 1.123.69, 2.33.4, and 2.34.1.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-m87g-qr43-ccvc" target="_blank" rel="noopener">CVE-2026-77084</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&lt;1.123.69|&lt;2.33.4</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          1.123.69 이전의 n8n(및 2.33.4/2.34.1 이전의 2.x)에는 Git 노드의 코드 실행 취약점이 포함되어 있습니다. Git 노드는 특정 저장소-로컬 git 구성 값을 무력화하지 않고 실행했으므로 악의적인 값이 포함된 저장소에 대한 후속 Git 노드 작업은 이를 n8n 프로세스 사용자로 실행합니다. 이는 Git 노드의 자체 구성 제어를 통해서는 도달할 수 없으며 악의적인 값을 심기 위해서는 다른 곳에 별도의 파일 쓰기 취약점이 필요합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69 (and 2.x before 2.33.4 / 2.34.1) contains a code execution vulnerability in the Git node. The Git node executed certain repository-local git configuration values without neutralizing them, so any subsequent Git node operation against a repository containing a malicious value would execute it as the n8n process user. This is not reachable through the Git node&#39;s own configuration controls and requires a separate file-write vulnerability elsewhere to plant the malicious value.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9rp2-wm75-c5fj" target="_blank" rel="noopener">CVE-2026-77085</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;2.34.1|&lt;2.33.4</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260820</td>
+        <td class="mono">20260831</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          2.34.1 이전의 n8n 및 2.33.4 이전의 2.33.x에는 SearXNG 에이전트 도구에 SSRF 보호 우회 기능이 포함되어 있습니다. 이 도구는 n8n의 중앙 집중식 SSRF 보호를 통해 라우팅되지 않은 원시 HTTP 클라이언트를 사용하여 사용자 제공 API URL에 요청을 보냈습니다. N8N_SSRF_PROTECTION_ENABLED=true인 인스턴스에서 SearXNG 자격 증명을 생성하고 개인 에이전트를 구성할 수 있는 권한이 있는 인증된 사용자는 API URL을 내부 호스트로 설정하여 n8n 서버가 해당 호스트에 연결하고 에이전트 채팅 출력을 통해 응답 콘텐츠를 반환하도록 할 수 있습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.34.1 and 2.33.x before 2.33.4 contains an SSRF protection bypass in the SearXNG Agent tool. The tool sent requests to the user-supplied API URL using a raw HTTP client that did not route through n8n&#39;s centralized SSRF protection. On instances with N8N_SSRF_PROTECTION_ENABLED=true, an authenticated user with permission to create SearXNG credentials and configure a personal agent could set the API URL to an internal host, causing the n8n server to connect to that host and return the response content through the Agent chat output.</div>
+          </details>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>메일 발송 로그</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr><th>수신자</th><th>상태</th><th>발송시각</th><th>첨부</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">k5131@kida.re.kr</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-09-01 00:16:19</td>
+        <td class="mono">CVE_20260901.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">eclipse6@naver.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-09-01 00:16:20</td>
+        <td class="mono">CVE_20260901.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">hayunfa@gmail.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-09-01 00:16:21</td>
+        <td class="mono">CVE_20260901.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:16px;"><a href="../index.html">← 대시보드로</a></div>
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+</body>
+</html>

@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-30 23:03:36</div>
+    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (8건)</h2>
+<h2>이 회차 CVE (4건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -185,94 +185,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           A vulnerability was found in vLLM up to 0.19.0. The affected element is the function has_mamba_layers of the file vllm/v1/kv_cache_interface.py of the component KV Block Handler. Performing a manipulation results in uninitialized resource. It is possible to initiate the attack remotely. The attack is considered to have high complexity. The exploitability is described as difficult. The exploit has been made public and could be used. The existence of this vulnerability is still disputed at present. The proposed patch did not fix the issue. A 3rd party explains: &#34;The divergence could be explained by a benign and expected vLLM behavior where vLLM server could group concurrent requests together resulting in different input shapes based on varying request arrival time. The differences in grouped input shapes could call different kernels with could produce difference results due to rounding and differences in order of operations. There is an environment variable VLLM_BATCH_INVARIANT=1 for use
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6h4x-896x-fw5m" target="_blank" rel="noopener">CVE-2026-77068</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.7</td>
-        <td class="mono">&lt;2.33.4|&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.33.4 이전의 n8n과 2.34.1 이전의 2.34.x에는 MCP 노드-스키마 로딩에 사용되는 @n8n/workflow-sdk 노드-스키마 로더의 원격 코드 실행 취약점이 포함되어 있습니다. 로더는 경로 순회 시퀀스의 유효성을 검사하지 않고 공격자가 제공한 노드 유형 문자열에서 직접 노드의 스키마 모듈 경로를 파생합니다. global:member 권한이 있는 인증된 사용자는 경로 탐색을 통해 악성 파일을 참조하여 n8n 기본 프로세스에서 코드가 실행될 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.33.4 and 2.34.x before 2.34.1 contain a remote code execution vulnerability in the @n8n/workflow-sdk node-schema loader used for MCP node-schema loading. The loader derives a node&#39;s schema module path directly from the attacker-supplied node type string without validating path-traversal sequences. An authenticated user with global:member privileges can reference malicious files via path traversal, causing code execution in the n8n main process.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vfrj-582q-mvcp" target="_blank" rel="noopener">CVE-2026-77073</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.34.1 이전의 n8n 버전에는 인증 유형이 표현식으로 설정된 경우 MCP create_workflow_from_code 도구의 자격 증명 유효성 검사 우회가 포함되어 있습니다. 유효한 MCP Bearer API 키와 대상 자격 증명 ID에 대한 지식을 갖춘 공격자는 다른 프로젝트의 워크플로에서 무단 프로젝트 간 자격 증명 참조를 유지할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 2.34.1 contain a credential validation bypass in the MCP create_workflow_from_code tool when authentication type is set to an expression. Attackers with a valid MCP Bearer API key and knowledge of a target credential ID can persist unauthorized cross-project credential references on workflows in different projects.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xhmh-8fgr-xqhj" target="_blank" rel="noopener">CVE-2026-77079</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.4</td>
-        <td class="mono">&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.34.1 및 2.33.4 이전의 n8n에는 사용자 정의 프로젝트 역할 삭제(재할당) 경로에 인증 우회가 포함되어 있습니다. 재할당 대상이 있는 사용자 지정 프로젝트 역할을 삭제할 때 코드는 대상 역할이 존재하고 프로젝트 범위에 해당하는지만 확인했으며 프로젝트 수준 권한 부여 확인은 수행하지 않았습니다. 좁은 역할:manageProject 전역 범위만 보유한 사용자는 인스턴스에서 사용 중인 모든 사용자 지정 프로젝트 역할을 삭제하고 해당 소유자(자신 포함)를 기본 제공 프로젝트:관리자 역할에 다시 할당하여 합법적인 액세스 권한이 없는 프로젝트에 대한 전체 관리 제어 권한을 얻을 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.34.1 and 2.33.4 contains an authorization bypass in the custom project role deletion (reassignment) path. When deleting a custom project role with a reassignment target, the code validated only that the target role existed and was project-scoped, performing no project-level authorization check. A user holding only the narrow role:manageProject global scope could delete any custom project role in use on the instance and reassign its holders (including themselves) to the built-in project:admin role, gaining full administrative control of projects they had no legitimate access to.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-m87g-qr43-ccvc" target="_blank" rel="noopener">CVE-2026-77084</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&lt;1.123.69|&lt;2.33.4</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260820</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.69 이전의 n8n(및 2.33.4/2.34.1 이전의 2.x)에는 Git 노드의 코드 실행 취약점이 포함되어 있습니다. Git 노드는 특정 저장소-로컬 git 구성 값을 무력화하지 않고 실행했으므로 악의적인 값이 포함된 저장소에 대한 후속 Git 노드 작업은 이를 n8n 프로세스 사용자로 실행합니다. 이는 Git 노드의 자체 구성 제어를 통해서는 도달할 수 없으며 악의적인 값을 심기 위해서는 다른 곳에 별도의 파일 쓰기 취약점이 필요합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.69 (and 2.x before 2.33.4 / 2.34.1) contains a code execution vulnerability in the Git node. The Git node executed certain repository-local git configuration values without neutralizing them, so any subsequent Git node operation against a repository containing a malicious value would execute it as the n8n process user. This is not reachable through the Git node&#39;s own configuration controls and requires a separate file-write vulnerability elsewhere to plant the malicious value.</div>
-          </details>
         </td>
       </tr>
     </tbody>

@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-30 23:03:36</div>
+    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1685 OSV=0 NVD=32 GHSA=0 RANGE_RECOVERED=4 TRANSLATE=0건 번역 / 11건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (31건)</h2>
+<h2>이 회차 CVE (29건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -156,28 +156,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           A vulnerability in the `_create_model_version()` handler of `mlflow/server/handlers.py` in mlflow/mlflow versions 3.9.0 and earlier allows an unauthenticated remote attacker to read arbitrary files from the server&#39;s filesystem. The issue arises when a `CreateModelVersion` request includes the tag `mlflow.prompt.is_prompt`, which bypasses source path validation. This enables an attacker to store an arbitrary local filesystem path as the model version source. The `get_model_version_artifact_handler()` function later uses this source to serve files without verifying the model version&#39;s prompt status, leading to a complete confidentiality compromise. This issue is fixed in version 3.10.0.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
-        </td>
-        <td>gRPC</td>
-        <td>grpc</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&lt;1.79.3</td>
-        <td class="mono">1.79.3</td>
-        <td>-</td>
-        <td class="mono">20260320</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
-          </details>
         </td>
       </tr>
       <tr>
@@ -290,24 +268,6 @@
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n-nodes-sqlite3 is a node for operating a local SQLite database from n8n. Prior to 1.0.0, nodes/SqliteNode/v1/SqliteV1.node.ts exposes the db_path database file path as a node parameter that permits data expressions from upstream workflow input. A workflow author who maps untrusted input to db_path can allow a remote attacker to select which SQLite file the n8n process opens, enabling traversal outside the intended database location and potentially reading, creating, or overwriting files accessible to the process. This issue is fixed in version 1.0.0.</div>
           </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/kubeflow/pipelines/commit/a35f97aa4c17b25572369e5022546ab4421bdbdd" target="_blank" rel="noopener">CVE-2026-54745</a>
-        </td>
-        <td>Kubeflow</td>
-        <td>Kubeflow</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>10.0</td>
-        <td class="mono">&lt;2.17.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260828</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Kubeflow Pipelines enables users to build and deploy portable, scalable machine learning workflows. Prior to 2.17.0, the Kubeflow Pipelines frontend exposes an unauthenticated server-side request forgery vulnerability through the /_proxy/ route in frontend/server/proxy-middleware.ts. The _routePathWithReferer() function accepts an arbitrary attacker-controlled HTTP or HTTPS target and passes its origin to createProxyMiddleware without a host allowlist or filtering for loopback, link-local, RFC1918, or cluster-local addresses. The route remains outside the authorization middleware when ENABLE_AUTHZ=true and is reachable through /apis/v1beta1/_proxy/, /apis/v2beta1/_proxy/, /pipeline/apis/v1beta1/_proxy/, and /pipeline/apis/v2beta1/_proxy/, including through a crafted Referer header. Requests can forward attacker-controlled methods, headers such as Authorization, Cookie, and X-Forwarded-For, and POST bodies to reachable internal services, while returning the upstream response
         </td>
       </tr>
       <tr>

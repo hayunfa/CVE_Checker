@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-08-30 23:03:36</div>
+    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (28건)</h2>
+<h2>이 회차 CVE (21건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -417,28 +417,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xwx6-jjhv-84p8" target="_blank" rel="noopener">CVE-2026-72749</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.32.0,&lt;2.32.1|&gt;=2.0.0-rc.0,&lt;2.31.5</td>
-        <td class="mono">1.123.67</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 Edit Fields (Set) 노드는 필드 이름을 제한하지 않고 점 표기법 경로 설정기를 통해 출력 필드를 할당했기 때문에 인증된 사용자는 상속된 내장 메서드 경로를 따라 필드 이름을 지정하고 기본 Node.js 프로세스에서 공유 전역을 손상시킬 수 있습니다. 해당 전역이 요청 인증 경로에 사용되었기 때문에 인스턴스는 인증된 모든 요청에 ​​실패했으며 프로세스가 다시 시작될 때까지 모든 사용자에 대해 인스턴스 전체 서비스 거부가 발생했습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 신뢰할 수 없는 사용자에 대한 워크플로 생성 및 실행 권한을 비활성화하거나 제한합니다. - 예상치 못한 프로세스 전체 HTTP 500 오류를 모니터링하고 프로세스를 다시 시작합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact The Edit Fields (Set) node assigned output fields through a dot-notation path setter without restricting the field name, so an authenticated user could name a field after an inherited built-in method path and corrupt a shared global in the main Node.js process. Because that global was used on the request-authentication path, the instance then failed every authenticated request, causing a instance-wide denial of service for all users until the process was restarted. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or restrict workflow creation and execution permissions for untrusted users. - Monitor for unexpected process-wide HTTP 500 errors and restart the process p</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xmc9-4f2h-jf9c" target="_blank" rel="noopener">CVE-2026-72762</a>
         </td>
         <td>n8n</td>
@@ -456,28 +434,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact The n8n Edit Image node passed its output format to the underlying image library without validation, so a crafted value could write bytes to a location outside the node&#39;s working directory. An authenticated user able to run workflows could use this to write arbitrary files in the n8n instance. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Edit Image node by adding `n8n-nodes-base.editImage` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-cj9h-qx8g-pq2g" target="_blank" rel="noopener">CVE-2026-72763</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.32.0,&lt;2.32.1|&gt;=2.0.0-rc.0,&lt;2.31.5</td>
-        <td class="mono">1.123.67</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 n8n의 자격 증명 액세스 검사에서는 하위 워크플로 실행 노드의 인라인 워크플로 JSON 내에서 참조되는 자격 증명이 아닌 노드의 최상위 자격 증명만 검증했습니다. 공유 워크플로에 대한 편집자 액세스 권한이 있는 구성원은 해당 인라인 JSON 내에서 사용이 허용되지 않은 자격 증명을 참조할 수 있습니다. 이는 저장 시간과 런타임 검증을 모두 통과했으며 상위 워크플로의 프로젝트 컨텍스트에서 해결되어 구성원이 다른 방법으로는 액세스할 수 없었던 자격 증명을 사용하거나 추출할 수 있게 되었습니다. 악용하려면 작업 흐름 공유가 활성화되어야 하며 공격자에게 공유 작업 흐름에 대한 편집자 액세스 권한이 명시적으로 부여되어야 합니다. 공격자는 대상 자격 증명의 ID도 알아야 합니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 작업 제한
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact n8n&#39;s credential-access checks validated only a node&#39;s top-level credentials, not credentials referenced inside an Execute Sub-workflow node&#39;s inline workflow JSON. A member with editor access to a shared workflow could reference a credential they were not permitted to use inside that inline JSON; it passed both save-time and runtime validation and resolved in the parent workflow&#39;s project context, letting the member use or exfiltrate a credential they could not otherwise access. Exploitation requires workflow sharing to be enabled and the attacker to have been explicitly granted Editor access to a shared workflow. The attacker must also know the target credential&#39;s ID. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict workfl</div>
           </details>
         </td>
       </tr>
@@ -505,28 +461,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-gv7g-jm28-cr3m" target="_blank" rel="noopener">CVE-2026-72765</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=2.32.0,&lt;2.32.1|&lt;2.31.5</td>
-        <td class="mono">2.32.1</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 워크플로를 생성하거나 수정할 권한이 있는 인증된 사용자는 화살표 기능을 사용하여 조작된 표현식을 남용하여 표현식 샌드박스를 우회하여 n8n을 실행하는 호스트에서 의도하지 않은 시스템 명령 실행을 트리거할 수 있습니다. ## 패치 이 문제는 n8n 버전 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 완전히 신뢰할 수 있는 사용자에게만 워크플로 생성 및 편집 권한을 제한합니다. 이러한 해결 방법은 위험을 완전히 해결하지 못하므로 단기 완화 조치로만 사용해야 합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact An authenticated user with permission to create or modify workflows could abuse crafted expressions using arrow functions to bypass the expression sandbox, triggering unintended system command execution on the host running n8n. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Restrict workflow creation and editing permissions to fully trusted users only. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-rcv6-pvrj-4xcg" target="_blank" rel="noopener">CVE-2026-72767</a>
         </td>
         <td>n8n</td>
@@ -544,28 +478,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact Authenticated n8n users with rights to create and execute workflows could achieve code execution on the n8n host. Using the Git node, under the default `git` security settings, by staging a crafted local repository, an attacker could cause `git` to run hooks, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected where authenticated users can create and execute workflows using the Git node. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n instance to limit the impact of arbitrary code executio</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vhf8-cg2h-cg3p" target="_blank" rel="noopener">CVE-2026-72768</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>-</td>
-        <td class="mono">&gt;=2.32.0,&lt;2.32.1|&lt;2.31.5</td>
-        <td class="mono">2.32.1</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 SSRF 보호가 활성화된 n8n 인스턴스에서 MCP 클라이언트 노드는 해당 보호를 통해 라우팅하지 않고 확인된 주소를 고정하지 않고 사용자 제공 엔드포인트에 요청을 보냈습니다. 따라서 워크플로를 생성하거나 편집할 수 있는 인증된 사용자는 서버가 내부 또는 차단된 호스트에 연결하도록 하고 워크플로를 통해 응답을 다시 읽어 SSRF 보호가 보호해야 하는 내부 서비스를 노출시킬 수 있습니다. ## 패치 이 문제는 n8n 버전 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 MCP 클라이언트 노드를 추가하여 비활성화합니다. - n8n 호스트에서 네트워크 송신을 제한하여 내부 및 링크 로컬 주소 범위에 대한 액세스를 차단합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact On an n8n instance with SSRF protection enabled, the MCP Client node sent requests to a user-supplied endpoint without routing them through that protection and without pinning the resolved address. An authenticated user who could create or edit a workflow could therefore cause the server to connect to internal or otherwise blocked hosts and read the responses back through the workflow, exposing internal services the SSRF protection was meant to protect. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the MCP Client node by adding it to the `NODES_EXCLUDE` environment variable. - Restrict network egress from the n8n host to block access to internal and link-local address ranges</div>
           </details>
         </td>
       </tr>
@@ -593,28 +505,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-gf29-4f56-r2jf" target="_blank" rel="noopener">CVE-2026-72770</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.32.0,&lt;2.32.1|&gt;=2.0.0-rc.0,&lt;2.31.5</td>
-        <td class="mono">1.123.67</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 워크플로 생성/실행 권한이 있는 인증된 n8n 사용자는 Git 노드의 가져오기, 가져오기 또는 푸시 태그 작업을 사용하여 이미 복제 및 푸시를 보호하는 저장소 경로 포함 확인을 우회할 수 있습니다. 공격자는 의도된 샌드박스 외부의 로컬 경로에서 허용 목록에 있는 원격 구성 값을 가리켜 임의의 로컬 Git 저장소를 작업 공간으로 가져온 다음 해당 파일과 기록을 읽을 수 있습니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.git`을 추가하여 Git 노드를 비활성화합니다. 이러한 해결 방법은 위험을 완전히 해결하지 못하므로 단기 완화 조치로만 사용해야 합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact Authenticated n8n users with workflow create/execute rights could use the Git node&#39;s fetch, pull, or push-tags operations to bypass the repository-path containment checks that already protected clone and push. By pointing an allowlisted remote configuration value at a local path outside the intended sandbox, an attacker could pull an arbitrary local git repository into the workspace and subsequently read its files and history. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measure</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-8342-988q-86cr" target="_blank" rel="noopener">CVE-2026-72772</a>
         </td>
         <td>n8n</td>
@@ -637,28 +527,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-pf2q-pxhf-hgmw" target="_blank" rel="noopener">CVE-2026-72773</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>-</td>
-        <td class="mono">&gt;=2.32.0,&lt;2.32.1|&lt;2.31.5</td>
-        <td class="mono">2.32.1</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 구성 요소 `@n8n/computer-use` 파일 검색 도구는 검색을 구성된 기본 디렉터리로 제한했습니다. 조작된 검색 패턴은 제한 검사를 우회하고 해당 디렉터리 외부 위치로 확장하여 도구가 데몬의 OS 사용자가 읽을 수 있는 모든 위치에서 파일의 이름과 내용을 반환하도록 할 수 있습니다. 행위자가 도구의 검색 입력에 영향을 미칠 수 있는 모든 배포가 영향을 받았습니다. 그 결과 의도한 샌드박스 외부의 임의 로컬 파일이 공개되었습니다. ## 패치 이 문제는 n8n 버전 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이러한 버전 중 하나로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - 인스턴스가 패치될 때까지 &#39;컴퓨터 사용&#39; 패키지를 사용하는 AI 에이전트 워크플로를 비활성화하거나 제거합니다. - n8n 프로세스가 낮은 권한의 전용 사용자로 실행되는지 확인하세요.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact The component `@n8n/computer-use` file-search tool confined searches to a configured base directory. A crafted search pattern could bypass the confinement check and expand to locations outside that directory, causing the tool to return the names and contents of files anywhere the daemon&#39;s OS user could read. Any deployment where an actor could influence the tool&#39;s search input was affected; the result was disclosure of arbitrary local files outside the intended sandbox. ## Patches The issue has been fixed in n8n versions 2.31.5 and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable or remove AI agent workflows that use the `computer-use` package until the instance is patched. - Ensure the n8n process runs under a dedicated low-privilege user</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6qc9-mqvw-jg7x" target="_blank" rel="noopener">CVE-2026-72774</a>
         </td>
         <td>n8n</td>
@@ -676,28 +544,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact An authenticated member with edit access to a shared workflow could reference another user&#39;s credential in an HTTP Request node while specifying the credential type through an expression. Because the pre-execution permission check compared the unresolved expression instead of the real credential type, the ownership check was skipped and the credential was loaded at execution time, letting the member use or exfiltrate a credential they were never granted. Exploitation required knowing the target credential&#39;s identifier. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5, and 2.32.1. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Exclude the HTTP Request node by adding `n8n-nodes-base.httpRequest` to the `NODES_EXCLUDE` environment varia</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jqwr-vx3p-r266" target="_blank" rel="noopener">CVE-2026-72775</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>-</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.32.0,&lt;2.32.1|&gt;=2.0.0-rc.0,&lt;2.31.5</td>
-        <td class="mono">1.123.67</td>
-        <td>-</td>
-        <td class="mono">20260722</td>
-        <td class="mono">20260812</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 영향 Postgres Trigger 노드는 적절한 이스케이프 처리 없이 사용자가 제공한 식별자 매개 변수(채널, 함수 및 트리거 이름)를 SQL 문에 삽입하여 인증된 사용자가 구성된 자격 증명의 권한으로 연결된 PostgreSQL 데이터베이스에 대해 실행되는 임의 SQL을 주입할 수 있었습니다. 성공적으로 활용하면 연결된 PostgreSQL 데이터베이스에 대한 전체 읽기 및 쓰기 액세스가 허용됩니다. ## 패치 이 문제는 n8n 버전 1.123.67, 2.31.5 및 2.32.1에서 수정되었습니다. 취약점을 해결하려면 사용자는 이 버전 이상으로 업그레이드해야 합니다. ## 해결 방법 업그레이드가 즉시 가능하지 않은 경우 관리자는 다음과 같은 임시 완화 방법을 고려해야 합니다. - 완전히 신뢰할 수 있는 사용자에게만 n8n 인스턴스 액세스를 제한합니다. - `NODES_EXCLUDE` 환경 변수에 `n8n-nodes-base.postgresTrigger`를 추가하여 PostgresTrigger 노드를 비활성화합니다. - n8n과 함께 사용되는 PostgreSQL 자격 증명이 최소 필수 권한으로 구성되어 있고 SUPER를 사용하지 않는지 확인하세요.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Impact The Postgres Trigger node interpolated user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping, so an authenticated user could inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential&#39;s privileges. Successful exploitation allows full read and write access to the connected PostgreSQL database. ## Patches The issue has been fixed in n8n versions 1.123.67, 2.31.5 and 2.32.1. Users should upgrade to these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the PostgresTrigger node by adding `n8n-nodes-base.postgresTrigger` to the `NODES_EXCLUDE` environment variable. - Ensure PostgreSQL credentials used with n8n are configured with the minimum required privileges and do not use SUPER</div>
           </details>
         </td>
       </tr>
