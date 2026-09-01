@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
+    <div class="stamp">최종 생성 2026-09-01 22:59:33</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (6건)</h2>
+<h2>이 회차 CVE (5건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -170,28 +170,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Deserialization of Untrusted Data in Hugging Face Transformers Hugging Face Transformers Trax Model Deserialization of Untrusted Data Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Hugging Face Transformers. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file. The specific flaw exists within the handling of model files. The issue results from the lack of proper validation of user-supplied data, which can result in deserialization of untrusted data. An attacker can leverage this vulnerability to execute code in the context of the current user. Was ZDI-CAN-25012.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/python-pillow/Pillow/commit/3cb854e8b2bab43f40e342e665f9340d861aa628" target="_blank" rel="noopener">CVE-2026-40192</a>
-        </td>
-        <td>Pillow</td>
-        <td>python</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=10.3.0,&lt;12.2.0</td>
-        <td class="mono">12.2.0</td>
-        <td>-</td>
-        <td class="mono">20260415</td>
-        <td class="mono">20260821</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Pillow는 Python 이미징 라이브러리입니다. 버전 10.3.0부터 12.1.1까지는 FITS 이미지를 디코딩할 때 읽는 GZIP 압축 데이터의 양을 제한하지 않아 압축 해제 폭탄 공격에 취약해졌습니다. 특별히 제작된 FITS 파일은 무제한 메모리 소비를 유발하여 서비스 거부(OOM 충돌 또는 심각한 성능 저하)로 이어질 수 있습니다. 사용자가 즉시 업그레이드할 수 없는 경우 해결 방법으로 FITS를 제외한 특정 이미지 형식만 열어야 합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.</div>
           </details>
         </td>
       </tr>

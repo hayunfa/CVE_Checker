@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
+    <div class="stamp">최종 생성 2026-09-01 22:59:33</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (9건)</h2>
+<h2>이 회차 CVE (8건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -170,28 +170,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Summary The `VideoMediaIO.load_base64()` method at `vllm/multimodal/media/video.py:51-62` splits `video/jpeg` data URLs by comma to extract individual JPEG frames, but does not enforce a frame count limit. The `num_frames` parameter (default: 32), which is enforced by the `load_bytes()` code path at line 47-48, is completely bypassed in the `video/jpeg` base64 path. An attacker can send a single API request containing thousands of comma-separated base64-encoded JPEG frames, causing the server to decode all frames into memory and crash with OOM. ## Details ### Vulnerable code ```python # video.py:51-62 def load_base64(self, media_type: str, data: str) -&gt; tuple[npt.NDArray, dict[str, Any]]: if media_type.lower() == &#34;video/jpeg&#34;: load_frame = partial(self.image_io.load_base64, &#34;image/jpeg&#34;) return np.stack( [np.asarray(load_frame(frame_data)) for frame_data in data.split(&#34;,&#34;)] # ^^^^^^^^^^ # Unbounded split — no frame count limit ), {} return self.load_bytes(base64.b64decode(data)) ```</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-41523" target="_blank" rel="noopener">CVE-2026-41523</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td>-</td>
-        <td class="mono">20260616</td>
-        <td class="mono">20260826</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### 요약 vLLM 활성화 함수 로딩의 `assert` 기반 보안 검사를 사용하면 vLLM이 Python 최적화 모드(`python -O` 또는 `PYTHONOPTIMIZE=1`)에서 실행될 때 인증되지 않은 공격자가 악의적인 HuggingFace 모델을 게시하여 서버에서 임의 코드 실행을 달성할 수 있습니다. ### 세부 정보 vLLM은 HuggingFace 모델의 `config.json`에서 로드할 수 있는 활성화 함수를 제한하기 위해 [`vllm/model_executor/layers/pooler/activations.py:48`](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/pooler/activations.py#L48)의 `assert` 문을 유일한 보안 제어로 사용합니다. ```python # vllm/model_executor/layers/pooler/activations.py:35-53 function_name: str | None = None if( hasattr(config, &#34;sentence_transformers&#34;) 및 config.sentence_transformers의 &#34;activation_fn&#34;): function_name = config.sentence_transformers[&#34;activation_fn&#34;] elif( hasattr(config, &#34;sbert_ce_default_activation_function&#34;) 및 config.sbert_ce_default_activation_function이 아님
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">### Summary An `assert`-based security check in vLLM&#39;s activation function loading allows any unauthenticated attacker to achieve arbitrary code execution on the server by publishing a malicious HuggingFace model, when vLLM runs in Python optimized mode (`python -O` or `PYTHONOPTIMIZE=1`). ### Details vLLM uses an `assert` statement at [`vllm/model_executor/layers/pooler/activations.py:48`](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/pooler/activations.py#L48) as its sole security control to restrict which activation functions can be loaded from a HuggingFace model&#39;s `config.json`: ```python # vllm/model_executor/layers/pooler/activations.py:35-53 function_name: str | None = None if ( hasattr(config, &#34;sentence_transformers&#34;) and &#34;activation_fn&#34; in config.sentence_transformers ): function_name = config.sentence_transformers[&#34;activation_fn&#34;] elif ( hasattr(config, &#34;sbert_ce_default_activation_function&#34;) and config.sbert_ce_default_activation_function is not </div>
           </details>
         </td>
       </tr>

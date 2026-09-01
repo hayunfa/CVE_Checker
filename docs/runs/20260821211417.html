@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-01 00:16:21</div>
+    <div class="stamp">최종 생성 2026-09-01 22:59:33</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (19건)</h2>
+<h2>이 회차 CVE (18건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -126,28 +126,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n: LDAP Email-Based Account Linking Allows Privilege Escalation and Account Takeover ## Impact When LDAP authentication is enabled, n8n automatically linked an LDAP identity to an existing local account if the LDAP email attribute matched the local account&#39;s email. An authenticated LDAP user who could control their own LDAP email attribute could set it to match another user&#39;s email — including an administrator&#39;s — and upon login gain full access to that account. The account linkage persisted even if the LDAP email was later reverted, resulting in a permanent account takeover. - LDAP authentication must be configured and active (non-default). ## Patches The issue has been fixed in n8n versions 2.4.0 and 1.121.0. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Disable LDAP authentication until the instance can be upgraded.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/pull/43426" target="_blank" rel="noopener">CVE-2026-48746</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&gt;=0.3.0,&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td>-</td>
-        <td class="mono">20260622</td>
-        <td class="mono">20260819</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.3.0부터 0.22.0까지 ASGI 웹 서버의 취약점과 해당 웹 서버에 대한 starlette의 신뢰로 인해 OpenAI API AuthenticationMiddleware의 인증 우회가 가능해졌습니다. 구성된 VLLM_API_KEY 또는 --api-key를 제공하지 않고도 API를 사용할 수 있습니다. 이 취약점은 0.22.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette&#39;s trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.</div>
           </details>
         </td>
       </tr>
