@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-03 22:59:49</div>
+    <div class="stamp">최종 생성 2026-09-04 22:44:44</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1685 OSV=0 NVD=32 GHSA=0 RANGE_RECOVERED=4 TRANSLATE=0건 번역 / 11건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (16건)</h2>
+<h2>이 회차 CVE (15건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -267,28 +267,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n-nodes-sqlite3 is a node for operating a local SQLite database from n8n. Prior to 1.0.0, nodes/SqliteNode/v1/SqliteV1.node.ts exposes the db_path database file path as a node parameter that permits data expressions from upstream workflow input. A workflow author who maps untrusted input to db_path can allow a remote attacker to select which SQLite file the n8n process opens, enabling traversal outside the intended database location and potentially reading, creating, or overwriting files accessible to the process. This issue is fixed in version 1.0.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-18-0-9-0-0-security-update-esa-2026-111/389495" target="_blank" rel="noopener">CVE-2026-72656</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260813</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Elasticsearch의 ES|QL 쿼리 처리에서 과도한 크기 값(CWE-789)을 사용한 메모리 할당은 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. ES|QL 쿼리를 제출할 수 있는 인증된 사용자는 평가를 통해 무제한의 힙 메모리를 할당하는 특별히 제작된 쿼리를 보낼 수 있으며, 이로 인해 수신 노드에서 사용 가능한 힙이 소진되고 노드를 사용할 수 없게 됩니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.</div>
           </details>
         </td>
       </tr>
