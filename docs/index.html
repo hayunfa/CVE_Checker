@@ -69,25 +69,25 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-04 22:44:44</div>
+    <div class="stamp">최종 생성 2026-09-05 22:34:20</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260904223815
+    <div><b>최근 실행</b> 20260905222902
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-09-04 22:38:15 ~ 2026-09-04 22:44:44</div>
+    <div class="muted">2026-09-05 22:29:02 ~ 2026-09-05 22:34:20</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
   <div class="card kpi"><div class="n">210</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">48</div><div class="l">최근 실행 수집</div></div>
-  <div class="card kpi"><div class="n">9</div><div class="l">신규</div></div>
-  <div class="card kpi"><div class="n">11</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">39</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
 </div>
 
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<h2>최근 실행 이력 (최대 24회)</h2>
+<h2>최근 실행 이력 (최대 25회)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -242,6 +242,20 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-09-05 22:29:02</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
+        <td class="mono" style="font-size:11px;">KEV=1695 OSV=16 NVD=29 GHSA=10 RANGE_RECOVERED=12 TRANSLATE=0건 번역 / 36건 실패</td>
+        <td>39</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td>0 / 0</td>
+        <td><a href="runs/20260905222902.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-09-04 22:38:15</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -602,7 +616,7 @@
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (48건)</h2>
+<h2>최근 실행의 신규·변경 CVE (39건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -638,19 +652,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/ray-project/ray" target="_blank" rel="noopener">CVE-2026-32981</a>
-        </td>
-        <td>Ray</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;2.8.1</td>
-        <td class="mono">2.8.1</td>
-        <td class="mono">20260317</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="A path traversal vulnerability was identified in Ray Dashboard (default port 8265) in Ray versions prior to 2.8.1. Due to improper validation and sanitization of user-supplied paths in the static file handling mechanism, an attacker can use traversal sequences (e.g., ../) to access files outside the intended static directory, resulting in local file disclosure.">A path traversal vulnerability was identified in Ray Dashboard (default port 8265) in Ray versions prior to 2.8.1. Due to improper validation and sanitization of user-supplied paths in the static file handling mechanism, an attacker can use traversal sequences (e.g., ../) to access files outside the intended static directory, resulting in local file disclosure.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
         </td>
         <td>gRPC</td>
@@ -674,19 +675,6 @@
         <td class="mono">20260707</td>
         <td>OSV+GHSA</td>
         <td class="wrap-cell" title="Apache Airflow allows code execution through unsafe serialized DAG deserialization A bug in `BaseSerialization.deserialize()` allowed unrestricted `import_string()` of attacker-controlled class paths when the Scheduler / API Server loaded a serialized DAG: a DAG author could embed a malicious trigger into a DAG to gain remote code execution on the API Server / Scheduler process, crossing the Airflow security boundary that DAG-author code must never execute in those processes. Users are advised to upgrade to `apache-airflow` 3.3.0 or later. As a defense-in-depth mitigation, deployments where DAG-author trust is limited can restrict the `[core] allowed_deserialization_classes` config to a narrow allowlist.">Apache Airflow allows code execution through unsafe serialized DAG deserialization A bug in `BaseSerialization.deserialize()` allowed unrestricted `import_string()` of attacker-controlled class paths when the Scheduler / API Server loaded a serialized DAG: a DAG author could embed a malicious trigger into a DAG to gain remote code execution on the API Server / Scheduler process, crossing the Airflow security boundary that DAG-author code must never execute in those processes. Users are advised to upgrade to `apache-airflow` 3.3.0 or later. As a defense-in-depth mitigation, deployments where DAG-author trust is limited can restrict the `[core] allowed_deserialization_classes` config to a narrow allowlist.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc-ecosystem/grpc-gateway" target="_blank" rel="noopener">CVE-2026-37236</a>
-        </td>
-        <td>gRPC</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.8</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] grpc-gateway v2.28.0 is vulnerable to Incorrect Access Control. The application processes the X-HTTP-Method-Override header in ServeMux.ServeHTTP without restricting allowed methods. When a POST request with Content-Type application/x-www-form-urlencoded includes this header, the request method is rewritten to an arbitrary attacker-supplied value before routing. This allows bypassing method-based access controls enforced by upstream proxies or WAFs.">[버전범위 불명확] grpc-gateway v2.28.0 is vulnerable to Incorrect Access Control. The application processes the X-HTTP-Method-Override header in ServeMux.ServeHTTP without restricting allowed methods. When a POST request with Content-Type application/x-www-form-urlencoded includes this header, the request method is rewritten to an arbitrary attacker-supplied value before routing. This allows bypassing method-based access controls enforced by upstream proxies or WAFs.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -752,32 +740,6 @@
         <td class="mono">20260714</td>
         <td>NVD</td>
         <td class="wrap-cell" title="NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker can cause uncontrolled resource consumption. A successful exploit of this vulnerability might lead to denial of service.">NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker can cause uncontrolled resource consumption. A successful exploit of this vulnerability might lead to denial of service.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47606</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;=26.05</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an absolute path traversal. A successful exploit might lead to code execution and information disclosure.">Linux용 NVIDIA Triton 추론 서버에는 공격자가 절대 경로 통과를 유발할 수 있는 취약점이 포함되어 있습니다. 공격이 성공하면 코드가 실행되고 정보가 공개될 수 있습니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5865" target="_blank" rel="noopener">CVE-2026-47627</a>
-        </td>
-        <td>Triton Inference Server</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.8</td>
-        <td class="mono">&lt;=26.05</td>
-        <td class="mono">-</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause path traversal. A successful exploit might lead to denial of service.">Linux용 NVIDIA Triton 추론 서버에는 공격자가 경로 통과를 유발할 수 있는 취약점이 포함되어 있습니다. 공격이 성공하면 서비스 거부가 발생할 수 있습니다.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -911,19 +873,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-114/390087" target="_blank" rel="noopener">CVE-2026-72649</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=8.0.0,&lt;8.19.20|&gt;=9.0.0,&lt;9.4.5|==9.5.0</td>
-        <td class="mono">-</td>
-        <td class="mono">20260901</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="Deserialization of Untrusted Data (CWE-502) in the Elasticsearch machine learning component can lead to remote code execution via Object Injection (CAPEC-586). A specially crafted trained model artifact could cause attacker-controlled logic to execute with a materially broader system-call surface than intended. Exploitation requires an authenticated user with sufficient privileges to create and deploy trained models.">Deserialization of Untrusted Data (CWE-502) in the Elasticsearch machine learning component can lead to remote code execution via Object Injection (CAPEC-586). A specially crafted trained model artifact could cause attacker-controlled logic to execute with a materially broader system-call surface than intended. Exploitation requires an authenticated user with sufficient privileges to create and deploy trained models.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://discuss.elastic.co/t/elasticsearch-8-18-0-9-0-0-security-update-esa-2026-111/389495" target="_blank" rel="noopener">CVE-2026-72656</a>
         </td>
         <td>Elasticsearch</td>
@@ -989,32 +938,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-141/390092" target="_blank" rel="noopener">CVE-2026-78605</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.9</td>
-        <td class="mono">&gt;=8.18.0,&lt;8.19.20|&gt;=9.0.0,&lt;9.4.5|==9.5.0</td>
-        <td class="mono">-</td>
-        <td class="mono">20260901</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="Inconsistent Interpretation of HTTP Requests (&#39;HTTP Request Smuggling&#39;) (CWE-444) in Elasticsearch can lead to information disclosure via HTTP Request Smuggling (CAPEC-33). Under specific proxy deployment configurations, a network attacker could obtain confidential responses intended for other authenticated users.">Inconsistent Interpretation of HTTP Requests (&#39;HTTP Request Smuggling&#39;) (CWE-444) in Elasticsearch can lead to information disclosure via HTTP Request Smuggling (CAPEC-33). Under specific proxy deployment configurations, a network attacker could obtain confidential responses intended for other authenticated users.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-19-9-3-8-9-4-4-9-5-1-security-update-esa-2026-143/390094" target="_blank" rel="noopener">CVE-2026-78607</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.4</td>
-        <td class="mono">&gt;=8.0.0,&lt;8.19.19|&gt;=9.0.0,&lt;9.3.8|&gt;=9.4.0,&lt;9.4.4|==9.5.0</td>
-        <td class="mono">-</td>
-        <td class="mono">20260901</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="Missing Authorization (CWE-862) in the Elasticsearch custom inference service can lead to information disclosure via Privilege Abuse (CAPEC-122). A user holding only inference execution privileges could cause outbound inference traffic to be directed to a destination of their choosing and could cause administrator-provisioned credentials to be exposed.">Missing Authorization (CWE-862) in the Elasticsearch custom inference service can lead to information disclosure via Privilege Abuse (CAPEC-122). A user holding only inference execution privileges could cause outbound inference traffic to be directed to a destination of their choosing and could cause administrator-provisioned credentials to be exposed.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">CVE-2026-80047</a>
         </td>
         <td>Transformers</td>
@@ -1025,32 +948,6 @@
         <td class="mono">20260901</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] A vulnerability in Hugging Face Transformers (versions &gt;= 4.49.0 and &lt;= 5.8.1) allows remote Python files to be written to local disk without user consent when using GenerativePreTrainedModel.load_custom_generate(). The function fetches and caches a remote module file before performing the required trust_remote_code consent check, inverting the security model enforced by other code-loading paths (such as AutoConfig, AutoModel, and AutoTokenizer). As a result, attacker‑controlled Python code from custom_generate/generate.py is copied into the user’s ~/.cache/huggingface/modules directory even if the user declines the trust prompt. Although execution is correctly gated, the file write is not reversible and can persist across sessions. This can lead to persistent, unauthorized files on disk and stale cache collisions where cached attacker code may later be executed during trusted model loads. The issue stems from an unconditional file write in dynamic_module_utils.py prior to a">[버전범위 불명확] A vulnerability in Hugging Face Transformers (versions &gt;= 4.49.0 and &lt;= 5.8.1) allows remote Python files to be written to local disk without user consent when using GenerativePreTrainedModel.load_custom_generate(). The function fetches and caches a remote module file before performing the required trust_remote_code consent check, inverting the security model enforced by other code-loading paths (such as AutoConfig, AutoModel, and AutoTokenizer). As a result, attacker‑controlled Python code from custom_generate/generate.py is copied into the user’s ~/.cache/huggingface/modules directory even if the user declines the trust prompt. Although execution is correctly gated, the file write is not reversible and can persist across sessions. This can lead to persistent, unauthorized files on disk and stale cache collisions where cached attacker code may later be executed during trusted model loads. The issue stems from an unconditional file write in dynamic_module_utils.py prior to a</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc/grpc-go/commit/db9482836c298f234c896cf82ab68cafc78237f8" target="_blank" rel="noopener">CVE-2026-84303</a>
-        </td>
-        <td>gRPC</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.3</td>
-        <td class="mono">&lt;1.83.1</td>
-        <td class="mono">1.83.1</td>
-        <td class="mono">20260901</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, the xDS RBAC HTTP filter in internal/xds/httpfilter/rbac/rbac.go does not lowercase header matcher names in normalizeHeaderMatcher even though incoming metadata keys are lowercase. A DENY policy using a mixed-case name such as X-Role or User-Agent therefore does not match and fails open, allowing requests that should be rejected. The same case mismatch permits :Scheme or Grpc-Status to evade gRFC A41 validation and prevents Host from being rewritten to :authority. This issue is fixed in version 1.83.1.">gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, the xDS RBAC HTTP filter in internal/xds/httpfilter/rbac/rbac.go does not lowercase header matcher names in normalizeHeaderMatcher even though incoming metadata keys are lowercase. A DENY policy using a mixed-case name such as X-Role or User-Agent therefore does not match and fails open, allowing requests that should be rejected. The same case mismatch permits :Scheme or Grpc-Status to evade gRFC A41 validation and prevents Host from being rewritten to :authority. This issue is fixed in version 1.83.1.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/OpenAtomFoundation/pikiwidb" target="_blank" rel="noopener">CVE-2026-84700</a>
-        </td>
-        <td>protobuf</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.6</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260902</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] PikiwiDB (Pika) v3.5.7 exposes an internal protobuf replication server on a port derived from the client port plus 2000 (e.g. 11221 when the default client port 9221 is used) that does not authenticate incoming requests. Although requirepass is intended to gate replication — a slave presents it as masterauth inside its MetaSync request — only the MetaSync handler (HandleMetaSyncRequest) validates it; the frame dispatcher (DealMessage) does not require a completed or attempted MetaSync before routing other message types to their handlers. As a result, an unauthenticated remote attacker can connect directly to the replication port and issue TrySync, DBSync, BinlogSync, and RemoveSlaveNode requests, obtaining the full-sync snapshot and live write stream and removing replica nodes, even when requirepass is configured.">[버전범위 불명확] PikiwiDB (Pika) v3.5.7 exposes an internal protobuf replication server on a port derived from the client port plus 2000 (e.g. 11221 when the default client port 9221 is used) that does not authenticate incoming requests. Although requirepass is intended to gate replication — a slave presents it as masterauth inside its MetaSync request — only the MetaSync handler (HandleMetaSyncRequest) validates it; the frame dispatcher (DealMessage) does not require a completed or attempted MetaSync before routing other message types to their handlers. As a result, an unauthenticated remote attacker can connect directly to the replication port and issue TrySync, DBSync, BinlogSync, and RemoveSlaveNode requests, obtaining the full-sync snapshot and live write stream and removing replica nodes, even when requirepass is configured.</td>
       </tr>
       <tr>
         <td class="mono">
