@@ -69,23 +69,23 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-05 22:34:20</div>
+    <div class="stamp">최종 생성 2026-09-06 22:37:11</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260905222902
+    <div><b>최근 실행</b> 20260906223341
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-09-05 22:29:02 ~ 2026-09-05 22:34:20</div>
+    <div class="muted">2026-09-06 22:33:41 ~ 2026-09-06 22:37:11</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
   <div class="card kpi"><div class="n">210</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">39</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">24</div><div class="l">최근 실행 수집</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">신규</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<h2>최근 실행 이력 (최대 25회)</h2>
+<h2>최근 실행 이력 (최대 26회)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -242,6 +242,20 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-09-06 22:33:41</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
+        <td class="mono" style="font-size:11px;">KEV=1695 OSV=14 NVD=14 GHSA=9 RANGE_RECOVERED=3 TRANSLATE=0건 번역 / 21건 실패</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td>0 / 0</td>
+        <td><a href="runs/20260906223341.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-09-05 22:29:02</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -616,7 +630,7 @@
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (39건)</h2>
+<h2>최근 실행의 신규·변경 CVE (24건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -636,19 +650,6 @@
         <td class="mono">20260330</td>
         <td>NVD</td>
         <td class="wrap-cell" title="A command injection vulnerability exists in MLflow&#39;s model serving container initialization code, specifically in the `_install_model_dependencies_to_env()` function. When deploying a model with `env_manager=LOCAL`, MLflow reads dependency specifications from the model artifact&#39;s `python_env.yaml` file and directly interpolates them into a shell command without sanitization. This allows an attacker to supply a malicious model artifact and achieve arbitrary command execution on systems that deploy the model. The vulnerability affects versions 3.8.0 and is fixed in version 3.8.2.">A command injection vulnerability exists in MLflow&#39;s model serving container initialization code, specifically in the `_install_model_dependencies_to_env()` function. When deploying a model with `env_manager=LOCAL`, MLflow reads dependency specifications from the model artifact&#39;s `python_env.yaml` file and directly interpolates them into a shell command without sanitization. This allows an attacker to supply a malicious model artifact and achieve arbitrary command execution on systems that deploy the model. The vulnerability affects versions 3.8.0 and is fixed in version 3.8.2.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/zenml-io/zenml/commit/8a2214bdd63eb8200ce4719d82c6f0d935e922d1" target="_blank" rel="noopener">CVE-2026-11922</a>
-        </td>
-        <td>Uvicorn</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.57.0,&lt;=0.94.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260724</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="A vulnerability in zenml-io/zenml versions 0.57.0 through 0.94.2 allows an attacker to bypass rate-limiting on the `POST /api/v1/login` and self password-change endpoints by rotating the `X-Forwarded-For` header. The rate limiter keys requests by `request.client.host`, which is derived from the `X-Forwarded-For` header when Uvicorn is launched with `--proxy-headers --forwarded-allow-ips *`. This configuration allows clients to control the value of `request.client.host`, effectively bypassing rate-limiting protections. This vulnerability leaves the affected endpoints open to unthrottled credential guessing attacks.">A vulnerability in zenml-io/zenml versions 0.57.0 through 0.94.2 allows an attacker to bypass rate-limiting on the `POST /api/v1/login` and self password-change endpoints by rotating the `X-Forwarded-For` header. The rate limiter keys requests by `request.client.host`, which is derived from the `X-Forwarded-For` header when Uvicorn is launched with `--proxy-headers --forwarded-allow-ips *`. This configuration allows clients to control the value of `request.client.host`, effectively bypassing rate-limiting protections. This vulnerability leaves the affected endpoints open to unthrottled credential guessing attacks.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -686,7 +687,7 @@
         <td class="mono">&lt;0.22.0</td>
         <td class="mono">0.22.0</td>
         <td class="mono">20260622</td>
-        <td>NVD+OSV+GHSA</td>
+        <td>NVD</td>
         <td class="wrap-cell" title="vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.0, an assert-based security check in vLLM&#39;s activation function loading allows any unauthenticated attacker to achieve arbitrary code execution on the server by publishing a malicious HuggingFace model, when vLLM runs in Python optimized mode (python -O or PYTHONOPTIMIZE=1). This vulnerability is fixed in 0.22.0.">vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.22.0 이전에는 vLLM 활성화 함수 로딩의 어설션 기반 보안 검사를 통해 vLLM이 Python 최적화 모드(python -O 또는 PYTHONOPTIMIZE=1)에서 실행될 때 인증되지 않은 공격자가 악의적인 HuggingFace 모델을 게시하여 서버에서 임의 코드 실행을 달성할 수 있었습니다. 이 취약점은 0.22.0에서 수정되었습니다.</td>
       </tr>
       <tr>
@@ -714,19 +715,6 @@
         <td class="mono">20260506</td>
         <td>OSV</td>
         <td class="wrap-cell" title="### Summary The `extract_hidden_states` speculative decoding proposer in vLLM returns a tensor with an incorrect shape after the first decode step, causing a `RuntimeError` that crashes the EngineCore process. The crash is triggered when any request in the batch uses sampling penalty parameters (`repetition_penalty`, `frequency_penalty`, or `presence_penalty`). A single request with a penalty parameter (e.g., `&#34;repetition_penalty&#34;: 1.1`) is sufficient to crash the server. The crash is deterministic and immediate — no concurrency, race condition, or special workload is required. ### Details In vLLM v0.17.0, the `extract_hidden_states` proposer&#39;s `propose()` method returned `sampled_token_ids.unsqueeze(-1)`, producing a tensor of shape `(batch_size, 1)`. In [PR #37013](https://github.com/vllm-project/vllm/pull/37013) (first released in v0.18.0), the KV connector interface was refactored out of `propose()`. The return type changed from `tuple[Tensor, KVConnectorOutput | None]` to `Tensor`">### Summary The `extract_hidden_states` speculative decoding proposer in vLLM returns a tensor with an incorrect shape after the first decode step, causing a `RuntimeError` that crashes the EngineCore process. The crash is triggered when any request in the batch uses sampling penalty parameters (`repetition_penalty`, `frequency_penalty`, or `presence_penalty`). A single request with a penalty parameter (e.g., `&#34;repetition_penalty&#34;: 1.1`) is sufficient to crash the server. The crash is deterministic and immediate — no concurrency, race condition, or special workload is required. ### Details In vLLM v0.17.0, the `extract_hidden_states` proposer&#39;s `propose()` method returned `sampled_token_ids.unsqueeze(-1)`, producing a tensor of shape `(batch_size, 1)`. In [PR #37013](https://github.com/vllm-project/vllm/pull/37013) (first released in v0.18.0), the KV connector interface was refactored out of `propose()`. The return type changed from `tuple[Tensor, KVConnectorOutput | None]` to `Tensor`</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45360" target="_blank" rel="noopener">CVE-2026-45360</a>
-        </td>
-        <td>Airflow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.3</td>
-        <td class="mono">&gt;=3.2.0,&lt;3.2.2</td>
-        <td class="mono">3.2.2</td>
-        <td class="mono">20260601</td>
-        <td>OSV</td>
-        <td class="wrap-cell" title="Apache Airflow&#39;s scheduler-side deadline-reference decoder (`SerializedCustomReference.deserialize_reference`) imported and dispatched arbitrary class paths drawn from DAG-author-controlled serialized state without an allowlist or plugin-registry gate. A DAG author whose code reaches the scheduler — the default on single-host deployments where the DAG bundle is importable from the scheduler process — could embed a custom `DeadlineReference` whose serialized form named an attacker-controlled module path, causing the scheduler to `import_string(...)` and instantiate that class with a live SQLAlchemy session attached. Affects deployments where DAG-author code is less trusted than the scheduler process. Users are advised to upgrade to `apache-airflow` 3.2.2 or later.">Apache Airflow&#39;s scheduler-side deadline-reference decoder (`SerializedCustomReference.deserialize_reference`) imported and dispatched arbitrary class paths drawn from DAG-author-controlled serialized state without an allowlist or plugin-registry gate. A DAG author whose code reaches the scheduler — the default on single-host deployments where the DAG bundle is importable from the scheduler process — could embed a custom `DeadlineReference` whose serialized form named an attacker-controlled module path, causing the scheduler to `import_string(...)` and instantiate that class with a live SQLAlchemy session attached. Affects deployments where DAG-author code is less trusted than the scheduler process. Users are advised to upgrade to `apache-airflow` 3.2.2 or later.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -860,19 +848,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-72560</a>
-        </td>
-        <td>Label Studio</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;=1.24.0.dev0</td>
-        <td class="mono">-</td>
-        <td class="mono">20260811</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="A server-side request forgery vulnerability in HumanSignal Label Studio through 1.24.0.dev0 exists because SSRF_PROTECTION_ENABLED is set to false by default. The import-from-URL endpoint fetches any caller-supplied URL including internal loopback addresses on the default installation. An authenticated user can use this to reach internal services, cloud metadata endpoints, and other resources not intended for external access.">A server-side request forgery vulnerability in HumanSignal Label Studio through 1.24.0.dev0 exists because SSRF_PROTECTION_ENABLED is set to false by default. The import-from-URL endpoint fetches any caller-supplied URL including internal loopback addresses on the default installation. An authenticated user can use this to reach internal services, cloud metadata endpoints, and other resources not intended for external access.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://discuss.elastic.co/t/elasticsearch-8-18-0-9-0-0-security-update-esa-2026-111/389495" target="_blank" rel="noopener">CVE-2026-72656</a>
         </td>
         <td>Elasticsearch</td>
@@ -883,19 +858,6 @@
         <td class="mono">20260813</td>
         <td>NVD</td>
         <td class="wrap-cell" title="Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.">Elasticsearch의 ES|QL 쿼리 처리에서 과도한 크기 값(CWE-789)을 사용한 메모리 할당은 과도한 할당(CAPEC-130)을 통해 서비스 거부로 이어질 수 있습니다. ES|QL 쿼리를 제출할 수 있는 인증된 사용자는 평가를 통해 무제한의 힙 메모리를 할당하는 특별히 제작된 쿼리를 보낼 수 있으며, 이로 인해 수신 노드에서 사용 가능한 힙이 소진되고 노드를 사용할 수 없게 됩니다.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jqwr-vx3p-r266" target="_blank" rel="noopener">CVE-2026-72775</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.31.0,&lt;2.31.5|==2.32.0</td>
-        <td class="mono">-</td>
-        <td class="mono">20260811</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the PostgresTrigger node, which interpolates user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping. An authenticated user can inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential&#39;s privileges, allowing full read and write access.">n8n before 1.123.67, 2.31.5, and 2.32.1 contains a SQL injection vulnerability in the PostgresTrigger node, which interpolates user-supplied identifier parameters (channel, function, and trigger names) into SQL statements without proper escaping. An authenticated user can inject arbitrary SQL executed against the connected PostgreSQL database with the configured credential&#39;s privileges, allowing full read and write access.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -938,71 +900,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">CVE-2026-80047</a>
-        </td>
-        <td>Transformers</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260901</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] A vulnerability in Hugging Face Transformers (versions &gt;= 4.49.0 and &lt;= 5.8.1) allows remote Python files to be written to local disk without user consent when using GenerativePreTrainedModel.load_custom_generate(). The function fetches and caches a remote module file before performing the required trust_remote_code consent check, inverting the security model enforced by other code-loading paths (such as AutoConfig, AutoModel, and AutoTokenizer). As a result, attacker‑controlled Python code from custom_generate/generate.py is copied into the user’s ~/.cache/huggingface/modules directory even if the user declines the trust prompt. Although execution is correctly gated, the file write is not reversible and can persist across sessions. This can lead to persistent, unauthorized files on disk and stale cache collisions where cached attacker code may later be executed during trusted model loads. The issue stems from an unconditional file write in dynamic_module_utils.py prior to a">[버전범위 불명확] A vulnerability in Hugging Face Transformers (versions &gt;= 4.49.0 and &lt;= 5.8.1) allows remote Python files to be written to local disk without user consent when using GenerativePreTrainedModel.load_custom_generate(). The function fetches and caches a remote module file before performing the required trust_remote_code consent check, inverting the security model enforced by other code-loading paths (such as AutoConfig, AutoModel, and AutoTokenizer). As a result, attacker‑controlled Python code from custom_generate/generate.py is copied into the user’s ~/.cache/huggingface/modules directory even if the user declines the trust prompt. Although execution is correctly gated, the file write is not reversible and can persist across sessions. This can lead to persistent, unauthorized files on disk and stale cache collisions where cached attacker code may later be executed during trusted model loads. The issue stems from an unconditional file write in dynamic_module_utils.py prior to a</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://gist.github.com/TrebledJ/0e8466e5c39a6fb7dca8a3acdfbe2ddc#file-cvd_dify_vuln1_20260705-md" target="_blank" rel="noopener">CVE-2026-85021</a>
-        </td>
-        <td>Dify</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] A vulnerability was determined in langgenius dify 1.13.0. Affected is the function router.replace of the file web/app/(shareLayout)/components/splash.tsx of the component Splash Layout. This manipulation of the argument redirect_url causes cross site scripting. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.">[버전범위 불명확] A vulnerability was determined in langgenius dify 1.13.0. Affected is the function router.replace of the file web/app/(shareLayout)/components/splash.tsx of the component Splash Layout. This manipulation of the argument redirect_url causes cross site scripting. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-fg85-4wv2-p98j" target="_blank" rel="noopener">CVE-2026-85165</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.2</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n versions before 2.36.2 contain an expression sandbox bypass vulnerability where free identifiers in spread, computed-key, switch-case, or class-extension positions resolve against process globals. Authenticated users with workflow-edit permission can mutate host objects through expression evaluation, with changes persisting process-wide until restart.">n8n versions before 2.36.2 contain an expression sandbox bypass vulnerability where free identifiers in spread, computed-key, switch-case, or class-extension positions resolve against process globals. Authenticated users with workflow-edit permission can mutate host objects through expression evaluation, with changes persisting process-wide until restart.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-4r56-g65c-fm83" target="_blank" rel="noopener">CVE-2026-85166</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.2</td>
-        <td class="mono">&lt;2.35.4|&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n before 2.35.4 and 2.36.x before 2.36.2 does not validate credential references in the inline workflow JSON of nodes that execute an inline sub-workflow (e.g., the Workflow Tool node). A shared-workflow editor, or any user creating/updating a workflow via the REST API, Public API, or MCP, can persist a node referencing a credential they do not own. When the workflow is later executed under an identity that holds the credential, the inline sub-workflow resolves the secret and can send it to an attacker-controlled endpoint, resulting in credential exfiltration.">n8n before 2.35.4 and 2.36.x before 2.36.2 does not validate credential references in the inline workflow JSON of nodes that execute an inline sub-workflow (e.g., the Workflow Tool node). A shared-workflow editor, or any user creating/updating a workflow via the REST API, Public API, or MCP, can persist a node referencing a credential they do not own. When the workflow is later executed under an identity that holds the credential, the inline sub-workflow resolves the secret and can send it to an attacker-controlled endpoint, resulting in credential exfiltration.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-wxwj-8wv6-vpw2" target="_blank" rel="noopener">CVE-2026-85167</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.3</td>
-        <td class="mono">&lt;2.35.4|&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n before 2.35.4 and 2.36.x before 2.36.2 contain a query injection vulnerability in the Elasticsearch Document Get All and Google Cloud Firestore Document Query operations, which build their JSON query by interpolating expression values directly into the query string before parsing. A value containing quote and brace characters can close the intended field and introduce new query operators, turning an intended single-document lookup into a full-collection read.">n8n before 2.35.4 and 2.36.x before 2.36.2 contain a query injection vulnerability in the Elasticsearch Document Get All and Google Cloud Firestore Document Query operations, which build their JSON query by interpolating expression values directly into the query string before parsing. A value containing quote and brace characters can close the intended field and introduce new query operators, turning an intended single-document lookup into a full-collection read.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-mwp5-2m32-r54h" target="_blank" rel="noopener">CVE-2026-85168</a>
         </td>
         <td>n8n</td>
@@ -1029,58 +926,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-95ph-833c-4wrp" target="_blank" rel="noopener">CVE-2026-85170</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n versions before 1.123.73, 2.35.4, and 2.36.2 pass message content in the Gmail (v1) and Brevo nodes to the mail composer without verifying it is a string. An authenticated user able to run a workflow can supply an expression that resolves to an object carrying a path or href property, causing the composer to read a local file accessible to the n8n process or fetch an internal URL (SSRF) and attach the result to the outgoing message.">n8n versions before 1.123.73, 2.35.4, and 2.36.2 pass message content in the Gmail (v1) and Brevo nodes to the mail composer without verifying it is a string. An authenticated user able to run a workflow can supply an expression that resolves to an object carrying a path or href property, causing the composer to read a local file accessible to the n8n process or fetch an internal URL (SSRF) and attach the result to the outgoing message.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vrv8-j27g-g7cr" target="_blank" rel="noopener">CVE-2026-85171</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n before 1.123.73, 2.35.4, and 2.36.2 contains a credential exposure vulnerability in the Strapi, SeaTable, and Mailcheck nodes. These nodes send their decrypted credentials to the authentication endpoint via the raw legacy HTTP helper outside any error handling, causing the plaintext secret to be persisted in execution error data. Any authenticated user can read the plaintext secret from their own execution through the REST API, bypassing the blank-value redaction enforced by the credentials API.">n8n before 1.123.73, 2.35.4, and 2.36.2 contains a credential exposure vulnerability in the Strapi, SeaTable, and Mailcheck nodes. These nodes send their decrypted credentials to the authentication endpoint via the raw legacy HTTP helper outside any error handling, causing the plaintext secret to be persisted in execution error data. Any authenticated user can read the plaintext secret from their own execution through the REST API, bypassing the blank-value redaction enforced by the credentials API.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jp9j-jr97-w9pj" target="_blank" rel="noopener">CVE-2026-85172</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n versions before 2.34.1 contain a server-side request forgery vulnerability in the legacy request helper function exposed to Code and Function nodes. The validation logic checks the uri property for SSRF safety while the underlying HTTP client uses the url property when both are present, allowing attackers to bypass validation by supplying a safe uri alongside a malicious url to access internal addresses.">n8n versions before 2.34.1 contain a server-side request forgery vulnerability in the legacy request helper function exposed to Code and Function nodes. The validation logic checks the uri property for SSRF safety while the underlying HTTP client uses the url property when both are present, allowing attackers to bypass validation by supplying a safe uri alongside a malicious url to access internal addresses.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jmmj-93rg-6j39" target="_blank" rel="noopener">CVE-2026-85173</a>
-        </td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="n8n versions before 2.36.2 contain a missing per-project authorization vulnerability in the Insights API routes that allows authenticated users with insights scopes to access workflow names and execution statistics across projects. Attackers can supply arbitrary projectId parameters to retrieve sensitive project and workflow information from projects they have no membership in.">n8n versions before 2.36.2 contain a missing per-project authorization vulnerability in the Insights API routes that allows authenticated users with insights scopes to access workflow names and execution statistics across projects. Attackers can supply arbitrary projectId parameters to retrieve sensitive project and workflow information from projects they have no membership in.</td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-85179</a>
         </td>
         <td>Label Studio</td>
@@ -1091,32 +936,6 @@
         <td class="mono">20260903</td>
         <td>NVD</td>
         <td class="wrap-cell" title="Label Studio through 1.23.0 fails to validate webhook URLs, allowing authenticated users to dispatch requests to internal services including RFC 1918 addresses and cloud metadata endpoints. Attackers can create webhooks targeting private networks and exfiltrate annotation data by enabling payload transmission in outbound requests.">Label Studio through 1.23.0 fails to validate webhook URLs, allowing authenticated users to dispatch requests to internal services including RFC 1918 addresses and cloud metadata endpoints. Attackers can create webhooks targeting private networks and exfiltrate annotation data by enabling payload transmission in outbound requests.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">CVE-2026-85180</a>
-        </td>
-        <td>Ollama</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] Ollama fails to validate redirect destinations when pulling tensor-layer models, allowing unauthenticated attackers to redirect blob downloads to arbitrary hosts. An attacker can control a registry, serve a malicious tensor-layer manifest, and cause the server to issue GET requests to internal hosts including cloud metadata endpoints.">[버전범위 불명확] Ollama fails to validate redirect destinations when pulling tensor-layer models, allowing unauthenticated attackers to redirect blob downloads to arbitrary hosts. An attacker can control a registry, serve a malicious tensor-layer manifest, and cause the server to issue GET requests to internal hosts including cloud metadata endpoints.</td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-85211</a>
-        </td>
-        <td>Label Studio</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell" title="[버전범위 불명확] Label Studio fails to apply organization filters when resolving storage URIs for tasks and projects in proxy_api.py endpoints. Attackers can access other tenants&#39; cloud storage objects by creating a separate organization and supplying arbitrary file URIs to presign or stream bucket contents.">[버전범위 불명확] Label Studio fails to apply organization filters when resolving storage URIs for tasks and projects in proxy_api.py endpoints. Attackers can access other tenants&#39; cloud storage objects by creating a separate organization and supplying arbitrary file URIs to presign or stream bucket contents.</td>
       </tr>
       <tr>
         <td class="mono">
