@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-06 22:37:11</div>
+    <div class="stamp">최종 생성 2026-09-07 23:11:24</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1695 OSV=14 NVD=14 GHSA=9 RANGE_RECOVERED=3 TRANSLATE=0건 번역 / 21건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (24건)</h2>
+<h2>이 회차 CVE (22건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -120,28 +120,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           A command injection vulnerability exists in MLflow&#39;s model serving container initialization code, specifically in the `_install_model_dependencies_to_env()` function. When deploying a model with `env_manager=LOCAL`, MLflow reads dependency specifications from the model artifact&#39;s `python_env.yaml` file and directly interpolates them into a shell command without sanitization. This allows an attacker to supply a malicious model artifact and achieve arbitrary command execution on systems that deploy the model. The vulnerability affects versions 3.8.0 and is fixed in version 3.8.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
-        </td>
-        <td>gRPC</td>
-        <td>grpc</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&lt;1.79.3</td>
-        <td class="mono">1.79.3</td>
-        <td>-</td>
-        <td class="mono">20260320</td>
-        <td class="mono">20260904</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
-          </details>
         </td>
       </tr>
       <tr>
@@ -510,24 +488,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain an expression sandbox escape in the $fromAI handler. $fromAI resolved a caller-supplied placeholder name without requiring it to be an own property and admitted reserved keys; against a primitive input value it returned a live host-prototype reference. An attacker with workflow-build privilege can walk the prototype chain to the Function constructor and compile/execute arbitrary code in the main n8n process, leading to remote code execution.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-85179</a>
-        </td>
-        <td>Label Studio</td>
-        <td>HumanSignal</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.5</td>
-        <td class="mono">&lt;=1.23.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260905</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Label Studio through 1.23.0 fails to validate webhook URLs, allowing authenticated users to dispatch requests to internal services including RFC 1918 addresses and cloud metadata endpoints. Attackers can create webhooks targeting private networks and exfiltrate annotation data by enabling payload transmission in outbound requests.
         </td>
       </tr>
       <tr>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>실행 20260827002050 — AI CVE Watch</title>
+<title>실행 20260907230951 — AI CVE Watch</title>
 <style>
   :root {
     --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
@@ -76,16 +76,16 @@
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>실행 20260827002050</b>
+    <div><b>실행 20260907230951</b>
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-08-27 00:20:50 ~ 2026-08-27 00:22:50</div>
+    <div class="muted">2026-09-07 23:09:51 ~ 2026-09-07 23:11:24</div>
   </div>
   <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
 </div>
 
 <div class="grid">
-  <div class="card kpi"><div class="n">23</div><div class="l">수집</div></div>
-  <div class="card kpi"><div class="n">3</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">5</div><div class="l">수집</div></div>
+  <div class="card kpi"><div class="n">2</div><div class="l">신규</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘림</div></div>
   <div class="card kpi"><div class="n">3</div><div class="l">메일 성공</div></div>
@@ -93,13 +93,13 @@
 </div>
 
 <div class="card">
-  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1682 OSV=3 NVD=22 GHSA=2 RANGE_RECOVERED=10 TRANSLATE=0건 번역 / 7건 실패</span></div>
+  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1695 OSV=0 NVD=5 GHSA=0 RANGE_RECOVERED=3 TRANSLATE=0건 번역 / 3건 실패</span></div>
   <div style="margin-top:7px;">엑셀 정본:
-    <a href="../output/CVE_20260827.xls">CVE_20260827.xls</a>
+    <a href="../output/CVE_20260907.xls">CVE_20260907.xls</a>
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (4건)</h2>
+<h2>이 회차 CVE (5건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -109,82 +109,100 @@
     <tbody>
       <tr>
         <td class="mono">
-<a href="https://github.com/langchain-ai/langchain/commit/27add913474e01e33bededf4096151130ba0d47c" target="_blank" rel="noopener">CVE-2026-34070</a>
+<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
         </td>
-        <td>LangChain</td>
-        <td>langchain</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;1.2.22</td>
-        <td class="mono">1.2.22</td>
+        <td>gRPC</td>
+        <td>grpc</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">&lt;1.79.3</td>
+        <td class="mono">1.79.3</td>
         <td>-</td>
-        <td class="mono">20260331</td>
-        <td class="mono">20260825</td>
+        <td class="mono">20260320</td>
+        <td class="mono">20260907</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          LangChain is a framework for building agents and LLM-powered applications. Prior to version 1.2.22, multiple functions in langchain_core.prompts.loading read files from paths embedded in deserialized config dicts without validating against directory traversal or absolute path injection. When an application passes user-influenced prompt configurations to load_prompt() or load_prompt_from_config(), an attacker can read arbitrary files on the host filesystem, constrained only by file-extension checks (.txt for templates, .json/.yaml for examples). This issue has been patched in version 1.2.22.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/b111f8a61f100fdca08706f41f29ef3548de7380" target="_blank" rel="noopener">CVE-2026-34756</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.1.0,&lt;0.19.0</td>
-        <td class="mono">0.19.0</td>
-        <td>-</td>
-        <td class="mono">20260406</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.1.0부터 0.19.0 이전까지 vLLM OpenAI 호환 API 서버에 서비스 거부 취약점이 존재합니다. ChatCompletionRequest 및 CompletionRequest Pydantic 모델의 n 매개변수에 대한 상한 검증이 없기 때문에 인증되지 않은 공격자는 천문학적으로 큰 n 값을 가진 단일 HTTP 요청을 보낼 수 있습니다. 이는 Python asyncio 이벤트 루프를 완전히 차단하고 요청이 예약 대기열에 도달하기도 전에 수백만 개의 요청 개체 복사본을 힙에 할당하여 즉각적인 메모리 부족 충돌을 발생시킵니다. 이 취약점은 0.19.0에서 수정되었습니다.
+          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). From 0.1.0 to before 0.19.0, a Denial of Service vulnerability exists in the vLLM OpenAI-compatible API server. Due to the lack of an upper bound validation on the n parameter in the ChatCompletionRequest and CompletionRequest Pydantic models, an unauthenticated attacker can send a single HTTP request with an astronomically large n value. This completely blocks the Python asyncio event loop and causes immediate Out-Of-Memory crashes by allocating millions of request object copies in the heap before the request even reaches the scheduling queue. This vulnerability is fixed in 0.19.0.</div>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
           </details>
         </td>
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/ggml-org/llama.cpp/commit/389c7d4955ba55c7418afaebf7c23d9ed64ef707" target="_blank" rel="noopener">CVE-2026-39909</a>
+<a href="https://github.com/python-pillow/Pillow/commit/3cb854e8b2bab43f40e342e665f9340d861aa628" target="_blank" rel="noopener">CVE-2026-40192</a>
+        </td>
+        <td>Pillow</td>
+        <td>python</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&gt;=10.3.0,&lt;12.2.0</td>
+        <td class="mono">12.2.0</td>
+        <td>-</td>
+        <td class="mono">20260415</td>
+        <td class="mono">20260907</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Pillow는 Python 이미징 라이브러리입니다. 버전 10.3.0부터 12.1.1까지는 FITS 이미지를 디코딩할 때 읽는 GZIP 압축 데이터의 양을 제한하지 않아 압축 해제 폭탄 공격에 취약해졌습니다. 특별히 제작된 FITS 파일은 무제한 메모리 소비를 유발하여 서비스 거부(OOM 충돌 또는 심각한 성능 저하)로 이어질 수 있습니다. 사용자가 즉시 업그레이드할 수 없는 경우 해결 방법으로 FITS를 제외한 특정 이미지 형식만 열어야 합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-85179</a>
+        </td>
+        <td>Label Studio</td>
+        <td>HumanSignal</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.5</td>
+        <td class="mono">&lt;=1.23.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260905</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Label Studio through 1.23.0 fails to validate webhook URLs, allowing authenticated users to dispatch requests to internal services including RFC 1918 addresses and cloud metadata endpoints. Attackers can create webhooks targeting private networks and exfiltrate annotation data by enabling payload transmission in outbound requests.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ollama/ollama/" target="_blank" rel="noopener">CVE-2026-86289</a>
+        </td>
+        <td>Ollama</td>
+        <td>Ollama</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;=0.31.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260907</td>
+        <td class="mono">20260907</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A vulnerability was found in Ollama up to 0.31.1. This issue affects the function readGGUFV1String of the file fs/ggml/gguf.go of the component GGUF Decoder. Performing a manipulation results in integer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used. Upgrading to version 0.31.2-rc1 is capable of addressing this issue. The patch is named 67b6a1c2d45321e0cb3c04a18073f9818de7724b. It is recommended to upgrade the affected component.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ggml-org/llama.cpp/" target="_blank" rel="noopener">CVE-2026-86317</a>
         </td>
         <td>llama.cpp</td>
         <td>ggml.ai</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260821</td>
-        <td class="mono">20260825</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] b8585 이전의 llama.cpp에는 인증되지 않은 원격 공격자가 계산 그래프를 저장하고, 참조된 버퍼를 해제하고, 공격자가 제어하는 ​​콘텐츠로 해제된 메모리를 회수하여 임의의 읽기 및 쓰기 액세스를 달성할 수 있도록 허용하는 RPC 서버의 GRAPH_RECOMPUTE 핸들러에 use-after-free 취약점이 포함되어 있습니다. 공격자는 RPC 요청을 보내 매달린 포인터가 있는 저장된 그래프의 재실행을 트리거하여 인증이나 사용자 상호 작용 없이 전체 원격 코드 실행을 활성화할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] llama.cpp before b8585 contains a use-after-free vulnerability in the RPC server&#39;s GRAPH_RECOMPUTE handler that allows unauthenticated remote attackers to achieve arbitrary read and write access by storing a computation graph, freeing referenced buffers, and reclaiming freed memory with attacker-controlled content. Attackers can send RPC requests to trigger re-execution of stored graphs with dangling pointers, enabling full remote code execution without requiring authentication or user interaction.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/issues/39146" target="_blank" rel="noopener">CVE-2026-7141</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
         <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.6</td>
-        <td class="mono">&lt;=0.19.0</td>
+        <td>5.3</td>
+        <td class="mono">&lt;=0.4.0</td>
         <td class="mono">-</td>
         <td>-</td>
-        <td class="mono">20260427</td>
-        <td class="mono">20260825</td>
+        <td class="mono">20260907</td>
+        <td class="mono">20260907</td>
         <td>NVD</td>
         <td class="wrap-cell">
-          A vulnerability was found in vLLM up to 0.19.0. The affected element is the function has_mamba_layers of the file vllm/v1/kv_cache_interface.py of the component KV Block Handler. Performing a manipulation results in uninitialized resource. It is possible to initiate the attack remotely. The attack is considered to have high complexity. The exploitability is described as difficult. The exploit has been made public and could be used. The existence of this vulnerability is still disputed at present. The proposed patch did not fix the issue. A 3rd party explains: &#34;The divergence could be explained by a benign and expected vLLM behavior where vLLM server could group concurrent requests together resulting in different input shapes based on varying request arrival time. The differences in grouped input shapes could call different kernels with could produce difference results due to rounding and differences in order of operations. There is an environment variable VLLM_BATCH_INVARIANT=1 for use
+          A vulnerability was detected in ggml-org llama.cpp up to 0.4.0. This impacts the function rpc_server::deserialize_tensor of the file ggml/src/ggml-rpc/ggml-rpc.cpp of the component RPC Server. Performing a manipulation of the argument ne results in reachable assertion. The attack is possible to be carried out remotely. The reported GitHub issue was closed automatically due to inactivity.
         </td>
       </tr>
     </tbody>
@@ -199,22 +217,22 @@
       <tr>
         <td class="mono">k5131@kida.re.kr</td>
         <td><span class="pill st-SUCCESS">SENT</span></td>
-        <td class="mono">2026-08-27 00:22:48</td>
-        <td class="mono">CVE_20260827.xls</td>
+        <td class="mono">2026-09-07 23:11:20</td>
+        <td class="mono">CVE_20260907.xls</td>
         <td class="wrap-cell muted"></td>
       </tr>
       <tr>
         <td class="mono">eclipse6@naver.com</td>
         <td><span class="pill st-SUCCESS">SENT</span></td>
-        <td class="mono">2026-08-27 00:22:49</td>
-        <td class="mono">CVE_20260827.xls</td>
+        <td class="mono">2026-09-07 23:11:23</td>
+        <td class="mono">CVE_20260907.xls</td>
         <td class="wrap-cell muted"></td>
       </tr>
       <tr>
         <td class="mono">hayunfa@gmail.com</td>
         <td><span class="pill st-SUCCESS">SENT</span></td>
-        <td class="mono">2026-08-27 00:22:50</td>
-        <td class="mono">CVE_20260827.xls</td>
+        <td class="mono">2026-09-07 23:11:24</td>
+        <td class="mono">CVE_20260907.xls</td>
         <td class="wrap-cell muted"></td>
       </tr>
     </tbody>
