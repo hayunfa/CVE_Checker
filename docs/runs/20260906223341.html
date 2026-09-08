@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-07 23:11:24</div>
+    <div class="stamp">최종 생성 2026-09-08 23:11:20</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1695 OSV=14 NVD=14 GHSA=9 RANGE_RECOVERED=3 TRANSLATE=0건 번역 / 21건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (22건)</h2>
+<h2>이 회차 CVE (20건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -452,42 +452,6 @@
         <td>OSV+GHSA</td>
         <td class="wrap-cell">
           vLLM: Incomplete CVE-2025-62164 remediation can be bypassed by concurrent prompt parts ## Executive Summary The follow-up protection for CVE-2025-62164 is incomplete at vLLM revision `26587f9519e22a5c4549ead7595ad9ca3229c4fd`. It wraps serialized prompt-embedding reconstruction and dense conversion in `torch.sparse.check_sparse_tensor_invariants()`, but PyTorch 2.11.0 implements that context with save/enable/restore operations over process-global state. Two prompt-embedding parts in one `/v1/chat/completions` request are gathered concurrently on the event loop&#39;s default executor. When one context exits before the other loads its tensor, it can restore the global flag to `False` while the second part remains inside its guard. In a deterministic run against hash-verified source from the affected revision, the actual target loader rejected an invalid sparse payload as a negative control. The frozen chat tracker then scheduled benign and malicious parts on distinct `asyncio_0` and `asyncio
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-mwp5-2m32-r54h" target="_blank" rel="noopener">CVE-2026-85168</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260904</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain a remote code execution vulnerability in the Git node. The node reset a fixed list of command-bearing configuration keys before each operation, but that list did not cover the content-filter and merge-driver key families. A repository with local configuration setting one of those keys together with a matching attribute pattern causes git to execute the configured command during an ordinary Add, Commit, Checkout, or Pull operation. The command runs as the n8n process user.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9x83-43r8-5hwc" target="_blank" rel="noopener">CVE-2026-85169</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.7</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260904</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain an expression sandbox escape in the $fromAI handler. $fromAI resolved a caller-supplied placeholder name without requiring it to be an own property and admitted reserved keys; against a primitive input value it returned a live host-prototype reference. An attacker with workflow-build privilege can walk the prototype chain to the Function constructor and compile/execute arbitrary code in the main n8n process, leading to remote code execution.
         </td>
       </tr>
       <tr>
