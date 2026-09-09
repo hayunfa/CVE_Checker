@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-08 23:11:20</div>
+    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1685 OSV=0 NVD=32 GHSA=0 RANGE_RECOVERED=4 TRANSLATE=0건 번역 / 11건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (15건)</h2>
+<h2>이 회차 CVE (12건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -156,24 +156,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           A vulnerability in the `_create_model_version()` handler of `mlflow/server/handlers.py` in mlflow/mlflow versions 3.9.0 and earlier allows an unauthenticated remote attacker to read arbitrary files from the server&#39;s filesystem. The issue arises when a `CreateModelVersion` request includes the tag `mlflow.prompt.is_prompt`, which bypasses source path validation. This enables an attacker to store an arbitrary local filesystem path as the model version source. The `get_model_version_artifact_handler()` function later uses this source to serve files without verifying the model version&#39;s prompt status, leading to a complete confidentiality compromise. This issue is fixed in version 3.10.0.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/blob/main/vllm/multimodal/inputs.py" target="_blank" rel="noopener">CVE-2026-37237</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.17.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260828</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM up to and including 0.17.0 allows remote attackers to cause a Denial of Service via memory exhaustion. The AsyncMediaIO.fetch_audio and AsyncMediaIO.fetch_image functions in multimodal/inputs.py fetch user-supplied media URLs using aiohttp and call r.read() without enforcing a maximum response size, allowing an attacker to exhaust server memory by providing a URL to an arbitrarily large file.
         </td>
       </tr>
       <tr>
@@ -246,28 +228,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           Diffusers is the a library for pretrained diffusion models. Prior to 0.38.0, a trust_remote_code bypass in DiffusionPipeline.from_pretrained allows arbitrary remote code execution despite the user passing trust_remote_code=False (or omitting it, which is the default). The vulnerability has three variants, all sharing the same root cause — the trust_remote_code gate was implemented inside DiffusionPipeline.download() rather than at the actual dynamic-module load site, so any code path that bypassed or short-circuited download() also bypassed the security check. DiffusionPipeline.from_pretrained(&#39;repoA&#39;, custom_pipeline=&#39;attacker/repoB&#39;, trust_remote_code=False) — the gate evaluated against repoA&#39;s file list rather than repoB&#39;s, so repoB&#39;s pipeline.py was loaded and executed. DiffusionPipeline.from_pretrained(&#39;/local/snapshot&#39;, custom_pipeline=&#39;attacker/repoB&#39;, trust_remote_code=False) — the local-path branch never invoked download(), so the gate was never reached and remote code from re
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/DangerBlack/n8n-node-sqlite3/commit/145a8876ff12375813bdcd4ae4fe78f460c53a98" target="_blank" rel="noopener">CVE-2026-54687</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.1</td>
-        <td class="mono">&lt;1.0.0</td>
-        <td class="mono">1.0.0</td>
-        <td>-</td>
-        <td class="mono">20260827</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n-nodes-sqlite3은 n8n에서 로컬 SQLite 데이터베이스를 운영하기 위한 노드입니다. 1.0.0 이전에는 node/SqliteNode/v1/SqliteV1.node.ts가 db_path 데이터베이스 파일 경로를 업스트림 워크플로 입력의 데이터 표현식을 허용하는 노드 매개 변수로 노출합니다. 신뢰할 수 없는 입력을 db_path에 매핑하는 워크플로 작성자는 원격 공격자가 n8n 프로세스가 여는 SQLite 파일을 선택하도록 허용하여 의도한 데이터베이스 위치 외부를 탐색하고 잠재적으로 프로세스에 액세스할 수 있는 파일을 읽거나 생성하거나 덮어쓸 수 있습니다. 이 문제는 버전 1.0.0에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n-nodes-sqlite3 is a node for operating a local SQLite database from n8n. Prior to 1.0.0, nodes/SqliteNode/v1/SqliteV1.node.ts exposes the db_path database file path as a node parameter that permits data expressions from upstream workflow input. A workflow author who maps untrusted input to db_path can allow a remote attacker to select which SQLite file the n8n process opens, enabling traversal outside the intended database location and potentially reading, creating, or overwriting files accessible to the process. This issue is fixed in version 1.0.0.</div>
-          </details>
         </td>
       </tr>
       <tr>
@@ -356,24 +316,6 @@
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 2.32.1 fail to enforce the Allowed HTTP Request Domains allowlist in multiple AI and LLM nodes when user-supplied base or endpoint URLs are configured. Low-privileged workflow editors with use-only access to shared credentials can redirect requests to attacker-controlled hosts and exfiltrate credential secrets for reuse against underlying services.</div>
           </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-whvh-wf3x-g77j" target="_blank" rel="noopener">CVE-2026-73626</a>
-        </td>
-        <td>JupyterLab</td>
-        <td>Project Jupyter</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260813</td>
-        <td class="mono">20260828</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] JupyterLab versions &gt;=4.6.0,&lt;=4.6.1 and &lt;=4.5.9 contain an allowlist/blocklist enforcement gap in PyPIExtensionManager.install(). A missing &#39;await&#39; caused the is_install_allowed coroutine to never execute, so the extension allowlist/blocklist check was not enforced for direct callers of install(). The stock JupyterLab HTTP API and Extension Manager UI are not affected, as they perform a separate, correctly awaited check. The issue affects only deployments where a custom extension or downstream integration imports PyPIExtensionManager and calls install() directly with a package name influenced by untrusted input, an allowlist/blocklist is configured, the PyPI Extension Manager is enabled, and kernels and terminals are disabled or delegated to remote hosts. Fixed in JupyterLab 4.6.2 and 4.5.10.
         </td>
       </tr>
       <tr>

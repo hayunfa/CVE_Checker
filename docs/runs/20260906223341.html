@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-08 23:11:20</div>
+    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1695 OSV=14 NVD=14 GHSA=9 RANGE_RECOVERED=3 TRANSLATE=0건 번역 / 21건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (20건)</h2>
+<h2>이 회차 CVE (16건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -362,24 +362,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/advisories/GHSA-8737-qx52-hjff" target="_blank" rel="noopener">CVE-2026-71486</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM: Derender endpoints decode caller-supplied GenerateResponse token IDs without output bounds ## Summary The `/v1/completions/derender` and `/v1/chat/completions/derender` endpoints accept caller-supplied `GenerateResponse` objects and postprocess every nested `choices[*].token_ids` list directly. Unlike the normal render/generate path, derender does not enforce model context length, resolved `max_tokens`, `max_num_seqs`, choice-count, or response-size bounds before detokenizing and returning the supplied token IDs. An authenticated API client can therefore make the CPU-only render frontend, or any server exposing these `/v1` derender routes, spend CPU and memory proportional to attacker-chosen generated-output-shaped JSON rather than to a bounded generation result. ## Technical Details The render router registers `/v1/chat/completions/derender` and `/v1/completions/derender` in `vllm/entrypoints/serve/render/api_router.py`, and the OpenAI API server attaches this router whenever `&#34;
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://discuss.elastic.co/t/elasticsearch-8-18-0-9-0-0-security-update-esa-2026-111/389495" target="_blank" rel="noopener">CVE-2026-72656</a>
         </td>
         <td>Elasticsearch</td>
@@ -398,60 +380,6 @@
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Memory Allocation with Excessive Size Value (CWE-789) in the ES|QL query processing of Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user able to submit ES|QL queries could send a specially crafted query whose evaluation allocates an unbounded amount of heap memory, exhausting the available heap on the receiving node and causing the node to become unavailable.</div>
           </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-hwrm-c4cx-rf4j" target="_blank" rel="noopener">CVE-2026-73555</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM: Unauthenticated Internal Path and Username Disclosure via Validation Error Messages ## Summary When the vLLM API receives a malformed request (e.g., invalid JSON or missing required fields), FastAPI raises a Pydantic `RequestValidationError`. The `validation_exception_handler` in `vllm/entrypoints/openai/server_utils.py` converts this exception to a string via `str(exc)`, which includes the internal file path and line number of the handler function. The existing `sanitize_message()` function in `vllm/entrypoints/utils.py` strips memory addresses (e.g., `0x7f...`) but does not strip `File &#34;...&#34;, line X` patterns. The result is a user-facing HTTP response that leaks internal system information. ## Impact An unauthenticated attacker can extract the following with a single malformed request: - **OS username** running the vLLM process (e.g., `ubuntu`) - **Home directory path** (e.g., `/home/ubuntu/`) - **Virtual environment path** (e.g., `vllm-env/`) - **Python version** (e.g., `3.12`
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-48jh-3gj7-fg8v" target="_blank" rel="noopener">CVE-2026-73556</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM: ReDoS via structured_outputs.regex in the lm-format-enforcer backend (no compile timeout) — missed sibling of GHSA-rwxx-mrjm-wc2m ### Summary The fix for `GHSA-rwxx-mrjm-wc2m` (&#34;ReDoS via `structured_outputs.regex` compiled without timeout&#34;) wrapped the regex compile in the **xgrammar** and **outlines** backends with `compile_regex_with_timeout` (and, for outlines, `validate_regex_is_buildable`). The **lm-format-enforcer** backend was left unguarded: it compiles the attacker-supplied regex with no timeout and no buildability check. A single request with a catastrophic regex hangs the structured-output compile step and stalls the engine worker (denial of service). ### Affected code (HEAD d6d39c1) `vllm/v1/structured_output/backend_lm_format_enforcer.py`: - line 110: `character_level_parser = lmformatenforcer.RegexParser(grammar_spec)` — builds an `interegular` FSM from the attacker regex synchronously, **no timeout**. - line 155: `validate_structured_output_request_lm_format_enfor
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-pr7f-p5mw-fc87" target="_blank" rel="noopener">CVE-2026-73557</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>-</td>
-        <td class="mono">&gt;=0.21.0,&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM: Incomplete CVE-2025-62164 remediation can be bypassed by concurrent prompt parts ## Executive Summary The follow-up protection for CVE-2025-62164 is incomplete at vLLM revision `26587f9519e22a5c4549ead7595ad9ca3229c4fd`. It wraps serialized prompt-embedding reconstruction and dense conversion in `torch.sparse.check_sparse_tensor_invariants()`, but PyTorch 2.11.0 implements that context with save/enable/restore operations over process-global state. Two prompt-embedding parts in one `/v1/chat/completions` request are gathered concurrently on the event loop&#39;s default executor. When one context exits before the other loads its tensor, it can restore the global flag to `False` while the second part remains inside its guard. In a deterministic run against hash-verified source from the affected revision, the actual target loader rejected an invalid sparse payload as a negative control. The frozen chat tracker then scheduled benign and malicious parts on distinct `asyncio_0` and `asyncio
         </td>
       </tr>
       <tr>

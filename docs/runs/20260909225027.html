@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실행 20260909225027 — AI CVE Watch</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="../index.html" class="">대시보드</a>
+      <a href="../cve/index.html" class="">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
+  </div>
+</header>
+<div class="wrap">
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>실행 20260909225027</b>
+      <span class="pill st-SUCCESS">SUCCESS</span></div>
+    <div class="muted">2026-09-09 22:50:27 ~ 2026-09-09 23:01:45</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
+</div>
+
+<div class="grid">
+  <div class="card kpi"><div class="n">96</div><div class="l">수집</div></div>
+  <div class="card kpi"><div class="n">18</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">13</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">잘림</div></div>
+  <div class="card kpi"><div class="n">3</div><div class="l">메일 성공</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">메일 실패</div></div>
+</div>
+
+<div class="card">
+  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1703 OSV=5 NVD=94 GHSA=4 RANGE_RECOVERED=84 TRANSLATE=0건 번역 / 86건 실패</span></div>
+  <div style="margin-top:7px;">엑셀 정본:
+    <a href="../output/CVE_20260909.xls">CVE_20260909.xls</a>
+    <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
+</div>
+
+<h2>이 회차 CVE (96건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>제작사</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5875" target="_blank" rel="noopener">CVE-2026-16497</a>
+        </td>
+        <td>Triton Inference Server</td>
+        <td>NVIDIA</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause excessive iteration. A successful exploit of this vulnerability might lead to denial of service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
+        </td>
+        <td>gRPC</td>
+        <td>grpc</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">&lt;1.79.3</td>
+        <td class="mono">1.79.3</td>
+        <td>-</td>
+        <td class="mono">20260320</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="http://crewaiinc.com" target="_blank" rel="noopener">CVE-2026-37009</a>
+        </td>
+        <td>CrewAI</td>
+        <td>CrewAI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260827</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] A SQL injection vulnerability in NL2SQLTool in crewai-tools v1.10.2rc1 allows a remote attacker to execute arbitrary SQL commands via an unsanitized sql_query argument.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc-ecosystem/grpc-gateway" target="_blank" rel="noopener">CVE-2026-37236</a>
+        </td>
+        <td>gRPC</td>
+        <td>gRPC Authors</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260828</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] grpc-gateway v2.28.0 is vulnerable to Incorrect Access Control. The application processes the X-HTTP-Method-Override header in ServeMux.ServeHTTP without restricting allowed methods. When a POST request with Content-Type application/x-www-form-urlencoded includes this header, the request method is rewritten to an arbitrary attacker-supplied value before routing. This allows bypassing method-based access controls enforced by upstream proxies or WAFs.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/blob/main/vllm/multimodal/inputs.py" target="_blank" rel="noopener">CVE-2026-37237</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;=0.17.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260828</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM up to and including 0.17.0 allows remote attackers to cause a Denial of Service via memory exhaustion. The AsyncMediaIO.fetch_audio and AsyncMediaIO.fetch_image functions in multimodal/inputs.py fetch user-supplied media URLs using aiohttp and call r.read() without enforcing a maximum response size, allowing an attacker to exhaust server memory by providing a URL to an arbitrarily large file.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/python-pillow/Pillow/commit/3cb854e8b2bab43f40e342e665f9340d861aa628" target="_blank" rel="noopener">CVE-2026-40192</a>
+        </td>
+        <td>Pillow</td>
+        <td>python</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&gt;=10.3.0,&lt;12.2.0</td>
+        <td class="mono">12.2.0</td>
+        <td>-</td>
+        <td class="mono">20260415</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Pillow는 Python 이미징 라이브러리입니다. 버전 10.3.0부터 12.1.1까지는 FITS 이미지를 디코딩할 때 읽는 GZIP 압축 데이터의 양을 제한하지 않아 압축 해제 폭탄 공격에 취약해졌습니다. 특별히 제작된 FITS 파일은 무제한 메모리 소비를 유발하여 서비스 거부(OOM 충돌 또는 심각한 성능 저하)로 이어질 수 있습니다. 사용자가 즉시 업그레이드할 수 없는 경우 해결 방법으로 FITS를 제외한 특정 이미지 형식만 열어야 합니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45830" target="_blank" rel="noopener">CVE-2026-45830</a>
+        </td>
+        <td>ChromaDB</td>
+        <td>Chroma</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&gt;=0.4.17,&lt;=1.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260612</td>
+        <td class="mono">20260908</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          A lack of authorization validation in version 0.4.17 or later of the ChromaDB Python project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant&#39;s collection regardless of which tenant they belong to.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/NVIDIA/product-security/tree/main/2026/5875" target="_blank" rel="noopener">CVE-2026-47625</a>
+        </td>
+        <td>Triton Inference Server</td>
+        <td>NVIDIA</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could abuse missing authorization. A successful exploit of this vulnerability might lead to information disclosure, data tampering, and denial of service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/releases/tag/v0.11.0" target="_blank" rel="noopener">CVE-2026-54020</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.11.0, Open WebUI resolved a hostname during URL validation and rejected private, loopback, and link-local addresses, but the HTTP clients resolved the hostname again at connection time. An authenticated attacker who controlled authoritative DNS for a submitted hostname could answer with a public address during validation and an internal one during connection, reaching cloud metadata, loopback admin APIs, or internal services through URL ingest, chat image_url fetches, image editing, or OAuth profile-picture fetches, with most paths returning the response to the attacker and the OAuth path forwarding the OAuth access token. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/DangerBlack/n8n-node-sqlite3/commit/145a8876ff12375813bdcd4ae4fe78f460c53a98" target="_blank" rel="noopener">CVE-2026-54687</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.1</td>
+        <td class="mono">&lt;1.0.0</td>
+        <td class="mono">1.0.0</td>
+        <td>-</td>
+        <td class="mono">20260827</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n-nodes-sqlite3은 n8n에서 로컬 SQLite 데이터베이스를 운영하기 위한 노드입니다. 1.0.0 이전에는 node/SqliteNode/v1/SqliteV1.node.ts가 db_path 데이터베이스 파일 경로를 업스트림 워크플로 입력의 데이터 표현식을 허용하는 노드 매개 변수로 노출합니다. 신뢰할 수 없는 입력을 db_path에 매핑하는 워크플로 작성자는 원격 공격자가 n8n 프로세스가 여는 SQLite 파일을 선택하도록 허용하여 의도한 데이터베이스 위치 외부를 탐색하고 잠재적으로 프로세스에 액세스할 수 있는 파일을 읽거나 생성하거나 덮어쓸 수 있습니다. 이 문제는 버전 1.0.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n-nodes-sqlite3 is a node for operating a local SQLite database from n8n. Prior to 1.0.0, nodes/SqliteNode/v1/SqliteV1.node.ts exposes the db_path database file path as a node parameter that permits data expressions from upstream workflow input. A workflow author who maps untrusted input to db_path can allow a remote attacker to select which SQLite file the n8n process opens, enabling traversal outside the intended database location and potentially reading, creating, or overwriting files accessible to the process. This issue is fixed in version 1.0.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/kubeflow/pipelines/commit/a35f97aa4c17b25572369e5022546ab4421bdbdd" target="_blank" rel="noopener">CVE-2026-54745</a>
+        </td>
+        <td>Kubeflow</td>
+        <td>Kubeflow</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>10.0</td>
+        <td class="mono">&lt;2.17.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260828</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Kubeflow Pipelines enables users to build and deploy portable, scalable machine learning workflows. Prior to 2.17.0, the Kubeflow Pipelines frontend exposes an unauthenticated server-side request forgery vulnerability through the /_proxy/ route in frontend/server/proxy-middleware.ts. The _routePathWithReferer() function accepts an arbitrary attacker-controlled HTTP or HTTPS target and passes its origin to createProxyMiddleware without a host allowlist or filtering for loopback, link-local, RFC1918, or cluster-local addresses. The route remains outside the authorization middleware when ENABLE_AUTHZ=true and is reachable through /apis/v1beta1/_proxy/, /apis/v2beta1/_proxy/, /pipeline/apis/v1beta1/_proxy/, and /pipeline/apis/v2beta1/_proxy/, including through a crafted Referer header. Requests can forward attacker-controlled methods, headers such as Authorization, Cookie, and X-Forwarded-For, and POST bodies to reachable internal services, while returning the upstream response
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Comfy-Org/ComfyUI/commit/96e0e3585b41e1417442eaa14ec57f7b4ffcb5e0" target="_blank" rel="noopener">CVE-2026-56670</a>
+        </td>
+        <td>ComfyUI</td>
+        <td>Comfy Org</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.2</td>
+        <td class="mono">&lt;0.28.0</td>
+        <td class="mono">0.28.0</td>
+        <td>-</td>
+        <td class="mono">20260731</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          ComfyUI is a modular diffusion model GUI, api and backend with a graph/nodes interface. Prior to 0.28.0, the /view endpoint served uploaded SVG files inline because image/svg+xml and related XML content types were absent from the dangerous-content-type handling, allowing stored cross-site scripting in the ComfyUI origin. This issue is fixed in version 0.28.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Comfy-Org/ComfyUI/pull/14734" target="_blank" rel="noopener">CVE-2026-56671</a>
+        </td>
+        <td>ComfyUI</td>
+        <td>Comfy Org</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;0.28.0</td>
+        <td class="mono">0.28.0</td>
+        <td>-</td>
+        <td class="mono">20260731</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          ComfyUI is a modular diffusion model GUI, api and backend with a graph/nodes interface. Prior to 0.28.0, get_model_preview in app/model_manager.py joins an unrestricted filename route capture to a selected model directory without a containment check, allowing an unauthenticated remote attacker to use traversal, encoded traversal, absolute paths, or an unbounded path_index to read image-decodable files and enumerate host paths. get_model_preview (app/model_manager.py) built the path with os.path.join(folder, filename) where filename is an unrestricted {filename:.*} route capture. Literal ../, percent-encoded %2e%2e%2f, and absolute paths all escaped the model directory; path_index was also unbounded. The target file is piped through Pillow and re-encoded as WEBP, so disclosure is limited to image-decodable files plus a file-existence/enumeration oracle (and internal-path leakage via path_index errors). This issue is fixed in version 0.28.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Comfy-Org/ComfyUI/commit/96e0e3585b41e1417442eaa14ec57f7b4ffcb5e0" target="_blank" rel="noopener">CVE-2026-56672</a>
+        </td>
+        <td>ComfyUI</td>
+        <td>Comfy Org</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.2</td>
+        <td class="mono">&lt;0.28.0</td>
+        <td class="mono">0.28.0</td>
+        <td>-</td>
+        <td class="mono">20260731</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          ComfyUI is a node-based diffusion model GUI, API, and backend. Prior to 0.28.0, GET /userdata/{file} served user-controlled HTML and SVG files with extension-derived content types, allowing stored cross-site scripting in the ComfyUI origin and access to browser-stored API tokens, settings, workflows, and authenticated-equivalent API calls. The handler used web.FileResponse(path), so an uploaded .html/.svg was served as text/html/image/svg+xml. POST /userdata stores arbitrary request bodies (confined to the user&#39;s userdata directory). When a victim navigated to the file URL, the embedded script executed same-origin. The /view endpoint already forced dangerous MIME types to download; that protection had never been applied to /userdata. This issue is fixed in version 0.28.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Comfy-Org/ComfyUI/pull/14734" target="_blank" rel="noopener">CVE-2026-56673</a>
+        </td>
+        <td>ComfyUI</td>
+        <td>Comfy Org</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;0.28.0</td>
+        <td class="mono">0.28.0</td>
+        <td>-</td>
+        <td class="mono">20260731</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          ComfyUI is a modular diffusion model GUI, API, and backend with a graph-and-node interface. Prior to 0.28.0, folder_paths.get_annotated_filepath and exists_annotated_filepath join workflow-controlled annotated filenames to a base directory without a containment check, allowing an unauthenticated crafted POST /prompt workflow using LoadImage or sibling nodes to probe arbitrary host paths and exfiltrate image-format files through /view. LoadImage defines a VALIDATE_INPUTS method, which causes the execution engine to skip COMBO (input-directory) validation. Affected nodes include LoadImage, LoadImageMask, LoadImageOutput, LoadAudio, LoadLatent, LoadVideo, and Load3D. This issue is fixed in version 0.28.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/jupyterlab/jupyterlab/commit/4e61e07d0a91145b53fbf96ac74b0387f6bc51f6" target="_blank" rel="noopener">CVE-2026-67338</a>
+        </td>
+        <td>JupyterLab</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.1</td>
+        <td class="mono">&lt;4.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260801</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          JupyterLab before 4.5.9 contains a stored cross-site scripting vulnerability in the Extension Manager that fails to validate URI protocols in package metadata URLs. Attackers can publish malicious PyPI packages with javascript: URLs in project metadata that execute arbitrary JavaScript in the JupyterLab origin when users click the extension name.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Comfy-Org/ComfyUI" target="_blank" rel="noopener">CVE-2026-68771</a>
+        </td>
+        <td>ComfyUI</td>
+        <td>Comfy Org</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260731</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthenticated remote attackers to execute arbitrary Python code by uploading a crafted pickle file and triggering its deserialization. Attackers can upload a malicious shard_*.pkl file via the unauthenticated POST /upload/image endpoint and then queue a workflow graph via POST /prompt referencing the uploaded file, causing torch.load to deserialize the attacker-controlled pickle payload using __reduce__ and execute arbitrary commands as the ComfyUI process user.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-4j2p-28q2-5m79" target="_blank" rel="noopener">CVE-2026-69112</a>
+        </td>
+        <td>Accelerate</td>
+        <td>Hugging Face</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;=1.14.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260810</td>
+        <td class="mono">20260908</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          Accelerate path traversal and denial of service via sharded checkpoint weight_map entries Hugging Face Accelerate through 1.14.0 contains a path traversal vulnerability in load_checkpoint_in_model and load_checkpoint_and_dispatch functions that fail to sanitize weight_map entries from sharded checkpoint indexes. Attackers can supply relative paths with ../ sequences or absolute paths to read arbitrary files, or point shard entries at named pipes to cause indefinite blocking and denial of service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/bef63a2ae915571d50d2722a635e8bfa753d7877" target="_blank" rel="noopener">CVE-2026-70479</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&gt;=0.9.6,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.0, with WEB_LOADER_ENGINE=playwright, the Playwright web loader validates only the top-level page request and lets sub-resource requests pass unvalidated. A page supplied by an authenticated user can use JavaScript to reach blocked internal addresses, and returned DOM can include data read from those addresses in web-search or RAG output. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/5278eb906ebecefc6538a19bc86df09d997e43e6" target="_blank" rel="noopener">CVE-2026-70480</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.1</td>
+        <td class="mono">&gt;=0.6.34,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.34 until 0.11.0, Open WebUI renders vega and vega-lite fenced code blocks in chat content by building a Vega view in the viewer browser without a restricted resource loader. Any user who can place such a block where another user will see it can make that user browser issue attacker-chosen outbound GET requests and read responses from same-origin or CORS-permissive targets into the rendered page. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/c609ec41154fa092fa0af80d9d365de06b666286" target="_blank" rel="noopener">CVE-2026-70481</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.4</td>
+        <td class="mono">&gt;=0.5.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.5.0 until 0.11.0, the standard channel message update and delete handlers accepted any caller holding write access on the channel without checking that the caller wrote the message. Because write access is the same grant a member needs to post, any ordinary participant in a shared standard channel could rewrite or permanently delete another participant message, while group and direct message handlers enforced authorship. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/b190dcf3caa00dc8b7b9c7312828298d9143f60d" target="_blank" rel="noopener">CVE-2026-70482</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=0.8.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.0 until 0.11.0, when ENABLE_OAUTH_TOKEN_EXCHANGE=True, /oauth/{provider}/token/exchange accepts a raw provider access token and validates it by calling the provider userinfo endpoint without confirming which OAuth client the token was issued to. Anyone holding an access token minted for any client registered with the same provider could exchange it for an Open WebUI session as that token user, including applications the operator does not control and has never authorized. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/897d69a35c65f8ab54583bb9ca8dc74eab7bcd29" target="_blank" rel="noopener">CVE-2026-70484</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.7.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.7.0 until 0.11.0, the legacy chat-completions features block trusted a client-supplied image_generation flag and did not re-check the features.image_generation permission that the direct image routes and native function-calling path enforce. An authenticated user whose image-generation permission had been revoked could still consume the operator&#39;s configured image provider through chat completions, spending API credits and provider quota and writing generated files to operator storage, without exposing provider credentials or other users&#39; data. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/1717b493d83c86afa82aa8bc50139250852dd2f3" target="_blank" rel="noopener">CVE-2026-70485</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&gt;=0.9.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.0, Open WebUI checked whether a user-supplied URL destination was globally routable by applying ipaddress.is_global to the literal IPv6 address without examining IPv4 addresses embedded in transition encodings. On a deployment with a NAT64 gateway, any verified user could wrap an internal or cloud-metadata IPv4 address in the NAT64 well-known prefix, pass the filter, and receive the internal response body through RAG URL ingestion, URL-to-markdown conversion, or web-search content retrieval. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/65a5fad7b97db99d490d81f4e0860282c3a4543c" target="_blank" rel="noopener">CVE-2026-70486</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.2</td>
+        <td class="mono">&gt;=0.9.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.0, the terminal file-preview serveUrl iframe branch always granted allow-same-origin together with allow-scripts for HTML files served from the application origin. Any authenticated user with access to a configured terminal server could cause script in a previewed file to run in the Open WebUI origin, read the victim&#39;s session token from localStorage, and take over the account, with possible server-side code execution if the victim was an admin or held workspace.functions. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/305880f2e2aeb2dda2f4b2a18a20bdcd558f7134" target="_blank" rel="noopener">CVE-2026-70487</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&gt;=0.8.8,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.8 until 0.11.0, inline direct model metadata accepted client-supplied knowledge attachments without filtering them against the caller&#39;s read access. Any authenticated user who knew another user&#39;s file id could have the builtin knowledge tools return indexed chunks from that file, causing a read-only cross-user confidentiality loss while leaving knowledge-base permissions and saved workspace model validation unaffected. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/707efeaed7992dd9896d5928559458f228b9a539" target="_blank" rel="noopener">CVE-2026-70488</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.9.6,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.0, the sync cleanup endpoint authorized write access to the knowledge base in the URL but then acted on directory and file ids supplied in the request body without checking that those objects belonged to that knowledge base. A user with write access to one knowledge base could delete directories and remove file embeddings from another knowledge base, causing documents to drop out of retrieval results and breaking chat-with-file for targeted documents without disclosing contents. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/c4ae8c86786fed521960466f6d8eef8af22c2946" target="_blank" rel="noopener">CVE-2026-70489</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.9.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.0, automation recurrence parsing in backend/open_webui/utils/automations.py anchored minutely and hourly rules at a fixed date of 2000-01-01 and then walked forward one interval at a time to find the next run. A single FREQ=MINUTELY rule enumerates roughly a quarter-century of occurrences synchronously on the event loop that also serves scheduler, HTTP, and WebSocket traffic, and the scheduler recomputes the next run for every claimed row on each poll. This causes availability impact for every other user of the instance. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/security/advisories/GHSA-5gpj-vj23-vhhv" target="_blank" rel="noopener">CVE-2026-70490</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&gt;=0.8.8,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.8 until 0.11.0, the terminal WebSocket route in backend/open_webui/routers/terminals.py authenticated its own first-message JWT and never applied the verified-user role gate that get_verified_user enforces on HTTP terminal routes. An account whose role is pending, including a registered but unapproved account or an account deactivated back to pending, can open an interactive terminal session when at least one terminal server is configured and its access grants cover the account. This loses the account-approval boundary for terminal access while the HTTP terminal routes correctly reject the same account. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/c05de13b4fca1ac8a17153782b46b3d0aacf491c" target="_blank" rel="noopener">CVE-2026-70491</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;=0.10.2</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. In 0.10.2 and earlier, the GET /api/v1/tools/, GET /api/v1/tools/list, and GET /api/v1/tools/id/{id} endpoints in backend/open_webui/routers/tools.py returned full Python tool source to authenticated non-admin read-only users. ToolResponse deliberately omitted source and specs, but ToolUserResponse permitted extra fields and handlers spread a full tool model dump into the response, re-admitting omitted fields. A non-admin with a read grant can obtain another user&#39;s server-side tool source, which commonly embeds hard-coded API keys, credentials, and internal service URLs. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/bc600d3f085802c45aa8f38c30e6e8c986bde6cc" target="_blank" rel="noopener">CVE-2026-70492</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&gt;=0.10.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.0, src/lib/components/chat/Messages/Markdown/KatexRenderer.svelte could store and render a chat message whose math block makes KaTeX fail with a stack overflow instead of a parse error. The catch branch fell back to inserting the original math source into the page as HTML through {@html} rather than as text, so script in the message runs in the browser of whoever views it, including shared chats and channels. The viewer&#39;s session token in localStorage can be stolen, and an administrator viewer can have their account taken over. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/3ab2026262ef6f09810e4d235c5f9a9cb903e595" target="_blank" rel="noopener">CVE-2026-70493</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.9.6,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.0, the built-in knowledge search path in backend/open_webui/tools/knowledge_fs.py and backend/open_webui/tools/builtin.py let a chat participant choose a pattern used to grep knowledge files. Patterns containing regex metacharacters were compiled with Python&#39;s backtracking re engine and run against every line of every reachable file with no time limit, so a crafted pattern such as (x|x)*y and one matching uploaded file line can pin one CPU core and block the event loop. This causes availability impact for every other user of the affected worker. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/915ef7d0798d3175819cedbb2f62d7bf0db78c98" target="_blank" rel="noopener">CVE-2026-70494</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=0.10.0,&lt;0.11.0</td>
+        <td class="mono">0.11.0</td>
+        <td>-</td>
+        <td class="mono">20260804</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.0, the DELETE /api/v1/folders/{id} handler in backend/open_webui/routers/folders.py allowed a user granted write access to a shared chat folder to permanently delete chats and messages belonging to the folder owner. The cascade following the authorization check is bound to the folder owner&#39;s id, but the subfolder check accepted any inherited write grant instead of requiring ownership or administrator status. A collaborator can destroy the owner&#39;s subtree or force-move chats out of it when delete_contents=false. This issue is fixed in 0.11.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/8e61b646e2d157f9b93451fa048f9c8530c8a67b" target="_blank" rel="noopener">CVE-2026-71486</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td>-</td>
+        <td class="mono">20260817</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.26.0 이전에는 /v1/completions/derender 및 /v1/chat/completions/derender 엔드포인트는 generate_responses,Choices,token_ids,prompt_logprobs,logprobs.content,top_logprobs 및 Routed_experts 구조가 max_model_len, max_tokens 전에 OnlineDerenderer 및 tokenizer.decode에 의해 처리되는 호출자 제공 생성 응답 객체를 허용합니다. max_num_seqs 또는 응답 크기 제한이 적용되어 인증된 API 클라이언트가 과도한 CPU 및 메모리를 소비하고 크기가 큰 응답을 생성할 수 있습니다. 이 문제는 버전 0.26.0에서 수정되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the /v1/completions/derender and /v1/chat/completions/derender endpoints accept caller-supplied GenerateResponse objects whose generate_responses, choices, token_ids, prompt_logprobs, logprobs.content, top_logprobs, and routed_experts structures are processed by OnlineDerenderer and tokenizer.decode before max_model_len, max_tokens, max_num_seqs, or response-size limits are enforced, allowing an authenticated API client to consume excessive CPU and memory and produce oversized responses. This issue is fixed in version 0.26.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xmc9-4f2h-jf9c" target="_blank" rel="noopener">CVE-2026-72762</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.67, 2.31.5, and 2.32.1 contain an arbitrary file write vulnerability in the Edit Image node, which passes its output format parameter to the underlying image library without validation. An authenticated user able to run workflows can supply a crafted format value to write arbitrary files outside the node&#39;s working directory on the n8n instance.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9cmh-xcqm-5hqr" target="_blank" rel="noopener">CVE-2026-72764</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.8</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n&#39;s JavaScript task runner shared a single module cache across all users&#39; Code-node executions. In affected versions (before 1.123.67, 2.31.5, and 2.32.1), a user able to run a Code node could poison a cached module and thereby alter other users&#39; Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance and does not constitute a sandbox escape or remote code execution. Only multi-user instances running the JS task runner with built-in or external modules enabled are affected.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-rcv6-pvrj-4xcg" target="_blank" rel="noopener">CVE-2026-72767</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;1.123.67|&lt;2.31.5|&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a remote code execution vulnerability in the Git node. Authenticated users with rights to create and execute workflows can stage a crafted local repository that causes git to run hooks under default git security settings, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-hx4h-vr3m-45vh" target="_blank" rel="noopener">CVE-2026-72769</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.1</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.67, 2.31.5, and 2.32.1 contains a prototype pollution vulnerability in the VM expression engine. An authenticated user able to create or edit a workflow expression can abuse the engine&#39;s array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process (a sandbox escape), leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-8342-988q-86cr" target="_blank" rel="noopener">CVE-2026-72772</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.9</td>
+        <td class="mono">&lt;2.32.1|&lt;2.31.5</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 2.32.1 (and before 2.31.5) is vulnerable to account takeover via the Token Exchange Embed Login feature. When a validly-signed incoming token was matched to a local account by its email claim, the service did not verify that the email claim was verified, nor that the trusted key&#39;s permitted role ceiling covered that account. As a result, anyone able to obtain a token accepted by a configured trusted key (for example, a trusted issuer emitting unverified email addresses) could authenticate as any existing user and gain full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6qc9-mqvw-jg7x" target="_blank" rel="noopener">CVE-2026-72774</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.32.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260811</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.67, 2.31.5, and 2.32.1 contains a credential authorization bypass in the HTTP Request node. An authenticated member with edit access to a shared workflow can reference another user&#39;s credential while specifying the credential type via an expression. Because the pre-execution permission check compares the unresolved expression instead of the resolved credential type, the ownership check is skipped and the credential is loaded at execution time, allowing the member to use or exfiltrate a credential they were not granted. Exploitation requires knowing the target credential&#39;s identifier.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/jupyterlab/jupyterlab/commit/9365f020baec5221deaf11535ed554c06637c999" target="_blank" rel="noopener">CVE-2026-73415</a>
+        </td>
+        <td>JupyterLab</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;4.6.2</td>
+        <td class="mono">4.5.10</td>
+        <td>-</td>
+        <td class="mono">20260812</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. Prior to 4.5.10 and 4.6.2, in packages/imageviewer/src/widget.ts, JupyterLab&#39;s ImageViewer uses URL.createObjectURL for a specially crafted SVG image and revokes the blob URL too early, allowing the image to retain an executable same-origin context when it is opened through the image viewer and then opened in a new browser tab. The resulting cross-site scripting can be used to execute arbitrary code on the JupyterLab server. This issue is fixed in versions 4.5.10 and 4.6.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/e87521626febe2763f997691d1599de4175f4324" target="_blank" rel="noopener">CVE-2026-73555</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.26.0 이전에는 vllm/entrypoints/openai/server_utils.py의 유효성 검사_Exception_handler가 FastAPI RequestValidationError 개체를 str(exc)로 변환하고, vllm/entrypoints/utils.py의 sanitize_message는 역추적 스타일 파일 경로를 제거하지 않아 /v1/chat/completions에 대한 인증되지 않은 잘못된 JSON 요청을 허용합니다. /v1/completions, /tokenize 및 /detokenize는 OS 사용자 이름, 홈 및 가상 환경 경로, Python 버전, 내부 패키지 구조, 줄 번호 및 엔드포인트 핸들러 이름을 공개합니다. 이 문제는 버전 0.26.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/c9a788eedc412acceaa5112e0d44624b49841577" target="_blank" rel="noopener">CVE-2026-73556</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.26.0 이전에는 vllm/v1/structured_output/backend_lm_format_enforcer.py의 Structured_outputs.regex 매개변수가 compile_regex_with_timeout 또는 verify_structured_output_request_lm_format_enforcer의 유효성 검사 없이 lmformatenforcer.RegexParser에 전달되어 인증되지 않은 /v1/completions 요청을 허용합니다. lm-format-enforcer 백엔드는 CPU 코어를 소비하고 치명적인 정규 표현식으로 구조화된 출력 엔진 경로를 정지시킵니다. 이 문제는 버전 0.26.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/793cf79c89d4049124e756915468ac30318f2e50" target="_blank" rel="noopener">CVE-2026-73557</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&gt;=0.20.2rc0,&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.20.2rc0부터 0.26.0까지 vllm/renderers/embed_utils.py의 safe_load_prompt_embeds는 torch.sparse.check_sparse_tensor_invariants를 사용합니다. 이 프로세스 전역 저장, 활성화 및 복원 상태는 다음을 통해 POST /v1/chat/completions에 제출된 동시 프롬프트_embeds 부분에 의해 경주될 수 있습니다. AsyncMultiModalItemTracker.resolve_items, asyncio.gather 및 기본 실행 프로그램을 사용하면 활성화_prompt_embeds가 활성화된 경우 CVE-2025-62164 가드에도 불구하고 유효하지 않은 희소 텐서가 tensor.to_dense에 도달할 수 있습니다. 이 문제는 버전 0.26.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/451227cb3ff07989698fed982c2d3e4300257924" target="_blank" rel="noopener">CVE-2026-73558</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.27.0</td>
+        <td class="mono">0.27.0</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.27.0 이전에는 activate_kernels.cu의 blockIdx.x * 2 * d의 정수 오버플로로 인해 act_and_mul_kernel이 다른 일괄 처리 사용자의 입력을 소비하게 되어 동일한 추론 일괄 처리에서 처리된 요청이 다른 사용자 추론 결과의 부분 또는 전체 복사본을 수신할 수 있습니다. 이 문제는 버전 0.27.0에서 수정되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user&#39;s input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user&#39;s inference result. This issue is fixed in version 0.27.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/675f4295cdfe0d870471c2b51bfeca3a68a9569e" target="_blank" rel="noopener">CVE-2026-73559</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.19.0,&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.19.0부터 0.26.0까지 vllm/entrypoints/openai/completion/protocol.py의 /v1/completions CompletionRequest.prompt 필드는 제한되지 않은 list[str] 또는 list[list[int]], vllm/renderers/inputs/preprocess.py의 프롬프트_to_seq() 및 OnlineRenderer.preprocess_completion()을 허용합니다. vllm/renderers/online_renderer.py는 모든 요소를 확장하고 vllm/entrypoints/openai/completion/serving.py는 프롬프트당 하나의 엔진 생성기와 응답 슬롯을 생성하여 인증된 API 클라이언트가 하나의 요청으로 CPU, 메모리, 비동기 예약 용량, 엔진 요청 슬롯 및 응답 버퍼링을 소진할 수 있도록 합니다. 이 문제는 버전 0.26.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. From 0.19.0 until 0.26.0, the /v1/completions CompletionRequest.prompt field in vllm/entrypoints/openai/completion/protocol.py accepts an unbounded list[str] or list[list[int]], prompt_to_seq() in vllm/renderers/inputs/preprocess.py and OnlineRenderer.preprocess_completion() in vllm/renderers/online_renderer.py expand every element, and vllm/entrypoints/openai/completion/serving.py creates one engine generator and response slot per prompt, allowing an authenticated API client to exhaust CPU, memory, async scheduling capacity, engine request slots, and response buffering with one request. This issue is fixed in version 0.26.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-4hhp-h66f-j5j7" target="_blank" rel="noopener">CVE-2026-73560</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.26.0</td>
+        <td class="mono">0.26.0</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260908</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM: SSRF + arbitrary local file read in MiMoV2OmniMultiModalProcessor `_fetch_image` and audio loader bypass MediaConnector protections ### Summary `vllm/transformers_utils/processors/mimo_v2_omni.py` — the multimodal processor for `MiMoV2OmniForCausalLM` — issues `requests.get(...)` directly on user-supplied image and audio URL strings and `Image.open(...)` on user-supplied local paths, **without** the SSRF / `allowed_local_media_path` checks that `vllm.multimodal.utils.MediaConnector` was hardened with in **GHSA-qh4c-xf7m-gxfc**, **GHSA-v359-jj2v-j536**, and **GHSA-pf3h-qjgv-vcpr**. This is the same bug class as those three published advisories, in a code path the patches missed. When a user passes a URL or local-file string through `multi_modal_data` (e.g. `LLM.generate(multi_modal_data={&#34;image&#34;: &#34;http://...&#34;})`), the processor takes the unsanitized string and dispatches it without any URL-scheme allowlist, network-target allowlist, size cap, or local-path allowlist. ### Details *
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-whvh-wf3x-g77j" target="_blank" rel="noopener">CVE-2026-73626</a>
+        </td>
+        <td>JupyterLab</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] JupyterLab versions &gt;=4.6.0,&lt;=4.6.1 and &lt;=4.5.9 contain an allowlist/blocklist enforcement gap in PyPIExtensionManager.install(). A missing &#39;await&#39; caused the is_install_allowed coroutine to never execute, so the extension allowlist/blocklist check was not enforced for direct callers of install(). The stock JupyterLab HTTP API and Extension Manager UI are not affected, as they perform a separate, correctly awaited check. The issue affects only deployments where a custom extension or downstream integration imports PyPIExtensionManager and calls install() directly with a package name influenced by untrusted input, an allowlist/blocklist is configured, the PyPI Extension Manager is enabled, and kernels and terminals are disabled or delegated to remote hosts. Fixed in JupyterLab 4.6.2 and 4.5.10.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-h5v5-8746-g7mm" target="_blank" rel="noopener">CVE-2026-73627</a>
+        </td>
+        <td>JupyterLab</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.0</td>
+        <td class="mono">&lt;4.5.10</td>
+        <td class="mono">4.5.10</td>
+        <td>-</td>
+        <td class="mono">20260813</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          JupyterLab(pip 패키지 &#39;jupyterlab&#39;) 버전 &gt;=4.1.0,&lt;=4.5.9 및 &gt;=4.6.0,&lt;=4.6.1에는 플러그인 관리자 잠금 규칙 시행 우회가 포함되어 있습니다. 두 가지 서버 측 시행 공백을 통해 인증된 사용자는 /lab/api/plugins 엔드포인트에 직접 요청하여 잠긴 플러그인을 활성화 또는 비활성화함으로써 관리자 잠금 규칙을 우회할 수 있습니다(다중 플러그인 확장의 하위 플러그인 및 &#39;모두 잠금&#39; 메커니즘을 통해 잠긴 플러그인 포함). 이는 데이터 무결성에 영향을 미치고 잠긴 플러그인을 통해 구현된 강화 또는 제한 사항(예: 다운로드/업로드 제한)을 우회할 수 있습니다. 버전 4.6.2 및 4.5.10에서 수정되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">JupyterLab (pip package &#39;jupyterlab&#39;) versions &gt;=4.1.0,&lt;=4.5.9 and &gt;=4.6.0,&lt;=4.6.1 contain a plugin manager lock-rule enforcement bypass. Two server-side enforcement gaps allow an authenticated user to circumvent administrator lock rules by making direct requests to the /lab/api/plugins endpoint, enabling or disabling plugins that were locked — including child plugins of multi-plugin extensions and plugins locked via the &#39;lock all&#39; mechanism. This can impact data integrity and bypass hardening or restrictions (e.g., download/upload limits) implemented through locked plugins. Fixed in versions 4.6.2 and 4.5.10.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/apache/airflow/pull/71735" target="_blank" rel="noopener">CVE-2026-75156</a>
+        </td>
+        <td>Airflow</td>
+        <td>Apache Software Foundation</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">&gt;=3.7.3,&lt;=3.8.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Apache Airflow FAB provider versions 3.7.3 through 3.8.0 do not validate the issuer or audience of Azure AD `id_token`s during OAuth login. Deployments are affected only when the FAB auth manager is configured with Azure AD as an OAuth provider. Because the signing keys are fetched from Microsoft&#39;s **multi-tenant** JWKS endpoint, an `id_token` minted in *any* Azure tenant — including one the attacker creates — passes signature verification, and the username and role assignments are then read from that attacker-controlled token. Anyone able to register an Azure tenant can therefore authenticate to the Airflow UI with no prior access to the deployment. The fix for **CVE-2026-59243** was incomplete, and this advisory closes the remaining gap: that fix made the provider verify the `id_token` signature, but did not add issuer or audience checks. Operators who already applied the CVE-2026-59243 fix are **still affected and must upgrade again** — 3.7.3 is the release that shipped t
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc/grpc-go/commit/db9482836c298f234c896cf82ab68cafc78237f8" target="_blank" rel="noopener">CVE-2026-84303</a>
+        </td>
+        <td>gRPC</td>
+        <td>gRPC Authors</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;1.83.1</td>
+        <td class="mono">1.83.1</td>
+        <td>-</td>
+        <td class="mono">20260901</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, the xDS RBAC HTTP filter in internal/xds/httpfilter/rbac/rbac.go does not lowercase header matcher names in normalizeHeaderMatcher even though incoming metadata keys are lowercase. A DENY policy using a mixed-case name such as X-Role or User-Agent therefore does not match and fails open, allowing requests that should be rejected. The same case mismatch permits :Scheme or Grpc-Status to evade gRFC A41 validation and prevents Host from being rewritten to :authority. This issue is fixed in version 1.83.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc/grpc-go/commit/7354d9c8debb4bcf2225bf429857078de310c176" target="_blank" rel="noopener">CVE-2026-84304</a>
+        </td>
+        <td>gRPC</td>
+        <td>gRPC Authors</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;1.83.1</td>
+        <td class="mono">1.83.1</td>
+        <td>-</td>
+        <td class="mono">20260901</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, internal/transport/transport.go stores each fragmented HTTP/2 DATA frame as a separate recvMsg in recvBuffer, so millions of one-byte frames can consume disproportionate heap memory even when payload bytes remain within connection and stream flow-control windows. An unauthenticated remote attacker can use concurrent multiplexed streams to exhaust process memory and cause a runtime panic or out-of-memory termination. Receive-buffer compaction is enabled by default and can be controlled temporarily with GRPC_GO_EXPERIMENTAL_ENABLE_RECEIVE_BUFFER_COMPACTION. This issue is fixed in version 1.83.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-fg85-4wv2-p98j" target="_blank" rel="noopener">CVE-2026-85165</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.2</td>
+        <td class="mono">&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 2.36.2 contain an expression sandbox bypass vulnerability where free identifiers in spread, computed-key, switch-case, or class-extension positions resolve against process globals. Authenticated users with workflow-edit permission can mutate host objects through expression evaluation, with changes persisting process-wide until restart.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-4r56-g65c-fm83" target="_blank" rel="noopener">CVE-2026-85166</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.2</td>
+        <td class="mono">&lt;2.35.4|&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 2.35.4 and 2.36.x before 2.36.2 does not validate credential references in the inline workflow JSON of nodes that execute an inline sub-workflow (e.g., the Workflow Tool node). A shared-workflow editor, or any user creating/updating a workflow via the REST API, Public API, or MCP, can persist a node referencing a credential they do not own. When the workflow is later executed under an identity that holds the credential, the inline sub-workflow resolves the secret and can send it to an attacker-controlled endpoint, resulting in credential exfiltration.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-wxwj-8wv6-vpw2" target="_blank" rel="noopener">CVE-2026-85167</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;2.35.4|&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 2.35.4 and 2.36.x before 2.36.2 contain a query injection vulnerability in the Elasticsearch Document Get All and Google Cloud Firestore Document Query operations, which build their JSON query by interpolating expression values directly into the query string before parsing. A value containing quote and brace characters can close the intended field and introduce new query operators, turning an intended single-document lookup into a full-collection read.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-mwp5-2m32-r54h" target="_blank" rel="noopener">CVE-2026-85168</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain a remote code execution vulnerability in the Git node. The node reset a fixed list of command-bearing configuration keys before each operation, but that list did not cover the content-filter and merge-driver key families. A repository with local configuration setting one of those keys together with a matching attribute pattern causes git to execute the configured command during an ordinary Add, Commit, Checkout, or Pull operation. The command runs as the n8n process user.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9x83-43r8-5hwc" target="_blank" rel="noopener">CVE-2026-85169</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain an expression sandbox escape in the $fromAI handler. $fromAI resolved a caller-supplied placeholder name without requiring it to be an own property and admitted reserved keys; against a primitive input value it returned a live host-prototype reference. An attacker with workflow-build privilege can walk the prototype chain to the Function constructor and compile/execute arbitrary code in the main n8n process, leading to remote code execution.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-95ph-833c-4wrp" target="_blank" rel="noopener">CVE-2026-85170</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.73, 2.35.4, and 2.36.2 pass message content in the Gmail (v1) and Brevo nodes to the mail composer without verifying it is a string. An authenticated user able to run a workflow can supply an expression that resolves to an object carrying a path or href property, causing the composer to read a local file accessible to the n8n process or fetch an internal URL (SSRF) and attach the result to the outgoing message.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vrv8-j27g-g7cr" target="_blank" rel="noopener">CVE-2026-85171</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n before 1.123.73, 2.35.4, and 2.36.2 contains a credential exposure vulnerability in the Strapi, SeaTable, and Mailcheck nodes. These nodes send their decrypted credentials to the authentication endpoint via the raw legacy HTTP helper outside any error handling, causing the plaintext secret to be persisted in execution error data. Any authenticated user can read the plaintext secret from their own execution through the REST API, bypassing the blank-value redaction enforced by the credentials API.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jp9j-jr97-w9pj" target="_blank" rel="noopener">CVE-2026-85172</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;2.34.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 2.34.1 contain a server-side request forgery vulnerability in the legacy request helper function exposed to Code and Function nodes. The validation logic checks the uri property for SSRF safety while the underlying HTTP client uses the url property when both are present, allowing attackers to bypass validation by supplying a safe uri alongside a malicious url to access internal addresses.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jmmj-93rg-6j39" target="_blank" rel="noopener">CVE-2026-85173</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;2.36.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260903</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 2.36.2 contain a missing per-project authorization vulnerability in the Insights API routes that allows authenticated users with insights scopes to access workflow names and execution statistics across projects. Attackers can supply arbitrary projectId parameters to retrieve sensitive project and workflow information from projects they have no membership in.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/commit/18458482861097a26f874f30ad7e8136e268475c" target="_blank" rel="noopener">CVE-2026-86073</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.9</td>
+        <td class="mono">&lt;2.38.1</td>
+        <td class="mono">2.37.7</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.1, the OAuth token endpoint bound an authorization code&#39;s first access token to the consented resource but did not bind its refresh token. Refreshing checked only that the requested resource was registered, not that it matched the original grant. An OAuth client approved for one workflow could substitute a different workflow URL in the resource parameter and obtain a valid token for an unapproved workflow accessible to the consenting user. This issue is fixed in versions 2.37.7 and 2.38.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7" target="_blank" rel="noopener">CVE-2026-86074</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.9</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">2.37.7</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the Instance AI credential setup flow accepted a credential test or verification URL without checking that it matched the workflow node&#39;s origin. Attacker-controlled fetched content could influence that URL after a user injected it into the setup flow, causing authenticated requests, redirects, or probes to reach another origin. The affected logic includes packages/@n8n/instance-ai/src/tools/workflows/credential-utils.ts and the extractServiceOrigin origin derivation. This issue is fixed in versions 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7" target="_blank" rel="noopener">CVE-2026-86075</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">2.37.7</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the OAuth Dynamic Client Registration endpoint bounded redirect_uris but accepted arbitrarily large client_name and grant_types values. An unauthenticated remote caller could repeatedly persist oversized values in oauth_clients and exhaust database storage. The affected validation is in packages/cli/src/modules/oauth-server/oauth-server.service.ts, including MAX_CLIENT_NAME_LENGTH and MAX_GRANT_TYPES. This issue is fixed in versions 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86076</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the expression compiler sanitizer resolved through dynamically scoped this and did not reject reserved class member names. A class field named __sanitize could rebind the sanitizer and reach the Function constructor, enabling backend code execution and editor-preview JavaScript execution. The affected AST hook is PrototypeSanitizer in packages/workflow/src/expression-sandboxing.ts. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7" target="_blank" rel="noopener">CVE-2026-86077</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">2.37.7</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the /chat WebSocket route accepted a resumeToken and resumed a paused execution without checking that the target node supported chat messages. An anonymous form submitter who received that token could reuse it on the chat route to release a Send-and-Wait, non-chat HITL, or Wait approval gate. The affected authorization logic is packages/cli/src/chat/chat-execution-manager.ts, where canResumeOverChat did not gate the resume target. This issue is fixed in versions 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7" target="_blank" rel="noopener">CVE-2026-86078</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.0</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">2.37.7</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the Instance AI workflow summary used node names and connection keys from stored workflows as ordinary object keys. A workflow submitted through the REST API could contain __proto__ or constructor, causing nested writes to reach Object.prototype in the main n8n process and disrupt later requests. The affected function is summarizeWorkflowStructure in packages/@n8n/instance-ai/src/tools/workflows/summarize-workflow.ts. This issue is fixed in versions 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86079</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the Elasticsearch and ElasticSecurity nodes interpolated workflow-controlled index and document identifiers directly into REST request paths. An identifier containing path separators or dot segments could select another index or a cluster administration endpoint under the stored Elasticsearch credential. The affected request construction includes packages/nodes-base/nodes/Elastic/Elasticsearch/GenericFunctions.ts and the missing toPathSegment encoding. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86080</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the GitHub Trigger generated a webhook secret but discarded it when GitHub returned HTTP 422 and the node reused an existing webhook. Workflow static data then retained webhookId without webhookSecret, and X-Hub-Signature-256 verification accepted deliveries without a stored secret. The affected logic includes packages/nodes-base/nodes/Github/GithubTriggerHelpers.ts and the 422 webhook reuse path. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86081</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the Git node clone operation matched an attacker-controlled destination path against the default N8N_BLOCK_FILE_PATTERNS regular expression. The pattern ^(./).git(/.)$ allowed catastrophic backtracking and ran synchronously in the main n8n process. An authenticated workflow editor could therefore freeze the instance with one workflow execution; the affected default is declared in packages/@n8n/config/src/configs/security.config.ts. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86082</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the OpenAI Chat Model node enforced credential allowed-domain restrictions for normal calls but not for the model-search dropdown. A workflow editor could set options.baseURL to an arbitrary host and make the searchModels path send the openAiApi credential there. The affected implementation is packages/@n8n/nodes-langchain/nodes/llms/LMChatOpenAi/methods/loadModels.ts, which omitted assertOpenAiCredentialAllowsUrl. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86083</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the legacy expression engine generated source text by calling the mutable global JSON.stringify while printing synthetic string literals and interpolating timezone data. An expression could replace JSON.stringify and cause later generated source to contain executable attacker-controlled code. The affected code-generation paths include packages/@n8n/expression-runtime/src/bridge/isolated-vm-bridge.ts and packages/@n8n/tournament/src/ExpressionBuilder.ts, and the issue does not affect the vm expression engine. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86084</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.0</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the public OIDC login and callback endpoints completed authentication even when OIDC was not the enabled active authentication method. An Enterprise administrator who had configured and later disabled an identity provider still exposed a working route that could issue valid sessions. The affected logic is packages/cli/src/modules/sso-oidc/oidc.service.ee.ts, including generateLoginUrl and the callback flow that lacked assertOidcLoginEnabled. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7" target="_blank" rel="noopener">CVE-2026-86085</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.1</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">2.37.7</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the /rest/roles/:slug/assignments and /rest/roles/:slug/assignments/:projectId/members endpoints checked only whether the caller could manage the role type. A caller with role:manageProject could name a project the caller could not list and obtain member names and email addresses. The affected controller is packages/cli/src/controllers/role.controller.ts, which omitted the project:list scope check. This issue is fixed in versions 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ollama/ollama/" target="_blank" rel="noopener">CVE-2026-86289</a>
+        </td>
+        <td>Ollama</td>
+        <td>Ollama</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;=0.31.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260907</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A vulnerability was found in Ollama up to 0.31.1. This issue affects the function readGGUFV1String of the file fs/ggml/gguf.go of the component GGUF Decoder. Performing a manipulation results in integer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used. Upgrading to version 0.31.2-rc1 is capable of addressing this issue. The patch is named 67b6a1c2d45321e0cb3c04a18073f9818de7724b. It is recommended to upgrade the affected component.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ggml-org/llama.cpp/" target="_blank" rel="noopener">CVE-2026-86317</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;=0.4.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260907</td>
+        <td class="mono">20260908</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A vulnerability was detected in ggml-org llama.cpp up to 0.4.0. This impacts the function rpc_server::deserialize_tensor of the file ggml/src/ggml-rpc/ggml-rpc.cpp of the component RPC Server. Performing a manipulation of the argument ne results in reachable assertion. The attack is possible to be carried out remotely. The reported GitHub issue was closed automatically due to inactivity.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86993</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.9</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, a Log Streaming event destination could reference a generic HTTP credential and decrypt whichever credential ID it named without an ownership check. A user with a custom global role carrying Log Streaming scopes could select a credential belonging to another project and send its decrypted secret to an attacker-controlled endpoint. The affected authorization boundary is packages/cli/src/modules/log-streaming.ee/destinations/destination-credentials-access.ts and the credential:read scope. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86994</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the /rest/active-workflows endpoint returned every active workflow ID on the instance to any member regardless of sharing. Workflow activation, deactivation, and publication push events were also broadcast to clients that could not access the affected workflow, disclosing workflow IDs, version IDs, and activation error details. The affected paths include packages/cli/src/services/active-workflows.service.ts and packages/cli/src/workflows/workflow-push-notifier.service.ts. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.76" target="_blank" rel="noopener">CVE-2026-86995</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;2.38.2</td>
+        <td class="mono">1.123.76</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the Git node validated the repository parameter for fetch or pull, but setUpstream wrote a branch..remote value into repository configuration without validating it. A later fetch or pull resolved the remote from that configuration instead of the checked parameter. An authenticated workflow editor could therefore point Git at any local repository readable by the n8n process and receive its contents through packages/nodes-base/nodes/Git/GenericFunctions.ts. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@2.37.7" target="_blank" rel="noopener">CVE-2026-86996</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&gt;=2.38.0,&lt;2.38.2|&lt;2.37.7</td>
+        <td class="mono">2.38.2</td>
+        <td>-</td>
+        <td class="mono">20260908</td>
+        <td class="mono">20260909</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the workflow setting named This workflow can be called by was enforced by the Execute Workflow node but not when a workflow was attached to an Agent as a tool. A user able to build an Agent could invoke a restricted workflow and read its returned data. The affected path is packages/cli/src/modules/agents/tools/workflow-tool-factory.ts, where executeWorkflow omitted SubworkflowPolicyChecker.checkForProject. This issue is fixed in versions 2.37.7 and 2.38.2.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/aeda6ff13a25d3b3ba1b303609f35382db22142c" target="_blank" rel="noopener">CVE-2026-87011</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&gt;=0.9.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.1, the unauthenticated POST /oauth/backchannel-logout handler in backend/open_webui/utils/oauth.py fetched the OIDC discovery document and signing keys before validating a submitted logout token. Each request repeated uncached network fetches, and the signing-key lookup blocked the async event loop, so requests carrying invalid tokens could stall the single-worker instance and amplify traffic to the identity provider when ENABLE_OAUTH_BACKCHANNEL_LOGOUT was enabled. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/abc69000b33b4894fbd97fc2c962139cf9a8d784" target="_blank" rel="noopener">CVE-2026-87012</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.9.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.1, backend/open_webui/models/calendar.py stored the calendar event meta.alert_minutes value without type validation and the shared upcoming-event scheduler compared that value numerically. An authenticated user with the calendar permission could store a non-numeric alert_minutes value that raised an exception and aborted the instance-wide alert pass, suppressing all users&#39; reminders while the event remained in the lookahead window. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/23b3a69bc26839bfa74edd1be6bfa2568ae902f4" target="_blank" rel="noopener">CVE-2026-87013</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.10.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, POST /api/v1/folders/{id}/update/parent allowed a user to place a folder under itself or one of its descendants, while the folder tree walks used by DELETE /api/v1/folders/{id} and POST /api/v1/folders/{id}/read did not track visited folder identifiers. An authenticated user could persist a parent cycle and start a request that consumed CPU and memory indefinitely, with the condition remaining stored until repaired. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/ce3c175e260709f359d7e6cbb3132f0572098b95" target="_blank" rel="noopener">CVE-2026-87014</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.9.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.1, role synchronization in backend/open_webui/routers/auths.py and backend/open_webui/utils/oauth.py updated an administrator&#39;s database role without invalidating the user record cached by backend/open_webui/socket/main.py. An administrator demoted through a trusted role header or OAuth role mapping could keep an already-open Socket.IO connection and continue reading or editing every user&#39;s collaborative notes until that connection closed. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/cd9db21c5276807a2975ddba17cef369ad1114b7" target="_blank" rel="noopener">CVE-2026-87015</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.8</td>
+        <td class="mono">&gt;=0.6.27,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.27 until 0.11.1, backend/open_webui/utils/tools.py captured a cookie jar from the enclosing connection loop instead of binding it to each external tool callable. When multiple tool servers were attached and a session or system OAuth connection was processed last, a request to a different server configured for bearer authentication could include the calling user&#39;s Open WebUI session cookies, allowing that server&#39;s operator to reuse the session and take over the account. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/73c1f5806aeb6345dad5de8f5aa26d1f3d0bef80" target="_blank" rel="noopener">CVE-2026-87016</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=0.6.41,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.41 until 0.11.1, get_user_by_oauth_sub and get_user_by_scim_external_id in backend/open_webui/models/users.py used JSON contains matching that compiled to SQL LIKE substring matching on SQLite. An OAuth subject containing percent or underscore wildcard characters could resolve to a different stored identity, potentially selecting an administrator account and issuing the attacker that account&#39;s session; PostgreSQL deployments were not affected. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/1d6d4e6e6647e1d403438ede7bd9ba20bc4cc8f6" target="_blank" rel="noopener">CVE-2026-87017</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.7.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.7.0 until 0.11.1, the built-in knowledge search tool passed the caller&#39;s readable knowledge identifiers through a metadata filter, but the search methods in eleven shipped vector backends ignored that filter. An authenticated user on an affected backend could enumerate the identifiers, names, and descriptions of inaccessible knowledge bases from the shared collection, although the associated document text remained in separate collections. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/7d392bedc9c1aaecc94509a58e59186b614433dc" target="_blank" rel="noopener">CVE-2026-87994</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.9.5,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 until 0.11.1, the channel branch of chat_completion in backend/open_webui/main.py checked channel write access and channel membership for a supplied message_id but did not verify that the calling user authored the targeted message. A channel member could use the chat completions endpoint to replace another member&#39;s message while preserving the victim as the stored author, altering the conversation record without gaining access to other channels. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/54d7a223707f03172efbb9e754db6e69709956d0" target="_blank" rel="noopener">CVE-2026-87995</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&gt;=0.8.11,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.11 until 0.11.1, src/lib/components/chat/FileNav/PortPreview.svelte rendered terminal port content in an iframe sandbox containing both allow-scripts and allow-same-origin. Because the terminal proxy serves that content from the Open WebUI origin, an authenticated user with access to a shared terminal server could host script on a previewed port and take over a victim&#39;s account when the victim opened the preview. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/27402ff210bfa253445720920dfb86b15a00327b" target="_blank" rel="noopener">CVE-2026-87996</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&gt;=0.9.6,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.1, SafePlaywrightURLLoader in backend/open_webui/retrieval/web/utils.py validated a user-controlled hostname in Python and then let the Playwright browser resolve it again in the sync and async request interceptors. An authenticated user controlling authoritative DNS could return a public address to validation and an internal address to the browser, exposing responses from internal services or cloud metadata through web search or URL ingestion. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/d9e23b90c100d19b00270aea3cde0501d2354a6c" target="_blank" rel="noopener">CVE-2026-87997</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.10.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, POST /api/chat/completions and POST /api/v1/chat/completions in backend/open_webui/main.py copied a client-supplied folder_id into a new chat without applying the folder write-access check used by the dedicated chat routes. An authenticated user who knew a shared folder identifier could inject an attacker-controlled chat into a folder where the user had read-only or no write access, causing the entry to appear to authorized folder readers. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/dc03e7e595d61be97b25a1dd7bb99ad264f73199" target="_blank" rel="noopener">CVE-2026-87998</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&gt;=0.10.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, DELETE /api/v1/knowledge/{id}/delete in backend/open_webui/routers/knowledge.py authorized deletion against the knowledge base but then removed its administrator-owned external connection without a separate administrator check or a check for other dependent knowledge bases. A non-administrator with write access to one external knowledge base could delete shared instance configuration and make every other knowledge base using that connection unavailable. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/e3e4bd87df6fc629e7e22081d980d55a7632b8b7" target="_blank" rel="noopener">CVE-2026-87999</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.11.1, POST /api/v1/retrieval/process/web and POST /api/v1/retrieval/process/web/search in backend/open_webui/retrieval/web/utils.py treated Python&#39;s globally routable address classification as proof that a destination was external. An authenticated user could make an Azure-hosted instance fetch and return content from 168.63.129.16, the Azure platform channel, as well as other reserved ranges that the standard classification did not reject. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/b933292d63d12be3fd1416fe55519ddc7aa336bc" target="_blank" rel="noopener">CVE-2026-88000</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.10.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, DELETE /api/v1/chats/{id}/messages/{message_id} used the chat-history deletion helper in backend/open_webui/models/chats.py to follow childrenIds without recording visited message identifiers. An authenticated user could store a cyclic chat tree and delete a message, causing a synchronous infinite loop on the server request loop that blocked every user&#39;s requests until the process was killed. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/e3e4bd87df6fc629e7e22081d980d55a7632b8b7" target="_blank" rel="noopener">CVE-2026-88001</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.0</td>
+        <td class="mono">&gt;=0.9.5,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 until 0.11.1, server-side web fetches did not reapply WEB_FETCH_FILTER_LIST or private-address controls to HTTP redirect destinations when AIOHTTP_CLIENT_ALLOW_REDIRECTS was enabled. An authenticated user could redirect the aiohttp and requests fetch paths to excluded hosts, loopback, private networks, or cloud metadata services and route resulting content into web search, URL ingestion, page-fetch tools, or chat image processing. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/open-webui/open-webui/commit/5c79ccc9e5c9efc2bc024d8f0b9757652ece929a" target="_blank" rel="noopener">CVE-2026-88002</a>
+        </td>
+        <td>Open WebUI</td>
+        <td>Open WebUI</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.5.0,&lt;0.11.1</td>
+        <td class="mono">0.11.1</td>
+        <td>-</td>
+        <td class="mono">20260909</td>
+        <td class="mono">20260909</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.5.0 until 0.11.1, the message-chain reconstruction helper in backend/open_webui/utils/misc.py advanced through a chat history by map key but tracked visited entries using each message body&#39;s optional id field. An authenticated user could store id-less messages in a parent cycle and trigger a non-terminating walk that blocked the async event loop, grew memory until termination, and remained persistent across process restarts. This issue is fixed in version 0.11.1.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>메일 발송 로그</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr><th>수신자</th><th>상태</th><th>발송시각</th><th>첨부</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">k5131@kida.re.kr</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-09-09 23:01:43</td>
+        <td class="mono">CVE_20260909.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">eclipse6@naver.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-09-09 23:01:45</td>
+        <td class="mono">CVE_20260909.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">hayunfa@gmail.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-09-09 23:01:45</td>
+        <td class="mono">CVE_20260909.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:16px;"><a href="../index.html">← 대시보드로</a></div>
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+</body>
+</html>
