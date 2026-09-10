@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
+    <div class="stamp">최종 생성 2026-09-10 23:28:31</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1695 OSV=14 NVD=14 GHSA=9 RANGE_RECOVERED=3 TRANSLATE=0건 번역 / 21건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (16건)</h2>
+<h2>이 회차 CVE (8건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -104,64 +104,6 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/mlflow/mlflow/commit/361b6f620adf98385c6721e384fb5ef9a30bb05e" target="_blank" rel="noopener">CVE-2025-15379</a>
-        </td>
-        <td>MLflow</td>
-        <td>lfprojects</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>10.0</td>
-        <td class="mono">&gt;=3.8.0,&lt;3.8.1</td>
-        <td class="mono">3.8.1</td>
-        <td>-</td>
-        <td class="mono">20260330</td>
-        <td class="mono">20260904</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          A command injection vulnerability exists in MLflow&#39;s model serving container initialization code, specifically in the `_install_model_dependencies_to_env()` function. When deploying a model with `env_manager=LOCAL`, MLflow reads dependency specifications from the model artifact&#39;s `python_env.yaml` file and directly interpolates them into a shell command without sanitization. This allows an attacker to supply a malicious model artifact and achieve arbitrary command execution on systems that deploy the model. The vulnerability affects versions 3.8.0 and is fixed in version 3.8.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-2943-9672-r45w" target="_blank" rel="noopener">CVE-2026-33264</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.8</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow allows code execution through unsafe serialized DAG deserialization A bug in `BaseSerialization.deserialize()` allowed unrestricted `import_string()` of attacker-controlled class paths when the Scheduler / API Server loaded a serialized DAG: a DAG author could embed a malicious trigger into a DAG to gain remote code execution on the API Server / Scheduler process, crossing the Airflow security boundary that DAG-author code must never execute in those processes. Users are advised to upgrade to `apache-airflow` 3.3.0 or later. As a defense-in-depth mitigation, deployments where DAG-author trust is limited can restrict the `[core] allowed_deserialization_classes` config to a narrow allowlist.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/b3c7ffcab82c2439726f8cb213800f6f38c023d3" target="_blank" rel="noopener">CVE-2026-41523</a>
-        </td>
-        <td>vLLM</td>
-        <td>vllm</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td>-</td>
-        <td class="mono">20260622</td>
-        <td class="mono">20260904</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 LLM(대형 언어 모델)을 위한 추론 및 제공 엔진입니다. 0.22.0 이전에는 vLLM 활성화 함수 로딩의 어설션 기반 보안 검사를 통해 vLLM이 Python 최적화 모드(python -O 또는 PYTHONOPTIMIZE=1)에서 실행될 때 인증되지 않은 공격자가 악의적인 HuggingFace 모델을 게시하여 서버에서 임의 코드 실행을 달성할 수 있었습니다. 이 취약점은 0.22.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.0, an assert-based security check in vLLM&#39;s activation function loading allows any unauthenticated attacker to achieve arbitrary code execution on the server by publishing a malicious HuggingFace model, when vLLM runs in Python optimized mode (python -O or PYTHONOPTIMIZE=1). This vulnerability is fixed in 0.22.0.</div>
-          </details>
-        </td>
-      </tr>
       <tr>
         <td class="mono">
 <a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43622</a>
@@ -182,24 +124,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-44223" target="_blank" rel="noopener">CVE-2026-44223</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.18.0,&lt;0.20.0</td>
-        <td class="mono">0.20.0</td>
-        <td>-</td>
-        <td class="mono">20260506</td>
-        <td class="mono">20260904</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary The `extract_hidden_states` speculative decoding proposer in vLLM returns a tensor with an incorrect shape after the first decode step, causing a `RuntimeError` that crashes the EngineCore process. The crash is triggered when any request in the batch uses sampling penalty parameters (`repetition_penalty`, `frequency_penalty`, or `presence_penalty`). A single request with a penalty parameter (e.g., `&#34;repetition_penalty&#34;: 1.1`) is sufficient to crash the server. The crash is deterministic and immediate — no concurrency, race condition, or special workload is required. ### Details In vLLM v0.17.0, the `extract_hidden_states` proposer&#39;s `propose()` method returned `sampled_token_ids.unsqueeze(-1)`, producing a tensor of shape `(batch_size, 1)`. In [PR #37013](https://github.com/vllm-project/vllm/pull/37013) (first released in v0.18.0), the KV connector interface was refactored out of `propose()`. The return type changed from `tuple[Tensor, KVConnectorOutput | None]` to `Tensor`
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47476" target="_blank" rel="noopener">CVE-2026-47476</a>
         </td>
         <td>Triton Inference Server</td>
@@ -214,78 +138,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker can cause uncontrolled resource consumption. A successful exploit of this vulnerability might lead to denial of service.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-563f-2439-rmq4" target="_blank" rel="noopener">CVE-2026-48828</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow exposes sensitive JSON Variable values through the Bulk Variables API The Bulk Variables API in Apache Airflow called the redactor without passing the variable&#39;s key, so the key-based `should_hide_value_for_key` check (which triggers on secret-suffixed key names like `*_password` / `*_token` / `*_secret`) could not fire for JSON-decodable variable values. An authenticated UI/API user with bulk Variable read permission could retrieve plaintext values from JSON variables whose key would otherwise trigger redaction. Affects deployments that store sensitive values in JSON-typed Airflow Variables under secret-suffixed key names. Users are advised to upgrade to `apache-airflow` 3.3.0 or later (the fix landed on `main` after 3.2.2; no 3.2.x backport).
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-3322-mjxh-9mp5" target="_blank" rel="noopener">CVE-2026-48891</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow exposes unreadable DAG identifiers in the scheduling dependencies graph A bug in Apache Airflow&#39;s `/ui/dependencies` scheduling graph endpoint applied the caller&#39;s readable-Dag filter to the top-level serialized Dag key but still emitted referenced Dag IDs through the `dep.source` and `dep.target` fields of trigger / sensor dependency entries. An authenticated UI user with read permission on some Dags could enumerate the identifiers of other Dags they were not authorized to read by inspecting the dependency graph for trigger / sensor references. Affects deployments that rely on per-Dag read scoping to keep Dag identifiers private across teams. This is a residual gap in the fix for CVE-2026-28563, which filtered the top-level Dag key but did not propagate the filter into the trigger / sensor dep-source / dep-target fields. Users who already upgraded for CVE-2026-28563 should additionally upgrade to `apache-airflow` 3.3.0 or later to cover the residual trigger / sensor dep
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-9933-5rrp-mfwx" target="_blank" rel="noopener">CVE-2026-48892</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow exposes secrets backend credentials through the Config API The Config API in Apache Airflow surfaced per-key secrets-backend overrides (environment variables like `AIRFLOW__SECRETS__BACKEND_KWARG__SECRET_ID` and `AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__SECRET_ID`) as synthetic config options whose option names were not in `sensitive_config_values`, so the masker did not redact them. An authenticated UI/API user with Config read permission could retrieve plaintext secrets-backend credentials (Vault `role_id` / `secret_id`, etc.) from the Config API output. Affects deployments that configure secrets backends via per-key environment overrides. Users are advised to upgrade to `apache-airflow` 3.3.0 or later.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-22hf-vx2v-gjff" target="_blank" rel="noopener">CVE-2026-49487</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260904</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow exposes deferred trigger kwargs in task-instance API responses In Apache Airflow before 3.3.0, the REST API task-instance detail and list endpoints returned a deferred task&#39;s trigger kwargs without masking. When a deferred operator passed a secret (for example a provider API key) into its trigger, any authenticated user with DAG-scoped task-instance read access for that DAG could read that secret in clear text while the task was deferred. Users should upgrade to apache-airflow 3.3.0 or later, which masks sensitive values in trigger kwargs returned by the API.
         </td>
       </tr>
       <tr>

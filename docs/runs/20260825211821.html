@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
+    <div class="stamp">최종 생성 2026-09-10 23:28:31</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (6건)</h2>
+<h2>이 회차 CVE (0건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -107,114 +107,7 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-xph7-9rjv-w5fr" target="_blank" rel="noopener">CVE-2026-45831</a>
-        </td>
-        <td>ChromaDB</td>
-        <td>Chroma</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=0.5.0,&lt;=1.5.9</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260612</td>
-        <td class="mono">20260824</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          ChromaDB&#39;s SimpleRBACAuthorizationProvider doesn&#39;t check which tenant, database, or collection a permission applies to The SimpleRBACAuthorizationProvider authorization provider in versions 0.5.0 or later of the ChromaDB Python project evaluates whether a user holds a given permission but never checks which tenant, database, or collection that permission applies to allowing users to perform cross tenant actions.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-36p7-vc44-83pf" target="_blank" rel="noopener">CVE-2026-45833</a>
-        </td>
-        <td>ChromaDB</td>
-        <td>Chroma</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>-</td>
-        <td class="mono">&gt;=0.4.17,&lt;=1.5.9</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260612</td>
-        <td class="mono">20260824</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          ChromaDB has a code injection vulnerability A code injection vulnerability in version 0.4.17 or later of the ChromaDB Python project allows an authenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_id} if they have the UPDATE_COLLECTION permission.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47155" target="_blank" rel="noopener">CVE-2026-47155</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td>-</td>
-        <td class="mono">20260610</td>
-        <td class="mono">20260824</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary vLLM&#39;s revision pinning controls do not consistently apply to all artifacts loaded for a model. A deployment that supplies `--revision` or `--code-revision` can still load dynamic code, GGUF files, image processors, retrieval side weights, or same-repository subfolder weights/config from an unpinned/default revision. This is a supply-chain integrity issue for pinned vLLM deployments. Operators can believe they are serving a reviewed model revision while vLLM resolves behavior-affecting nested or sibling artifacts outside that reviewed revision. ### Details The expected invariant is: &gt; When a vLLM operator supplies a model or code revision pin, every code, config, processor, weight file, side weight, and same-repository subfolder artifact loaded as part of that model should resolve under that pin unless vLLM exposes and enforces a separate explicit pin for that artifact. Current `main` was verified affected at commit `3795d7acf431980e62e738493f437ae2a51549da`. Affected sourc
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54234" target="_blank" rel="noopener">CVE-2026-54234</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=0.17.1,&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260717</td>
-        <td class="mono">20260824</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary A frontend-legal multi-request speculative workload can make vLLM produce an out-of-vocabulary recovered token equal to `vocab_size`, convert that value to `-1` when choosing the next live token for a request, and then feed that `-1` back into the next drafter input ids. On Qwen3 GPTQ this reaches the worker-side drafting / attention path and crashes the engine with a GPU `device-side assert`. The same issue is reachable through the public gRPC request surface by sending a specific overlapping `Generate` / `Abort` sequence. ## Impact - A remote client that can send public gRPC generation requests can crash the shared vLLM engine worker - The triggering request sequence aborts concurrent requests and prevents later requests from completing until the worker is restarted - In shared deployments, this is a service-wide denial of service for other clients, not just a failure isolated to the attacking requests - The failure is reproducible, so repeated request sequences can sustai
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55514" target="_blank" rel="noopener">CVE-2026-55514</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=0.12.0,&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260824</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary _Short summary of the problem. Make the impact and severity as clear as possible. For example: An unsafe deserialization vulnerability allows any unauthenticated user to execute arbitrary code on the server._ Sending a pure prompt embeds payload in a `/v1/completions` request with a model using M-RoPE causes the EngineCore to fail an assertion and fatally crash, shutting down the entire server application. Any remote user who is authorized to make a `/v1/completions` endpoint can trivially make such a request and induce a crash. ### Details _Give all details on the vulnerability. Pointing to the incriminated source code is very helpful for the maintainer._ In commit [56669c1](https://github.com/vllm-project/vllm/commit/56669c1f293d5c53b6a19ddf2f78802fa9fff2c2), a simple assert intended to be a type-narrowing assert was added to the `_init_mrope_positions` method in `GPUModelRunner` (the offending line on main at the time of writing: https://github.com/vllm-project/vllm/blob
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55574" target="_blank" rel="noopener">CVE-2026-55574</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260717</td>
-        <td class="mono">20260824</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary The `structured_outputs.regex` API parameter passes a user-supplied regex string directly to grammar compiler backends with no compilation timeout. In the xgrammar backend, the string reaches `compile_regex()` with no guard. In the outlines backend, `validate_regex_is_buildable()` blocks structural issues (lookarounds, backreferences) but provides zero protection against exponential DFA state-space explosion. Patterns like `(a+)+b` pass all checks and hang the inference worker. ## Root Cause `backend_xgrammar.py:91` — no timeout: ```python ctx = self.compiler.compile_regex(grammar_spec) ``` `backend_outlines.py:299–330` — structural checks only, no complexity analysis: ```python def validate_regex_is_buildable(regex: str) -&gt; None: sre_parse.parse(regex) # AST parse only — does not detect exponential patterns _check_unsupported(...) # blocks lookarounds/backrefs, not nested quantifiers ``` `backend_outlines.py:64` — no timeout: ```python oc.Index(regex_string, vocabulary.inne
-        </td>
-      </tr>
+      <tr><td colspan="12" class="empty">이 회차에 기록된 CVE 가 없습니다.</td></tr>
     </tbody>
   </table>
 </div>

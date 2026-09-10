@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
+    <div class="stamp">최종 생성 2026-09-10 23:28:31</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1695 OSV=16 NVD=29 GHSA=10 RANGE_RECOVERED=12 TRANSLATE=0건 번역 / 36건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (8건)</h2>
+<h2>이 회차 CVE (5건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -120,24 +120,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           A vulnerability in zenml-io/zenml versions 0.57.0 through 0.94.2 allows an attacker to bypass rate-limiting on the `POST /api/v1/login` and self password-change endpoints by rotating the `X-Forwarded-For` header. The rate limiter keys requests by `request.client.host`, which is derived from the `X-Forwarded-For` header when Uvicorn is launched with `--proxy-headers --forwarded-allow-ips *`. This configuration allows clients to control the value of `request.client.host`, effectively bypassing rate-limiting protections. This vulnerability leaves the affected endpoints open to unthrottled credential guessing attacks.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45360" target="_blank" rel="noopener">CVE-2026-45360</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.3</td>
-        <td class="mono">&gt;=3.2.0,&lt;3.2.2</td>
-        <td class="mono">3.2.2</td>
-        <td>-</td>
-        <td class="mono">20260601</td>
-        <td class="mono">20260903</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          Apache Airflow&#39;s scheduler-side deadline-reference decoder (`SerializedCustomReference.deserialize_reference`) imported and dispatched arbitrary class paths drawn from DAG-author-controlled serialized state without an allowlist or plugin-registry gate. A DAG author whose code reaches the scheduler — the default on single-host deployments where the DAG bundle is importable from the scheduler process — could embed a custom `DeadlineReference` whose serialized form named an attacker-controlled module path, causing the scheduler to `import_string(...)` and instantiate that class with a live SQLAlchemy session attached. Affects deployments where DAG-author code is less trusted than the scheduler process. Users are advised to upgrade to `apache-airflow` 3.2.2 or later.
         </td>
       </tr>
       <tr>
@@ -210,42 +192,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           [버전범위 불명확] A vulnerability was determined in langgenius dify 1.13.0. Affected is the function router.replace of the file web/app/(shareLayout)/components/splash.tsx of the component Splash Layout. This manipulation of the argument redirect_url causes cross site scripting. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">CVE-2026-85180</a>
-        </td>
-        <td>Ollama</td>
-        <td>Ollama</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Ollama fails to validate redirect destinations when pulling tensor-layer models, allowing unauthenticated attackers to redirect blob downloads to arbitrary hosts. An attacker can control a registry, serve a malicious tensor-layer manifest, and cause the server to issue GET requests to internal hosts including cloud metadata endpoints.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-85211</a>
-        </td>
-        <td>Label Studio</td>
-        <td>HumanSignal</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260903</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Label Studio fails to apply organization filters when resolving storage URIs for tasks and projects in proxy_api.py endpoints. Attackers can access other tenants&#39; cloud storage objects by creating a separate organization and supplying arbitrary file URIs to presign or stream bucket contents.
         </td>
       </tr>
     </tbody>

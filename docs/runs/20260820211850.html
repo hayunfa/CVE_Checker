@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-09 23:01:45</div>
+    <div class="stamp">최종 생성 2026-09-10 23:28:31</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (6건)</h2>
+<h2>이 회차 CVE (5건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -107,28 +107,6 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/ray-project/ray/commit/70e7c72780bdec075dba6cad1afe0832772bfe09" target="_blank" rel="noopener">CVE-2025-62593</a>
-        </td>
-        <td>Ray</td>
-        <td>anyscale</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;2.52.0</td>
-        <td class="mono">2.52.0</td>
-        <td><span class="kev">KEV</span></td>
-        <td class="mono">20251126</td>
-        <td class="mono">20260818</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Ray는 AI 컴퓨팅 엔진입니다. 버전 2.52.0 이전에는 Ray를 개발 도구로 사용하는 개발자가 Firefox 및 Safari를 통해 악용할 수 있는 중요한 RCE 취약점을 통해 악용될 수 있습니다. 이 취약점은 현재 방어가 &#34;Mozilla&#34; 문자열로 시작하는 User-Agent 헤더를 방어 메커니즘으로 사용하기 때문에 브라우저 기반 공격에 대한 보호가 충분하지 않기 때문에 발생합니다. 가져오기 사양을 통해 User-Agent 헤더를 수정할 수 있으므로 이러한 방어는 충분하지 않습니다. 브라우저에 대한 DNS 리바인딩 공격과 결합되어 이 취약점은 Ray를 실행하는 개발자가 실수로 악의적인 웹 사이트를 방문하거나 악의적인 광고(악성 광고)를 받은 개발자에 대해 악용될 수 있습니다. 이 문제는 버전 2.52.0에서 패치되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Ray is an AI compute engine. Prior to version 2.52.0, developers working with Ray as a development tool can be exploited via a critical RCE vulnerability exploitable via Firefox and Safari. This vulnerability is due to an insufficient guard against browser-based attacks, as the current defense uses the User-Agent header starting with the string &#34;Mozilla&#34; as a defense mechanism. This defense is insufficient as the fetch specification allows the User-Agent header to be modified. Combined with a DNS rebinding attack against the browser, and this vulnerability is exploitable against a developer running Ray who inadvertently visits a malicious website, or is served a malicious advertisement (malvertising). This issue has been patched in version 2.52.0.</div>
-          </details>
-        </td>
-      </tr>
       <tr>
         <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-11500" target="_blank" rel="noopener">CVE-2026-11500</a>
