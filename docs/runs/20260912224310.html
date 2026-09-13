@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-12 23:16:13</div>
+    <div class="stamp">최종 생성 2026-09-13 22:47:02</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (275건)</h2>
+<h2>이 회차 CVE (259건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -2867,28 +2867,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
-        </td>
-        <td>gRPC</td>
-        <td>grpc</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&lt;1.79.3</td>
-        <td class="mono">1.79.3</td>
-        <td>-</td>
-        <td class="mono">20260320</td>
-        <td class="mono">20260911</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="http://www.openwall.com/lists/oss-security/2026/07/07/1" target="_blank" rel="noopener">CVE-2026-33264</a>
         </td>
         <td>Airflow</td>
@@ -3801,24 +3779,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/advisories/GHSA-mcmc-2m55-j8jj" target="_blank" rel="noopener">CVE-2026-56340</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=0.10.2,&lt;0.13.0</td>
-        <td class="mono">0.13.0</td>
-        <td>-</td>
-        <td class="mono">20260108</td>
-        <td class="mono">20260911</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM introduced enhanced protection for CVE-2025-62164 ### Summary The fix [here](https://github.com/vllm-project/vllm/pull/27204) for CVE-2025-62164 is not sufficient. The fix only disables prompt embeds by default rather than addressing the root cause, so the DoS vulnerability remains when the feature is enabled. ### Details vLLM&#39;s pending change attempts to fix the root cause, which is the missing sparse tensor validation. PyTorch (~v2.0) disables sparse tensor validation (specifically, sparse tensor invariants checks) by default for performance reasons. vLLM is adding the sparse tensor validation to ensure indices are valid, non-negative, and within bounds. These checks help catch malformed tensors. ### PoC NA ### Impact Current fix only added a flag to disable/enable prompt embeds, so by default, prompt embeds feature is disabled in vLLM, which stops DoS attacks through the embeddings. However, It doesn’t address the problem when the flag is enabled and there is still potential fo
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-57516" target="_blank" rel="noopener">CVE-2026-57516</a>
         </td>
         <td>Ray</td>
@@ -4361,150 +4321,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/commit/18458482861097a26f874f30ad7e8136e268475c" target="_blank" rel="noopener">CVE-2026-86073</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.6</td>
-        <td class="mono">&gt;=2.38.0,&lt;2.38.1|&lt;2.37.7</td>
-        <td class="mono">2.38.1</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.1, the OAuth token endpoint bound an authorization code&#39;s first access token to the consented resource but did not bind its refresh token. Refreshing checked only that the requested resource was registered, not that it matched the original grant. An OAuth client approved for one workflow could substitute a different workflow URL in the resource parameter and obtain a valid token for an unapproved workflow accessible to the consenting user. This issue is fixed in versions 2.37.7 and 2.38.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-q5wm-mgqx-fv2f" target="_blank" rel="noopener">CVE-2026-86074</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&gt;=2.38.0,&lt;2.38.2|&lt;2.37.7</td>
-        <td class="mono">2.38.2</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the Instance AI credential setup flow accepted a credential test or verification URL without checking that it matched the workflow node&#39;s origin. Attacker-controlled fetched content could influence that URL after a user injected it into the setup flow, causing authenticated requests, redirects, or probes to reach another origin. The affected logic includes packages/@n8n/instance-ai/src/tools/workflows/credential-utils.ts and the extractServiceOrigin origin derivation. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-hh89-3r9w-qj3j" target="_blank" rel="noopener">CVE-2026-86075</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=2.38.0,&lt;2.38.2|&lt;2.37.7</td>
-        <td class="mono">2.38.2</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the OAuth Dynamic Client Registration endpoint bounded redirect_uris but accepted arbitrarily large client_name and grant_types values. An unauthenticated remote caller could repeatedly persist oversized values in oauth_clients and exhaust database storage. The affected validation is in packages/cli/src/modules/oauth-server/oauth-server.service.ts, including MAX_CLIENT_NAME_LENGTH and MAX_GRANT_TYPES. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-hw8v-xxg5-vvvx" target="_blank" rel="noopener">CVE-2026-86076</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.76|&gt;=2.38.0,&lt;2.38.2|&gt;=2.0.0,&lt;2.37.7</td>
-        <td class="mono">1.123.76</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the expression compiler sanitizer resolved through dynamically scoped this and did not reject reserved class member names. A class field named __sanitize could rebind the sanitizer and reach the Function constructor, enabling backend code execution and editor-preview JavaScript execution. The affected AST hook is PrototypeSanitizer in packages/workflow/src/expression-sandboxing.ts. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-35jj-42hp-8gmq" target="_blank" rel="noopener">CVE-2026-86077</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=2.38.0,&lt;2.38.2|&lt;2.37.7</td>
-        <td class="mono">2.38.2</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the /chat WebSocket route accepted a resumeToken and resumed a paused execution without checking that the target node supported chat messages. An anonymous form submitter who received that token could reuse it on the chat route to release a Send-and-Wait, non-chat HITL, or Wait approval gate. The affected authorization logic is packages/cli/src/chat/chat-execution-manager.ts, where canResumeOverChat did not gate the resume target. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-679f-58pq-4v2c" target="_blank" rel="noopener">CVE-2026-86078</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=2.38.0,&lt;2.38.2|&lt;2.37.7</td>
-        <td class="mono">2.38.2</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the Instance AI workflow summary used node names and connection keys from stored workflows as ordinary object keys. A workflow submitted through the REST API could contain __proto__ or constructor, causing nested writes to reach Object.prototype in the main n8n process and disrupt later requests. The affected function is summarizeWorkflowStructure in packages/@n8n/instance-ai/src/tools/workflows/summarize-workflow.ts. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-f2cp-m7mv-8jpv" target="_blank" rel="noopener">CVE-2026-86079</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;1.123.76|&gt;=2.38.0,&lt;2.38.2|&gt;=2.0.0,&lt;2.37.7</td>
-        <td class="mono">1.123.76</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the Elasticsearch and ElasticSecurity nodes interpolated workflow-controlled index and document identifiers directly into REST request paths. An identifier containing path separators or dot segments could select another index or a cluster administration endpoint under the stored Elasticsearch credential. The affected request construction includes packages/nodes-base/nodes/Elastic/Elasticsearch/GenericFunctions.ts and the missing toPathSegment encoding. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-5m98-cgcr-xx3q" target="_blank" rel="noopener">CVE-2026-86080</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;1.123.76|&gt;=2.38.0,&lt;2.38.2|&gt;=2.0.0,&lt;2.37.7</td>
-        <td class="mono">1.123.76</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the GitHub Trigger generated a webhook secret but discarded it when GitHub returned HTTP 422 and the node reused an existing webhook. Workflow static data then retained webhookId without webhookSecret, and X-Hub-Signature-256 verification accepted deliveries without a stored secret. The affected logic includes packages/nodes-base/nodes/Github/GithubTriggerHelpers.ts and the 422 webhook reuse path. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/advisories/GHSA-j535-v25q-vx3q" target="_blank" rel="noopener">CVE-2026-86081</a>
         </td>
         <td>n8n</td>
@@ -4519,42 +4335,6 @@
         <td>OSV+GHSA</td>
         <td class="wrap-cell">
           n8n: Regular Expression Denial of Service in the Default Blocked-File-Pattern Match via a Git Node Clone Path ## Impact The Git node&#39;s clone operation matched the destination path against the default `N8N_BLOCK_FILE_PATTERNS` expression, which was written so that a crafted path caused catastrophic backtracking. Evaluation runs synchronously in the main n8n process, so an authenticated user could freeze the instance for everyone with a single workflow execution and no unusual configuration. The patch rewrites the pattern so that matching is linear in the length of the path. ## Patches The issue has been fixed in n8n versions 1.123.76, 2.37.7, and 2.38.2. Users should upgrade to one of these versions or later to remediate the vulnerability. ## Workarounds If upgrading is not immediately possible, administrators should consider the following temporary mitigations: - Restrict n8n instance access to fully trusted users only. - Disable the Git node by adding `n8n-nodes-base.git` to the `NODE
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-34ff-336r-5q23" target="_blank" rel="noopener">CVE-2026-86082</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;1.123.76|&gt;=2.38.0,&lt;2.38.2|&gt;=2.0.0,&lt;2.37.7</td>
-        <td class="mono">1.123.76</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the OpenAI Chat Model node enforced credential allowed-domain restrictions for normal calls but not for the model-search dropdown. A workflow editor could set options.baseURL to an arbitrary host and make the searchModels path send the openAiApi credential there. The affected implementation is packages/@n8n/nodes-langchain/nodes/llms/LMChatOpenAi/methods/loadModels.ts, which omitted assertOpenAiCredentialAllowsUrl. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6xcw-7xm6-48c6" target="_blank" rel="noopener">CVE-2026-86083</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.76|&gt;=2.38.0,&lt;2.38.2|&gt;=2.0.0,&lt;2.37.7</td>
-        <td class="mono">1.123.76</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the legacy expression engine generated source text by calling the mutable global JSON.stringify while printing synthetic string literals and interpolating timezone data. An expression could replace JSON.stringify and cause later generated source to contain executable attacker-controlled code. The affected code-generation paths include packages/@n8n/expression-runtime/src/bridge/isolated-vm-bridge.ts and packages/@n8n/tournament/src/ExpressionBuilder.ts, and the issue does not affect the vm expression engine. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
         </td>
       </tr>
       <tr>
@@ -4591,24 +4371,6 @@
         <td>NVD+OSV+GHSA</td>
         <td class="wrap-cell">
           n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the /rest/roles/:slug/assignments and /rest/roles/:slug/assignments/:projectId/members endpoints checked only whether the caller could manage the role type. A caller with role:manageProject could name a project the caller could not list and obtain member names and email addresses. The affected controller is packages/cli/src/controllers/role.controller.ts, which omitted the project:list scope check. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/ollama/ollama/" target="_blank" rel="noopener">CVE-2026-86289</a>
-        </td>
-        <td>Ollama</td>
-        <td>Ollama</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;=0.31.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260907</td>
-        <td class="mono">20260911</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          A vulnerability was found in Ollama up to 0.31.1. This issue affects the function readGGUFV1String of the file fs/ggml/gguf.go of the component GGUF Decoder. Performing a manipulation results in integer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used. Upgrading to version 0.31.2-rc1 is capable of addressing this issue. The patch is named 67b6a1c2d45321e0cb3c04a18073f9818de7724b. It is recommended to upgrade the affected component.
         </td>
       </tr>
       <tr>
@@ -5023,60 +4785,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. In 1.16.1 and earlier, the manager role can store meta_page_title or meta_page_favicon through /api/admin/system-preferences, and MetaGenerator inserts those values into production homepage HTML without escaping attribute values or text content. The values pass unchanged through server/models/systemSettings.js and reach MetaGenerator.generate() in server/index.js. #assembleMeta() in server/utils/boot/MetaGenerator.js concatenates the stored values into HTML. When an administrator visits the homepage /, injected JavaScript can read the administrator JWT and use it to create API keys, access or modify workspace and chat data, delete users, and perform other administrator actions. server/endpoints/admin.js accepts the manager-controlled settings before server/models/systemSettings.js returns them unchanged. No fixed version is available as of this review.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-3c86-2m5g-59q7" target="_blank" rel="noopener">CVE-2026-90553</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260912</td>
-        <td class="mono">20260912</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM before 0.28.0 contains a remote code execution vulnerability in the LlavaOnevision2 processor loader that ignores the trust_remote_code parameter when loading remote processor classes. Attackers can craft a malicious model with arbitrary code in processing_llava_onevision2.py that executes with vLLM process authority even when trust_remote_code is set to False.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-936p-m5pv-vvjf" target="_blank" rel="noopener">CVE-2026-90554</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.2</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260912</td>
-        <td class="mono">20260912</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] vLLM versions &gt;=0.10.2 and &lt;0.28.0 do not apply any audio decode-size or duration limit when extracting audio from video input for NanoNemotronVL models. In nano_nemotron_vl.py, _extract_audio_from_videos calls load_audio_pyav(BytesIO(video_bytes)) without the max_duration_s or max_decode_bytes parameters, so neither VLLM_MAX_AUDIO_DECODE_DURATION_S nor VLLM_MAX_AUDIO_DECODE_BYTES is enforced (unlike the direct audio upload path in AudioMediaIO). When a NanoNemotronVL model is served with use_audio_in_video=True, an attacker who supplies a small, highly compressed video as multimodal input can force the server to allocate gigabytes of memory during audio decoding, resulting in a denial of service. Fixed in vLLM 0.28.0.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-99f2-hwrc-gvq8" target="_blank" rel="noopener">CVE-2026-90555</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260912</td>
-        <td class="mono">20260912</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions before 0.28.0 fail to validate audio sample rate headers in the transcription endpoint, allowing authenticated clients to bypass duration checks. Attackers can submit forged FLAC headers with inflated sample rates to trigger excessive memory allocation and crash the API server process affecting all tenants.
         </td>
       </tr>
       <tr>
