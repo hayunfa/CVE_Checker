@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-13 22:47:02</div>
+    <div class="stamp">최종 생성 2026-09-14 23:39:02</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (17건)</h2>
+<h2>이 회차 CVE (10건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -107,46 +107,6 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc/grpc-go/security/advisories/GHSA-p77j-4mvh-x3m3" target="_blank" rel="noopener">CVE-2026-33186</a>
-        </td>
-        <td>gRPC</td>
-        <td>grpc</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&lt;1.79.3</td>
-        <td class="mono">1.79.3</td>
-        <td>-</td>
-        <td class="mono">20260320</td>
-        <td class="mono">20260911</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.79.3 이전 버전에는 HTTP/2 `:path` 의사 헤더의 부적절한 입력 유효성 검사로 인해 인증 우회 기능이 있습니다. gRPC-Go 서버는 라우팅 논리가 너무 관대하여 `:path`에서 필수 선행 슬래시가 생략된 요청을 허용했습니다(예: `/Service/Method` 대신 `Service/Method`). 서버가 이러한 요청을 올바른 핸들러로 성공적으로 라우팅하는 동안 인증 인터셉터(공식 `grpc/authz` 패키지 포함)는 원시 비정규 경로 문자열을 평가했습니다. 결과적으로 표준 경로(`/`로 시작)를 사용하여 정의된 &#34;거부&#34; 규칙은 들어오는 요청과 일치하지 못하여 대체 &#34;허용&#34; 규칙이 있는 경우 정책을 우회할 수 있습니다. 이는 `google.golang.org/grpc/authz`의 공식 RBAC 구현이나 `info.FullMethod` 또는 `grpc.Method(ctx)`에 의존하는 맞춤 인터셉터와 같은 경로 기반 승인 인터셉터를 사용하는 gRPC-Go 서버에 영향을 미칩니다. 그리고 보안이 있는 것
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, &#34;deny&#34; rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback &#34;allow&#34; rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a securi</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://docs.python.org/3/library/ctypes.html" target="_blank" rel="noopener">CVE-2026-37008</a>
-        </td>
-        <td>CrewAI</td>
-        <td>CrewAI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260913</td>
-        <td class="mono">20260913</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] CrewAI before fb2323b offers a Python blocklist approach that operates at the wrong level of abstraction, a different vulnerability than CVE-2026-2275. Import-time blocking of module names does not address the availability of Python&#39;s complete object graph. For example, calling ctypes.CDLL(None) loads the C library without relying in any import statements. In other words, a within-process sandbox cannot merely account for the import system and instead must account for the complete runtime of the Python interpreter.
-        </td>
-      </tr>
       <tr>
         <td class="mono">
 <a href="https://github.com/advisories/GHSA-mcmc-2m55-j8jj" target="_blank" rel="noopener">CVE-2026-56340</a>
@@ -239,24 +199,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-35jj-42hp-8gmq" target="_blank" rel="noopener">CVE-2026-86077</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;2.37.7|&gt;=2.38.0,&lt;2.38.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the /chat WebSocket route accepted a resumeToken and resumed a paused execution without checking that the target node supported chat messages. An anonymous form submitter who received that token could reuse it on the chat route to release a Send-and-Wait, non-chat HITL, or Wait approval gate. The affected authorization logic is packages/cli/src/chat/chat-execution-manager.ts, where canResumeOverChat did not gate the resume target. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-679f-58pq-4v2c" target="_blank" rel="noopener">CVE-2026-86078</a>
         </td>
         <td>n8n</td>
@@ -311,24 +253,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-34ff-336r-5q23" target="_blank" rel="noopener">CVE-2026-86082</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;1.123.76|&gt;=2.0.0,&lt;2.37.7|&gt;=2.38.0,&lt;2.38.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260911</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n is an open source workflow automation platform. Prior to 1.123.76, 2.37.7, and 2.38.2, the OpenAI Chat Model node enforced credential allowed-domain restrictions for normal calls but not for the model-search dropdown. A workflow editor could set options.baseURL to an arbitrary host and make the searchModels path send the openAiApi credential there. The affected implementation is packages/@n8n/nodes-langchain/nodes/llms/LMChatOpenAi/methods/loadModels.ts, which omitted assertOpenAiCredentialAllowsUrl. This issue is fixed in versions 1.123.76, 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6xcw-7xm6-48c6" target="_blank" rel="noopener">CVE-2026-86083</a>
         </td>
         <td>n8n</td>
@@ -361,60 +285,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           A vulnerability was found in Ollama up to 0.31.1. This issue affects the function readGGUFV1String of the file fs/ggml/gguf.go of the component GGUF Decoder. Performing a manipulation results in integer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used. Upgrading to version 0.31.2-rc1 is capable of addressing this issue. The patch is named 67b6a1c2d45321e0cb3c04a18073f9818de7724b. It is recommended to upgrade the affected component.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-3c86-2m5g-59q7" target="_blank" rel="noopener">CVE-2026-90553</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260912</td>
-        <td class="mono">20260912</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM before 0.28.0 contains a remote code execution vulnerability in the LlavaOnevision2 processor loader that ignores the trust_remote_code parameter when loading remote processor classes. Attackers can craft a malicious model with arbitrary code in processing_llava_onevision2.py that executes with vLLM process authority even when trust_remote_code is set to False.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-936p-m5pv-vvjf" target="_blank" rel="noopener">CVE-2026-90554</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.2</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260912</td>
-        <td class="mono">20260912</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] vLLM versions &gt;=0.10.2 and &lt;0.28.0 do not apply any audio decode-size or duration limit when extracting audio from video input for NanoNemotronVL models. In nano_nemotron_vl.py, _extract_audio_from_videos calls load_audio_pyav(BytesIO(video_bytes)) without the max_duration_s or max_decode_bytes parameters, so neither VLLM_MAX_AUDIO_DECODE_DURATION_S nor VLLM_MAX_AUDIO_DECODE_BYTES is enforced (unlike the direct audio upload path in AudioMediaIO). When a NanoNemotronVL model is served with use_audio_in_video=True, an attacker who supplies a small, highly compressed video as multimodal input can force the server to allocate gigabytes of memory during audio decoding, resulting in a denial of service. Fixed in vLLM 0.28.0.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-99f2-hwrc-gvq8" target="_blank" rel="noopener">CVE-2026-90555</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260912</td>
-        <td class="mono">20260912</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions before 0.28.0 fail to validate audio sample rate headers in the transcription endpoint, allowing authenticated clients to bypass duration checks. Attackers can submit forged FLAC headers with inflated sample rates to trigger excessive memory allocation and crash the API server process affecting all tenants.
         </td>
       </tr>
     </tbody>

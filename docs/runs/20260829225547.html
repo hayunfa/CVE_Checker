@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-13 22:47:02</div>
+    <div class="stamp">최종 생성 2026-09-14 23:39:02</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1685 OSV=1 NVD=35 GHSA=0 RANGE_RECOVERED=5 TRANSLATE=0건 번역 / 11건 실패</span></div>
 </div>
 
-<h2>이 회차 CVE (1건)</h2>
+<h2>이 회차 CVE (0건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -104,28 +104,7 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/e23b19309b8705b21c3b3ff4129c9974ba15a419" target="_blank" rel="noopener">CVE-2026-78684</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.27.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260825</td>
-        <td class="mono">20260827</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          0.27.0 이전의 vLLM은 DeepStream을 GPU 백엔드로 적절하게 분류하지 못하고 디코드 경로에서 픽셀 제한 적용을 생략합니다. 인증되지 않은 공격자는 요청 시 DeepStream을 활성화하여 프로세스 전체 GPU 디코드 풀을 초기화하고 리소스 제어를 우회하는 비디오를 제출하여 동시 요청에 대한 서비스를 부분적으로 거부할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM before 0.27.0 fails to properly classify DeepStream as a GPU backend and omits pixel-limit enforcement in its decode path. Unauthenticated attackers can activate DeepStream at request time to initialize the process-wide GPU decode pool and submit video that bypasses resource controls, causing partial denial of service for concurrent requests.</div>
-          </details>
-        </td>
-      </tr>
+      <tr><td colspan="12" class="empty">이 회차에 기록된 CVE 가 없습니다.</td></tr>
     </tbody>
   </table>
 </div>
