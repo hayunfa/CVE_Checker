@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-14 23:39:02</div>
+    <div class="stamp">최종 생성 2026-09-15 23:23:00</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (252건)</h2>
+<h2>이 회차 CVE (247건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -4429,78 +4429,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/abc69000b33b4894fbd97fc2c962139cf9a8d784" target="_blank" rel="noopener">CVE-2026-87012</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&gt;=0.9.0,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.1, backend/open_webui/models/calendar.py stored the calendar event meta.alert_minutes value without type validation and the shared upcoming-event scheduler compared that value numerically. An authenticated user with the calendar permission could store a non-numeric alert_minutes value that raised an exception and aborted the instance-wide alert pass, suppressing all users&#39; reminders while the event remained in the lookahead window. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/23b3a69bc26839bfa74edd1be6bfa2568ae902f4" target="_blank" rel="noopener">CVE-2026-87013</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&gt;=0.10.0,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, POST /api/v1/folders/{id}/update/parent allowed a user to place a folder under itself or one of its descendants, while the folder tree walks used by DELETE /api/v1/folders/{id} and POST /api/v1/folders/{id}/read did not track visited folder identifiers. An authenticated user could persist a parent cycle and start a request that consumed CPU and memory indefinitely, with the condition remaining stored until repaired. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/ce3c175e260709f359d7e6cbb3132f0572098b95" target="_blank" rel="noopener">CVE-2026-87014</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.9.0,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 until 0.11.1, role synchronization in backend/open_webui/routers/auths.py and backend/open_webui/utils/oauth.py updated an administrator&#39;s database role without invalidating the user record cached by backend/open_webui/socket/main.py. An administrator demoted through a trusted role header or OAuth role mapping could keep an already-open Socket.IO connection and continue reading or editing every user&#39;s collaborative notes until that connection closed. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/cd9db21c5276807a2975ddba17cef369ad1114b7" target="_blank" rel="noopener">CVE-2026-87015</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.8</td>
-        <td class="mono">&gt;=0.6.27,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.27 until 0.11.1, backend/open_webui/utils/tools.py captured a cookie jar from the enclosing connection loop instead of binding it to each external tool callable. When multiple tool servers were attached and a session or system OAuth connection was processed last, a request to a different server configured for bearer authentication could include the calling user&#39;s Open WebUI session cookies, allowing that server&#39;s operator to reuse the session and take over the account. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/open-webui/open-webui/commit/1d6d4e6e6647e1d403438ede7bd9ba20bc4cc8f6" target="_blank" rel="noopener">CVE-2026-87017</a>
         </td>
         <td>Open WebUI</td>
@@ -4605,24 +4533,6 @@
         <td>NVD+OSV+GHSA</td>
         <td class="wrap-cell">
           Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.11.1, POST /api/v1/retrieval/process/web and POST /api/v1/retrieval/process/web/search in backend/open_webui/retrieval/web/utils.py treated Python&#39;s globally routable address classification as proof that a destination was external. An authenticated user could make an Azure-hosted instance fetch and return content from 168.63.129.16, the Azure platform channel, as well as other reserved ranges that the standard classification did not reject. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/fb5ef978bfb451c3f2221931e08e54250cec58ca" target="_blank" rel="noopener">CVE-2026-88005</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.8.0,&lt;0.9.0</td>
-        <td class="mono">0.9.0</td>
-        <td>-</td>
-        <td class="mono">20260910</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.0 until 0.9.0, Open WebUI&#39;s OAuth token exchange endpoint issues a session for a provider access token without applying the email domain allowlist that the normal OAuth login callback enforces. An account whose email domain the login callback would refuse could still obtain a working session through this endpoint. This issue is fixed in version 0.9.0.
         </td>
       </tr>
       <tr>
