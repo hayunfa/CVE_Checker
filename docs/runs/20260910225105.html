@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-15 23:23:00</div>
+    <div class="stamp">최종 생성 2026-09-16 23:26:46</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (32건)</h2>
+<h2>이 회차 CVE (27건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -541,42 +541,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/apache/airflow/pull/71735" target="_blank" rel="noopener">CVE-2026-75156</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&gt;=3.7.3,&lt;=3.8.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260908</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow FAB provider versions 3.7.3 through 3.8.0 do not validate the issuer or audience of Azure AD `id_token`s during OAuth login. Deployments are affected only when the FAB auth manager is configured with Azure AD as an OAuth provider. Because the signing keys are fetched from Microsoft&#39;s **multi-tenant** JWKS endpoint, an `id_token` minted in *any* Azure tenant — including one the attacker creates — passes signature verification, and the username and role assignments are then read from that attacker-controlled token. Anyone able to register an Azure tenant can therefore authenticate to the Airflow UI with no prior access to the deployment. The fix for **CVE-2026-59243** was incomplete, and this advisory closes the remaining gap: that fix made the provider verify the `id_token` signature, but did not add issuer or audience checks. Operators who already applied the CVE-2026-59243 fix are **still affected and must upgrade again** — 3.7.3 is the release that shipped t
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-mwp5-2m32-r54h" target="_blank" rel="noopener">CVE-2026-85168</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260908</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain a remote code execution vulnerability in the Git node. The node reset a fixed list of command-bearing configuration keys before each operation, but that list did not cover the content-filter and merge-driver key families. A repository with local configuration setting one of those keys together with a matching attribute pattern causes git to execute the configured command during an ordinary Add, Commit, Checkout, or Pull operation. The command runs as the n8n process user.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9x83-43r8-5hwc" target="_blank" rel="noopener">CVE-2026-85169</a>
         </td>
         <td>n8n</td>
@@ -609,60 +573,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           n8n versions before 1.123.73, 2.35.4, and 2.36.2 pass message content in the Gmail (v1) and Brevo nodes to the mail composer without verifying it is a string. An authenticated user able to run a workflow can supply an expression that resolves to an object carrying a path or href property, causing the composer to read a local file accessible to the n8n process or fetch an internal URL (SSRF) and attach the result to the outgoing message.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-vrv8-j27g-g7cr" target="_blank" rel="noopener">CVE-2026-85171</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260908</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n before 1.123.73, 2.35.4, and 2.36.2 contains a credential exposure vulnerability in the Strapi, SeaTable, and Mailcheck nodes. These nodes send their decrypted credentials to the authentication endpoint via the raw legacy HTTP helper outside any error handling, causing the plaintext secret to be persisted in execution error data. Any authenticated user can read the plaintext secret from their own execution through the REST API, bypassing the blank-value redaction enforced by the credentials API.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jp9j-jr97-w9pj" target="_blank" rel="noopener">CVE-2026-85172</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;2.34.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260908</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 2.34.1 contain a server-side request forgery vulnerability in the legacy request helper function exposed to Code and Function nodes. The validation logic checks the uri property for SSRF safety while the underlying HTTP client uses the url property when both are present, allowing attackers to bypass validation by supplying a safe uri alongside a malicious url to access internal addresses.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-jmmj-93rg-6j39" target="_blank" rel="noopener">CVE-2026-85173</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260908</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 2.36.2 contain a missing per-project authorization vulnerability in the Insights API routes that allows authenticated users with insights scopes to access workflow names and execution statistics across projects. Attackers can supply arbitrary projectId parameters to retrieve sensitive project and workflow information from projects they have no membership in.
         </td>
       </tr>
       <tr>

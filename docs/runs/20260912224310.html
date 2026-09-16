@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-15 23:23:00</div>
+    <div class="stamp">최종 생성 2026-09-16 23:26:46</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (247건)</h2>
+<h2>이 회차 CVE (235건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -3419,96 +3419,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-48746" target="_blank" rel="noopener">CVE-2026-48746</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&gt;=0.3.0,&lt;0.22.0</td>
-        <td class="mono">0.22.0</td>
-        <td>-</td>
-        <td class="mono">20260616</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary A vulnerability in ASGI web servers and starlette&#39;s trust on those web servers enables an authentication bypass of the OpenAI API `AuthenticationMiddleware`, which was discovered during @x41sec&#39;s source code audit. It allows to use the API without providing the configured `VLLM_API_KEY` or `--api-key`. ### Details In https://github.com/vllm-project/vllm/blob/v0.14.0/vllm/entrypoints/openai/api_server.py#L689-L692 the `url_path` is taken from the `URL`, which is reconstructed by _starlette_ based on the request `scope`. ```py from starlette.datastructures import URL, Headers, MutableHeaders, State # ... url_path = URL(scope=scope).path.removeprefix(root_path) headers = Headers(scope=scope) if url_path.startswith(&#34;/v1&#34;) and not self.verify_token(headers): response = JSONResponse(content={&#34;error&#34;: &#34;Unauthorized&#34;}, status_code=401) return response(scope, receive, send) return self.app(scope, receive, send) ``` The request `scope` includes the request&#39;s `Host:` header and recons
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-48828" target="_blank" rel="noopener">CVE-2026-48828</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          The Bulk Variables API in Apache Airflow called the redactor without passing the variable&#39;s key, so the key-based `should_hide_value_for_key` check (which triggers on secret-suffixed key names like `*_password` / `*_token` / `*_secret`) could not fire for JSON-decodable variable values. An authenticated UI/API user with bulk Variable read permission could retrieve plaintext values from JSON variables whose key would otherwise trigger redaction. Affects deployments that store sensitive values in JSON-typed Airflow Variables under secret-suffixed key names. Users are advised to upgrade to `apache-airflow` 3.3.0 or later (the fix landed on `main` after 3.2.2; no 3.2.x backport).
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/wzc8nflg94rq6w8f5tvtlo0o3g4wjrfl" target="_blank" rel="noopener">CVE-2026-48891</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          A bug in Apache Airflow&#39;s `/ui/dependencies` scheduling graph endpoint applied the caller&#39;s readable-Dag filter to the top-level serialized Dag key but still emitted referenced Dag IDs through the `dep.source` and `dep.target` fields of trigger / sensor dependency entries. An authenticated UI user with read permission on some Dags could enumerate the identifiers of other Dags they were not authorized to read by inspecting the dependency graph for trigger / sensor references. Affects deployments that rely on per-Dag read scoping to keep Dag identifiers private across teams. This is a residual gap in the fix for CVE-2026-28563, which filtered the top-level Dag key but did not propagate the filter into the trigger / sensor dep-source / dep-target fields. Users who already upgraded for CVE-2026-28563 should additionally upgrade to `apache-airflow` 3.3.0 or later to cover the residual trigger / sensor dependency leak.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="http://www.openwall.com/lists/oss-security/2026/07/07/4" target="_blank" rel="noopener">CVE-2026-48892</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          The Config API in Apache Airflow surfaced per-key secrets-backend overrides (environment variables like `AIRFLOW__SECRETS__BACKEND_KWARG__SECRET_ID` and `AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__SECRET_ID`) as synthetic config options whose option names were not in `sensitive_config_values`, so the masker did not redact them. An authenticated UI/API user with Config read permission could retrieve plaintext secrets-backend credentials (Vault `role_id` / `secret_id`, etc.) from the Config API output. Affects deployments that configure secrets backends via per-key environment overrides. Users are advised to upgrade to `apache-airflow` 3.3.0 or later.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="http://www.openwall.com/lists/oss-security/2026/07/07/6" target="_blank" rel="noopener">CVE-2026-49487</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          In Apache Airflow before 3.3.0, the REST API task-instance detail and list endpoints returned a deferred task&#39;s trigger kwargs without masking. When a deferred operator passed a secret (for example a provider API key) into its trigger, any authenticated user with DAG-scoped task-instance read access for that DAG could read that secret in clear text while the task was deferred. Users should upgrade to apache-airflow 3.3.0 or later, which masks sensitive values in trigger kwargs returned by the API.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-5241" target="_blank" rel="noopener">CVE-2026-5241</a>
         </td>
         <td>Transformers</td>
@@ -3941,24 +3851,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           A malicious PyPI package can place a `javascript:` URL in its `[project.urls]` metadata. JupyterLab&#39;s Extension Manager renders this as the extension&#39;s home-page link without validating the protocol, so a user who clicks the extension name executes attacker-controlled JavaScript in the JupyterLab origin. ### Details One of the PyPI package&#39;s URL (jupyterlab/extensions/pypi.py) is copied straight into the `homepage_url` rendered by the frontend in packages/extensionmanager/src/widget.tsx#L77-L88. ```python best_guess_home_url = ( homepage_url # home_page / [project.urls] Homepage or data.get(&#34;project_url&#34;) or data.get(&#34;package_url&#34;) or documentation_url # docs_url / [project.urls] Documentation or source_url # [project.urls] Source Code or bug_tracker_url # bugtrack_url / [project.urls] Bug Tracker ) # homepage_url=best_guess_home_url ``` ```tsx {entry.homepage_url ? ( &lt;a href={entry.homepage_url} target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34; ...&gt; {entry.name} &lt;/a&gt; ) : ( &lt;div&gt;{entry.name}&lt;/
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-69112" target="_blank" rel="noopener">CVE-2026-69112</a>
-        </td>
-        <td>Accelerate</td>
-        <td>Hugging Face</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;=1.14.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260810</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          Hugging Face Accelerate through 1.14.0 contains a path traversal vulnerability in load_checkpoint_in_model and load_checkpoint_and_dispatch functions that fail to sanitize weight_map entries from sharded checkpoint indexes. Attackers can supply relative paths with ../ sequences or absolute paths to read arbitrary files, or point shard entries at named pipes to cause indefinite blocking and denial of service.
         </td>
       </tr>
       <tr>
@@ -4425,114 +4317,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           n8n is an open source workflow automation platform. Prior to 2.37.7 and 2.38.2, the workflow setting named This workflow can be called by was enforced by the Execute Workflow node but not when a workflow was attached to an Agent as a tool. A user able to build an Agent could invoke a restricted workflow and read its returned data. The affected path is packages/cli/src/modules/agents/tools/workflow-tool-factory.ts, where executeWorkflow omitted SubworkflowPolicyChecker.checkForProject. This issue is fixed in versions 2.37.7 and 2.38.2.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/1d6d4e6e6647e1d403438ede7bd9ba20bc4cc8f6" target="_blank" rel="noopener">CVE-2026-87017</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&gt;=0.7.0,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.7.0 until 0.11.1, the built-in knowledge search tool passed the caller&#39;s readable knowledge identifiers through a metadata filter, but the search methods in eleven shipped vector backends ignored that filter. An authenticated user on an affected backend could enumerate the identifiers, names, and descriptions of inaccessible knowledge bases from the shared collection, although the associated document text remained in separate collections. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/7d392bedc9c1aaecc94509a58e59186b614433dc" target="_blank" rel="noopener">CVE-2026-87994</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&gt;=0.9.5,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.5 until 0.11.1, the channel branch of chat_completion in backend/open_webui/main.py checked channel write access and channel membership for a supplied message_id but did not verify that the calling user authored the targeted message. A channel member could use the chat completions endpoint to replace another member&#39;s message while preserving the victim as the stored author, altering the conversation record without gaining access to other channels. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/54d7a223707f03172efbb9e754db6e69709956d0" target="_blank" rel="noopener">CVE-2026-87995</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.7</td>
-        <td class="mono">&gt;=0.8.11,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.11 until 0.11.1, src/lib/components/chat/FileNav/PortPreview.svelte rendered terminal port content in an iframe sandbox containing both allow-scripts and allow-same-origin. Because the terminal proxy serves that content from the Open WebUI origin, an authenticated user with access to a shared terminal server could host script on a previewed port and take over a victim&#39;s account when the victim opened the preview. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/27402ff210bfa253445720920dfb86b15a00327b" target="_blank" rel="noopener">CVE-2026-87996</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&gt;=0.9.6,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.1, SafePlaywrightURLLoader in backend/open_webui/retrieval/web/utils.py validated a user-controlled hostname in Python and then let the Playwright browser resolve it again in the sync and async request interceptors. An authenticated user controlling authoritative DNS could return a public address to validation and an internal address to the browser, exposing responses from internal services or cloud metadata through web search or URL ingestion. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/dc03e7e595d61be97b25a1dd7bb99ad264f73199" target="_blank" rel="noopener">CVE-2026-87998</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&gt;=0.10.0,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.1, DELETE /api/v1/knowledge/{id}/delete in backend/open_webui/routers/knowledge.py authorized deletion against the knowledge base but then removed its administrator-owned external connection without a separate administrator check or a check for other dependent knowledge bases. A non-administrator with write access to one external knowledge base could delete shared instance configuration and make every other knowledge base using that connection unavailable. This issue is fixed in version 0.11.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/e3e4bd87df6fc629e7e22081d980d55a7632b8b7" target="_blank" rel="noopener">CVE-2026-87999</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>Open WebUI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260909</td>
-        <td class="mono">20260910</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.11.1, POST /api/v1/retrieval/process/web and POST /api/v1/retrieval/process/web/search in backend/open_webui/retrieval/web/utils.py treated Python&#39;s globally routable address classification as proof that a destination was external. An authenticated user could make an Azure-hosted instance fetch and return content from 168.63.129.16, the Azure platform channel, as well as other reserved ranges that the standard classification did not reject. This issue is fixed in version 0.11.1.
         </td>
       </tr>
       <tr>
