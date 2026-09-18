@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-17 23:18:59</div>
+    <div class="stamp">최종 생성 2026-09-18 23:00:08</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (14건)</h2>
+<h2>이 회차 CVE (8건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -181,114 +181,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           [버전범위 불명확] ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthenticated remote attackers to execute arbitrary Python code by uploading a crafted pickle file and triggering its deserialization. Attackers can upload a malicious shard_*.pkl file via the unauthenticated POST /upload/image endpoint and then queue a workflow graph via POST /prompt referencing the uploaded file, causing torch.load to deserialize the attacker-controlled pickle payload using __reduce__ and execute arbitrary commands as the ComfyUI process user.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xmc9-4f2h-jf9c" target="_blank" rel="noopener">CVE-2026-72762</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&lt;2.32.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260909</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 1.123.67, 2.31.5, and 2.32.1 contain an arbitrary file write vulnerability in the Edit Image node, which passes its output format parameter to the underlying image library without validation. An authenticated user able to run workflows can supply a crafted format value to write arbitrary files outside the node&#39;s working directory on the n8n instance.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9cmh-xcqm-5hqr" target="_blank" rel="noopener">CVE-2026-72764</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.8</td>
-        <td class="mono">&lt;2.32.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260909</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n&#39;s JavaScript task runner shared a single module cache across all users&#39; Code-node executions. In affected versions (before 1.123.67, 2.31.5, and 2.32.1), a user able to run a Code node could poison a cached module and thereby alter other users&#39; Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance and does not constitute a sandbox escape or remote code execution. Only multi-user instances running the JS task runner with built-in or external modules enabled are affected.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-rcv6-pvrj-4xcg" target="_blank" rel="noopener">CVE-2026-72767</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.7</td>
-        <td class="mono">&lt;1.123.67|&lt;2.31.5|&lt;2.32.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260909</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a remote code execution vulnerability in the Git node. Authenticated users with rights to create and execute workflows can stage a crafted local repository that causes git to run hooks under default git security settings, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-hx4h-vr3m-45vh" target="_blank" rel="noopener">CVE-2026-72769</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.1</td>
-        <td class="mono">&lt;2.32.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260909</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n before 1.123.67, 2.31.5, and 2.32.1 contains a prototype pollution vulnerability in the VM expression engine. An authenticated user able to create or edit a workflow expression can abuse the engine&#39;s array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process (a sandbox escape), leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-8342-988q-86cr" target="_blank" rel="noopener">CVE-2026-72772</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.9</td>
-        <td class="mono">&lt;2.32.1|&lt;2.31.5</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260909</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n before 2.32.1 (and before 2.31.5) is vulnerable to account takeover via the Token Exchange Embed Login feature. When a validly-signed incoming token was matched to a local account by its email claim, the service did not verify that the email claim was verified, nor that the trusted key&#39;s permitted role ceiling covered that account. As a result, anyone able to obtain a token accepted by a configured trusted key (for example, a trusted issuer emitting unverified email addresses) could authenticate as any existing user and gain full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6qc9-mqvw-jg7x" target="_blank" rel="noopener">CVE-2026-72774</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;2.32.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260909</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n before 1.123.67, 2.31.5, and 2.32.1 contains a credential authorization bypass in the HTTP Request node. An authenticated member with edit access to a shared workflow can reference another user&#39;s credential while specifying the credential type via an expression. Because the pre-execution permission check compares the unresolved expression instead of the resolved credential type, the ownership check is skipped and the credential is loaded at execution time, allowing the member to use or exfiltrate a credential they were not granted. Exploitation requires knowing the target credential&#39;s identifier.
         </td>
       </tr>
       <tr>
