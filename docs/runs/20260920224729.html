@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-20 22:48:43</div>
+    <div class="stamp">최종 생성 2026-09-21 23:47:29</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1716 OSV=0 NVD=45 GHSA=0 RANGE_RECOVERED=16 TRANSLATE=0건 번역 / 40건 캐시</span></div>
 </div>
 
-<h2>이 회차 CVE (40건)</h2>
+<h2>이 회차 CVE (39건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -937,28 +937,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM versions before 0.28.0 fail to validate the lower bound of token IDs in the /v1/embeddings and /pooling endpoints, allowing unauthenticated attackers to crash the engine by submitting negative token IDs. A single request with a negative token ID triggers a CUDA device-side assertion that poisons the GPU context, causing all subsequent requests to fail until the process restarts.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">CVE-2026-93688</a>
-        </td>
-        <td>SGLang</td>
-        <td>SGLang Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.5.19</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260918</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Mooncake KV 전송 백엔드를 사용하는 사전 채우기/디코드 분리 모드에서 0.5.19를 통한 SGLang은 bootstrap_room 값을 검증하지 못하여 무제한 전송 상태 할당을 허용합니다. 인증되지 않은 공격자는 디코드 엔진의 POST /generate 엔드포인트에 도달하고 임의의 bootstrap_room 값을 제출하여 메모리가 부족해 종료될 때까지 사전 채우기 프로세스 메모리를 소진할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">SGLang through 0.5.19 in prefill/decode disaggregation mode with Mooncake KV transfer backend fails to validate bootstrap_room values, allowing unbounded transfer state allocation. Unauthenticated attackers can reach the decode engine&#39;s POST /generate endpoint and submit arbitrary bootstrap_room values to exhaust prefill process memory until out-of-memory termination.</div>
           </details>
         </td>
       </tr>
