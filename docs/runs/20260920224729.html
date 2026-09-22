@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-21 23:47:29</div>
+    <div class="stamp">최종 생성 2026-09-22 23:26:44</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1716 OSV=0 NVD=45 GHSA=0 RANGE_RECOVERED=16 TRANSLATE=0건 번역 / 40건 캐시</span></div>
 </div>
 
-<h2>이 회차 CVE (39건)</h2>
+<h2>이 회차 CVE (37건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -915,50 +915,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] google-protobuf contains an unbounded recursion when parsing unknown protobuf group fields. An attacker can send a small crafted payload of deeply nested START_GROUP wire bytes to any Node.js service that calls the generated deserializeBinary() API, causing a RangeError: Maximum call stack size exceeded and crashing the process. No authentication or prior knowledge of the schema is required.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-25q3-v2hm-8vpf" target="_blank" rel="noopener">CVE-2026-93592</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260918</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          0.28.0 이전의 vLLM 버전은 /v1/embeddings 및 /pooling 엔드포인트에서 토큰 ID의 하한을 검증하지 못하므로 인증되지 않은 공격자가 음수 토큰 ID를 제출하여 엔진을 충돌시킬 수 있습니다. 음수 토큰 ID가 있는 단일 요청은 GPU 컨텍스트를 손상시키는 CUDA 장치 측 어설션을 트리거하여 프로세스가 다시 시작될 때까지 모든 후속 요청이 실패하게 만듭니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM versions before 0.28.0 fail to validate the lower bound of token IDs in the /v1/embeddings and /pooling endpoints, allowing unauthenticated attackers to crash the engine by submitting negative token IDs. A single request with a negative token ID triggers a CUDA device-side assertion that poisons the GPU context, causing all subsequent requests to fail until the process restarts.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">CVE-2026-93838</a>
-        </td>
-        <td>SGLang</td>
-        <td>SGLang Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.9</td>
-        <td class="mono">&lt;=0.5.20</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260918</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          0.5.20까지의 SGLang 버전에는 프리필/디코드 분할 배포 시 ZMQ STAGING_REQ 프레임에서 Chunk_idx를 검증하지 못하는 Handle_staging_req()의 무제한 메모리 할당 취약점이 포함되어 있습니다. 디코드 엔진의 내부 ZMQ 랭크 포트에 접근할 수 있는 공격자는 매우 큰 Chunk_idx 값을 가진 프레임을 보낼 수 있으며, 이로 인해 시스템이 소진되어 프로세스가 종료될 때까지 스케줄러가 메모리를 할당하게 됩니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">SGLang versions through 0.5.20 contain an unbounded memory allocation vulnerability in handle_staging_req() that fails to validate chunk_idx from ZMQ STAGING_REQ frames in prefill/decode disaggregation deployments. Attackers with access to the decode engine&#39;s internal ZMQ rank port can send a frame with an extremely large chunk_idx value, causing the scheduler to allocate memory until the system runs out and terminates the process.</div>
           </details>
         </td>
       </tr>
