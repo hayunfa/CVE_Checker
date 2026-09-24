@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-23 23:24:45</div>
+    <div class="stamp">최종 생성 2026-09-24 23:44:39</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1716 OSV=0 NVD=45 GHSA=0 RANGE_RECOVERED=16 TRANSLATE=0건 번역 / 40건 캐시</span></div>
 </div>
 
-<h2>이 회차 CVE (37건)</h2>
+<h2>이 회차 CVE (36건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -145,28 +145,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.11.0, Open WebUI resolved a hostname during URL validation and rejected private, loopback, and link-local addresses, but the HTTP clients resolved the hostname again at connection time. An authenticated attacker who controlled authoritative DNS for a submitted hostname could answer with a public address during validation and an internal one during connection, reaching cloud metadata, loopback admin APIs, or internal services through URL ingest, chat image_url fetches, image editing, or OAuth profile-picture fetches, with most paths returning the response to the attacker and the OAuth path forwarding the OAuth access token. This issue is fixed in 0.11.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/3d20275bb4d434f53055c3c0b645fd8bb072965e" target="_blank" rel="noopener">CVE-2026-57173</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260916</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.24.0 이전에는 /v1/chat/completions에 대한 input_audio 처리 경로가 VLLM_MAX_AUDIO_DECODE_DURATION_S를 공유 오디오 디코더에 전달하지 않고 AudioMediaIO.load_bytes 또는 AudioMediaIO.load_file을 호출합니다. 따라서 인증되지 않은 클라이언트는 매우 큰 float32 PCM 할당으로 확장되는 작은 압축 오디오 입력을 제출하여 /v1/audio/transcriptions에서 이미 사용하는 기간 가드를 우회하고 메모리 부족 작업자 충돌을 일으킬 수 있습니다. 인라인 데이터 URL은 VLLM_AUDIO_FETCH_TIMEOUT에 의해 제한되지 않고 이 경로에 도달합니다. 이 문제는 오디오 지원 모델을 제공하는 배포에 영향을 미치며 인증은 배포별 연결 가능성만 변경합니다. 이 문제는 버전 0.24.0에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.24.0, the input_audio handling path for /v1/chat/completions calls AudioMediaIO.load_bytes or AudioMediaIO.load_file without passing VLLM_MAX_AUDIO_DECODE_DURATION_S to the shared audio decoder. An unauthenticated client can therefore submit a small compressed audio input that expands into a very large float32 PCM allocation, bypassing the duration guard already used by /v1/audio/transcriptions and causing an out-of-memory worker crash. Inline data URLs reach this path without being bounded by VLLM_AUDIO_FETCH_TIMEOUT. The issue affects deployments serving an audio-capable model, and authentication changes only the deployment-specific reachability. This issue is fixed in version 0.24.0.</div>
           </details>
         </td>
       </tr>
