@@ -8,7 +8,7 @@
 그래서 [5. 엑셀 출력 규격](#5-엑셀-출력-규격-내부망-담당자-전달용)은 **한 글자도 바꾸면 안 됩니다.**
 
 ```
-GitHub Actions (매일 06:00 KST)
+GitHub Actions (매주 월요일 06:00 KST)
    └─ 수집 NVD·OSV·GHSA·KEV
         └─ 병합·정규화 (버전범위 문자열 변환)
              ├─ output/CVE_YYYYMMDD.xls   ← 내부망 반입용 정본
@@ -72,7 +72,7 @@ git push -u origin main
 | `GITHUB_TOKEN` | — | 자동 | Actions 가 자동 주입. 직접 등록 불필요 |
 
 > `NVD_API_KEY` 는 https://nvd.nist.gov/developers/request-an-api-key 에서 무료로 받습니다.
-> 55종을 매일 도는 데 키가 없으면 약 6분, 있으면 약 1분 걸립니다. **넣는 것을 권장합니다.**
+> 55종을 한 번 도는 데 키가 없으면 약 6분, 있으면 약 1분 걸립니다. **넣는 것을 권장합니다.**
 
 ### ③ 수신자 등록 (30초)
 
@@ -86,7 +86,7 @@ sbom-admin@example.com
 
 ### ④ 수동으로 1회 실행 (30초 + 대기)
 
-저장소 → **Actions → daily-cve-collect → Run workflow**
+저장소 → **Actions → weekly-cve-collect → Run workflow**
 
 - 첫 실행은 `preset` 을 **`backfill`** 로 두면 과거 데이터까지 채웁니다(시간이 오래 걸립니다).
 - 가볍게 확인만 하려면 `preset = urgent`, `sources = osv,kev` 로 두세요 (2~3분).
@@ -175,7 +175,7 @@ Gmail 은 2023년부터 일반 비밀번호로 SMTP 로그인이 안 됩니다. 
 > **GitHub 규칙**: Public 저장소의 `schedule` 워크플로는 **60일간 저장소에 활동(커밋)이 없으면
 > 자동으로 비활성화**됩니다.
 
-**이 저장소는 대개 문제없습니다.** 매일 실행될 때마다 `data/cve.db`·`output/`·`docs/` 를
+**이 저장소는 대개 문제없습니다.** 매주 실행될 때마다 `data/cve.db`·`output/`·`docs/` 를
 자동 커밋하므로 활동이 계속 기록되기 때문입니다.
 
 다만 아래 경우에는 멈출 수 있습니다.
@@ -188,7 +188,7 @@ Gmail 은 2023년부터 일반 비밀번호로 SMTP 로그인이 안 됩니다. 
 1. 저장소 → **Actions** 탭 → 노란 배너
    *"This scheduled workflow is disabled because there hasn't been activity in this repository for 60 days"*
 2. 배너의 **`Enable workflow`** 버튼 클릭 → 즉시 재개됩니다.
-3. 배너가 없다면 왼쪽 목록에서 `daily-cve-collect` 선택 → 오른쪽 **`Enable workflow`**
+3. 배너가 없다면 왼쪽 목록에서 `weekly-cve-collect` 선택 → 오른쪽 **`Enable workflow`**
 
 ### 예방책
 
@@ -288,7 +288,7 @@ Gmail 은 2023년부터 일반 비밀번호로 SMTP 로그인이 안 됩니다. 
 |---|---|---|
 | GitHub Actions | Public 무제한 / Private 월 2,000분 | 하루 5~10분 → **Public 이면 걱정 없음** |
 | 저장소 용량 | 권장 1GB, 경고 5GB | CVE 1건 ≈ 1KB → 10만 건이어도 100MB 수준 |
-| SQLite 파일 커밋 | 매일 바이너리 1개가 커밋되어 히스토리가 쌓임 | 하루 수십~수백KB. 수년은 버팁니다 |
+| SQLite 파일 커밋 | 매주 바이너리 1개가 커밋되어 히스토리가 쌓임 | 회당 수십~수백KB. 수년은 버팁니다 |
 | GitHub Pages | 저장소 1GB, 월 100GB 전송 | 정적 HTML 이라 여유 |
 | NVD API | 키 없이 30초당 5요청 | 55종 × 1요청 ≈ 6분. 키 있으면 1분 |
 | Gmail SMTP | 하루 500통 | 수신자 수 × 1통 |
@@ -296,7 +296,7 @@ Gmail 은 2023년부터 일반 비밀번호로 SMTP 로그인이 안 됩니다. 
 ### 언제 옮겨야 하나
 
 - CVE 누적이 **10만 건**을 넘어 `data/cve.db` 가 수백 MB가 될 때
-- 저장소 히스토리 용량이 부담될 때 (매일 커밋되는 바이너리라 히스토리가 누적됩니다)
+- 저장소 히스토리 용량이 부담될 때 (매주 커밋되는 바이너리라 히스토리가 누적됩니다)
 - 여러 시스템에서 **동시에** DB를 읽고 써야 할 때
 
 ### Supabase(무료 Postgres) 전환 방법
@@ -374,7 +374,8 @@ Gmail 은 2023년부터 일반 비밀번호로 SMTP 로그인이 안 됩니다. 
 
 | 이름 | 조합 | 쓰임새 |
 |---|---|---|
-| `daily` | 3일 / MEDIUM 이상 / delta / 300행 | **기본 일일 수집** |
+| `weekly` | 9일 / MEDIUM 이상 / delta / 1000행 | **기본 주간 수집** (자동 실행) |
+| `daily` | 3일 / MEDIUM 이상 / delta / 300행 | 일일 수집 (수동 실행용) |
 | `urgent` | 1일 / HIGH 이상 / delta / 50행 | 급할 때 빠르게 |
 | `in_use` | 7일 / LOW 이상 / 반입분만 / 200행 | 내부망 반입 S/W 집중 점검 |
 | `monthly` | 30일 / HIGH 이상 / 전량 / 1000행 | 월간 보고용 |
@@ -395,14 +396,14 @@ cp .env.example .env                                 # 값을 채우고 환경�
 # 조건만 확인 (API 호출 없음) — 실수 방지용으로 항상 먼저 돌려 보세요
 python -m src.aicve.main --show-scope --preset urgent --groups serving,ui
 
-# 기본 일일 수집
-python -m src.aicve.main --preset daily
+# 기본 주간 수집
+python -m src.aicve.main --preset weekly
 
 # 특정 S/W만, 메일 없이
 python -m src.aicve.main --sw-names "PyTorch,vLLM" --skip-mail
 
 # 메일 발송 없이 본문 미리보기만 저장 (output/mail_preview_*.html)
-python -m src.aicve.main --preset daily --dry-run
+python -m src.aicve.main --preset weekly --dry-run
 
 # 과거 구간 백필 (전량 엑셀)
 python -m src.aicve.main --from 2026-01-01 --to 2026-06-30 --excel-scope all --max-rows 5000
@@ -414,7 +415,7 @@ python -m src.aicve.main --backfill 30
 ### 전체 옵션
 
 ```
---preset {daily|urgent|in_use|monthly|backfill}
+--preset {weekly|daily|urgent|in_use|monthly|backfill}
 --lookback N          --backfill N        --from YYYY-MM-DD    --to YYYY-MM-DD
 --min-severity {CRITICAL|HIGH|MEDIUM|LOW|ALL}
 --groups framework,serving                --sw-names PyTorch,vLLM      --only-in-use
@@ -436,7 +437,7 @@ python -m src.aicve.report --stats              # 심각도·S/W별 통계
 python -m src.aicve.report --sql "SELECT * FROM mail_log WHERE status='FAILED'"
 ```
 
-최신 DB 를 보려면 실행 전에 `git pull` 로 저장소를 받아 두세요(워크플로가 매일 `data/cve.db` 를 커밋합니다).
+최신 DB 를 보려면 실행 전에 `git pull` 로 저장소를 받아 두세요(워크플로가 매주 `data/cve.db` 를 커밋합니다).
 
 > 같은 내용을 **[열람 페이지](#6-열람-페이지)** 에서도 볼 수 있습니다.
 > 설치 없이 보려면 대시보드 실행 이력 표의 `메일(성공/실패)` 칸과 `보기` 링크를 쓰세요.
@@ -479,7 +480,7 @@ python -m pytest tests/ -q
 
 ```
 ai-cve-watch/
-├── .github/workflows/daily.yml   매일 06:00 KST 자동 실행 + 수동 실행
+├── .github/workflows/weekly.yml  매주 월요일 06:00 KST 자동 실행 + 수동 실행
 ├── config/
 │   ├── watchlist.yml             ★ 감시 대상 55종 (핵심 설정)
 │   └── settings.yml              기본값 + 프리셋 + 재시도 설정
@@ -576,7 +577,7 @@ output:
 ### 번역 비용과 한도
 
 **한 번 번역한 문장은 DB(`translation` 표)에 캐시되어 다시 번역하지 않습니다.**
-매일 새로 잡히는 건수만 번역하므로(보통 수 건~수십 건) 무료 한도로 충분합니다.
+매주 새로 잡히는 건수만 번역하므로(보통 수십 건 안팎) 무료 한도로 충분합니다.
 
 | 제공자 | 키 | 한도 | 비고 |
 |---|---|---|---|
@@ -597,7 +598,7 @@ output:
 
 ### 이미 쌓인 건을 한 번에 번역하기
 
-번역은 **그 실행에서 수집된 건**에만 적용됩니다. 매일 실행은 최근 며칠치만 다시 훑기 때문에,
+번역은 **그 실행에서 수집된 건**에만 적용됩니다. 정기 실행은 최근 9일치만 다시 훑기 때문에,
 번역을 켜기 전에 쌓여 있던 건은 그대로 영문으로 남습니다. 아래 명령으로 한 번에 채웁니다.
 
 ```bash

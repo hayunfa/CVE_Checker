@@ -19,6 +19,9 @@ defaults:
 
 # 자주 쓰는 조합 (--preset 이름)
 presets:
+  # weekly: 주 1회 자동 실행용. 9일 = 7일 + 여유 2일(늦게 등록되는 CVE·실행 지연 대비).
+  #         delta 라 겹치는 기간의 건은 다시 메일로 가지 않는다.
+  weekly:   { lookback_days: 9,  min_severity: MEDIUM, excel_scope: delta, max_rows: 1000 }
   daily:    { lookback_days: 3,  min_severity: MEDIUM, excel_scope: delta, max_rows: 300 }
   urgent:   { lookback_days: 1,  min_severity: HIGH,   excel_scope: delta, max_rows: 50 }
   in_use:   { lookback_days: 7,  min_severity: LOW,    only_in_use: true,  max_rows: 200 }

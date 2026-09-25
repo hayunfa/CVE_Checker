@@ -9,7 +9,7 @@
   - 종료 코드      → 0(SUCCESS/PARTIAL/SKIPPED), 1(FAILED)
 
 사용 예)
-    python -m src.aicve.main --preset daily
+    python -m src.aicve.main --preset weekly
     python -m src.aicve.main --preset urgent --groups serving,ui
     python -m src.aicve.main --from 2026-01-01 --to 2026-01-31 --excel-scope all
     python -m src.aicve.main --show-scope          # 조건만 확인하고 종료
@@ -53,7 +53,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     # --- 3.5절 9개 축 ---
     parser.add_argument("--preset", default=None,
-                        choices=["daily", "urgent", "in_use", "monthly", "backfill"],
+                        choices=["weekly", "daily", "urgent", "in_use", "monthly", "backfill"],
                         help="사전 정의 조합 (settings.yml: presets)")
     parser.add_argument("--lookback", dest="lookback_days", default=None,
                         help="조회 기간(일). 기본 3")
