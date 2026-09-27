@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-24 23:44:39</div>
+    <div class="stamp">최종 생성 2026-09-27 23:50:51</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (10건)</h2>
+<h2>이 회차 CVE (9건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -148,28 +148,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM before 0.27.0 fails to properly classify DeepStream as a GPU backend and omits pixel-limit enforcement in its decode path. Unauthenticated attackers can activate DeepStream at request time to initialize the process-wide GPU decode pool and submit video that bypasses resource controls, causing partial denial of service for concurrent requests.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/grpc/grpc-go/commit/3822494d8ea03b992c089fd2a195f041762fffb7" target="_blank" rel="noopener">CVE-2026-84445</a>
-        </td>
-        <td>gRPC</td>
-        <td>gRPC Authors</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.7</td>
-        <td class="mono">&lt;1.83.2</td>
-        <td class="mono">1.82.2</td>
-        <td>-</td>
-        <td class="mono">20260914</td>
-        <td class="mono">20260914</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.82.2 및 1.83.2 이전 버전에서 xds.NewGRPCServer()로 생성된 서버에서는 Internal/transport/http2_server.go가 :authority 헤더나 Host 헤더가 모두 포함되지 않은 RPC를 허용하는 반면, Internal/xds/server/routing.go의 RouteAndProcess는 권한 값이 존재한다고 가정하고 빈 조각을 인덱싱합니다. 전송 연결 설정을 완료할 수 있는 원격 클라이언트는 RPC별 고루틴에 의해 복구되지 않는 범위를 벗어난 인덱스 패닉을 트리거하고 전체 서버 프로세스를 종료할 수 있습니다. 안전하지 않거나 일반 TLS 배포에서는 요청이 인증되지 않을 수 있지만, 엄격한 mTLS 또는 ALTS 배포에서는 잘못된 RPC가 인터셉터에 도달하기 전에 유효한 전송 자격 증명이 필요합니다. 이 문제는 버전 1.82.2 및 1.83.2에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">gRPC-Go is the Go language implementation of gRPC. Prior to 1.82.2 and 1.83.2, servers created with xds.NewGRPCServer() allow internal/transport/http2_server.go to accept an RPC containing neither the :authority header nor the Host header, while RouteAndProcess in internal/xds/server/routing.go assumes that an authority value exists and indexes the empty slice. A remote client that can complete transport connection establishment can trigger an index-out-of-bounds panic that is not recovered by the per-RPC goroutine and terminates the entire server process. In insecure or ordinary TLS deployments the request can be unauthenticated, while strict mTLS or ALTS deployments require valid transport credentials before the malformed RPC can reach the interceptor. This issue is fixed in versions 1.82.2 and 1.83.2.</div>
           </details>
         </td>
       </tr>

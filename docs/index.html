@@ -69,25 +69,25 @@
       <a href="index.html" class="on">대시보드</a>
       <a href="cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-24 23:44:39</div>
+    <div class="stamp">최종 생성 2026-09-27 23:50:51</div>
   </div>
 </header>
 <div class="wrap">
 
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
-    <div><b>최근 실행</b> 20260924234050
+    <div><b>최근 실행</b> 20260927234334
       <span class="pill st-SUCCESS">SUCCESS</span></div>
-    <div class="muted">2026-09-24 23:40:50 ~ 2026-09-24 23:44:39</div>
+    <div class="muted">2026-09-27 23:43:34 ~ 2026-09-27 23:50:51</div>
   </div>
-  <div class="scope" style="margin-top:9px;">SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</div>
+  <div class="scope" style="margin-top:9px;">SCOPE lookback=9 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=1000</div>
 </div>
 
 <div class="grid">
-  <div class="card kpi"><div class="n">514</div><div class="l">전체 누적 CVE</div></div>
-  <div class="card kpi"><div class="n">39</div><div class="l">최근 실행 수집</div></div>
-  <div class="card kpi"><div class="n">4</div><div class="l">신규</div></div>
-  <div class="card kpi"><div class="n">1</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">529</div><div class="l">전체 누적 CVE</div></div>
+  <div class="card kpi"><div class="n">68</div><div class="l">최근 실행 수집</div></div>
+  <div class="card kpi"><div class="n">15</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">2</div><div class="l">변경</div></div>
   <div class="card kpi"><div class="n">0</div><div class="l">잘린 건수</div></div>
 </div>
 
@@ -110,9 +110,9 @@
   <div class="bar-row">
     <div class="nm sev sev-MEDIUM">MEDIUM</div>
     <div class="bar sev-bg-MEDIUM"
-         style="width:581.6px;
+         style="width:620.0px;
                 background:var(--med);"></div>
-    <div class="v">227</div>
+    <div class="v">242</div>
   </div>
   <div class="bar-row">
     <div class="nm sev sev-LOW">LOW</div>
@@ -139,13 +139,13 @@
     </div>
     <div class="bar-row">
       <div class="nm">vLLM</div>
-      <div class="bar" style="width:553.2px;"></div>
-      <div class="v">58</div>
+      <div class="bar" style="width:620.0px;"></div>
+      <div class="v">65</div>
     </div>
     <div class="bar-row">
       <div class="nm">Airflow</div>
-      <div class="bar" style="width:486.5px;"></div>
-      <div class="v">51</div>
+      <div class="bar" style="width:496.0px;"></div>
+      <div class="v">52</div>
     </div>
     <div class="bar-row">
       <div class="nm">TensorFlow</div>
@@ -156,6 +156,11 @@
       <div class="nm">Open WebUI</div>
       <div class="bar" style="width:362.5px;"></div>
       <div class="v">38</div>
+    </div>
+    <div class="bar-row">
+      <div class="nm">Elasticsearch</div>
+      <div class="bar" style="width:257.5px;"></div>
+      <div class="v">27</div>
     </div>
     <div class="bar-row">
       <div class="nm">MLflow</div>
@@ -171,11 +176,6 @@
       <div class="nm">Pillow</div>
       <div class="bar" style="width:219.4px;"></div>
       <div class="v">23</div>
-    </div>
-    <div class="bar-row">
-      <div class="nm">Elasticsearch</div>
-      <div class="bar" style="width:190.8px;"></div>
-      <div class="v">20</div>
     </div>
     <div class="bar-row">
       <div class="nm">Transformers</div>
@@ -242,6 +242,21 @@
       <th>수집</th><th>신규</th><th>변경</th><th>잘림</th><th>엑셀</th><th>메일(성공/실패)</th><th>상세</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">2026-09-27 23:43:34</td>
+        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
+        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
+          SCOPE lookback=9 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=1000</td>
+        <td class="mono" style="font-size:11px;">KEV=1728 OSV=4 NVD=72 GHSA=0 RANGE_RECOVERED=39 TRANSLATE=0건 번역 / 50건 실패</td>
+        <td>68</td>
+        <td>15</td>
+        <td>2</td>
+        <td>0</td>
+        <td><a href="output/CVE_20260927.xls">CVE_20260927.xls</a>
+</td>
+        <td>3 / 0</td>
+        <td><a href="runs/20260927234334.html">보기</a></td>
+      </tr>
       <tr>
         <td class="mono">2026-09-24 23:40:50</td>
         <td><span class="pill st-SUCCESS">SUCCESS</span></td>
@@ -672,26 +687,11 @@
         <td>3 / 0</td>
         <td><a href="runs/20260828050127.html">보기</a></td>
       </tr>
-      <tr>
-        <td class="mono">2026-08-27 00:20:50</td>
-        <td><span class="pill st-SUCCESS">SUCCESS</span></td>
-        <td class="mono" style="white-space:normal;min-width:340px;font-size:11px;color:var(--muted);">
-          SCOPE lookback=3 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=300</td>
-        <td class="mono" style="font-size:11px;">KEV=1682 OSV=3 NVD=22 GHSA=2 RANGE_RECOVERED=10 TRANSLATE=0건 번역 / 7건 실패</td>
-        <td>23</td>
-        <td>3</td>
-        <td>0</td>
-        <td>0</td>
-        <td><a href="output/CVE_20260827.xls">CVE_20260827.xls</a>
-</td>
-        <td>3 / 0</td>
-        <td><a href="runs/20260827002050.html">보기</a></td>
-      </tr>
     </tbody>
   </table>
 </div>
 
-<h2>최근 실행의 신규·변경 CVE (39건)</h2>
+<h2>최근 실행의 신규·변경 CVE (68건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -699,6 +699,97 @@
       <th>조치 버전</th><th>공개일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-wpww-v874-ph2p" target="_blank" rel="noopener">CVE-2026-100647</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vLLM versions before 0.29.0 contain a denial-of-service vulnerability in the cache_salt parameter accepted on OpenAI-compatible and Anthropic API endpoints, which lacks maximum length validation and is processed on the single EngineCore scheduler thread. Unauthenticated attackers can send HTTP requests with multi-hundred-megabyte salt values that trigger expensive pickle serialization and SHA-256 hashing, stalling the scheduler thread and denying service to all concurrent requests.">vLLM versions before 0.29.0 contain a denial-of-service vulnerability in the cache_salt parameter accepted on OpenAI-compatible and Anthropic API endpoints, which lacks maximum length validation and is processed on the single EngineCore scheduler thread. Unauthenticated attackers can send HTTP requests with multi-hundred-megabyte salt values that trigger expensive pickle serialization and SHA-256 hashing, stalling the scheduler thread and denying service to all concurrent requests.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-jcq2-4gch-5qhf" target="_blank" rel="noopener">CVE-2026-100648</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vllm before 0.29.0 fails to enforce VLLM_MAX_AUDIO_CLIP_FILESIZE_MB limit in multimodal chat audio decoding, allowing unauthenticated clients to bypass file size restrictions. Attackers can submit oversized audio files through chat endpoints to consume excessive memory and CPU resources during decoding.">vllm before 0.29.0 fails to enforce VLLM_MAX_AUDIO_CLIP_FILESIZE_MB limit in multimodal chat audio decoding, allowing unauthenticated clients to bypass file size restrictions. Attackers can submit oversized audio files through chat endpoints to consume excessive memory and CPU resources during decoding.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/752a3a504485790a2e8491cacbb35c137339ad34" target="_blank" rel="noopener">CVE-2026-100650</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;=0.29.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vLLM through 0.29.0 fetches and fully materializes remote or inline media before enforcing its documented media controls (the VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed-audio size cap, default 25 MB, and the per-modality --limit-mm-per-prompt item limits). Across four ingress paths — the shared media-acquisition layer (HTTPConnection.get_bytes()/async_get_bytes()), the chat completions audio_url/base64 path, the batch speech runner, and the Rust frontend POST /tokenize route — the server reads the entire HTTP response body, base64-decodes the inline payload, or spawns one fetch/decode task per media part, and only then applies the limit (or, on some paths, never applies it). A remote attacker can therefore cause the API server or batch-runner process to allocate memory and consume outbound bandwidth proportional to an attacker-chosen body size or media item count before the request is rejected, resulting in pre-inference memory and bandwidth exhaustion (denial of service). T">vLLM through 0.29.0 fetches and fully materializes remote or inline media before enforcing its documented media controls (the VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed-audio size cap, default 25 MB, and the per-modality --limit-mm-per-prompt item limits). Across four ingress paths — the shared media-acquisition layer (HTTPConnection.get_bytes()/async_get_bytes()), the chat completions audio_url/base64 path, the batch speech runner, and the Rust frontend POST /tokenize route — the server reads the entire HTTP response body, base64-decodes the inline payload, or spawns one fetch/decode task per media part, and only then applies the limit (or, on some paths, never applies it). A remote attacker can therefore cause the API server or batch-runner process to allocate memory and consume outbound bandwidth proportional to an attacker-chosen body size or media item count before the request is rejected, resulting in pre-inference memory and bandwidth exhaustion (denial of service). T</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-3mqx-f33v-vgp9" target="_blank" rel="noopener">CVE-2026-100651</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">0.29.0</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vLLM before 0.29.0 fails to enforce decoder prompt-length validation on the disaggregated serving endpoint /inference/v1/generate. When the request contains a &#39;features&#39; (multimodal) payload, vllm/entrypoints/serve/disagg/serving.py builds a multimodal EngineInput directly from the caller-supplied token_ids, and GenerateRequest.token_ids (vllm/entrypoints/serve/disagg/protocol.py) is not checked against model_config.max_model_len. For multimodal processors that report skip_prompt_length_check=True (for example Nemotron Parse, Whisper, and FireRedLID), InputProcessor._validate_prompt_len() returns immediately for both encoder and decoder prompts, so an overlong prompt becomes an EngineCoreRequest and reaches the worker input-batch copy into a fixed max_model_len-wide NumPy row. A client able to reach the endpoint on an affected model configuration can therefore submit an overlong token_ids list to trigger a worker failure and denial of service. Fixed in 0.29.0.">vLLM before 0.29.0 fails to enforce decoder prompt-length validation on the disaggregated serving endpoint /inference/v1/generate. When the request contains a &#39;features&#39; (multimodal) payload, vllm/entrypoints/serve/disagg/serving.py builds a multimodal EngineInput directly from the caller-supplied token_ids, and GenerateRequest.token_ids (vllm/entrypoints/serve/disagg/protocol.py) is not checked against model_config.max_model_len. For multimodal processors that report skip_prompt_length_check=True (for example Nemotron Parse, Whisper, and FireRedLID), InputProcessor._validate_prompt_len() returns immediately for both encoder and decoder prompts, so an overlong prompt becomes an EngineCoreRequest and reaches the worker input-batch copy into a fixed max_model_len-wide NumPy row. A client able to reach the endpoint on an affected model configuration can therefore submit an overlong token_ids list to trigger a worker failure and denial of service. Fixed in 0.29.0.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-qff2-492f-9fm4" target="_blank" rel="noopener">CVE-2026-100652</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.9</td>
+        <td class="mono">&gt;=0.22.0,&lt;=0.23.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vLLM versions 0.22.0 through 0.23.0 fail to validate stop_token_ids against vocabulary bounds in Rust HTTP and gRPC frontends, allowing out-of-vocabulary token IDs to reach MinTokensLogitsProcessor. Attackers can submit requests with min_tokens greater than zero and out-of-vocabulary stop_token_ids to trigger CUDA tensor indexing failures that leave EngineCore in a fatal state requiring service restart.">vLLM versions 0.22.0 through 0.23.0 fail to validate stop_token_ids against vocabulary bounds in Rust HTTP and gRPC frontends, allowing out-of-vocabulary token IDs to reach MinTokensLogitsProcessor. Attackers can submit requests with min_tokens greater than zero and out-of-vocabulary stop_token_ids to trigger CUDA tensor indexing failures that leave EngineCore in a fatal state requiring service restart.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/d26a28ab033697f55a1414b5b0435de7cd6045b6" target="_blank" rel="noopener">CVE-2026-100653</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=0.22.1,&lt;=0.28.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vLLM is an inference and serving engine for large language models. In versions from 0.22.1 through 0.28.0, the operator-supplied model revision pin (--revision / --code-revision) is not propagated to several Hugging Face artifact loads for the FunAudioChat and Tarsier2 architectures: the WhisperFeatureExtractor and speech_tokenizer PreTrainedTokenizerFast loads in vllm/model_executor/models/funaudiochat.py and the Qwen2VLConfig.from_pretrained call used by Tarsier2ProcessingInfo in vllm/model_executor/models/qwen2_vl.py. As a result, deployments pinned to a reviewed revision still resolve these behavior-affecting processor, tokenizer, and config artifacts from the repository&#39;s default revision, so a later change to the upstream default branch can alter audio preprocessing, speech tokenizer behavior, or Tarsier2 configuration without any change to the operator&#39;s configured pin. This is a supply-chain integrity and reproducibility failure for pinned deployments; it is residual">vLLM is an inference and serving engine for large language models. In versions from 0.22.1 through 0.28.0, the operator-supplied model revision pin (--revision / --code-revision) is not propagated to several Hugging Face artifact loads for the FunAudioChat and Tarsier2 architectures: the WhisperFeatureExtractor and speech_tokenizer PreTrainedTokenizerFast loads in vllm/model_executor/models/funaudiochat.py and the Qwen2VLConfig.from_pretrained call used by Tarsier2ProcessingInfo in vllm/model_executor/models/qwen2_vl.py. As a result, deployments pinned to a reviewed revision still resolve these behavior-affecting processor, tokenizer, and config artifacts from the repository&#39;s default revision, so a later change to the upstream default branch can alter audio preprocessing, speech tokenizer behavior, or Tarsier2 configuration without any change to the operator&#39;s configured pin. This is a supply-chain integrity and reproducibility failure for pinned deployments; it is residual</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-v5gm-qgmv-gc6c" target="_blank" rel="noopener">CVE-2026-100654</a>
+        </td>
+        <td>vLLM</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="vLLM before 0.29.0 accepts user-controlled stop_token_ids on the OpenAI-compatible POST /v1/completions and POST /v1/chat/completions endpoints but validates only that the values are integers, not that each token id is within the model vocabulary/logits range. When min_tokens &gt; 0, the stop token ids are used as logits indices to suppress stop tokens, so an out-of-range id reaches a CUDA indexing operation (index_put_) and triggers a device-side assertion. An authenticated API user can send a single malformed completion request that returns 500 Internal Server Error and puts EngineCore into a fatal state, causing subsequent requests to fail until the service is restarted (denial of service).">vLLM before 0.29.0 accepts user-controlled stop_token_ids on the OpenAI-compatible POST /v1/completions and POST /v1/chat/completions endpoints but validates only that the values are integers, not that each token id is within the model vocabulary/logits range. When min_tokens &gt; 0, the stop token ids are used as logits indices to suppress stop tokens, so an out-of-range id reaches a CUDA indexing operation (index_put_) and triggers a device-side assertion. An authenticated API user can send a single malformed completion request that returns 500 Internal Server Error and puts EngineCore into a fatal state, causing subsequent requests to fail until the service is restarted (denial of service).</td>
+      </tr>
       <tr>
         <td class="mono">
 <a href="https://docs.qualcomm.com/product/publicresources/securitybulletin/may-2026-bulletin.html" target="_blank" rel="noopener">CVE-2026-25255</a>
@@ -724,6 +815,84 @@
         <td class="mono">20260913</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] CrewAI before fb2323b offers a Python blocklist approach that operates at the wrong level of abstraction, a different vulnerability than CVE-2026-2275. Import-time blocking of module names does not address the availability of Python&#39;s complete object graph. For example, calling ctypes.CDLL(None) loads the C library without relying in any import statements. In other words, a within-process sandbox cannot merely account for the import system and instead must account for the complete runtime of the Python interpreter.">[버전범위 불명확] fb2323b 이전의 CrewAI는 잘못된 추상화 수준에서 작동하는 Python 차단 목록 접근 방식을 제공합니다. 이는 CVE-2026-2275과 다른 취약점입니다. 모듈 이름 가져오기 시간 차단은 Python의 전체 객체 그래프 가용성을 다루지 않습니다. 예를 들어, ctypes.CDLL(None)을 호출하면 import 문에 의존하지 않고 C 라이브러리가 로드됩니다. 즉, 프로세스 내 샌드박스는 가져오기 시스템만 설명할 수 없으며 대신 Python 인터프리터의 전체 런타임을 설명해야 합니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43627</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">&gt;=b1283,&lt;=b9058</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b1283 through b9058 contain an integer overflow vulnerability in the llama_batch_init() function where unchecked multiplications in malloc() calls can wrap past INT32_MAX when computing allocation sizes. Attackers can pass specially crafted parameters to trigger integer overflow, causing heap corruption and potentially achieving arbitrary code execution through subsequent batch operations that write past allocated buffer boundaries.">llama.cpp builds b1283 through b9058 contain an integer overflow vulnerability in the llama_batch_init() function where unchecked multiplications in malloc() calls can wrap past INT32_MAX when computing allocation sizes. Attackers can pass specially crafted parameters to trigger integer overflow, causing heap corruption and potentially achieving arbitrary code execution through subsequent batch operations that write past allocated buffer boundaries.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43628</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">&gt;=b3978,&lt;=b9058</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b3978 through b9058 contain an integer underflow and out-of-bounds read vulnerability in the DRY sampler that allows unauthenticated attackers to trigger a heap buffer underflow by sending a crafted HTTP request with dry_allowed_length set to INT32_MIN to the /v1/completions or /v1/chat/completions endpoints. Attackers can exploit this vulnerability to crash the server with SIGSEGV causing denial of service for all connected users, or corrupt token sampling probabilities by reading garbage values from memory before the allocated buffer.">llama.cpp builds b3978 through b9058 contain an integer underflow and out-of-bounds read vulnerability in the DRY sampler that allows unauthenticated attackers to trigger a heap buffer underflow by sending a crafted HTTP request with dry_allowed_length set to INT32_MIN to the /v1/completions or /v1/chat/completions endpoints. Attackers can exploit this vulnerability to crash the server with SIGSEGV causing denial of service for all connected users, or corrupt token sampling probabilities by reading garbage values from memory before the allocated buffer.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43629</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=b4882,&lt;=b9058</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b4882 through b9058 contain a heap buffer overflow vulnerability in the KV cache state restore path where the state_read_data() function computes write size without overflow checking, allowing attackers with write access to the slot_save_path directory to corrupt heap memory. Attackers can craft malicious state files where cell_count multiplication overflows or exceeds tensor buffer allocation to write attacker-controlled bytes past buffer boundaries, potentially resulting in heap metadata corruption, model weight corruption, or arbitrary code execution via function pointer overwrite.">llama.cpp builds b4882 through b9058 contain a heap buffer overflow vulnerability in the KV cache state restore path where the state_read_data() function computes write size without overflow checking, allowing attackers with write access to the slot_save_path directory to corrupt heap memory. Attackers can craft malicious state files where cell_count multiplication overflows or exceeds tensor buffer allocation to write attacker-controlled bytes past buffer boundaries, potentially resulting in heap metadata corruption, model weight corruption, or arbitrary code execution via function pointer overwrite.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43630</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=b5702,&lt;=b7653</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b5702 through b7653 contain an out-of-bounds read vulnerability in the recurrent memory state restore path that allows attackers with write access to the slot save directory to read memory past the end of the allocated cells array. Attackers can craft a malicious slot file with an oversized seq_id value to trigger an out-of-bounds read that leaks heap data including pointer values into server logs, defeating ASLR protections and facilitating further exploitation.">llama.cpp builds b5702 through b7653 contain an out-of-bounds read vulnerability in the recurrent memory state restore path that allows attackers with write access to the slot save directory to read memory past the end of the allocated cells array. Attackers can craft a malicious slot file with an oversized seq_id value to trigger an out-of-bounds read that leaks heap data including pointer values into server logs, defeating ASLR protections and facilitating further exploitation.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43631</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=b7492,&lt;=b9060</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in the vocab pointer of llama-server when the --sleep-idle-seconds feature is enabled, allowing unauthenticated remote attackers to execute arbitrary code. Attackers can trigger the vulnerability by sending requests to affected endpoints while the server transitions to sleep mode, causing concurrent worker threads to dereference a freed vocab pointer that can be reclaimed with attacker-controlled data to achieve remote code execution.">llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in the vocab pointer of llama-server when the --sleep-idle-seconds feature is enabled, allowing unauthenticated remote attackers to execute arbitrary code. Attackers can trigger the vulnerability by sending requests to affected endpoints while the server transitions to sleep mode, causing concurrent worker threads to dereference a freed vocab pointer that can be reclaimed with attacker-controlled data to achieve remote code execution.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43632</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=b7492,&lt;=b9060</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in llama-server affecting six tokenization endpoints (/tokenize, /detokenize, /infill, /apply-template, /rerank, and /anthropic/count_tokens) that bypass the task queue and access ctx_server.vocab directly on HTTP worker threads. Attackers can exploit a time-of-check-time-of-use race condition where the main thread destroys and frees vocab after the synchronization lock is released but before the handler finishes using it, causing a crash or potential code execution when --sleep-idle-seconds is configured.">llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in llama-server affecting six tokenization endpoints (/tokenize, /detokenize, /infill, /apply-template, /rerank, and /anthropic/count_tokens) that bypass the task queue and access ctx_server.vocab directly on HTTP worker threads. Attackers can exploit a time-of-check-time-of-use race condition where the main thread destroys and frees vocab after the synchronization lock is released but before the handler finishes using it, causing a crash or potential code execution when --sleep-idle-seconds is configured.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -818,6 +987,45 @@
       </tr>
       <tr>
         <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70638</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.8</td>
+        <td class="mono">&gt;=b1886,&lt;=b7445</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b1886 through b7445 contain an integer overflow vulnerability in the LLaMA-Android JNI wrapper where the new_1batch() function multiplies sizeof(llama_seq_id) by an attacker-controlled n_seq_max parameter without overflow validation, causing heap buffer allocation to wrap and allocate insufficient memory. Attackers can exploit this by providing a crafted n_seq_max value through a malicious model file or JNI call to trigger heap corruption and achieve denial of service or arbitrary code execution on Android applications using the LLaMA-Android binding.">llama.cpp builds b1886 through b7445 contain an integer overflow vulnerability in the LLaMA-Android JNI wrapper where the new_1batch() function multiplies sizeof(llama_seq_id) by an attacker-controlled n_seq_max parameter without overflow validation, causing heap buffer allocation to wrap and allocate insufficient memory. Attackers can exploit this by providing a crafted n_seq_max value through a malicious model file or JNI call to trigger heap corruption and achieve denial of service or arbitrary code execution on Android applications using the LLaMA-Android binding.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70639</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.5</td>
+        <td class="mono">&gt;=b1886,&lt;=b7445</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b1886 through b7445 contain a null pointer dereference vulnerability in the LLaMA-Android JNI wrapper where the bench_1model() function fails to validate the model context pointer before dereferencing it. Attackers can supply a malicious, corrupt, or truncated model file to trigger a null context condition, causing a SIGSEGV crash that terminates the Android application process and results in denial of service.">llama.cpp builds b1886 through b7445 contain a null pointer dereference vulnerability in the LLaMA-Android JNI wrapper where the bench_1model() function fails to validate the model context pointer before dereferencing it. Attackers can supply a malicious, corrupt, or truncated model file to trigger a null context condition, causing a SIGSEGV crash that terminates the Android application process and results in denial of service.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70640</a>
+        </td>
+        <td>llama.cpp</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.0</td>
+        <td class="mono">&gt;=b1886,&lt;=b7445</td>
+        <td class="mono">-</td>
+        <td class="mono">20260806</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="llama.cpp builds b1886 through b7445 contain a race condition use-after-free vulnerability in the LLaMA-Android JNI wrapper where bench_1model() and free_1context() lack synchronization, allowing Thread A to operate on freed memory while Thread B concurrently frees the llama_context. Attackers can exploit this by performing heap spray with attacker-controlled data containing a fake vtable to hijack the vtable pointer at offset +0x30, causing llama_batch_allocr::clear() to dereference arbitrary memory and achieve remote code execution.">llama.cpp builds b1886 through b7445 contain a race condition use-after-free vulnerability in the LLaMA-Android JNI wrapper where bench_1model() and free_1context() lack synchronization, allowing Thread A to operate on freed memory while Thread B concurrently frees the llama_context. Attackers can exploit this by performing heap spray with attacker-controlled data containing a fake vtable to hijack the vtable pointer at offset +0x30, causing llama_batch_allocr::clear() to dereference arbitrary memory and achieve remote code execution.</td>
+      </tr>
+      <tr>
+        <td class="mono">
 <a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">CVE-2026-75104</a>
         </td>
         <td>Transformers</td>
@@ -841,6 +1049,19 @@
         <td class="mono">20260918</td>
         <td>NVD</td>
         <td class="wrap-cell" title="Apache Airflow&#39;s asset queued-events DELETE endpoints checked the caller&#39;s Dag-axis permission with `READ` instead of `EDIT`. Any authenticated user who could read a Dag could therefore delete that Dag&#39;s queued asset events, silently suppressing asset-triggered scheduling for it — a state-changing action gated on a read-only permission. Deployments are affected whenever asset-triggered scheduling is in use and Dag read access is granted more widely than Dag edit access, which is the normal RBAC arrangement; no special configuration is required. Upgrade to apache-airflow 3.3.2 or later.">Apache Airflow&#39;s asset queued-events DELETE endpoints checked the caller&#39;s Dag-axis permission with `READ` instead of `EDIT`. Any authenticated user who could read a Dag could therefore delete that Dag&#39;s queued asset events, silently suppressing asset-triggered scheduling for it — a state-changing action gated on a read-only permission. Deployments are affected whenever asset-triggered scheduling is in use and Dag read access is granted more widely than Dag edit access, which is the normal RBAC arrangement; no special configuration is required. Upgrade to apache-airflow 3.3.2 or later.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/apache/airflow/pull/71741" target="_blank" rel="noopener">CVE-2026-75158</a>
+        </td>
+        <td>Airflow</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;3.3.2</td>
+        <td class="mono">3.3.2</td>
+        <td class="mono">20260921</td>
+        <td>NVD+OSV</td>
+        <td class="wrap-cell" title="Apache Airflow&#39;s `/assets/events` API returned asset events for every Dag in the deployment, with no filter restricting them to the Dags the caller is authorized to read. Any authenticated user holding asset-read access could therefore enumerate asset events — including the source Dag ID, task ID, run ID and event timestamps — for Dags they have no permission to see. Because the filter was also absent from the count query, `total_entries` and pagination disclosed the existence of hidden Dags even without inspecting individual rows. Deployments are affected whenever per-Dag access control is used to separate teams or tenants; no special configuration is required. Upgrade to apache-airflow 3.3.2 or later.">Apache Airflow&#39;s `/assets/events` API returned asset events for every Dag in the deployment, with no filter restricting them to the Dags the caller is authorized to read. Any authenticated user holding asset-read access could therefore enumerate asset events — including the source Dag ID, task ID, run ID and event timestamps — for Dags they have no permission to see. Because the filter was also absent from the count query, `total_entries` and pagination disclosed the existence of hidden Dags even without inspecting individual rows. Deployments are affected whenever per-Dag access control is used to separate teams or tenants; no special configuration is required. Upgrade to apache-airflow 3.3.2 or later.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -909,6 +1130,58 @@
       </tr>
       <tr>
         <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-21-9-4-6-9-5-3-security-update-esa-2026-170/390681" target="_blank" rel="noopener">CVE-2026-82294</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130).">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130).</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-176/390682" target="_blank" rel="noopener">CVE-2026-82300</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130).">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130).</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/apache/airflow/pull/72225" target="_blank" rel="noopener">CVE-2026-82355</a>
+        </td>
+        <td>Airflow</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.2</td>
+        <td class="mono">&lt;=3.3.0|&lt;=3.3.1</td>
+        <td class="mono">-</td>
+        <td class="mono">20260921</td>
+        <td>NVD+OSV</td>
+        <td class="wrap-cell" title="When a request to the Airflow core API carries both a session cookie and an explicit `Authorization: Bearer` token, Airflow resolves the caller from the cookie and ignores the bearer token, inverting the intended precedence of bearer over cookie. The request then executes -- and is recorded in the audit log -- as the cookie&#39;s principal rather than the identity the client explicitly presented. Only Apache Airflow 3.3.0 and 3.3.1 are affected. Earlier releases do not contain the code path that caches the cookie-derived user, and are not vulnerable. Exploiting this requires an attacker to first place a valid session cookie of their own into the victim&#39;s browser or client: for example by cookie tossing from a sibling subdomain, through cross-site scripting in a separate application sharing a parent domain, or via a shared workstation. Deployments that host the Airflow UI on a domain shared with other applications are therefore the most exposed; a deployment on a dedicated domain with no co">When a request to the Airflow core API carries both a session cookie and an explicit `Authorization: Bearer` token, Airflow resolves the caller from the cookie and ignores the bearer token, inverting the intended precedence of bearer over cookie. The request then executes -- and is recorded in the audit log -- as the cookie&#39;s principal rather than the identity the client explicitly presented. Only Apache Airflow 3.3.0 and 3.3.1 are affected. Earlier releases do not contain the code path that caches the cookie-derived user, and are not vulnerable. Exploiting this requires an attacker to first place a valid session cookie of their own into the victim&#39;s browser or client: for example by cookie tossing from a sibling subdomain, through cross-site scripting in a separate application sharing a parent domain, or via a shared workstation. Deployments that host the Airflow UI on a domain shared with other applications are therefore the most exposed; a deployment on a dedicated domain with no co</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/grpc/grpc-go/commit/3822494d8ea03b992c089fd2a195f041762fffb7" target="_blank" rel="noopener">CVE-2026-84445</a>
+        </td>
+        <td>gRPC</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.7</td>
+        <td class="mono">&lt;1.83.2</td>
+        <td class="mono">1.82.2</td>
+        <td class="mono">20260914</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="gRPC-Go is the Go language implementation of gRPC. Prior to 1.82.2 and 1.83.2, servers created with xds.NewGRPCServer() allow internal/transport/http2_server.go to accept an RPC containing neither the :authority header nor the Host header, while RouteAndProcess in internal/xds/server/routing.go assumes that an authority value exists and indexes the empty slice. A remote client that can complete transport connection establishment can trigger an index-out-of-bounds panic that is not recovered by the per-RPC goroutine and terminates the entire server process. In insecure or ordinary TLS deployments the request can be unauthenticated, while strict mTLS or ALTS deployments require valid transport credentials before the malformed RPC can reach the interceptor. This issue is fixed in versions 1.82.2 and 1.83.2.">gRPC-Go는 gRPC의 Go 언어 구현입니다. 1.82.2 및 1.83.2 이전 버전에서 xds.NewGRPCServer()로 생성된 서버에서는 Internal/transport/http2_server.go가 :authority 헤더나 Host 헤더가 모두 포함되지 않은 RPC를 허용하는 반면, Internal/xds/server/routing.go의 RouteAndProcess는 권한 값이 존재한다고 가정하고 빈 조각을 인덱싱합니다. 전송 연결 설정을 완료할 수 있는 원격 클라이언트는 RPC별 고루틴에 의해 복구되지 않는 범위를 벗어난 인덱스 패닉을 트리거하고 전체 서버 프로세스를 종료할 수 있습니다. 안전하지 않거나 일반 TLS 배포에서는 요청이 인증되지 않을 수 있지만, 엄격한 mTLS 또는 ALTS 배포에서는 잘못된 RPC가 인터셉터에 도달하기 전에 유효한 전송 자격 증명이 필요합니다. 이 문제는 버전 1.82.2 및 1.83.2에서 해결되었습니다.</td>
+      </tr>
+      <tr>
+        <td class="mono">
 <a href="https://github.com/OpenAtomFoundation/pikiwidb" target="_blank" rel="noopener">CVE-2026-84700</a>
         </td>
         <td>protobuf</td>
@@ -945,6 +1218,19 @@
         <td class="mono">20260904</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] tokenizers (Hugging Face) is affected by an out-of-bounds buffer access in BpeBuilder::build (tokenizers/src/models/bpe/model.rs). When loading a tokenizer.json via Tokenizer::from_file/from_str, the builder sizes a scratch buffer to the longest vocabulary key, then writes each concatenated merge rule into it. A merge whose concatenated token exceeds the longest vocabulary key overruns the buffer, which Rust turns into a panic that aborts the process in Rust and FFI embeddings. This occurs at load time with no encoding required, so an attacker who supplies a crafted tokenizer.json can cause a denial of service. A secondary defect at the same location can cause a usize underflow (panic in debug, potential memory corruption in release) when continuing_subword_prefix is set and a merge token is shorter than the prefix. Observed in version 0.23.1.">[버전범위 불명확] tokenizers (Hugging Face) is affected by an out-of-bounds buffer access in BpeBuilder::build (tokenizers/src/models/bpe/model.rs). When loading a tokenizer.json via Tokenizer::from_file/from_str, the builder sizes a scratch buffer to the longest vocabulary key, then writes each concatenated merge rule into it. A merge whose concatenated token exceeds the longest vocabulary key overruns the buffer, which Rust turns into a panic that aborts the process in Rust and FFI embeddings. This occurs at load time with no encoding required, so an attacker who supplies a crafted tokenizer.json can cause a denial of service. A secondary defect at the same location can cause a usize underflow (panic in debug, potential memory corruption in release) when continuing_subword_prefix is set and a merge token is shorter than the prefix. Observed in version 0.23.1.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/apache/airflow/pull/72649" target="_blank" rel="noopener">CVE-2026-86473</a>
+        </td>
+        <td>Airflow</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">&gt;=3.0.0,&lt;3.3.2</td>
+        <td class="mono">3.3.2</td>
+        <td class="mono">20260921</td>
+        <td>NVD+OSV</td>
+        <td class="wrap-cell" title="Apache Airflow: the Core API logout endpoint revokes only a session token presented as the _token cookie. When a client logs out presenting its credential as an Authorization bearer header instead, the endpoint returns its normal logout response but revokes nothing, so the token remains valid until it expires. An attacker who already holds a copy of that token keeps the victim&#39;s access after the victim has logged out and believes the session ended; the default token lifetime is 24 hours and is configurable. Affects API clients that authenticate with a bearer token rather than the browser session cookie. The attacker must already possess a copy of a valid token; obtaining one is outside the scope of this issue, and no privileges beyond the victim&#39;s own are gained. Users of apache-airflow are recommended to upgrade to apache-airflow version 3.3.2 or later, which fixes the issue.">Apache Airflow: the Core API logout endpoint revokes only a session token presented as the _token cookie. When a client logs out presenting its credential as an Authorization bearer header instead, the endpoint returns its normal logout response but revokes nothing, so the token remains valid until it expires. An attacker who already holds a copy of that token keeps the victim&#39;s access after the victim has logged out and believes the session ended; the default token lifetime is 24 hours and is configurable. Affects API clients that authenticate with a bearer token rather than the browser session cookie. The attacker must already possess a copy of a valid token; obtaining one is outside the scope of this issue, and no privileges beyond the victim&#39;s own are gained. Users of apache-airflow are recommended to upgrade to apache-airflow version 3.3.2 or later, which fixes the issue.</td>
       </tr>
       <tr>
         <td class="mono">
@@ -1091,6 +1377,84 @@
       </tr>
       <tr>
         <td class="mono">
+<a href="https://github.com/DLR-RM/stable-baselines3/" target="_blank" rel="noopener">CVE-2026-94093</a>
+        </td>
+        <td>PyTorch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;=2.9.0</td>
+        <td class="mono">-</td>
+        <td class="mono">20260920</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="A security vulnerability has been detected in DLR-RM stable-baselines3 up to 2.9.0. This affects the function PPO.load/load_replay_buffer/VecNormalize.load of the file save_util.py. Such manipulation leads to deserialization. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. In v2.9.0 the PyTorch tensor load path is hardened (weights_only=True), but that hardening was later reverted on master via PR #1913 &#34;Hotfix: revert loading with weights_only=True&#34; [blocked] to fix PyTorch 1.13 compat - so even the one &#34;safe&#34; path is inconsistent across versions. #2281 was closed as a duplicate of #1831 since both are unsafe pickle deserialization - but #1831&#39;s fix (PR #41) only gated the Hugging Face Hub loader in the separate huggingface_sb3 package. This finding covers the core stable_baselines3 load APIs (PPO.load, load_replay_buffer, VecNormalize.load), which have no safe mode or gate and remained exploitable in v2.9.0 until the o">A security vulnerability has been detected in DLR-RM stable-baselines3 up to 2.9.0. This affects the function PPO.load/load_replay_buffer/VecNormalize.load of the file save_util.py. Such manipulation leads to deserialization. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. In v2.9.0 the PyTorch tensor load path is hardened (weights_only=True), but that hardening was later reverted on master via PR #1913 &#34;Hotfix: revert loading with weights_only=True&#34; [blocked] to fix PyTorch 1.13 compat - so even the one &#34;safe&#34; path is inconsistent across versions. #2281 was closed as a duplicate of #1831 since both are unsafe pickle deserialization - but #1831&#39;s fix (PR #41) only gated the Hugging Face Hub loader in the separate huggingface_sb3 package. This finding covers the core stable_baselines3 load APIs (PPO.load, load_replay_buffer, VecNormalize.load), which have no safe mode or gate and remained exploitable in v2.9.0 until the o</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-9-4-7-9-5-4-security-update-esa-2026-182/390686" target="_blank" rel="noopener">CVE-2026-94396</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-183/390687" target="_blank" rel="noopener">CVE-2026-94397</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-179/390683" target="_blank" rel="noopener">CVE-2026-94398</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-180/390684" target="_blank" rel="noopener">CVE-2026-94399</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-3-security-update-esa-2026-184/390688" target="_blank" rel="noopener">CVE-2026-94408</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.9</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td class="mono">20260926</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)">[버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)</td>
+      </tr>
+      <tr>
+        <td class="mono">
 <a href="https://gist.github.com/yyymk/b5892625cb5efa2bffd36e0b05334ae8" target="_blank" rel="noopener">CVE-2026-94570</a>
         </td>
         <td>SGLang</td>
@@ -1205,6 +1569,19 @@
         <td class="mono">20260923</td>
         <td>NVD</td>
         <td class="wrap-cell" title="[버전범위 불명확] MLflow&#39;s statsmodel flavor, versions 2.1.0 to 3.14.0, omits the MLFLOW_ALLOW_PICKLE_DESERIALIZATION=False security control entirely in _load_model(), which allows a remote attacker to execute arbitrary code via a crafted MLmodel artifact.">[버전범위 불명확] MLflow&#39;s statsmodel flavor, versions 2.1.0 to 3.14.0, omits the MLFLOW_ALLOW_PICKLE_DESERIALIZATION=False security control entirely in _load_model(), which allows a remote attacker to execute arbitrary code via a crafted MLmodel artifact.</td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/apache/airflow/pull/70006" target="_blank" rel="noopener">CVE-2026-97636</a>
+        </td>
+        <td>Airflow</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;4.8.0</td>
+        <td class="mono">4.8.0</td>
+        <td class="mono">20260924</td>
+        <td>NVD</td>
+        <td class="wrap-cell" title="Apache Airflow HashiCorp provider: the HashiCorp Vault secrets backend&#39;s team-scope guard can be bypassed with a user-controlled key. In a multi-team deployment, a Dag author scoped to one team can supply a Variable key containing a path separator that causes the backend to resolve a secret belonging to a different team, because after the team-scoped lookup misses the backend falls back to a team-agnostic path concatenated from the unvalidated key. The Execution API Variables route accepts a path-shaped key, so this is reachable from ordinary Dag code. Affects multi-team deployments using the HashiCorp Vault secrets backend. Single-team deployments are not affected, as there is no cross-team boundary to cross. This is the same class as CVE-2026-86465, CVE-2026-68870, CVE-2026-68871 and CVE-2026-68872 in the Akeyless, Azure Key Vault, Yandex Lockbox and Amazon secrets backends. Users of apache-airflow-providers-hashicorp are recommended to upgrade to version 4.8.0 or later, w">Apache Airflow HashiCorp provider: the HashiCorp Vault secrets backend&#39;s team-scope guard can be bypassed with a user-controlled key. In a multi-team deployment, a Dag author scoped to one team can supply a Variable key containing a path separator that causes the backend to resolve a secret belonging to a different team, because after the team-scoped lookup misses the backend falls back to a team-agnostic path concatenated from the unvalidated key. The Execution API Variables route accepts a path-shaped key, so this is reachable from ordinary Dag code. Affects multi-team deployments using the HashiCorp Vault secrets backend. Single-team deployments are not affected, as there is no cross-team boundary to cross. This is the same class as CVE-2026-86465, CVE-2026-68870, CVE-2026-68871 and CVE-2026-68872 in the Akeyless, Azure Key Vault, Yandex Lockbox and Amazon secrets backends. Users of apache-airflow-providers-hashicorp are recommended to upgrade to version 4.8.0 or later, w</td>
       </tr>
     </tbody>
   </table>
