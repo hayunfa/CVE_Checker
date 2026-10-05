@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-27 23:50:51</div>
+    <div class="stamp">최종 생성 2026-10-05 00:06:45</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (68건)</h2>
+<h2>이 회차 CVE (40건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -107,132 +107,6 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-wpww-v874-ph2p" target="_blank" rel="noopener">CVE-2026-100647</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions before 0.29.0 contain a denial-of-service vulnerability in the cache_salt parameter accepted on OpenAI-compatible and Anthropic API endpoints, which lacks maximum length validation and is processed on the single EngineCore scheduler thread. Unauthenticated attackers can send HTTP requests with multi-hundred-megabyte salt values that trigger expensive pickle serialization and SHA-256 hashing, stalling the scheduler thread and denying service to all concurrent requests.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-jcq2-4gch-5qhf" target="_blank" rel="noopener">CVE-2026-100648</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vllm before 0.29.0 fails to enforce VLLM_MAX_AUDIO_CLIP_FILESIZE_MB limit in multimodal chat audio decoding, allowing unauthenticated clients to bypass file size restrictions. Attackers can submit oversized audio files through chat endpoints to consume excessive memory and CPU resources during decoding.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/752a3a504485790a2e8491cacbb35c137339ad34" target="_blank" rel="noopener">CVE-2026-100650</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM through 0.29.0 fetches and fully materializes remote or inline media before enforcing its documented media controls (the VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed-audio size cap, default 25 MB, and the per-modality --limit-mm-per-prompt item limits). Across four ingress paths — the shared media-acquisition layer (HTTPConnection.get_bytes()/async_get_bytes()), the chat completions audio_url/base64 path, the batch speech runner, and the Rust frontend POST /tokenize route — the server reads the entire HTTP response body, base64-decodes the inline payload, or spawns one fetch/decode task per media part, and only then applies the limit (or, on some paths, never applies it). A remote attacker can therefore cause the API server or batch-runner process to allocate memory and consume outbound bandwidth proportional to an attacker-chosen body size or media item count before the request is rejected, resulting in pre-inference memory and bandwidth exhaustion (denial of service). T
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-3mqx-f33v-vgp9" target="_blank" rel="noopener">CVE-2026-100651</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">0.29.0</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM before 0.29.0 fails to enforce decoder prompt-length validation on the disaggregated serving endpoint /inference/v1/generate. When the request contains a &#39;features&#39; (multimodal) payload, vllm/entrypoints/serve/disagg/serving.py builds a multimodal EngineInput directly from the caller-supplied token_ids, and GenerateRequest.token_ids (vllm/entrypoints/serve/disagg/protocol.py) is not checked against model_config.max_model_len. For multimodal processors that report skip_prompt_length_check=True (for example Nemotron Parse, Whisper, and FireRedLID), InputProcessor._validate_prompt_len() returns immediately for both encoder and decoder prompts, so an overlong prompt becomes an EngineCoreRequest and reaches the worker input-batch copy into a fixed max_model_len-wide NumPy row. A client able to reach the endpoint on an affected model configuration can therefore submit an overlong token_ids list to trigger a worker failure and denial of service. Fixed in 0.29.0.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-qff2-492f-9fm4" target="_blank" rel="noopener">CVE-2026-100652</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.9</td>
-        <td class="mono">&gt;=0.22.0,&lt;=0.23.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions 0.22.0 through 0.23.0 fail to validate stop_token_ids against vocabulary bounds in Rust HTTP and gRPC frontends, allowing out-of-vocabulary token IDs to reach MinTokensLogitsProcessor. Attackers can submit requests with min_tokens greater than zero and out-of-vocabulary stop_token_ids to trigger CUDA tensor indexing failures that leave EngineCore in a fatal state requiring service restart.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/d26a28ab033697f55a1414b5b0435de7cd6045b6" target="_blank" rel="noopener">CVE-2026-100653</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.22.1,&lt;=0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM is an inference and serving engine for large language models. In versions from 0.22.1 through 0.28.0, the operator-supplied model revision pin (--revision / --code-revision) is not propagated to several Hugging Face artifact loads for the FunAudioChat and Tarsier2 architectures: the WhisperFeatureExtractor and speech_tokenizer PreTrainedTokenizerFast loads in vllm/model_executor/models/funaudiochat.py and the Qwen2VLConfig.from_pretrained call used by Tarsier2ProcessingInfo in vllm/model_executor/models/qwen2_vl.py. As a result, deployments pinned to a reviewed revision still resolve these behavior-affecting processor, tokenizer, and config artifacts from the repository&#39;s default revision, so a later change to the upstream default branch can alter audio preprocessing, speech tokenizer behavior, or Tarsier2 configuration without any change to the operator&#39;s configured pin. This is a supply-chain integrity and reproducibility failure for pinned deployments; it is residual
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-v5gm-qgmv-gc6c" target="_blank" rel="noopener">CVE-2026-100654</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM before 0.29.0 accepts user-controlled stop_token_ids on the OpenAI-compatible POST /v1/completions and POST /v1/chat/completions endpoints but validates only that the values are integers, not that each token id is within the model vocabulary/logits range. When min_tokens &gt; 0, the stop token ids are used as logits indices to suppress stop tokens, so an out-of-range id reaches a CUDA indexing operation (index_put_) and triggers a device-side assertion. An authenticated API user can send a single malformed completion request that returns 500 Internal Server Error and puts EngineCore into a fatal state, causing subsequent requests to fail until the service is restarted (denial of service).
-        </td>
-      </tr>
       <tr>
         <td class="mono">
 <a href="https://docs.qualcomm.com/product/publicresources/securitybulletin/may-2026-bulletin.html" target="_blank" rel="noopener">CVE-2026-25255</a>
@@ -459,46 +333,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/3d20275bb4d434f53055c3c0b645fd8bb072965e" target="_blank" rel="noopener">CVE-2026-57173</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260916</td>
-        <td class="mono">20260924</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.24.0 이전에는 /v1/chat/completions에 대한 input_audio 처리 경로가 VLLM_MAX_AUDIO_DECODE_DURATION_S를 공유 오디오 디코더에 전달하지 않고 AudioMediaIO.load_bytes 또는 AudioMediaIO.load_file을 호출합니다. 따라서 인증되지 않은 클라이언트는 매우 큰 float32 PCM 할당으로 확장되는 작은 압축 오디오 입력을 제출하여 /v1/audio/transcriptions에서 이미 사용하는 기간 가드를 우회하고 메모리 부족 작업자 충돌을 일으킬 수 있습니다. 인라인 데이터 URL은 VLLM_AUDIO_FETCH_TIMEOUT에 의해 제한되지 않고 이 경로에 도달합니다. 이 문제는 오디오 지원 모델을 제공하는 배포에 영향을 미치며 인증은 배포별 연결 가능성만 변경합니다. 이 문제는 버전 0.24.0에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.24.0, the input_audio handling path for /v1/chat/completions calls AudioMediaIO.load_bytes or AudioMediaIO.load_file without passing VLLM_MAX_AUDIO_DECODE_DURATION_S to the shared audio decoder. An unauthenticated client can therefore submit a small compressed audio input that expands into a very large float32 PCM allocation, bypassing the duration guard already used by /v1/audio/transcriptions and causing an out-of-memory worker crash. Inline data URLs reach this path without being bounded by VLLM_AUDIO_FETCH_TIMEOUT. The issue affects deployments serving an audio-capable model, and authentication changes only the deployment-specific reachability. This issue is fixed in version 0.24.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/square/wire/commit/24043b6b3a5e5974a978f2745b76d50b31407c1c" target="_blank" rel="noopener">CVE-2026-61695</a>
-        </td>
-        <td>gRPC</td>
-        <td>gRPC Authors</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;7.0.0-alpha04</td>
-        <td class="mono">6.4.1</td>
-        <td>-</td>
-        <td class="mono">20260923</td>
-        <td class="mono">20260923</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.4.1 and 7.0.0-alpha04, Wire&#39;s Swift runtime ProtoReader.skipGroup(expectedEndTag:unknownFieldsWriter:) accepts a negative length for a LENGTH_DELIMITED field inside an unknown START_GROUP field. ProtoReader.readData() forwards the negative count to ReadBuffer.readData(count:), whose upper-bound-only check permits the value to reach Foundation Data(bytes:count:) and trigger an unrecoverable process trap instead of a catchable ProtoDecoder.Error. Any Swift process decoding untrusted protobuf bytes can be crashed without authentication, user interaction, or knowledge of the target schema. This issue is fixed in versions 6.4.1 and 7.0.0-alpha04.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/milvus-io/milvus/issues/50763" target="_blank" rel="noopener">CVE-2026-69111</a>
         </td>
         <td>Milvus</td>
@@ -611,24 +445,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/apache/airflow/pull/71741" target="_blank" rel="noopener">CVE-2026-75158</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.2</td>
-        <td class="mono">3.3.2</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260926</td>
-        <td>NVD+OSV</td>
-        <td class="wrap-cell">
-          Apache Airflow&#39;s `/assets/events` API returned asset events for every Dag in the deployment, with no filter restricting them to the Dags the caller is authorized to read. Any authenticated user holding asset-read access could therefore enumerate asset events — including the source Dag ID, task ID, run ID and event timestamps — for Dags they have no permission to see. Because the filter was also absent from the count query, `total_entries` and pagination disclosed the existence of hidden Dags even without inspecting individual rows. Deployments are affected whenever per-Dag access control is used to separate teams or tenants; no special configuration is required. Upgrade to apache-airflow 3.3.2 or later.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/HumanSignal/label-studio" target="_blank" rel="noopener">CVE-2026-76073</a>
         </td>
         <td>Label Studio</td>
@@ -695,24 +511,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">CVE-2026-80047</a>
-        </td>
-        <td>Transformers</td>
-        <td>Hugging Face</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260901</td>
-        <td class="mono">20260923</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] A vulnerability in Hugging Face Transformers (versions 4.57.0 to 5.16.1) allows remote Python files to be written to local disk without user consent when using GenerativePreTrainedModel.load_custom_generate(). The function fetches and caches a remote module file before performing the required trust_remote_code consent check, inverting the security model enforced by other code-loading paths (such as AutoConfig, AutoModel, and AutoTokenizer). As a result, attacker‑controlled Python code from custom_generate/generate.py is copied into the user’s ~/.cache/huggingface/modules directory even if the user declines the trust prompt. Although execution is correctly gated, the file write is not reversible and can persist across sessions. This can lead to persistent, unauthorized files on disk and stale cache collisions where cached attacker code may later be executed during trusted model loads. The issue stems from an unconditional file write in dynamic_module_utils.py prior to any tru
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank" rel="noopener">CVE-2026-82288</a>
         </td>
         <td>AUTOMATIC1111 Stable Diffusion WebUI</td>
@@ -727,60 +525,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           Stable Diffusion WebUI through 1.10.1 contains a credential disclosure vulnerability in the /sdapi/v1/cmd-flags endpoint that returns parsed command-line arguments including gradio_auth and api_auth values in cleartext. Unauthenticated attackers can access this endpoint to retrieve configured usernames and passwords, then use them to authenticate to the interface and access the application.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-21-9-4-6-9-5-3-security-update-esa-2026-170/390681" target="_blank" rel="noopener">CVE-2026-82294</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130).
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-176/390682" target="_blank" rel="noopener">CVE-2026-82300</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130).
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/72225" target="_blank" rel="noopener">CVE-2026-82355</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.2</td>
-        <td class="mono">&lt;=3.3.0|&lt;=3.3.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260926</td>
-        <td>NVD+OSV</td>
-        <td class="wrap-cell">
-          When a request to the Airflow core API carries both a session cookie and an explicit `Authorization: Bearer` token, Airflow resolves the caller from the cookie and ignores the bearer token, inverting the intended precedence of bearer over cookie. The request then executes -- and is recorded in the audit log -- as the cookie&#39;s principal rather than the identity the client explicitly presented. Only Apache Airflow 3.3.0 and 3.3.1 are affected. Earlier releases do not contain the code path that caches the cookie-derived user, and are not vulnerable. Exploiting this requires an attacker to first place a valid session cookie of their own into the victim&#39;s browser or client: for example by cookie tossing from a sibling subdomain, through cross-site scripting in a separate application sharing a parent domain, or via a shared workstation. Deployments that host the Airflow UI on a domain shared with other applications are therefore the most exposed; a deployment on a dedicated domain with no co
         </td>
       </tr>
       <tr>
@@ -857,24 +601,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           [버전범위 불명확] tokenizers (Hugging Face) is affected by an out-of-bounds buffer access in BpeBuilder::build (tokenizers/src/models/bpe/model.rs). When loading a tokenizer.json via Tokenizer::from_file/from_str, the builder sizes a scratch buffer to the longest vocabulary key, then writes each concatenated merge rule into it. A merge whose concatenated token exceeds the longest vocabulary key overruns the buffer, which Rust turns into a panic that aborts the process in Rust and FFI embeddings. This occurs at load time with no encoding required, so an attacker who supplies a crafted tokenizer.json can cause a denial of service. A secondary defect at the same location can cause a usize underflow (panic in debug, potential memory corruption in release) when continuing_subword_prefix is set and a merge token is shorter than the prefix. Observed in version 0.23.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/72649" target="_blank" rel="noopener">CVE-2026-86473</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.1</td>
-        <td class="mono">&gt;=3.0.0,&lt;3.3.2</td>
-        <td class="mono">3.3.2</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260926</td>
-        <td>NVD+OSV</td>
-        <td class="wrap-cell">
-          Apache Airflow: the Core API logout endpoint revokes only a session token presented as the _token cookie. When a client logs out presenting its credential as an Authorization bearer header instead, the endpoint returns its normal logout response but revokes nothing, so the token remains valid until it expires. An attacker who already holds a copy of that token keeps the victim&#39;s access after the victim has logged out and believes the session ended; the default token lifetime is 24 hours and is configurable. Affects API clients that authenticate with a bearer token rather than the browser session cookie. The attacker must already possess a copy of a valid token; obtaining one is outside the scope of this issue, and no privileges beyond the victim&#39;s own are gained. Users of apache-airflow are recommended to upgrade to apache-airflow version 3.3.2 or later, which fixes the issue.
         </td>
       </tr>
       <tr>
@@ -1029,50 +755,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-93436</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260917</td>
-        <td class="mono">20260922</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM 0.29.0부터 사전 채우기/디코딩 분리된 배포에서 거부된 추론 요청에 대한 디코드 측 메타데이터를 적절하게 정리하지 못합니다. 원격 공격자는 max_tokens=0으로 요청을 제출하여 작업자가 다시 시작될 때까지 디코드 작업자 메모리를 제한 없이 소모할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM through 0.29.0 fails to properly clean up decode-side metadata for rejected inference requests in prefill/decode disaggregated deployments. Remote attackers can submit requests with max_tokens=0 to exhaust decode-worker memory without bound until the worker restarts.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-25q3-v2hm-8vpf" target="_blank" rel="noopener">CVE-2026-93592</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260918</td>
-        <td class="mono">20260922</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          0.28.0 이전의 vLLM 버전은 /v1/embeddings 및 /pooling 엔드포인트에서 토큰 ID의 하한을 검증하지 못하므로 인증되지 않은 공격자가 음수 토큰 ID를 제출하여 엔진을 충돌시킬 수 있습니다. 음수 토큰 ID가 있는 단일 요청은 GPU 컨텍스트를 손상시키는 CUDA 장치 측 어설션을 트리거하여 프로세스가 다시 시작될 때까지 모든 후속 요청이 실패하게 만듭니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM versions before 0.28.0 fail to validate the lower bound of token IDs in the /v1/embeddings and /pooling endpoints, allowing unauthenticated attackers to crash the engine by submitting negative token IDs. A single request with a negative token ID triggers a CUDA device-side assertion that poisons the GPU context, causing all subsequent requests to fail until the process restarts.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">CVE-2026-93688</a>
         </td>
         <td>SGLang</td>
@@ -1135,96 +817,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-9-4-7-9-5-4-security-update-esa-2026-182/390686" target="_blank" rel="noopener">CVE-2026-94396</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-183/390687" target="_blank" rel="noopener">CVE-2026-94397</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-179/390683" target="_blank" rel="noopener">CVE-2026-94398</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-180/390684" target="_blank" rel="noopener">CVE-2026-94399</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-3-security-update-esa-2026-184/390688" target="_blank" rel="noopener">CVE-2026-94408</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.9</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260926</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://gist.github.com/yyymk/b5892625cb5efa2bffd36e0b05334ae8" target="_blank" rel="noopener">CVE-2026-94570</a>
         </td>
         <td>SGLang</td>
@@ -1239,114 +831,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           [버전범위 불명확] SGLang contains a DoS vulnerability caused by missing input validation for AUX_DATA ZeroMQ control messages in the Decode worker, which enables an unauthenticated remote attacker with network reachability to the Decode control PULL socket to terminate the Decode control thread and cause a denial of service against the target server.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-94622</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260922</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions through 0.29.0 contain a denial of service vulnerability in the NIXL connector&#39;s metadata handling for prefill/decode disaggregated deployments. Attackers can send requests with incomplete kv_transfer_params dictionary entries to trigger an uncaught KeyError in EngineCore scheduling, causing the decode engine to terminate and making all routed requests fail until manual restart.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-94623</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260922</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM through 0.29.0 contains a denial of service vulnerability in the NIXL connector&#39;s prefix caching implementation that fails to properly validate block counts across multi-prompt completion requests in prefill/decode disaggregated deployments. Attackers can trigger an assertion failure in NixlBaseConnectorWorker._apply_prefix_caching by submitting completion requests with multiple prompts of varying lengths, causing the decode worker to terminate and become unavailable until restarted.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-94624</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260922</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM through 0.29.0 contains a denial of service vulnerability in P2P KV offloading when OffloadingConnector is configured with TieringOffloadingSpec and a peer-to-peer secondary tier. Attackers can supply arbitrary remote host and port values in kv_transfer_params to create unreachable peer sessions that retain ZeroMQ sockets until the context quota is exhausted, causing an uncaught ZMQError that crashes EngineCore and stops all inference.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-94625</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260923</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM through 0.29.0 contains a resource exhaustion vulnerability in MooncakeConnector where rejected prefill requests create ownerless transfer placeholders that are never reclaimed. Attackers can send rejected requests to exhaust sender task pools, causing valid requests to be delayed by up to 480 seconds while health checks continue returning success.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-94626</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260924</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM through 0.29.0 fails to validate the tp_size parameter in kv_transfer_params on OpenAI-compatible completion endpoints, allowing attackers to allocate unbounded memory. Attackers can supply arbitrary tp_size values in prefill/decode disaggregated deployments to exhaust memory and trigger kernel OOM-kill of the decode worker process.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">CVE-2026-94627</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260921</td>
-        <td class="mono">20260922</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM Mooncake connector through 0.29.0 fails to properly manage GPU KV cache block ownership when concurrent child requests share a single transfer ID in prefill/decode disaggregated deployments. Attackers can trigger GPU memory exhaustion by submitting completion requests with multiple prompts, causing orphaned KV cache blocks to accumulate until process restart and eventually preventing legitimate requests from executing.
         </td>
       </tr>
       <tr>

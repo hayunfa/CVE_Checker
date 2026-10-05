@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-27 23:50:51</div>
+    <div class="stamp">최종 생성 2026-10-05 00:06:45</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (231건)</h2>
+<h2>이 회차 CVE (224건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -2287,24 +2287,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-6051" target="_blank" rel="noopener">CVE-2025-6051</a>
-        </td>
-        <td>Transformers</td>
-        <td>Hugging Face</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;4.53.0</td>
-        <td class="mono">4.53.0</td>
-        <td>-</td>
-        <td class="mono">20250914</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          A Regular Expression Denial of Service (ReDoS) vulnerability was discovered in the Hugging Face Transformers library, specifically within the `normalize_numbers()` method of the `EnglishNormalizer` class. This vulnerability affects versions up to 4.52.4 and is fixed in version 4.53.0. The issue arises from the method&#39;s handling of numeric strings, which can be exploited using crafted input strings containing long sequences of digits, leading to excessive CPU consumption. This vulnerability impacts text-to-speech and number normalization tasks, potentially causing service disruption, resource exhaustion, and API vulnerabilities.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-6fvq-23cw-5628" target="_blank" rel="noopener">CVE-2025-61620</a>
         </td>
         <td>vLLM</td>
@@ -2409,24 +2391,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           ### Summary The /v1/chat/completions and /tokenize endpoints allow a `chat_template_kwargs` request parameter that is used in the code before it is properly validated against the chat template. With the right `chat_template_kwargs` parameters, it is possible to block processing of the API server for long periods of time, delaying all other requests ### Details In serving_engine.py, the chat_template_kwargs are unpacked into kwargs passed to chat_utils.py `apply_hf_chat_template` with no validation on the keys or values in that chat_template_kwargs dict. This means they can be used to override optional parameters in the `apply_hf_chat_template` method, such as `tokenize`, changing its default from False to True. https://github.com/vllm-project/vllm/blob/2a6dc67eb520ddb9c4138d8b35ed6fe6226997fb/vllm/entrypoints/openai/serving_engine.py#L809-L814 https://github.com/vllm-project/vllm/blob/2a6dc67eb520ddb9c4138d8b35ed6fe6226997fb/vllm/entrypoints/chat_utils.py#L1602-L1610 Both serving_chat.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-62593" target="_blank" rel="noopener">CVE-2025-62593</a>
-        </td>
-        <td>Ray</td>
-        <td>Anyscale</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>-</td>
-        <td class="mono">&lt;2.52.0</td>
-        <td class="mono">2.52.0</td>
-        <td><span class="kev">KEV</span></td>
-        <td class="mono">20251126</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          # Summary Developers working with Ray as a development tool can be exploited via a critical RCE vulnerability exploitable via Firefox and Safari. Due to the longstanding [decision](https://docs.ray.io/en/releases-2.51.1/ray-security/index.html) by the Ray Development team to not implement any sort of authentication on critical endpoints, like the `/api/jobs` &amp; `/api/job_agent/jobs/` has once again led to a severe vulnerability that allows attackers to execute arbitrary code against Ray. This time in a development context via the browsers Firefox and Safari. This vulnerability is due to an insufficient guard against browser-based attacks, as the current defense uses the `User-Agent` header starting with the string &#34;Mozilla&#34; as a defense mechanism. This defense is insufficient as the fetch specification allows the `User-Agent` header to be modified. Combined with a DNS rebinding attack against the browser, and this vulnerability is exploitable against a developer running Ray who inadvert
         </td>
       </tr>
       <tr>
@@ -3909,24 +3873,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71486" target="_blank" rel="noopener">CVE-2026-71486</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary The `/v1/completions/derender` and `/v1/chat/completions/derender` endpoints accept caller-supplied `GenerateResponse` objects and postprocess every nested `choices[*].token_ids` list directly. Unlike the normal render/generate path, derender does not enforce model context length, resolved `max_tokens`, `max_num_seqs`, choice-count, or response-size bounds before detokenizing and returning the supplied token IDs. An authenticated API client can therefore make the CPU-only render frontend, or any server exposing these `/v1` derender routes, spend CPU and memory proportional to attacker-chosen generated-output-shaped JSON rather than to a bounded generation result. ## Technical Details The render router registers `/v1/chat/completions/derender` and `/v1/completions/derender` in `vllm/entrypoints/serve/render/api_router.py`, and the OpenAI API server attaches this router whenever `&#34;generate&#34;` or `&#34;render&#34;` is in `supported_tasks` (`vllm/entrypoints/openai/api_server.py`). The r
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-gx64-gj6p-pc4c" target="_blank" rel="noopener">CVE-2026-73415</a>
         </td>
         <td>JupyterLab</td>
@@ -3949,42 +3895,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73555" target="_blank" rel="noopener">CVE-2026-73555</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary When the vLLM API receives a malformed request (e.g., invalid JSON or missing required fields), FastAPI raises a Pydantic `RequestValidationError`. The `validation_exception_handler` in `vllm/entrypoints/openai/server_utils.py` converts this exception to a string via `str(exc)`, which includes the internal file path and line number of the handler function. The existing `sanitize_message()` function in `vllm/entrypoints/utils.py` strips memory addresses (e.g., `0x7f...`) but does not strip `File &#34;...&#34;, line X` patterns. The result is a user-facing HTTP response that leaks internal system information. ## Impact An unauthenticated attacker can extract the following with a single malformed request: - **OS username** running the vLLM process (e.g., `ubuntu`) - **Home directory path** (e.g., `/home/ubuntu/`) - **Virtual environment path** (e.g., `vllm-env/`) - **Python version** (e.g., `3.12`) - **Internal package structure and line numbers** (e.g., `vllm/entrypoints/openai/chat_c
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73556" target="_blank" rel="noopener">CVE-2026-73556</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260904</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary The fix for `GHSA-rwxx-mrjm-wc2m` (&#34;ReDoS via `structured_outputs.regex` compiled without timeout&#34;) wrapped the regex compile in the **xgrammar** and **outlines** backends with `compile_regex_with_timeout` (and, for outlines, `validate_regex_is_buildable`). The **lm-format-enforcer** backend was left unguarded: it compiles the attacker-supplied regex with no timeout and no buildability check. A single request with a catastrophic regex hangs the structured-output compile step and stalls the engine worker (denial of service). ### Affected code (HEAD d6d39c1) `vllm/v1/structured_output/backend_lm_format_enforcer.py`: - line 110: `character_level_parser = lmformatenforcer.RegexParser(grammar_spec)` — builds an `interegular` FSM from the attacker regex synchronously, **no timeout**. - line 155: `validate_structured_output_request_lm_format_enforcer` returns immediately on `if so_params.regex:` — **no validation**. Sibling backends that WERE patched by GHSA-rwxx: - `backend_xgram
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73557" target="_blank" rel="noopener">CVE-2026-73557</a>
         </td>
         <td>vLLM</td>
@@ -3999,46 +3909,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           ## Executive Summary The follow-up protection for CVE-2025-62164 is incomplete at vLLM revision `26587f9519e22a5c4549ead7595ad9ca3229c4fd`. It wraps serialized prompt-embedding reconstruction and dense conversion in `torch.sparse.check_sparse_tensor_invariants()`, but PyTorch 2.11.0 implements that context with save/enable/restore operations over process-global state. Two prompt-embedding parts in one `/v1/chat/completions` request are gathered concurrently on the event loop&#39;s default executor. When one context exits before the other loads its tensor, it can restore the global flag to `False` while the second part remains inside its guard. In a deterministic run against hash-verified source from the affected revision, the actual target loader rejected an invalid sparse payload as a negative control. The frozen chat tracker then scheduled benign and malicious parts on distinct `asyncio_0` and `asyncio_1` threads. The benign context exited, the malicious loader observed the invariant fla
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73558" target="_blank" rel="noopener">CVE-2026-73558</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.27.0</td>
-        <td class="mono">0.27.0</td>
-        <td>-</td>
-        <td class="mono">20260908</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary An integer overflow in the act_and_mul_kernel kernel can cause the output of one user request to be incorporated into the response of another request within the same inference batch. Under certain conditions, the last request in a batch can receive a partial or complete copy of the first user&#39;s inference result, resulting in cross-user data leakage. ### Details The root cause is an integer overflow in the expression blockIdx.x * 2 * d at https://github.com/vllm-project/vllm/blob/ff712f6447093d07747c88680b9d006b119f5890/csrc/activation_kernels.cu#L82. As a result, the computation for one user (User A) can incorrectly consume input data from another user (User B). In particular, when 2^32 is divisible by d, the overflow can cause User A&#39;s output to contain portions of User B&#39;s inference result. In some cases, User B&#39;s response may be copied entirely into User A&#39;s response. This constitutes a severe cross-user information disclosure vulnerability and is straightforward to trig
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73559" target="_blank" rel="noopener">CVE-2026-73559</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.19.0,&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260813</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## 요약 `/v1/completions` 요청 모델은 `프롬프트`를 외부 프롬프트 수 제한 없이 텍스트 프롬프트 목록 또는 토큰 ID 프롬프트 목록으로 허용합니다. 제공 경로는 각 요소를 별도의 엔진 입력으로 바꾸고, 요소당 하나의 엔진 생성기를 생성하고, 모든 생성기를 병합하고, 프롬프트당 응답 슬롯을 할당합니다. 따라서 인증된 API 클라이언트는 총 요청 수 예산이 시행되기 전에 하나의 요청을 공격자가 선택한 수의 백엔드 하위 요청으로 바꿀 수 있습니다. ## 기술 세부 사항 `CompletionRequest.prompt`는 목록 모양의 프롬프트 입력과 스칼라 프롬프트를 모두 허용합니다: ```python # vllm/entrypoints/openai/completion/protocol.py 프롬프트: ( list[Annotated[int, Field(ge=0)]] | list[list[Annotated[int, Field(ge=0)]]] | str | list[str] | None ) = None ``` 유효성 검사기는 일부만 필요합니다. 프롬프트와 같은 입력이 있어야 함: ```python def verify_prompt_and_prompt_embeds(cls, data): 프롬프트 = data.get(&#34;prompt&#34;) 프롬프트_embeds = data.get(&#34;prompt_embeds&#34;) ... if 프롬프트_is
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">## Summary The `/v1/completions` request model accepts `prompt` as a list of text prompts or a list of token-id prompts without any outer prompt-count bound. The serving path turns each element into a separate engine input, creates one engine generator per element, merges all generators, and allocates a response slot per prompt. An authenticated API client can therefore turn one request into an attacker-chosen number of backend subrequests before any aggregate request-count budget is enforced. ## Technical Details `CompletionRequest.prompt` allows both list-shaped prompt inputs and scalar prompts: ```python # vllm/entrypoints/openai/completion/protocol.py prompt: ( list[Annotated[int, Field(ge=0)]] | list[list[Annotated[int, Field(ge=0)]]] | str | list[str] | None ) = None ``` The validator only requires some prompt-like input to be present: ```python def validate_prompt_and_prompt_embeds(cls, data): prompt = data.get(&#34;prompt&#34;) prompt_embeds = data.get(&#34;prompt_embeds&#34;) ... if prompt_is</div>
-          </details>
         </td>
       </tr>
       <tr>

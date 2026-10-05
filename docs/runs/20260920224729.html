@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-09-27 23:50:51</div>
+    <div class="stamp">최종 생성 2026-10-05 00:06:45</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1716 OSV=0 NVD=45 GHSA=0 RANGE_RECOVERED=16 TRANSLATE=0건 번역 / 40건 캐시</span></div>
 </div>
 
-<h2>이 회차 CVE (36건)</h2>
+<h2>이 회차 CVE (33건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -766,28 +766,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/54503ecec0f3ac31e5ecfc5f28652e4cc42307b5" target="_blank" rel="noopener">CVE-2026-73560</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.26.0</td>
-        <td class="mono">0.26.0</td>
-        <td>-</td>
-        <td class="mono">20260817</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.26.0 이전에는 vllm/transformers_utils/processors/mimo_v2_omni.py의 MiMoV2OmniMultiModalProcessor가 MediaConnector 대신 _fetch_image,requests.get 및 Image.open을 통해 공격자가 제어하는 이미지 및 오디오 문자열을 전달하여 allowed_media_domains 및 allowed_local_media_path 보호를 우회하고 vLLM에 액세스할 수 있는 임의 파일의 서버 측 요청 및 읽기를 허용했습니다. 프로세스. 이 문제는 버전 0.26.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the MiMoV2OmniMultiModalProcessor in vllm/transformers_utils/processors/mimo_v2_omni.py passes attacker-controlled image and audio strings through _fetch_image, requests.get, and Image.open instead of MediaConnector, bypassing allowed_media_domains and allowed_local_media_path protections and allowing server-side requests and reads of arbitrary files accessible to the vLLM process. This issue is fixed in version 0.26.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9x83-43r8-5hwc" target="_blank" rel="noopener">CVE-2026-85169</a>
         </td>
         <td>n8n</td>
@@ -827,50 +805,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.73, 2.35.4, and 2.36.2 pass message content in the Gmail (v1) and Brevo nodes to the mail composer without verifying it is a string. An authenticated user able to run a workflow can supply an expression that resolves to an object carrying a path or href property, causing the composer to read a local file accessible to the n8n process or fetch an internal URL (SSRF) and attach the result to the outgoing message.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/fb5ef978bfb451c3f2221931e08e54250cec58ca" target="_blank" rel="noopener">CVE-2026-88005</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>openwebui</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.8.0,&lt;0.9.0</td>
-        <td class="mono">0.9.0</td>
-        <td>-</td>
-        <td class="mono">20260910</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Open WebUI는 확장 가능하고 기능이 풍부하며 사용자 친화적인 자체 호스팅 AI 플랫폼입니다. 0.8.0부터 0.9.0까지 Open WebUI의 OAuth 토큰 교환 엔드포인트는 일반 OAuth 로그인 콜백이 적용하는 이메일 도메인 허용 목록을 적용하지 않고 공급자 액세스 토큰에 대한 세션을 발행합니다. 로그인 콜백이 거부하는 이메일 도메인의 계정은 여전히 ​​이 엔드포인트를 통해 작업 세션을 얻을 수 있습니다. 이 문제는 버전 0.9.0에서 수정되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.0 until 0.9.0, Open WebUI&#39;s OAuth token exchange endpoint issues a session for a provider access token without applying the email domain allowlist that the normal OAuth login callback enforces. An account whose email domain the login callback would refuse could still obtain a working session through this endpoint. This issue is fixed in version 0.9.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/open-webui/open-webui/commit/d799e81edbdc971c6deb096b6474cd95b93504bf" target="_blank" rel="noopener">CVE-2026-88006</a>
-        </td>
-        <td>Open WebUI</td>
-        <td>openwebui</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.8.0,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20260910</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Open WebUI는 확장 가능하고 기능이 풍부하며 사용자 친화적인 자체 호스팅 AI 플랫폼입니다. 0.8.0부터 0.11.1까지 Open WebUI의 OAuth 토큰 교환 끝점은 일반 OAuth 로그인 콜백이 실행되는 OAuth 역할 관리를 실행하지 않고 공급자 액세스 토큰에 대한 세션을 발급합니다. 로그인 콜백이 거부되거나 강등되는 공급자 역할을 가진 사용자는 이 끝점을 통해 기존 역할에서 계속 작업 세션을 얻을 수 있습니다. 이 문제는 버전 0.11.1에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.0 until 0.11.1, Open WebUI&#39;s OAuth token exchange endpoint issues a session for a provider access token without running the OAuth role management that the normal OAuth login callback runs. A user whose provider roles the login callback would refuse, or would demote, could still obtain a working session at their existing role through this endpoint. This issue is fixed in version 0.11.1.</div>
           </details>
         </td>
       </tr>
