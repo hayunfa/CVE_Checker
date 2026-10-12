@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실행 20261012002319 — AI CVE Watch</title>
+<style>
+  :root {
+    --bg:#f6f7f9; --card:#ffffff; --line:#e3e6ea; --text:#22262b; --muted:#6b7280;
+    --accent:#1f3864; --crit:#b3122b; --high:#d9480f; --med:#b8860b; --low:#2b6cb0; --none:#8a8f98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15181d; --card:#1c2027; --line:#2c323b; --text:#e6e8ea; --muted:#9aa2ad;
+            --accent:#7aa2e3; --crit:#ff6b81; --high:#ff9f5a; --med:#e3c04b; --low:#6fb3ff; --none:#8a8f98; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:0 0 60px; background:var(--bg); color:var(--text);
+         font-family:'Malgun Gothic',AppleGothic,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1360px; margin:0 auto; padding:0 18px; }
+  header { background:var(--accent); color:#fff; padding:18px 0 16px; margin-bottom:22px; }
+  header .wrap { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; letter-spacing:-.2px; }
+  header nav a { color:#dbe4f5; text-decoration:none; margin-right:14px; font-size:13px; }
+  header nav a:hover, header nav a.on { color:#fff; text-decoration:underline; }
+  header .stamp { margin-left:auto; font-size:12px; color:#c3d0e8; }
+  h2 { font-size:15px; margin:26px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--line); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .scope { font-family:Consolas,'D2Coding',monospace; font-size:11.5px; color:var(--muted);
+           background:var(--bg); border-left:3px solid var(--accent); padding:6px 9px; word-break:break-all; }
+  .tablebox { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; white-space:nowrap; }
+  th { background:var(--bg); color:var(--muted); font-weight:600; position:sticky; top:0; }
+  tr:hover td { background:rgba(127,127,127,.06); }
+  td.wrap-cell { white-space:normal; min-width:320px; max-width:620px; }
+  .mono { font-family:Consolas,'D2Coding',monospace; }
+  a { color:var(--accent); }
+  .sev { font-weight:700; font-size:11.5px; }
+  .sev-CRITICAL{color:var(--crit)} .sev-HIGH{color:var(--high)} .sev-MEDIUM{color:var(--med)}
+  .sev-LOW{color:var(--low)} .sev-NONE{color:var(--none)}
+  .kev { background:var(--crit); color:#fff; font-size:10px; font-weight:700;
+         padding:1px 5px; border-radius:3px; margin-left:4px; }
+  .pill { display:inline-block; font-size:11px; padding:2px 8px; border-radius:10px; border:1px solid var(--line); }
+  .st-SUCCESS{color:#1a7f37;border-color:#1a7f37} .st-PARTIAL{color:var(--med);border-color:var(--med)}
+  .st-FAILED{color:var(--crit);border-color:var(--crit)} .st-SKIPPED{color:var(--muted)}
+  .st-RUNNING{color:var(--low);border-color:var(--low)}
+  .kpi { text-align:center; }
+  .kpi .n { font-size:26px; font-weight:700; }
+  .kpi .l { font-size:11.5px; color:var(--muted); }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:5px; font-size:12px; }
+  .bar-row .nm { width:190px; text-align:right; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-row .bar { height:15px; border-radius:3px; background:var(--accent); min-width:2px; }
+  .bar-row .v { font-weight:600; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .filters input, .filters select { padding:7px 9px; border:1px solid var(--line); border-radius:4px;
+                                    background:var(--card); color:var(--text); font-size:13px; font-family:inherit; }
+  .filters input[type=search] { min-width:280px; }
+  .muted { color:var(--muted); font-size:12px; }
+  .empty { padding:26px; text-align:center; color:var(--muted); }
+  footer { margin-top:34px; color:var(--muted); font-size:11.5px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>AI CVE Watch</h1>
+    <nav>
+      <a href="../index.html" class="">대시보드</a>
+      <a href="../cve/index.html" class="">전체 CVE 검색</a>
+    </nav>
+    <div class="stamp">최종 생성 2026-10-12 00:33:18</div>
+  </div>
+</header>
+<div class="wrap">
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;">
+    <div><b>실행 20261012002319</b>
+      <span class="pill st-SUCCESS">SUCCESS</span></div>
+    <div class="muted">2026-10-12 00:23:19 ~ 2026-10-12 00:33:18</div>
+  </div>
+  <div class="scope" style="margin-top:9px;">SCOPE lookback=9 sev&gt;=MEDIUM groups=all sw=- in_use=False src=nvd,osv,ghsa,kev scope=delta max=1000</div>
+</div>
+
+<div class="grid">
+  <div class="card kpi"><div class="n">75</div><div class="l">수집</div></div>
+  <div class="card kpi"><div class="n">51</div><div class="l">신규</div></div>
+  <div class="card kpi"><div class="n">14</div><div class="l">변경</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">잘림</div></div>
+  <div class="card kpi"><div class="n">3</div><div class="l">메일 성공</div></div>
+  <div class="card kpi"><div class="n">0</div><div class="l">메일 실패</div></div>
+</div>
+
+<div class="card">
+  <div><b>소스별 수집 건수</b> <span class="mono">KEV=1739 OSV=22 NVD=75 GHSA=11 RANGE_RECOVERED=20 TRANSLATE=0건 번역 / 73건 실패</span></div>
+  <div style="margin-top:7px;">엑셀 정본:
+    <a href="../output/CVE_20261012.xls">CVE_20261012.xls</a>
+    <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
+</div>
+
+<h2>이 회차 CVE (75건)</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr>
+      <th>CVE</th><th>S/W</th><th>제작사</th><th>심각도</th><th>점수</th><th>영향 버전</th>
+      <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/numpy/numpy/issues/18993" target="_blank" rel="noopener">CVE-2021-34141</a>
+        </td>
+        <td>NumPy</td>
+        <td>numpy</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;1.22.0</td>
+        <td class="mono">1.22.0</td>
+        <td>-</td>
+        <td class="mono">20211217</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          An incomplete string comparison in the numpy.core component in NumPy before 1.22.0 allows attackers to trigger slightly incorrect copying by constructing specific string objects. NOTE: the vendor states that this reported code behavior is &#34;completely harmless.&#34;
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://huntr.com/bounties/149fb2f9-ef4b-4136-a25c-20563451904c" target="_blank" rel="noopener">CVE-2025-15381</a>
+        </td>
+        <td>MLflow</td>
+        <td>lfprojects</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260327</td>
+        <td class="mono">20261005</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] In the latest version of mlflow/mlflow, when the `basic-auth` app is enabled, tracing and assessment endpoints are not protected by permission validators. This allows any authenticated user, including those with `NO_PERMISSIONS` on the experiment, to read trace information and create assessments for traces they should not have access to. This vulnerability impacts confidentiality by exposing trace metadata and integrity by allowing unauthorized creation of assessments. Deployments using `mlflow server --app-name=basic-auth` are affected.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-18-8-8-19-5-9-0-8-9-1-5-security-update-esa-2025-18/382453" target="_blank" rel="noopener">CVE-2025-37727</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.7</td>
+        <td class="mono">&gt;=7.0.0,&lt;=7.17.29|&gt;=8.0.0,&lt;8.18.8|&gt;=8.19.0,&lt;8.19.5|&gt;=9.0.0,&lt;9.0.8|&gt;=9.1.0,&lt;9.1.5</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20251010</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Insertion of sensitive information in log file in Elasticsearch can lead to loss of confidentiality under specific preconditions when auditing requests to the reindex API https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-reindex
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-8-9-1-8-and-9-2-2-security-update-esa-2025-27/384063" target="_blank" rel="noopener">CVE-2025-37731</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.8</td>
+        <td class="mono">&gt;=7.0.0,&lt;=7.17.29|&gt;=8.0.0,&lt;8.19.8|&gt;=9.0.0,&lt;9.1.8|&gt;=9.2.0,&lt;9.2.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20251215</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Improper Authentication in Elasticsearch PKI realm can lead to user impersonation via specially crafted client certificates. A malicious actor would need to have such a crafted client certificate signed by a legitimate, trusted Certificate Authority.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://lists.apache.org/thread/vblmfqtydrp5zgn2q8tj3slk5podxspf" target="_blank" rel="noopener">CVE-2025-54831</a>
+        </td>
+        <td>Airflow</td>
+        <td>apache</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">==3.0.3</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20250926</td>
+        <td class="mono">20261011</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Apache Airflow 3 introduced a change to the handling of sensitive information in Connections. The intent was to restrict access to sensitive connection fields to Connection Editing Users, effectively applying a &#34;write-only&#34; model for sensitive values. In Airflow 3.0.3, this model was unintentionally violated: sensitive connection information could be viewed by users with READ permissions through both the API and the UI. This behavior also bypassed the `AIRFLOW__CORE__HIDE_SENSITIVE_VAR_CONN_FIELDS` configuration option. This issue does not affect Airflow 2.x, where exposing sensitive information to connection editors was the intended and documented behavior. Users of Airflow 3.0.3 are advised to upgrade Airflow to &gt;=3.0.4.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://gist.github.com/Cristliu/cddc0cbbf354de51106ab63a11be94af" target="_blank" rel="noopener">CVE-2025-63387</a>
+        </td>
+        <td>Dify</td>
+        <td>langgenius</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">==1.9.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20251218</td>
+        <td class="mono">20261005</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Dify v1.9.1 is vulnerable to Insecure Permissions. An unauthenticated attacker can directly send HTTP GET requests to the /console/api/system-features endpoint without any authentication credentials or session tokens. The endpoint fails to implement proper authorization checks, allowing anonymous access to sensitive system configuration data. NOTE: The maintainer states that the endpoint is unauthenticated by design and serves as a bootstrap mechanism required for the dashboard initialization. They also state that the description inaccurately classifies the returned data as sensitive system configuration, stating that the data is non-sensitive and required for client-side rendering. No PII, credentials, or secrets are exposed.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://lists.apache.org/thread/mv9hzsx8grjf7gdlkxwppnpbtogtls2g" target="_blank" rel="noopener">CVE-2025-66388</a>
+        </td>
+        <td>Airflow</td>
+        <td>apache</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=3.1.0,&lt;3.1.4</td>
+        <td class="mono">3.1.4</td>
+        <td>-</td>
+        <td class="mono">20251215</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A vulnerability in Apache Airflow allowed authenticated UI users to view secret values in rendered templates due to secrets not being properly redacted, potentially exposing secrets to users without the appropriate authorization. Users are recommended to upgrade to version 3.1.4, which fixes this issue.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/langgenius/dify/security/advisories/GHSA-phpv-94hg-fv9g" target="_blank" rel="noopener">CVE-2025-67732</a>
+        </td>
+        <td>Dify</td>
+        <td>dify</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;1.11.0</td>
+        <td class="mono">1.11.0</td>
+        <td>-</td>
+        <td class="mono">20260105</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Dify is an open-source LLM app development platform. Prior to version 1.11.0, the API key is exposed in plaintext to the frontend, allowing non-administrator users to view and reuse it. This can lead to unauthorized access to third-party services, potentially consuming limited quotas. Version 1.11.0 fixes the issue.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://www.akawlabs.com/blog/starlink-grpc-execution" target="_blank" rel="noopener">CVE-2025-67780</a>
+        </td>
+        <td>gRPC</td>
+        <td>gRPC Authors</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.2</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20251211</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] SpaceX Starlink Dish devices with firmware 2024.12.04.mr46620 (e.g., on Mini1_prod2) allow administrative actions via unauthenticated LAN gRPC requests, aka MARMALADE 2. The cross-origin policy can be bypassed by omitting a Referer header. In some cases, an attacker&#39;s ability to read tilt, rotation, and elevation data via gRPC can make it easier to infer the geographical location of the dish. NOTE: this is disputed by the Supplier because unauthenticated LAN gRPC is intended behavior for certain mobile app integration, and because the cross-origin policy is correctly enforced for gRPC-Web (port 9201), i.e., it is not a valid vulnerability report.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-j828-28rj-hfhp" target="_blank" rel="noopener">CVE-2025-71379</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&gt;=0.6.3,&lt;0.9.0</td>
+        <td class="mono">0.9.0</td>
+        <td>-</td>
+        <td class="mono">20260620</td>
+        <td class="mono">20261005</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM versions &gt;= 0.6.3 and &lt; 0.9.0 contain multiple regular expression denial of service (ReDoS) vulnerabilities. Several regex patterns — in vllm/lora/utils.py, the phi4mini tool parser, and the OpenAI-compatible serving chat endpoint — are susceptible to catastrophic backtracking. An attacker submitting crafted input with nested or repeated structures can trigger severe CPU consumption and performance degradation, resulting in denial of service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-365g-vjw2-grx8" target="_blank" rel="noopener">CVE-2025-71380</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260704</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] The Execute Command node in n8n allows authenticated users to execute arbitrary commands on the host system where n8n runs. Attackers with user access or compromised credentials can exploit this node to run malicious commands, potentially leading to data exfiltration, service disruption, or complete system compromise.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-wpww-v874-ph2p" target="_blank" rel="noopener">CVE-2026-100647</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">0.29.0</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM versions before 0.29.0 contain a denial-of-service vulnerability in the cache_salt parameter accepted on OpenAI-compatible and Anthropic API endpoints, which lacks maximum length validation and is processed on the single EngineCore scheduler thread. Unauthenticated attackers can send HTTP requests with multi-hundred-megabyte salt values that trigger expensive pickle serialization and SHA-256 hashing, stalling the scheduler thread and denying service to all concurrent requests.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-jcq2-4gch-5qhf" target="_blank" rel="noopener">CVE-2026-100648</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">0.29.0</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vllm before 0.29.0 fails to enforce VLLM_MAX_AUDIO_CLIP_FILESIZE_MB limit in multimodal chat audio decoding, allowing unauthenticated clients to bypass file size restrictions. Attackers can submit oversized audio files through chat endpoints to consume excessive memory and CPU resources during decoding.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/752a3a504485790a2e8491cacbb35c137339ad34" target="_blank" rel="noopener">CVE-2026-100650</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261007</td>
+        <td>NVD+OSV</td>
+        <td class="wrap-cell">
+          vLLM through 0.29.0 fetches and fully materializes remote or inline media before enforcing its documented media controls (the VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed-audio size cap, default 25 MB, and the per-modality --limit-mm-per-prompt item limits). Across four ingress paths — the shared media-acquisition layer (HTTPConnection.get_bytes()/async_get_bytes()), the chat completions audio_url/base64 path, the batch speech runner, and the Rust frontend POST /tokenize route — the server reads the entire HTTP response body, base64-decodes the inline payload, or spawns one fetch/decode task per media part, and only then applies the limit (or, on some paths, never applies it). A remote attacker can therefore cause the API server or batch-runner process to allocate memory and consume outbound bandwidth proportional to an attacker-chosen body size or media item count before the request is rejected, resulting in pre-inference memory and bandwidth exhaustion (denial of service). The chat and
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-3mqx-f33v-vgp9" target="_blank" rel="noopener">CVE-2026-100651</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">0.29.0</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM before 0.29.0 fails to enforce decoder prompt-length validation on the disaggregated serving endpoint /inference/v1/generate. When the request contains a &#39;features&#39; (multimodal) payload, vllm/entrypoints/serve/disagg/serving.py builds a multimodal EngineInput directly from the caller-supplied token_ids, and GenerateRequest.token_ids (vllm/entrypoints/serve/disagg/protocol.py) is not checked against model_config.max_model_len. For multimodal processors that report skip_prompt_length_check=True (for example Nemotron Parse, Whisper, and FireRedLID), InputProcessor._validate_prompt_len() returns immediately for both encoder and decoder prompts, so an overlong prompt becomes an EngineCoreRequest and reaches the worker input-batch copy into a fixed max_model_len-wide NumPy row. A client able to reach the endpoint on an affected model configuration can therefore submit an overlong token_ids list to trigger a worker failure and denial of service. Fixed in 0.29.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-qff2-492f-9fm4" target="_blank" rel="noopener">CVE-2026-100652</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.9</td>
+        <td class="mono">&gt;=0.22.0,&lt;0.24.0</td>
+        <td class="mono">0.24.0</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261007</td>
+        <td>NVD+OSV</td>
+        <td class="wrap-cell">
+          vLLM versions 0.22.0 through 0.23.0 fail to validate stop_token_ids against vocabulary bounds in Rust HTTP and gRPC frontends, allowing out-of-vocabulary token IDs to reach MinTokensLogitsProcessor. Attackers can submit requests with min_tokens greater than zero and out-of-vocabulary stop_token_ids to trigger CUDA tensor indexing failures that leave EngineCore in a fatal state requiring service restart.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-v5gm-qgmv-gc6c" target="_blank" rel="noopener">CVE-2026-100654</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.29.0</td>
+        <td class="mono">0.29.0</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM before 0.29.0 accepts user-controlled stop_token_ids on the OpenAI-compatible POST /v1/completions and POST /v1/chat/completions endpoints but validates only that the values are integers, not that each token id is within the model vocabulary/logits range. When min_tokens &gt; 0, the stop token ids are used as logits indices to suppress stop tokens, so an out-of-range id reaches a CUDA indexing operation (index_put_) and triggers a device-side assertion. An authenticated API user can send a single malformed completion request that returns 500 Internal Server Error and puts EngineCore into a fatal state, causing subsequent requests to fail until the service is restarted (denial of service).
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-23-9-4-8-9-5-5-security-update-esa-2026-185/390859" target="_blank" rel="noopener">CVE-2026-102404</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>Elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). A low-privileged authenticated user can submit a specially crafted query that causes uncontrolled memory growth in the query processing engine, resulting in an out-of-memory condition that terminates the Elasticsearch node. The condition can be triggered repeatedly, including by queries embedded in shared resources, causing persistent cluster unavailability.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-19-9-3-8-9-4-4-security-update-esa-2026-188/390861" target="_blank" rel="noopener">CVE-2026-102407</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>Elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.4</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Incorrect Authorization (CWE-863) in Elasticsearch can lead to unauthorized data stream modification via Accessing Functionality Not Properly Constrained by ACLs (CAPEC-1). An authenticated user with sufficient privileges over a single resource could use the Modify Data Streams API to modify a data stream to which they were not otherwise authorized, potentially injecting data into it or affecting its ability to be searched normally. This issue does not allow an attacker to read the contents of a data stream they do not otherwise have access to.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-8-and-9-5-5-security-update-esa-2026-189/390862" target="_blank" rel="noopener">CVE-2026-102408</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>Elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Inefficient Regular Expression Complexity (CWE-1333) in Elasticsearch can lead to denial of service via Regular Expression Exponential Blowup (CAPEC-492). The ES|QL CHUNK function&#39;s recursive chunking strategy accepts a list of user-supplied regular expressions used as text-splitting separators, without validating their computational complexity or bounding their execution time. An authenticated user with read access to any text-based index can submit a specially crafted regular expression that triggers catastrophic backtracking, consuming excessive CPU on Elasticsearch worker threads and degrading query throughput for other tenants on the affected node. The cluster does not crash as a result of this issue.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-9-4-8-9-5-5-security-update-esa-2026-190/390863" target="_blank" rel="noopener">CVE-2026-102409</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>Elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Uncontrolled Recursion (CWE-674) in Elasticsearch can allow an authenticated user with low privileges to terminate an Elasticsearch node, resulting in denial of service, via Excessive Allocation (CAPEC-130).
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-9-4-7-9-5-3-8-19-23-security-update-esa-2026-192/390865" target="_blank" rel="noopener">CVE-2026-102411</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=8.0.0,&lt;8.19.23|&gt;=9.0.0,&lt;9.4.7|&gt;=9.5.0,&lt;9.5.3</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Allocation of Resources Without Limits or Throttling (CWE-770) in Elasticsearch can lead to Denial of Service via Excessive Allocation (CAPEC-130). Elasticsearch enforces a size limit on the user-supplied metadata field for each individual template resource, but does not limit the total memory used when multiple such resources are retrieved together. A user holding the *manage_index_templates* cluster privilege can register multiple resources each within the individual limit. Retrieving them together materializes all of their metadata values in memory at once, exhausting available heap and causing the affected node to fail with an out-of-memory error, resulting in a denial of service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-102831" target="_blank" rel="noopener">CVE-2026-102831</a>
+        </td>
+        <td>Jupyter Notebook</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&gt;=7.5.0,&lt;7.6.3</td>
+        <td class="mono">7.6.3</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261005</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          ## Description JupyterLab 4.5.0 enabled copying and pasing cells through the system clipboard. The paste path parses clipboard text as cell JSON and inserts the cells without clearing `metadata.trusted`, so a payload can declare its own output as trusted. JupyterLab does not sanitize a trusted output and evaluates the `&lt;script&gt;` elements it contains, so pasting the cell runs attacker&#39;s JavaScript in the JupyterLab origin. The same payload with `&#34;trusted&#34;: false` is sanitized. ```json [ { &#34;cell_type&#34;: &#34;code&#34;, &#34;execution_count&#34;: null, &#34;source&#34;: &#34;&#34;, &#34;metadata&#34;: { &#34;trusted&#34;: true }, &#34;outputs&#34;: [ { &#34;output_type&#34;: &#34;display_data&#34;, &#34;metadata&#34;: {}, &#34;data&#34;: { &#34;text/html&#34;: &#34;&lt;script&gt;/* runs on paste */&lt;/script&gt;&#34; } } ] } ] ``` Users are affected if all of the following are true: - they run JupyterLab 4.5.0 through 4.6.3, or an application that bundles it such as Notebook 7.5+; - if running 4.5.2 or newer, `useSystemClipboardForCells` is enabled - it is off by default in 4.5.2+, and always enabled o
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-102904" target="_blank" rel="noopener">CVE-2026-102904</a>
+        </td>
+        <td>JupyterLab</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.4</td>
+        <td class="mono">&gt;=4.6.0,&lt;4.6.4|&gt;=4.0.0,&lt;4.5.11</td>
+        <td class="mono">4.6.4</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261006</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          JupyterLab&#39;s PyPI extension manager runs `python -m pip uninstall` with the extension name taken from the request body. `ExtensionHandler.post` validates the name for `cmd=install` but not for `cmd=uninstall`, so a name that begins with `-` reaches the command line and pip reads it as an option rather than as a package. ```python cmdline = [ sys.executable, &#34;-m&#34;, &#34;pip&#34;, &#34;uninstall&#34;, &#34;--yes&#34;, &#34;--no-input&#34;, extension, ] ``` An extension name of the form `-r` followed by a path therefore made pip open that path as a requirements file. pip&#39;s parse error quotes the line it could not read and names the file it came from, and JupyterLab returned that error in the response body, so the line reached the requester. This has security implications only for deployments that combine all of the following: - the (default) PyPI Extension Manager enabled, so that uninstall requests reach pip; - an authenticated account permitted to call the extension API; and - kernels and terminals disabled or delegate
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-23-9-4-8-9-5-5-security-update-esa-2026-195/390869" target="_blank" rel="noopener">CVE-2026-103005</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=8.12.0,&lt;8.19.23|&gt;=9.0.0,&lt;=9.3.8|&gt;=9.4.0,&lt;9.4.8|&gt;=9.5.0,&lt;9.5.5</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Memory Allocation with Excessive Size Value (CWE-789) in Elasticsearch can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user with connector management privileges could cause the cluster to allocate an uncontrolled amount of memory when connector resources with an excessively large `description` field are created and subsequently accessed, exhausting available heap memory and crashing the affected node.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-21-9-4-6-9-5-2-security-update-esa-2026-196/390870" target="_blank" rel="noopener">CVE-2026-103006</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=8.0.0,&lt;8.19.21|&gt;=9.0.0,&lt;9.4.6|&gt;=9.5.0,&lt;9.5.2</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to Denial of Service via a specially crafted, deeply nested request submitted to the aggregation feature of the search API. Elasticsearch contains an uncontrolled recursion weakness in its search aggregation processing. An authenticated user with read access to a single index can submit a specially crafted request containing deeply nested aggregation definitions. Processing this request triggers unbounded recursive execution that exhausts the server process&#39;s available resources, causing the affected node to terminate. The node does not recover automatically and requires manual intervention to restore service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-197/390871" target="_blank" rel="noopener">CVE-2026-103007</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.2</td>
+        <td class="mono">&gt;=8.16.0,&lt;8.19.22|&gt;=9.0.0,&lt;9.4.7|&gt;=9.5.0,&lt;9.5.4</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Incorrect Authorization (CWE-863) in Elasticsearch can lead to Privilege Escalation via a delegated administrative privilege whose scope is not fully enforced during authorization checks. Elasticsearch contains an incorrect authorization weakness in a configurable, non-default privilege that lets an administrator delegate limited role-management capability to another user, scoped to specific indices. The authorization check that enforces this scoping does not correctly account for a role-definition setting that can expand the matched index set. A user holding this delegated privilege with a broadly-scoped index pattern can exploit this inconsistency by updating their own assigned role to gain access to indices that should remain restricted, including internal security data. This can enable further escalation up to full administrative control of the cluster.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-23-9-4-8-9-5-5-security-update-esa-2026-198/390872" target="_blank" rel="noopener">CVE-2026-103008</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&gt;=8.12.0,&lt;8.19.23|&gt;=9.0.0,&lt;9.4.8|&gt;=9.5.0,&lt;9.5.5</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Uncontrolled Recursion (CWE-674) in Elasticsearch can lead to Denial of Service via a specially crafted request that causes the server to construct and process a deeply nested data structure with no bound on recursion depth. Elasticsearch contains an uncontrolled recursion weakness in how it builds and serializes geometry values produced by scripted runtime fields. Unlike geometry supplied as text, which is subject to a nesting-depth limit, geometry constructed from a script&#39;s output is not bounded. An authenticated user with read access to a single index can submit a request defining such a field with a script that produces a deeply nested structure. Processing this request recurses past the available stack space, causing the affected node to terminate. The node does not recover automatically on all deployments and may require manual intervention to restore service.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-23-9-4-8-9-5-5-security-update-esa-2026-199/390874" target="_blank" rel="noopener">CVE-2026-103009</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&gt;=8.13.0,&lt;8.19.23|&gt;=9.0.0,&lt;9.4.8|&gt;=9.5.0,&lt;9.5.5</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Authorization Bypass Through User-Controlled Key (CWE-639) in Elasticsearch can lead to Information Disclosure via a specially crafted cross-cluster search request that references an unauthorized shard identifier. Elasticsearch contains an authorization bypass weakness in its handling of cross-cluster search requests made through the Remote Cluster Security (RCS) 2.0 model. An authorization check validates a request against one identifying attribute of the target shard, while a separate, independently-supplied identifying attribute in the same request determines which shard is actually accessed. A holder of a cross-cluster API key authorized for one index can craft a request whose two identifying attributes refer to different indices, causing the request to be authorized against an index they can access while actually operating against a different, unauthorized index. This can expose that index&#39;s document contents, field mappings, and other metadata, and in limited cases allows modific
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/3439bad37e68ba9755a46f4f6b44a4aeaf1f60a9" target="_blank" rel="noopener">CVE-2026-103241</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&lt;0.27.0</td>
+        <td class="mono">0.27.0</td>
+        <td>-</td>
+        <td class="mono">20260930</td>
+        <td class="mono">20261007</td>
+        <td>NVD+OSV</td>
+        <td class="wrap-cell">
+          A flaw has been found in vllm-project vLLM up to 0.26.0. This vulnerability affects unknown code of the file rust/src/parser/src/unified/gemma4.rs of the component Gemma4UnifiedParser. Executing a manipulation can lead to denial of service. The attack may be launched remotely. The exploit has been published and may be used. Upgrading to version 0.29.1rc0 is able to resolve this issue. This patch is called 3439bad37e68ba9755a46f4f6b44a4aeaf1f60a9. Upgrading the affected component is advised.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9rhv-fhr8-7q5r" target="_blank" rel="noopener">CVE-2026-103246</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.7</td>
+        <td class="mono">&lt;2.40.0|&lt;2.40.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 2.39.6 and 2.40.0 before 2.40.1 fail to validate credential ownership during inline agent node-tool introspection. Attackers can reference arbitrary credential IDs to decrypt and exfiltrate plaintext secrets to attacker-controlled hosts without ownership verification.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-w24g-6454-7w7f" target="_blank" rel="noopener">CVE-2026-103250</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">&lt;1.123.80|&lt;2.39.6|&lt;2.40.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 contain a NoSQL injection vulnerability in the MongoDB Chat Memory node that fails to validate the sessionId parameter. Unauthenticated attackers can supply MongoDB query operators in the sessionId field to access conversation histories from other users and perform unauthorized write and delete operations.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-597w-c3jh-g8fg" target="_blank" rel="noopener">CVE-2026-103254</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.3</td>
+        <td class="mono">&lt;1.123.80|&lt;2.39.6|&lt;2.40.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 contain a path traversal vulnerability in signed resume URL generation for Send-and-Wait approvals. Attackers with workflow creation permissions can mint valid approval URLs for gates in projects they cannot access by exploiting unresolved traversal sequences in caller-controlled node IDs, enabling cross-project approval forgery.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-5pg9-2vqx-r6jm" target="_blank" rel="noopener">CVE-2026-103258</a>
+        </td>
+        <td>n8n</td>
+        <td>n8n GmbH</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.8</td>
+        <td class="mono">&lt;2.40.0|&lt;2.40.1</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          n8n versions before 2.39.6 and 2.40.0 before 2.40.1 contain an unescaped parameter interpolation vulnerability in SendGrid, Freshservice, and ServiceNow nodes that allows attackers to bypass filters by breaking out of query literals. Attackers can exploit this by binding vulnerable node parameters to untrusted external input to widen single-record lookups into match-all queries, exposing bulk data including contact lists, tickets, and directory entries.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://cert.pl/en/posts/2026/10/CVE-2026-103663/" target="_blank" rel="noopener">CVE-2026-103663</a>
+        </td>
+        <td>Ollama</td>
+        <td>Ollama</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.4</td>
+        <td class="mono">&lt;0.35.0</td>
+        <td class="mono">0.35.0</td>
+        <td>-</td>
+        <td class="mono">20261008</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Ollama is vulnerable to path traversal in the `/api/pull` endpoint due to insufficient validation of layer digests by the `digestToPath` function. An unauthenticated remote attacker can specify a path traversal sequence as a layer digest, causing a malicious binary to be written outside the model store. Critically if the server process has write access to `/usr/lib/ollama` (the default in most Ollama Docker images), an attacker can write the malicious file to that directory. On the next server restart, the file is loaded and executed, resulting in remote code execution as root. This issue was fixed in version 0.35.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://cna.erlef.org/cves/CVE-2026-104635.html" target="_blank" rel="noopener">CVE-2026-104635</a>
+        </td>
+        <td>protobuf</td>
+        <td>Google</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.2</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261009</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Uncontrolled Recursion vulnerability in Protobuf.JSON.Decode in elixir-protobuf protobuf allows an unauthenticated remote attacker to crash the decoding process via a deeply nested JSON document. Any application that decodes attacker-supplied JSON with Protobuf.JSON.decode/3, Protobuf.JSON.decode!/3, or Protobuf.JSON.from_decoded/3 into a schema that contains a self-referential or cyclic message type is affected. In lib/protobuf/json/decode.ex, the embedded-message clause of decode_singular/3 recurses into internal_from_json_data/3 once per nesting level without incrementing or checking the decoder&#39;s depth counter. The depth guard increase_depth_and_maybe_throw/1 covers only the Google.Protobuf.ListValue and Google.Protobuf.Struct clauses, so the recursion_limit option has no effect on user-defined message types. Each nesting level allocates a stack frame and heap objects, and a sufficiently deep document exhausts the memory of the decoding process. Confidentiality and integ
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/django-haystack/django-haystack/" target="_blank" rel="noopener">CVE-2026-105315</a>
+        </td>
+        <td>Haystack</td>
+        <td>deepset</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.7</td>
+        <td class="mono">&lt;=3.3.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A vulnerability has been found in django-haystack up to 3.3.0. Affected is the function _to_python of the file haystack/backends/elasticsearch_backend.py of the component more_like_this Template Tag Handler. Such manipulation of the argument result_class leads to improper neutralization of directives in dynamically evaluated code. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 3.4.0 is able to address this issue. The name of the patch is eb05f193c9771a68dcc8cfac6674a0d48a52ee9d. It is suggested to upgrade the affected component.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/docling-project/docling/commit/6ee9965adfc364b3696a67c825ec2f0d9cee4311" target="_blank" rel="noopener">CVE-2026-105751</a>
+        </td>
+        <td>Pillow</td>
+        <td>Python Pillow</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.9</td>
+        <td class="mono">&gt;=2.107.0,&lt;2.120.3</td>
+        <td class="mono">2.120.3</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Docling simplifies document processing by parsing diverse formats and providing integrations with the generative AI ecosystem. From 2.107.0 until 2.120.3, docling/backend/opendocument_backend.py uses the xlink:href attribute value of a draw:image element as a filesystem path when the referenced part is not found in the document archive. The _image_ref_from_odf_image function reads that attacker-controlled path without a scheme check, extraction-directory confinement, or the enable_local_fetch setting used by other backends. Readable files that Pillow can decode as images are embedded in converted output, and other existing paths can be distinguished through the attempted read. This issue is fixed in 2.120.3.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/396204230423b7cc6798300926b8fa30190d26a9" target="_blank" rel="noopener">CVE-2026-105753</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.28.0</td>
+        <td class="mono">0.28.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261008</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.28.0, the default mirrored multimodal LRU cache can commit a media hash in the frontend sender cache during multimodal rendering and before engine admission, while the engine receiver cache never receives the payload if that request is rejected. A later request reusing the same media hash causes MultiModalProcessorSenderCache to send no payload and MultiModalReceiverCache to reach an assertion with the message &#34;Expected a cached item,&#34; producing a shared-service availability failure. This issue is fixed in version 0.28.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/1970f3ed4be7fa8620e4ddc4a12c36a8384cfc27" target="_blank" rel="noopener">CVE-2026-105754</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261008</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.30.0, the /inference/v1/generate endpoint in the disaggregated scale-out path accepts caller-supplied tensors in the features.kwargs_data field, cache identifiers in the features.mm_hashes field, ranges in the features.mm_placeholders field, and wire-selected multimodal field processors without rebinding them to the active model renderer contract. Forged grid geometry, field types, or non-positive placeholder lengths can terminate the shared EngineCore; when an attacker knows or can induce a victim&#39;s content hash, forged cache hashes can poison or retrieve cross-request encoder-cache state; and dropped sparse placeholder masks can alter replayed transport semantics. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/ee17d0d869203ef9a35ad73358a4987bba14b1fc" target="_blank" rel="noopener">CVE-2026-105755</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.2</td>
+        <td class="mono">&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261008</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.30.0, flash late-interaction scoring at the /score and /rerank endpoints derives each worker&#39;s query_key value from the caller-controlled X-Request-Id header. A concurrent request that reuses a victim&#39;s identifier can overwrite the cached query embedding so the victim&#39;s documents are scored against the attacker&#39;s query, and shared use counters can also cause a late-interaction cache-miss error. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/e962733e08d10f7ca65dac4df99e116460b8b174" target="_blank" rel="noopener">CVE-2026-105756</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261008</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.30.0, OpenAI-compatible request models accept a non-empty cache_salt value without enforcing the character and length restrictions required by the IPCCacheServerKey consumer in LMCache-MP. On deployments using the LMCache-MP connector, a salt that contains a forbidden character or exceeds the permitted length can raise an uncaught ValueError during scheduler cache lookup, causing EngineCore to terminate and denying service to all concurrent users. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/c55e15a44ec4127832d4a86928a356fdd9e68dbd" target="_blank" rel="noopener">CVE-2026-105757</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261008</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.30.0, structured-output request failures can escape request-scoped validation and reach the EngineCore fatal-error path. A per-request backend mismatch can re-raise a grammar compilation exception, padding produced by the ngram_gpu speculative-decoding mode can pass a negative token to guidance validation, and the Rust frontend can admit empty structured-output values that the Python frontend rejects, allowing ordinary constrained-generation requests to terminate the shared engine. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/ea723c81c3ea26425cb69503a5d5e90822a04a45" target="_blank" rel="noopener">CVE-2026-105758</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&gt;=0.24.0,&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261008</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. From 0.24.0 until 0.30.0, the Qwen2VLVideoBackend and Qwen3VLVideoBackend classes accept request-level values for the media_io_kwargs.video.max_frames and media_io_kwargs.video.fps fields without enforcing server-side ceilings. An unauthenticated caller can submit these values to the /tokenize endpoint, causing the sampler to decode every frame selected from attacker-controlled video input, consume disproportionate frontend memory, and potentially terminate the API process before scheduling or admission control. The Rust frontend is not affected because it rejects the media_io_kwargs field. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/3735c2d5f5248259482b9045c34fb7a8a3892352" target="_blank" rel="noopener">CVE-2026-105759</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.9</td>
+        <td class="mono">&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.30.0, the Rust frontend&#39;s track_http_metrics middleware records the raw HTTP method token as a Prometheus label for requests reaching registered routes. An unauthenticated attacker can send unique arbitrary method tokens to unguarded routes such as /tokenize, causing Prometheus&#39;s Family::get_or_create function to permanently create counter and histogram label sets. Those label sets increase process memory usage and enlarge the /metrics response until the service or monitoring path is exhausted. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/8b6de0eb9a09ef53f20cf06bd4d17ee264b9c2a7" target="_blank" rel="noopener">CVE-2026-105760</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>5.3</td>
+        <td class="mono">&gt;=0.23.0rc2,&lt;0.30.0</td>
+        <td class="mono">0.30.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261006</td>
+        <td>NVD+OSV+GHSA</td>
+        <td class="wrap-cell">
+          vLLM is an inference and serving engine for large language models. Prior to 0.30.0, a caller can use the request-level media_io_kwargs field to select the GLMGA video backend and supply large values for the fps and max_frames options without a strict work ceiling. GLMGA constructs and deduplicates an attacker-sized pre-decode frame-index list, allowing a compact request and tiny valid video to consume disproportionate CPU time and memory in the shared media-loading executor. This issue is fixed in version 0.30.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/langgenius/dify/commit/62cb5b586504b730731e28e743c038b72950058e" target="_blank" rel="noopener">CVE-2026-105761</a>
+        </td>
+        <td>Dify</td>
+        <td>LangGenius</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.1</td>
+        <td class="mono">&lt;1.16.0</td>
+        <td class="mono">1.16.0</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Dify is an open-source LLM app development platform. Prior to 1.16.0, the PUT /console/api/apps/&amp;lt;app_id&amp;gt;/server endpoint in api/controllers/console/app/mcp_server.py used AppMCPServerController.put() to retrieve an AppMCPServer by the client-supplied server ID without verifying that the server belonged to the requested application and tenant. An authenticated workspace member could therefore change another application&#39;s MCP server status and parameters, potentially redirecting data or disabling the service. This issue is fixed in version 1.16.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/langgenius/dify/commit/2f87ecc0ce1d05ab3ef9537f29b84a5fa5823017" target="_blank" rel="noopener">CVE-2026-105762</a>
+        </td>
+        <td>Dify</td>
+        <td>LangGenius</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.3</td>
+        <td class="mono">&lt;1.13.0</td>
+        <td class="mono">1.13.0</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Dify is an open-source LLM app development platform. Prior to 1.13.0, the /console/api/remote-files/upload endpoint in api/controllers/web/remote_files.py accepted an attacker-controlled URL without authentication and caused the Dify server to retrieve it. A remote attacker could use the endpoint to send requests to internal services or cloud metadata endpoints, potentially exposing sensitive data and using the server as a network pivot. This issue is fixed in version 1.13.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/" target="_blank" rel="noopener">CVE-2026-105775</a>
+        </td>
+        <td>vLLM</td>
+        <td>vLLM Project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;=0.31.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A security vulnerability has been detected in vllm-project vLLM up to 0.31.0. This impacts the function conv_ssm_forward of the file vllm/model_executor/layers/mamba/mamba_mixer2.py of the component Completions Request Handler. The manipulation leads to out-of-bounds read. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://gist.github.com/Yunzez/5c70a3bb328eaf6d646b9d31e879dc4a#file-repro_prompt_embeds_penalties_engine_crash-py" target="_blank" rel="noopener">CVE-2026-105922</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;=0.31.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261009</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A security flaw has been discovered in vllm-project vLLM up to 0.31.0. This impacts the function get_token_bin_counts_and_mask of the file vllm/model_executor/layers/utils.py of the component Penalty Handler. Performing a manipulation results in denial of service. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/langchain-ai/langchainjs/commit/946e3d856ff1f8ce7f7b9374c83f680a6ada79af" target="_blank" rel="noopener">CVE-2026-106119</a>
+        </td>
+        <td>LangChain</td>
+        <td>LangChain</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.0</td>
+        <td class="mono">&lt;1.3.1</td>
+        <td class="mono">1.3.1</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          LangChain is a framework for building LLM-powered applications. Prior to 1.3.1, MongoDBChatMessageHistory does not enforce the documented string type for an untrusted structured session identifier at runtime, allowing the identifier to be interpreted as a MongoDB query condition rather than as a literal value when multiple users&#39; histories are stored in a shared MongoDB collection. An attacker able to invoke chat-history operations can read, modify, or delete another user&#39;s stored conversation. Applications using authenticated, server-controlled string identifiers are not affected. This issue is fixed in version 1.3.1.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/Kozea/WeasyPrint/commit/39cd37ce1610bd890388e26591c569db1cbab542" target="_blank" rel="noopener">CVE-2026-106443</a>
+        </td>
+        <td>Pillow</td>
+        <td>Python Pillow</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&lt;70.0</td>
+        <td class="mono">70.0</td>
+        <td>-</td>
+        <td class="mono">20261006</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          WeasyPrint helps web developers to create PDF documents. Prior to 70.0, the image-loading path in weasyprint/images.py passes fetched image bytes from HTML img URLs, CSS image values, SVG image references, and data URIs to Pillow&#39;s generic image dispatcher without excluding EPS or PostScript formats. On hosts with Ghostscript installed, Pillow EpsImagePlugin invokes the interpreter for attacker-controlled PostScript, which can produce interpreter-permitted effects and can lead to remote code execution when the installed Ghostscript version has a usable sandbox bypass. Hosts without Ghostscript do not reach this rasterization path. This issue is fixed in version 70.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/backstage/backstage/commit/2d5d3e77d630455d6d48cfa8f31fd3c126fd6f29" target="_blank" rel="noopener">CVE-2026-106562</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>Elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.3</td>
+        <td class="mono">&lt;2.1.6</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261007</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Backstage is an open framework for building developer portals. Prior to 2.1.6 in @backstage/plugin-search-backend and 1.8.7 in @backstage/plugin-search-backend-module-elasticsearch, search engine permission filtering could return documents denied by policy. An authenticated Backstage user subject to a DENY policy for search document types could receive unauthorized results in deployments with permission.enabled set to true and an Elasticsearch or OpenSearch backend. This issue is fixed in @backstage/plugin-search-backend 2.1.6 and @backstage/plugin-search-backend-module-elasticsearch 1.8.7.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">CVE-2026-107183</a>
+        </td>
+        <td>llama.cpp</td>
+        <td>ggml.ai</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261007</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] llama.cpp before b11393 contains a use-after-free and double free vulnerability in common_chat_peg_mapper::map that allows unauthenticated remote attackers to corrupt heap memory via a dangling current_tool pointer. Attackers can submit a chat_parser in a POST /completion request emitting a tool-id after a tool-close tag to crash llama-server and shape a heap write primitive.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/datamodel-code-generator/datamodel-code-generator/commit/5e94b8f4203198798ec66b8e48217f70af69a0dc" target="_blank" rel="noopener">CVE-2026-107377</a>
+        </td>
+        <td>protobuf</td>
+        <td>Google</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&gt;=0.59.0,&lt;0.81.0</td>
+        <td class="mono">0.81.0</td>
+        <td>-</td>
+        <td class="mono">20261008</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          datamodel-code-generator generates Python data models from schema definitions. From 0.59.0 until 0.81.0, an attacker-controlled Protobuf schema can supply absolute or parent-directory paths captured by WEAK_IMPORT_PATTERN and consumed by _write_missing_weak_imports in src/datamodel_code_generator/parser/protobuf.py. Exploitation requires a victim or automated job to process the attacker-controlled schema with Protobuf input support, which requires the grpcio-tools package. The paths escape the weak_imports temporary directory before protoc runs, allowing creation of directory trees and new files or overwrite of existing writable files with a generated Protobuf syntax declaration. The effect persists when later Protobuf compilation fails. The written content is limited to a proto2 or proto3 syntax declaration, and direct arbitrary code execution has not been demonstrated. This issue is fixed in version 0.81.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-67c5-x5mf-rppq" target="_blank" rel="noopener">CVE-2026-2611</a>
+        </td>
+        <td>MLflow</td>
+        <td>Databricks</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.6</td>
+        <td class="mono">&gt;=3.9.0,&lt;3.10.0</td>
+        <td class="mono">3.10.0</td>
+        <td>-</td>
+        <td class="mono">20260519</td>
+        <td class="mono">20261005</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          MLflow: Improper Origin Validation in MLflow Assistant /ajax-api Endpoints Enables Browser-Mediated Local Command Execution In MLflow version 3.9.0, the MLflow Assistant feature introduced improper origin validation in its /ajax-api endpoints. This vulnerability allows a remote attacker to exploit cross-origin requests from a malicious webpage to interact with the MLflow Assistant running on a victim&#39;s local machine. By bypassing the loopback-only restriction, the attacker can modify the Assistant&#39;s configuration to enable full access, which in turn allows the execution of arbitrary commands via the Claude Code sub-agent. This issue is resolved in version 3.10.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-8c7q-86fq-vvmh" target="_blank" rel="noopener">CVE-2026-2651</a>
+        </td>
+        <td>MLflow</td>
+        <td>Databricks</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.0</td>
+        <td class="mono">&lt;3.10.0</td>
+        <td class="mono">3.10.0</td>
+        <td>-</td>
+        <td class="mono">20260526</td>
+        <td class="mono">20261006</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          MLflow allows unauthorized access to multipart upload endpoints when the `--serve-artifacts` mode is enabled A vulnerability in MLflow versions &lt;=3.10.1.dev0 allows unauthorized access to multipart upload (MPU) endpoints when the `--serve-artifacts` mode is enabled. The authorization logic does not enforce resource-level permission checks for `/mlflow-artifacts/mpu/*` endpoints, enabling attackers to overwrite artifacts belonging to other users. This can lead to unauthorized cross-user writes, model supply chain poisoning, and arbitrary code execution when compromised models are loaded. The issue is resolved in version 3.10.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ray-project/ray" target="_blank" rel="noopener">CVE-2026-32981</a>
+        </td>
+        <td>Ray</td>
+        <td>anyscale</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.5</td>
+        <td class="mono">&lt;2.8.1</td>
+        <td class="mono">2.8.1</td>
+        <td>-</td>
+        <td class="mono">20260317</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          A path traversal vulnerability was identified in Ray Dashboard (default port 8265) in Ray versions prior to 2.8.1. Due to improper validation and sanitization of user-supplied paths in the static file handling mechanism, an attacker can use traversal sequences (e.g., ../) to access files outside the intended static directory, resulting in local file disclosure.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/advisories/GHSA-f4j7-r4q5-qw2c" target="_blank" rel="noopener">CVE-2026-45829</a>
+        </td>
+        <td>ChromaDB</td>
+        <td>Chroma</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>10.0</td>
+        <td class="mono">&gt;=1.0.0,&lt;=1.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260518</td>
+        <td class="mono">20261005</td>
+        <td>OSV+GHSA</td>
+        <td class="wrap-cell">
+          ChromaDB Python project has a pre-authentication code injection vulnerability A pre-authentication, code injection vulnerability in version 1.0.0 or later of the ChromaDB Python project allows an unauthenticated attacker to run arbitrary code on the server by sending a malicious model repository and trust_remote_code set to true in the /api/v2/tenants/{tenant}/databases/{db}/collections endpoint.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/gradio-app/gradio/commit/feb7237d01f359d2ad4ee42d00344e61692b3b39" target="_blank" rel="noopener">CVE-2026-48545</a>
+        </td>
+        <td>Gradio</td>
+        <td>gradio project</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.8</td>
+        <td class="mono">&lt;6.15.0</td>
+        <td class="mono">6.15.0</td>
+        <td>-</td>
+        <td class="mono">20260527</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Gradio before version 6.15.0 contains a cookie injection vulnerability that allows remote attackers to perform cross-Space session fixation by exploiting a shared module-level HTTP client used across all users in the reverse proxy endpoint. Attackers controlling any HF Space can return a parent-domain cookie that the shared client stores and automatically replays into all subsequent proxy requests to other legitimate Spaces, affecting all users of the same Gradio deployment.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://gist.github.com/Ro1ME/f80ac458836b59adb9c6ceff3993f7f3" target="_blank" rel="noopener">CVE-2026-51882</a>
+        </td>
+        <td>LangChain</td>
+        <td>LangChain</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] The OpenAI-compatible file upload endpoint `/v1/files` in Langchain-Chatchat 0.3.0 is vulnerable to path traversal. An attacker can write files to arbitrary locations outside the `openai_files` directory by crafting malicious filenames.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://gist.github.com/Ro1ME/30f5139a2920bf7075299a33eb1690f2" target="_blank" rel="noopener">CVE-2026-51883</a>
+        </td>
+        <td>LangChain</td>
+        <td>LangChain</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.1</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261005</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] The knowledge base creation and document upload interfaces in Langchain-Chatchat 0.3.0;0.3.1 is vulnerable to path traversal. An attacker can inject path traversal sequences (such as `..\`) into the `knowledge_base_name` parameter to write knowledge base content to arbitrary locations outside the configured knowledge base root directory.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://gist.github.com/Ro1ME/da028c9ce13dd888e265b9bef01d6eca" target="_blank" rel="noopener">CVE-2026-51884</a>
+        </td>
+        <td>LangChain</td>
+        <td>LangChain</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261001</td>
+        <td class="mono">20261005</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] The /knowledge_base/upload_temp_docs temporary document upload endpoint in Langchain Chatchat 0.3.1 is vulnerable to path traversal. By crafting malicious filenames, an attacker can write files to arbitrary locations on the server, bypassing the intended restrictions on the temporary directory.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://gist.github.com/Ro1ME/6cc410b487a2374fdd9e8749621f3135" target="_blank" rel="noopener">CVE-2026-51898</a>
+        </td>
+        <td>Pandas</td>
+        <td>NumFOCUS</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261002</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] sinaptik-ai pandas-ai 3.0.0 is vulnerable to Code Injection in CodeExecutor.execute.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/3d20275bb4d434f53055c3c0b645fd8bb072965e" target="_blank" rel="noopener">CVE-2026-57173</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.24.0</td>
+        <td class="mono">0.24.0</td>
+        <td>-</td>
+        <td class="mono">20260916</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.24.0 이전에는 /v1/chat/completions에 대한 input_audio 처리 경로가 VLLM_MAX_AUDIO_DECODE_DURATION_S를 공유 오디오 디코더에 전달하지 않고 AudioMediaIO.load_bytes 또는 AudioMediaIO.load_file을 호출합니다. 따라서 인증되지 않은 클라이언트는 매우 큰 float32 PCM 할당으로 확장되는 작은 압축 오디오 입력을 제출하여 /v1/audio/transcriptions에서 이미 사용하는 기간 가드를 우회하고 메모리 부족 작업자 충돌을 일으킬 수 있습니다. 인라인 데이터 URL은 VLLM_AUDIO_FETCH_TIMEOUT에 의해 제한되지 않고 이 경로에 도달합니다. 이 문제는 오디오 지원 모델을 제공하는 배포에 영향을 미치며 인증은 배포별 연결 가능성만 변경합니다. 이 문제는 버전 0.24.0에서 해결되었습니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.24.0, the input_audio handling path for /v1/chat/completions calls AudioMediaIO.load_bytes or AudioMediaIO.load_file without passing VLLM_MAX_AUDIO_DECODE_DURATION_S to the shared audio decoder. An unauthenticated client can therefore submit a small compressed audio input that expands into a very large float32 PCM allocation, bypassing the duration guard already used by /v1/audio/transcriptions and causing an out-of-memory worker crash. Inline data URLs reach this path without being bounded by VLLM_AUDIO_FETCH_TIMEOUT. The issue affects deployments serving an audio-capable model, and authentication changes only the deployment-specific reachability. This issue is fixed in version 0.24.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/ray-project/ray/pull/63469" target="_blank" rel="noopener">CVE-2026-57516</a>
+        </td>
+        <td>Ray</td>
+        <td>anyscale</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&lt;2.56.0</td>
+        <td class="mono">2.56.0</td>
+        <td>-</td>
+        <td class="mono">20260701</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Ray prior to 2.56.0 contains an unsafe deserialization vulnerability in the WebDataset reader that allows attackers to achieve remote code execution by supplying a malicious tar archive to the read_webdataset() function. The _default_decoder() function in webdataset_datasource.py unconditionally calls pickle.loads() on tar entries with .pkl/.pickle extensions and torch.load() with weights_only=False on .pt/.pth entries, executing arbitrary code inside Ray remote workers on every worker that processes the malicious archive.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59707" target="_blank" rel="noopener">CVE-2026-59707</a>
+        </td>
+        <td>LocalAI</td>
+        <td>LocalAI</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.6</td>
+        <td class="mono">&lt;1.40.1-0.20260703213242-2cbb3c96b34d</td>
+        <td class="mono">1.40.1-0.20260703213242-2cbb3c96b34d</td>
+        <td>-</td>
+        <td class="mono">20260707</td>
+        <td class="mono">20261007</td>
+        <td>OSV</td>
+        <td class="wrap-cell">
+          LocalAI contains an unauthenticated server-side request forgery vulnerability in the POST /models/apply endpoint that allows attackers to fetch arbitrary internal URLs. The endpoint passes unsanitized gallery URL fields directly to gallery.GetGalleryConfigFromURLWithContext without proper validation, enabling attackers to force the server to issue HTTP GET requests to private and loopback ranges with partial response content leaked through error messages.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/gradio-app/gradio/commit/1c5c53842df9c2750552d85c19a92e7e732cff3f" target="_blank" rel="noopener">CVE-2026-59806</a>
+        </td>
+        <td>Gradio</td>
+        <td>Hugging Face</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>7.4</td>
+        <td class="mono">&lt;6.20.0</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260708</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Gradio before 6.20.0 contains an open redirect and server-side request forgery vulnerability that allows attackers to redirect users to arbitrary URLs or perform client-side SSRF by supplying unvalidated HTTP/HTTPS URLs to the file_fetch() function in the /gradio_api/file= endpoint. Attackers can craft a malicious FileData response targeting internal endpoints such as cloud metadata services to retrieve sensitive credentials including EC2 IAM role credentials.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/langgenius/dify/commit/d9884efaeea8322706e24c560d2c17e5bf3fab5f" target="_blank" rel="noopener">CVE-2026-61461</a>
+        </td>
+        <td>Dify</td>
+        <td>dify</td>
+        <td class="sev sev-HIGH">HIGH</td>
+        <td>8.8</td>
+        <td class="mono">&lt;1.16.0</td>
+        <td class="mono">1.16.0</td>
+        <td>-</td>
+        <td class="mono">20260710</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Dify before 1.16.0-rc1 contains a SQL injection vulnerability in the MyScale vector store backend that allows attackers to execute arbitrary SQL by supplying unsanitized search parameters to the search_by_full_text method without escaping or parameterization. Attackers can inject malicious SQL through the search parameters to read, modify, or delete data in the underlying ClickHouse database.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/mlflow/mlflow/commit/ba949522477cbd5915aa55d29b0cfad7d5ddf939" target="_blank" rel="noopener">CVE-2026-64849</a>
+        </td>
+        <td>MLflow</td>
+        <td>lfprojects</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.3</td>
+        <td class="mono">&gt;=3.3.0,&lt;3.15.0</td>
+        <td class="mono">3.15.0</td>
+        <td><span class="kev">KEV</span></td>
+        <td class="mono">20260817</td>
+        <td class="mono">20261005</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. Starting in 3.3.0 and prior to 3.15.0, the unauthenticated POST /api/2.0/mlflow/webhooks/{id}/test endpoint calls _validate_webhook_url() in mlflow/utils/validation.py only for the original URL while mlflow/webhooks/delivery.py follows redirects and re-resolves the hostname without pinning the validated address, allowing attackers to reach internal or cloud metadata services and receive response_status and response_body. This issue is fixed in version 3.15.0.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/jupyterlab/jupyterlab/commit/4e61e07d0a91145b53fbf96ac74b0387f6bc51f6" target="_blank" rel="noopener">CVE-2026-67338</a>
+        </td>
+        <td>JupyterLab</td>
+        <td>Project Jupyter</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.1</td>
+        <td class="mono">&lt;4.5.9</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260801</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          JupyterLab before 4.5.9 contains a stored cross-site scripting vulnerability in the Extension Manager that fails to validate URI protocols in package metadata URLs. Attackers can publish malicious PyPI packages with javascript: URLs in project metadata that execute arbitrary JavaScript in the JupyterLab origin when users click the extension name.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/vllm-project/vllm/commit/283893c72292ede38d277e3cd2b9b64c3e4f1dda" target="_blank" rel="noopener">CVE-2026-69147</a>
+        </td>
+        <td>vLLM</td>
+        <td>vllm</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>6.5</td>
+        <td class="mono">&lt;0.28.0</td>
+        <td class="mono">0.28.0</td>
+        <td>-</td>
+        <td class="mono">20260916</td>
+        <td class="mono">20261007</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.28.0 이전에는 채팅 완료 및 응답에 대한 요청 본문이 media_io_kwargs.video.video_backend를 pynvvideocodec로 설정할 수 있으며 MediaConnector.fetch_video는 시작 구성에서 소프트웨어 디코더를 선택한 경우에도 해당 선택 사항을 VideoMediaIO로 전달할 수 있습니다. 엔진의 _reserve_mm_ipc_gpu_memory 논리는 정적 구성에서만 디코더 메모리를 할당하므로 요청이 선택한 VIDEO_LOADER_REGISTRY 백엔드는 엔진의 KV 캐시 예산에서 제거되지 않은 CUDA 컨텍스트, 디코더 표면 및 디코딩된 프레임 할당을 생성할 수 있습니다. PyNvVideoCodec이 설치된 비디오 지원 GPU 배포에 비디오 요청을 제출할 수 있는 공격자는 공유 GPU 메모리를 소진시켜 요청 실패, 작업자 충돌 또는 서비스 거부를 일으킬 수 있습니다. 수정 사항이 포함된 첫 번째 릴리스는 버전 0.28.0입니다.
+          <details style="margin-top:4px;">
+            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
+            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.28.0, request bodies for Chat Completions and Responses can set media_io_kwargs.video.video_backend to pynvvideocodec, and MediaConnector.fetch_video forwards that choice to VideoMediaIO even when startup configuration selected a software decoder. The engine&#39;s _reserve_mm_ipc_gpu_memory logic budgets decoder memory only from static configuration, so the request-selected VIDEO_LOADER_REGISTRY backend can create a CUDA context, decoder surfaces, and decoded-frame allocations that were not removed from the engine&#39;s KV-cache budget. An attacker able to submit video requests to a video-capable GPU deployment with PyNvVideoCodec installed can exhaust shared GPU memory, causing request failures, worker crashes, or denial of service. The first release containing the fix is version 0.28.0.</div>
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="http://docs.velociraptor.app/announcements/advisories/cve-2026-78412" target="_blank" rel="noopener">CVE-2026-78412</a>
+        </td>
+        <td>gRPC</td>
+        <td>gRPC Authors</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.9</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261005</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] Velociraptor&#39;s WatchEvent gRPC API can specify the OrgId of the org from which events should be streamed. The server checks the API permissions against the caller&#39;s Org instead of the requested Org. This allows a user with API access in one org to read events from another org for which they have no access.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://github.com/sgl-project/sglang/tree/main" target="_blank" rel="noopener">CVE-2026-93034</a>
+        </td>
+        <td>SGLang</td>
+        <td>SGLang Project</td>
+        <td class="sev sev-CRITICAL">CRITICAL</td>
+        <td>9.8</td>
+        <td class="mono">*</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20261008</td>
+        <td class="mono">20261008</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          [버전범위 불명확] SGLang contains an arbitrary code execution vulnerability caused by the ZMQ message decoder unconditionally deserializing PickleWrapper payloads via pickle.loads() in _maybe_unwrap_pickle without type allowlisting or authentication; this vulnerability persists via the msgpack path even when SGLANG_USE_PICKLE_IPC is disabled, and becomes remotely exploitable if data-parallel attention is enabled with a non-loopback --dist-init-addr setting.
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">
+<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-3-security-update-esa-2026-184/390688" target="_blank" rel="noopener">CVE-2026-94408</a>
+        </td>
+        <td>Elasticsearch</td>
+        <td>elastic</td>
+        <td class="sev sev-MEDIUM">MEDIUM</td>
+        <td>4.9</td>
+        <td class="mono">&gt;=8.0.0,&lt;8.19.22|&gt;=9.0.0,&lt;9.4.7|&gt;=9.5.0,&lt;9.5.3</td>
+        <td class="mono">-</td>
+        <td>-</td>
+        <td class="mono">20260926</td>
+        <td class="mono">20261006</td>
+        <td>NVD</td>
+        <td class="wrap-cell">
+          Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>메일 발송 로그</h2>
+<div class="tablebox">
+  <table>
+    <thead><tr><th>수신자</th><th>상태</th><th>발송시각</th><th>첨부</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mono">k5131@kida.re.kr</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-10-12 00:33:16</td>
+        <td class="mono">CVE_20261012.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">eclipse6@naver.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-10-12 00:33:17</td>
+        <td class="mono">CVE_20261012.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+      <tr>
+        <td class="mono">hayunfa@gmail.com</td>
+        <td><span class="pill st-SUCCESS">SENT</span></td>
+        <td class="mono">2026-10-12 00:33:18</td>
+        <td class="mono">CVE_20261012.xls</td>
+        <td class="wrap-cell muted"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:16px;"><a href="../index.html">← 대시보드로</a></div>
+  <footer>
+    ai-cve-watch · 엑셀 정본 <span class="mono">CVE_YYYYMMDD.xls</span> 는 내부망 반입용 규격(헤더 16개 고정)입니다.
+  </footer>
+</div>
+</body>
+</html>

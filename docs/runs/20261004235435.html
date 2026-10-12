@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-05 00:06:45</div>
+    <div class="stamp">최종 생성 2026-10-12 00:33:18</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (109건)</h2>
+<h2>이 회차 CVE (89건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -167,24 +167,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/langgenius/dify/security/advisories/GHSA-phpv-94hg-fv9g" target="_blank" rel="noopener">CVE-2025-67732</a>
-        </td>
-        <td>Dify</td>
-        <td>dify</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;1.11.0</td>
-        <td class="mono">1.11.0</td>
-        <td>-</td>
-        <td class="mono">20260105</td>
-        <td class="mono">20260930</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Dify is an open-source LLM app development platform. Prior to version 1.11.0, the API key is exposed in plaintext to the frontend, allowing non-administrator users to view and reuse it. This can lead to unauthorized access to third-party services, potentially consuming limited quotas. Version 1.11.0 fixes the issue.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://discuss.elastic.co/t/elasticsearch-8-19-9-9-1-9-and-9-2-3-security-update-esa-2025-33/384181" target="_blank" rel="noopener">CVE-2025-68384</a>
         </td>
         <td>Elasticsearch</td>
@@ -199,24 +181,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           Allocation of Resources Without Limits or Throttling (CWE-770) in Elasticsearch can allow a low-privileged authenticated user to cause Excessive Allocation (CAPEC-130) causing a persistent denial of service (OOM crash) via submission of oversized user settings data.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-365g-vjw2-grx8" target="_blank" rel="noopener">CVE-2025-71380</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260704</td>
-        <td class="mono">20260930</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] The Execute Command node in n8n allows authenticated users to execute arbitrary commands on the host system where n8n runs. Attackers with user access or compromised credentials can exploit this node to run malicious commands, potentially leading to data exfiltration, service disruption, or complete system compromise.
         </td>
       </tr>
       <tr>
@@ -243,96 +207,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-wpww-v874-ph2p" target="_blank" rel="noopener">CVE-2026-100647</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260928</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions before 0.29.0 contain a denial-of-service vulnerability in the cache_salt parameter accepted on OpenAI-compatible and Anthropic API endpoints, which lacks maximum length validation and is processed on the single EngineCore scheduler thread. Unauthenticated attackers can send HTTP requests with multi-hundred-megabyte salt values that trigger expensive pickle serialization and SHA-256 hashing, stalling the scheduler thread and denying service to all concurrent requests.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-jcq2-4gch-5qhf" target="_blank" rel="noopener">CVE-2026-100648</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260930</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vllm before 0.29.0 fails to enforce VLLM_MAX_AUDIO_CLIP_FILESIZE_MB limit in multimodal chat audio decoding, allowing unauthenticated clients to bypass file size restrictions. Attackers can submit oversized audio files through chat endpoints to consume excessive memory and CPU resources during decoding.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/752a3a504485790a2e8491cacbb35c137339ad34" target="_blank" rel="noopener">CVE-2026-100650</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;=0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260930</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM through 0.29.0 fetches and fully materializes remote or inline media before enforcing its documented media controls (the VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed-audio size cap, default 25 MB, and the per-modality --limit-mm-per-prompt item limits). Across four ingress paths — the shared media-acquisition layer (HTTPConnection.get_bytes()/async_get_bytes()), the chat completions audio_url/base64 path, the batch speech runner, and the Rust frontend POST /tokenize route — the server reads the entire HTTP response body, base64-decodes the inline payload, or spawns one fetch/decode task per media part, and only then applies the limit (or, on some paths, never applies it). A remote attacker can therefore cause the API server or batch-runner process to allocate memory and consume outbound bandwidth proportional to an attacker-chosen body size or media item count before the request is rejected, resulting in pre-inference memory and bandwidth exhaustion (denial of service). T
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-3mqx-f33v-vgp9" target="_blank" rel="noopener">CVE-2026-100651</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">0.29.0</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260928</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM before 0.29.0 fails to enforce decoder prompt-length validation on the disaggregated serving endpoint /inference/v1/generate. When the request contains a &#39;features&#39; (multimodal) payload, vllm/entrypoints/serve/disagg/serving.py builds a multimodal EngineInput directly from the caller-supplied token_ids, and GenerateRequest.token_ids (vllm/entrypoints/serve/disagg/protocol.py) is not checked against model_config.max_model_len. For multimodal processors that report skip_prompt_length_check=True (for example Nemotron Parse, Whisper, and FireRedLID), InputProcessor._validate_prompt_len() returns immediately for both encoder and decoder prompts, so an overlong prompt becomes an EngineCoreRequest and reaches the worker input-batch copy into a fixed max_model_len-wide NumPy row. A client able to reach the endpoint on an affected model configuration can therefore submit an overlong token_ids list to trigger a worker failure and denial of service. Fixed in 0.29.0.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-qff2-492f-9fm4" target="_blank" rel="noopener">CVE-2026-100652</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.9</td>
-        <td class="mono">&gt;=0.22.0,&lt;=0.23.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260929</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM versions 0.22.0 through 0.23.0 fail to validate stop_token_ids against vocabulary bounds in Rust HTTP and gRPC frontends, allowing out-of-vocabulary token IDs to reach MinTokensLogitsProcessor. Attackers can submit requests with min_tokens greater than zero and out-of-vocabulary stop_token_ids to trigger CUDA tensor indexing failures that leave EngineCore in a fatal state requiring service restart.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/vllm-project/vllm/commit/d26a28ab033697f55a1414b5b0435de7cd6045b6" target="_blank" rel="noopener">CVE-2026-100653</a>
         </td>
         <td>vLLM</td>
@@ -347,24 +221,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           vLLM is an inference and serving engine for large language models. In versions from 0.22.1 through 0.28.0, the operator-supplied model revision pin (--revision / --code-revision) is not propagated to several Hugging Face artifact loads for the FunAudioChat and Tarsier2 architectures: the WhisperFeatureExtractor and speech_tokenizer PreTrainedTokenizerFast loads in vllm/model_executor/models/funaudiochat.py and the Qwen2VLConfig.from_pretrained call used by Tarsier2ProcessingInfo in vllm/model_executor/models/qwen2_vl.py. As a result, deployments pinned to a reviewed revision still resolve these behavior-affecting processor, tokenizer, and config artifacts from the repository&#39;s default revision, so a later change to the upstream default branch can alter audio preprocessing, speech tokenizer behavior, or Tarsier2 configuration without any change to the operator&#39;s configured pin. This is a supply-chain integrity and reproducibility failure for pinned deployments; it is residual
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-v5gm-qgmv-gc6c" target="_blank" rel="noopener">CVE-2026-100654</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.29.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260930</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          vLLM before 0.29.0 accepts user-controlled stop_token_ids on the OpenAI-compatible POST /v1/completions and POST /v1/chat/completions endpoints but validates only that the values are integers, not that each token id is within the model vocabulary/logits range. When min_tokens &gt; 0, the stop token ids are used as logits indices to suppress stop tokens, so an out-of-range id reaches a CUDA indexing operation (index_put_) and triggers a device-side assertion. An authenticated API user can send a single malformed completion request that returns 500 Internal Server Error and puts EngineCore into a fatal state, causing subsequent requests to fail until the service is restarted (denial of service).
         </td>
       </tr>
       <tr>
@@ -477,60 +333,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/commit/1a10a7da5ff655849b21581c2633b46483ae0be9" target="_blank" rel="noopener">CVE-2026-102831</a>
-        </td>
-        <td>Jupyter Notebook</td>
-        <td>Project Jupyter</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&gt;=7.5.0,&lt;7.6.3</td>
-        <td class="mono">7.6.3</td>
-        <td>-</td>
-        <td class="mono">20260929</td>
-        <td class="mono">20261002</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          JupyterLab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From JupyterLab 4.5.0 until 4.5.11 and 4.6.4, from Notebook 7.5.0 until 7.6.3, and from JupyterLite Core 0.7.0 until 0.8.4, the system clipboard cell-paste path accepts attacker-controlled cell JSON without clearing metadata.trusted. When useSystemClipboardForCells is active and pasteCodeCellsWithoutOutput is disabled, a pasted code cell can mark HTML output as trusted, bypass output sanitization, and execute script in the authenticated JupyterLab origin without executing the cell. Markdown and raw cells are not affected because their output is sanitized. This issue is fixed in JupyterLab 4.5.11 and 4.6.4, Notebook 7.6.3, and JupyterLite Core 0.8.4.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/jupyterlab/jupyterlab/commit/a274a8276b9185d03efd4c3c20713d3137ac49e6" target="_blank" rel="noopener">CVE-2026-102904</a>
-        </td>
-        <td>JupyterLab</td>
-        <td>Project Jupyter</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.4</td>
-        <td class="mono">&gt;=4.6.0,&lt;4.6.4|&gt;=4.0.0,&lt;4.5.11</td>
-        <td class="mono">4.6.4</td>
-        <td>-</td>
-        <td class="mono">20260929</td>
-        <td class="mono">20261001</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          JupyterLab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From JupyterLab 4.0.0 until 4.5.11 and 4.6.4, the PyPI Extension Manager uninstall request reaches ExtensionHandler.post, which validates extension names for installation but passes uninstall names to PyPIExtensionManager.uninstall and python -m pip uninstall without rejecting option-like values. The security impact requires that the PyPI Extension Manager is enabled, the account can call the extension API, and kernels and terminals are disabled or delegated to remote hosts; otherwise the user can already read files and make outbound requests directly. An authenticated user with extension API access can supply a pip requirements option to make the server read a local file or fetch an internal URL, and reflected parse errors can return the first unparsable line or response content. A pip log option can also create or corrupt a chosen path with pip-generated log
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://gist.github.com/Yunzez/8e98d656aa667095b513161eb056d28e" target="_blank" rel="noopener">CVE-2026-103241</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;=0.26.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260930</td>
-        <td class="mono">20261002</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          A flaw has been found in vllm-project vLLM up to 0.26.0. This vulnerability affects unknown code of the file rust/src/parser/src/unified/gemma4.rs of the component Gemma4UnifiedParser. Executing a manipulation can lead to denial of service. The attack may be launched remotely. The exploit has been published and may be used. Upgrading to version 0.29.1rc0 is able to resolve this issue. This patch is called 3439bad37e68ba9755a46f4f6b44a4aeaf1f60a9. Upgrading the affected component is advised.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-hwv9-jhc7-f7c4" target="_blank" rel="noopener">CVE-2026-103245</a>
         </td>
         <td>n8n</td>
@@ -545,24 +347,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 fail to verify the x-webflow-signature HMAC in the Webflow Trigger node webhook handler. Unauthenticated attackers can send forged webhook requests with attacker-controlled payloads to trigger workflows and manipulate downstream actions like record creation or API calls.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9rhv-fhr8-7q5r" target="_blank" rel="noopener">CVE-2026-103246</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.7</td>
-        <td class="mono">&lt;2.40.0|&lt;2.40.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20261001</td>
-        <td class="mono">20261001</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 2.39.6 and 2.40.0 before 2.40.1 fail to validate credential ownership during inline agent node-tool introspection. Attackers can reference arbitrary credential IDs to decrypt and exfiltrate plaintext secrets to attacker-controlled hosts without ownership verification.
         </td>
       </tr>
       <tr>
@@ -621,24 +405,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-w24g-6454-7w7f" target="_blank" rel="noopener">CVE-2026-103250</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&lt;1.123.80|&lt;2.39.6|&lt;2.40.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20261001</td>
-        <td class="mono">20261001</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 contain a NoSQL injection vulnerability in the MongoDB Chat Memory node that fails to validate the sessionId parameter. Unauthenticated attackers can supply MongoDB query operators in the sessionId field to access conversation histories from other users and perform unauthorized write and delete operations.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-fmmv-p585-7c8x" target="_blank" rel="noopener">CVE-2026-103251</a>
         </td>
         <td>n8n</td>
@@ -693,24 +459,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-597w-c3jh-g8fg" target="_blank" rel="noopener">CVE-2026-103254</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.3</td>
-        <td class="mono">&lt;1.123.80|&lt;2.39.6|&lt;2.40.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20261001</td>
-        <td class="mono">20261001</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 contain a path traversal vulnerability in signed resume URL generation for Send-and-Wait approvals. Attackers with workflow creation permissions can mint valid approval URLs for gates in projects they cannot access by exploiting unresolved traversal sequences in caller-controlled node IDs, enabling cross-project approval forgery.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-rqch-9jrh-cr8w" target="_blank" rel="noopener">CVE-2026-103255</a>
         </td>
         <td>n8n</td>
@@ -761,24 +509,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 contain a path traversal vulnerability in the n8n node that fails to validate resource identifiers. Attackers can craft malicious resource IDs to redirect API calls to unintended resources, allowing unauthorized access to workflows, executions, and credential secrets within the API key&#39;s scope.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-5pg9-2vqx-r6jm" target="_blank" rel="noopener">CVE-2026-103258</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.8</td>
-        <td class="mono">&lt;2.40.0|&lt;2.40.1</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20261001</td>
-        <td class="mono">20261001</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n versions before 2.39.6 and 2.40.0 before 2.40.1 contain an unescaped parameter interpolation vulnerability in SendGrid, Freshservice, and ServiceNow nodes that allows attackers to bypass filters by breaking out of query literals. Attackers can exploit this by binding vulnerable node parameters to untrusted external input to widen single-record lookups into match-all queries, exposing bulk data including contact lists, tickets, and directory entries.
         </td>
       </tr>
       <tr>
@@ -913,24 +643,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-57173" target="_blank" rel="noopener">CVE-2026-57173</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260916</td>
-        <td class="mono">20261001</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary The audio decode-duration guard (`max_duration_s`, env `VLLM_MAX_AUDIO_DECODE_DURATION_S`, default 600s) that protects against audio decompression-bomb DoS is wired into **only** the speech-to-text path (`/v1/audio/transcriptions`). The **chat** audio path (`/v1/chat/completions`, `input_audio` content parts) calls the same decoder with **no** limit, so an **unauthenticated** client can submit a few-KB compressed audio file that expands to multiple GB of float32 PCM at decode time, OOM-killing the worker. This is a distinct sibling of **CVE-2026-5497** (video frame-count bomb, `VideoMediaIO.load_base64`) and **GHSA-pq5c-rjhq-qp7p** (image) in the same media subsystem. Verified against `main` at HEAD `d78650c` (2026-06-16); applicable to the latest release v0.23.0. ### Details The guard rejects long audio *during* decode (before allocation), implemented in `vllm/multimodal/media/audio.py`: - `load_audio_pyav` — metadata reject (~82-98) and live sample-count reject (~129-136)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/advisories/GHSA-8prw-8m6x-8w6f" target="_blank" rel="noopener">CVE-2026-58076</a>
         </td>
         <td>Airflow</td>
@@ -981,24 +693,6 @@
         <td>OSV+GHSA</td>
         <td class="wrap-cell">
           Apache Airflow exposes dict-valued var.json secrets in Rendered Templates Apache Airflow&#39;s secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task&#39;s Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-8c5q-hx4g-qq23" target="_blank" rel="noopener">CVE-2026-59707</a>
-        </td>
-        <td>LocalAI</td>
-        <td>LocalAI</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.6</td>
-        <td class="mono">&lt;1.40.1-0.20260703213242-2cbb3c96b34d</td>
-        <td class="mono">1.40.1-0.20260703213242-2cbb3c96b34d</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          LocalAI POST /models/apply permits unauthenticated server-side request forgery through gallery URLs LocalAI contains an unauthenticated server-side request forgery vulnerability in the POST /models/apply endpoint that allows attackers to fetch arbitrary internal URLs. The endpoint passes unsanitized gallery URL fields directly to gallery.GetGalleryConfigFromURLWithContext without proper validation, enabling attackers to force the server to issue HTTP GET requests to private and loopback ranges with partial response content leaked through error messages.
         </td>
       </tr>
       <tr>
@@ -1061,24 +755,6 @@
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Wire provides gRPC and protocol buffers for Android, Kotlin, Swift, and Java. Prior to 6.4.5 and 7.0.0-alpha04, Wire protobuf readers do not consistently validate attacker-controlled lengths against the current logical message boundary before advancing cursors, pointers, limits, slices, or allocations. In Kotlin, ProtoAdapter.decode(ByteArray) and ProtoAdapter.decode(ByteString) use ByteArrayProtoReader32.internalNextLengthDelimited(), where a positive oversized length can wrap pos + length to a negative limit and escape the existing negative-length check. Related ProtoReader, ReadBuffer.readVarint(), ReadBuffer.verifyAdditional(count:), packed-repeated, nested-message, and ProtoDecoder.decodeSizeDelimited(_:from:) paths can cross logical boundaries, perform pointer arithmetic, reserve capacity, or convert an unrepresentable size before proving the requested bytes exist. An attacker who supplies malformed protobuf bytes can cause unchecked exceptions, traps, out-of-bounds be</div>
           </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/mlflow/mlflow/commit/ba949522477cbd5915aa55d29b0cfad7d5ddf939" target="_blank" rel="noopener">CVE-2026-64849</a>
-        </td>
-        <td>MLflow</td>
-        <td>lfprojects</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.3</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.15.0</td>
-        <td class="mono">3.15.0</td>
-        <td><span class="kev">KEV</span></td>
-        <td class="mono">20260817</td>
-        <td class="mono">20261002</td>
-        <td>NVD+OSV+GHSA</td>
-        <td class="wrap-cell">
-          MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. Starting in 3.3.0 and prior to 3.15.0, the unauthenticated POST /api/2.0/mlflow/webhooks/{id}/test endpoint calls _validate_webhook_url() in mlflow/utils/validation.py only for the original URL while mlflow/webhooks/delivery.py follows redirects and re-resolves the hostname without pinning the validated address, allowing attackers to reach internal or cloud metadata services and receive response_status and response_body. This issue is fixed in version 3.15.0.
         </td>
       </tr>
       <tr>
@@ -1241,28 +917,6 @@
         <td>OSV+GHSA</td>
         <td class="wrap-cell">
           Apache Airflow missing team context permits cross-team Dag actions and XCom reads Apache Airflow&#39;s asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:&lt;team&gt;` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team&#39;s XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the D
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/vllm-project/vllm/commit/283893c72292ede38d277e3cd2b9b64c3e4f1dda" target="_blank" rel="noopener">CVE-2026-69147</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;0.28.0</td>
-        <td class="mono">0.28.0</td>
-        <td>-</td>
-        <td class="mono">20260916</td>
-        <td class="mono">20261001</td>
-        <td>NVD+OSV</td>
-        <td class="wrap-cell">
-          vLLM은 대규모 언어 모델을 위한 추론 및 제공 엔진입니다. 0.28.0 이전에는 채팅 완료 및 응답에 대한 요청 본문이 media_io_kwargs.video.video_backend를 pynvvideocodec로 설정할 수 있으며 MediaConnector.fetch_video는 시작 구성에서 소프트웨어 디코더를 선택한 경우에도 해당 선택 사항을 VideoMediaIO로 전달할 수 있습니다. 엔진의 _reserve_mm_ipc_gpu_memory 논리는 정적 구성에서만 디코더 메모리를 할당하므로 요청이 선택한 VIDEO_LOADER_REGISTRY 백엔드는 엔진의 KV 캐시 예산에서 제거되지 않은 CUDA 컨텍스트, 디코더 표면 및 디코딩된 프레임 할당을 생성할 수 있습니다. PyNvVideoCodec이 설치된 비디오 지원 GPU 배포에 비디오 요청을 제출할 수 있는 공격자는 공유 GPU 메모리를 소진시켜 요청 실패, 작업자 충돌 또는 서비스 거부를 일으킬 수 있습니다. 수정 사항이 포함된 첫 번째 릴리스는 버전 0.28.0입니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models. Prior to 0.28.0, request bodies for Chat Completions and Responses can set media_io_kwargs.video.video_backend to pynvvideocodec, and MediaConnector.fetch_video forwards that choice to VideoMediaIO even when startup configuration selected a software decoder. The engine&#39;s _reserve_mm_ipc_gpu_memory logic budgets decoder memory only from static configuration, so the request-selected VIDEO_LOADER_REGISTRY backend can create a CUDA context, decoder surfaces, and decoded-frame allocations that were not removed from the engine&#39;s KV-cache budget. An attacker able to submit video requests to a video-capable GPU deployment with PyNvVideoCodec installed can exhaust shared GPU memory, causing request failures, worker crashes, or denial of service. The first release containing the fix is version 0.28.0.</div>
-          </details>
         </td>
       </tr>
       <tr>
@@ -2005,24 +1659,6 @@
         <td>NVD</td>
         <td class="wrap-cell">
           Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-3-security-update-esa-2026-184/390688" target="_blank" rel="noopener">CVE-2026-94408</a>
-        </td>
-        <td>Elasticsearch</td>
-        <td>Elastic</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.9</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260926</td>
-        <td class="mono">20260928</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Uncontrolled Resource Consumption (CWE-400) in Elasticsearch can lead denial of service via Excessive Allocation (CAPEC-130)
         </td>
       </tr>
       <tr>
