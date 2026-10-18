@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-12 00:33:18</div>
+    <div class="stamp">최종 생성 2026-10-18 22:59:52</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (89건)</h2>
+<h2>이 회차 CVE (76건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -107,24 +107,6 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/run-llama/llama_index/commit/369a2942df2efcf6b74461c45d20a0af1fbe4ae2" target="_blank" rel="noopener">CVE-2025-1750</a>
-        </td>
-        <td>LlamaIndex</td>
-        <td>LlamaIndex</td>
-        <td class="sev sev-CRITICAL">CRITICAL</td>
-        <td>9.8</td>
-        <td class="mono">&gt;=0.12.19,&lt;0.12.21</td>
-        <td class="mono">0.12.21</td>
-        <td>-</td>
-        <td class="mono">20250602</td>
-        <td class="mono">20261002</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          An SQL injection vulnerability exists in the delete function of DuckDBVectorStore in run-llama/llama_index version v0.12.19. This vulnerability allows an attacker to manipulate the ref_doc_id parameter, enabling them to read and write arbitrary files on the server, potentially leading to remote code execution (RCE).
-        </td>
-      </tr>
       <tr>
         <td class="mono">
 <a href="https://github.com/huggingface/transformers/commit/ba8eaba9865618253f997784aa565b96206426f0" target="_blank" rel="noopener">CVE-2025-6051</a>
@@ -603,24 +585,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/advisories/GHSA-g4qj-5vxv-wggf" target="_blank" rel="noopener">CVE-2026-54183</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow Variables UI fails to mask sensitive values in deeply nested iterables Apache Airflow&#39;s secrets masker hides values stored under sensitive key names when they are displayed in the UI. The masker&#39;s recursion-depth limit did not descend into values nested inside a list, tuple, or set beyond that limit, so an Airflow Variable holding such a deeply-nested value was shown unmasked in the Variables UI. The exposure is limited to the UI: any authenticated user who can see the Variable in the UI can already read its full value through the Variables REST API, so this does not disclose data the user could not otherwise obtain — the masking is a shoulder-surfing defense for the UI, not an access-control boundary. This is an incomplete-fix follow-up to CVE-2026-42358, whose fix made only the dictionary walk unbounded; lists, tuples, and sets beyond the depth limit remained unmasked in the UI. Deployments that applied the CVE-2026-42358 fix should also upgrade to address this residua
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/langchain-ai/langchain-mongodb/commit/14a6cc39e67d23fd409cd13a9caae2c329df0a09" target="_blank" rel="noopener">CVE-2026-55253</a>
         </td>
         <td>LangChain</td>
@@ -639,60 +603,6 @@
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] LangChain MongoDB provides integrations between MongoDB, Atlas, LangChain, and LangGraph. Prior to langgraph-checkpoint-mongodb 0.3.0 and langgraph-store-mongodb 0.4.0, MongoDBSaver.list(), MongoDBSaver.alist(), and MongoDBStore.search() incorporate filter dictionaries into MongoDB queries without recursively rejecting keys prefixed with $. An authenticated caller who controls a filter argument through HTTP query parameters, request body fields, or agent tool arguments can inject MongoDB Query Language operators such as $regex or $where. In a multi-tenant deployment that uses the filter to enforce per-user or per-tenant isolation, injected operators can bypass intended equality filtering and expose other tenants&#39; checkpoint or store data. Filters constructed entirely from trusted server-side values have lower practical risk. This issue is fixed in langgraph-checkpoint-mongodb 0.3.0 and langgraph-store-mongodb 0.4.0.</div>
           </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-8prw-8m6x-8w6f" target="_blank" rel="noopener">CVE-2026-58076</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow exception-node deserialization permits arbitrary callable execution Apache Airflow&#39;s serialization layer reconstructed exception nodes by calling `import_string()` on a class name taken from the serialized blob and instantiating it with arguments from the same blob, with no restriction on what could be imported. An operator&#39;s `executor_config` reaches that branch, so a Dag author could place a value there that causes an arbitrary callable to be imported and invoked -- for example `subprocess.check_output`, or `builtins.eval` on the `builtins`-prefixed variant. The code runs in the **Scheduler**, which reconstructs serialized Dags in its normal loop with no request involved, and in the **API server**, on any authenticated read of the Dag such as `GET /api/v2/dags/{dag_id}/details`. Both are components the Airflow security model states must never execute Dag-author code, and both hold the metadata database credentials and the JWT signing secret. No non-default configuratio
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-fcmm-42r9-mmmm" target="_blank" rel="noopener">CVE-2026-59242</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.4</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow XCom API permits unsafe deserialization through JSON string literals Apache Airflow&#39;s XCom `GET /api/v2/{...}/xcomEntries/{key}?deserialize=true` endpoint passed a string-literal payload through `BaseXCom.deserialize_value` without the `_check_forbidden_xcom_keys` guard, allowing an authenticated API user with XCom write-and-read access to instantiate arbitrary `airflow.*` classes on the API server (CWE-502). An authenticated user who can write an XCom value and then read it back with `deserialize=true` triggers the unsafe instantiation. Users are advised to upgrade to apache-airflow 3.3.1 or later, which rejects reserved XCom serialization keys submitted as JSON string literals.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-f643-3rc2-j27w" target="_blank" rel="noopener">CVE-2026-59244</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow exposes dict-valued var.json secrets in Rendered Templates Apache Airflow&#39;s secrets masker did not mask `var.json` Variable values whose value is a dict in the Rendered Templates UI — the dict value failed an `isinstance(str)` guard — so a secret stored as a JSON Variable and referenced in a template via `var.json` was displayed in cleartext to any user with access to that task&#39;s Rendered Templates view. Users are advised to upgrade to apache-airflow 3.3.1 or later, which masks nested Variable values regardless of type.
         </td>
       </tr>
       <tr>
@@ -759,24 +669,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://github.com/advisories/GHSA-c56v-8w4g-3mfm" target="_blank" rel="noopener">CVE-2026-65017</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow Config API exposes team-scoped sensitive configuration values Apache Airflow&#39;s Config API did not mask team-scoped sensitive configuration values in multi-team deployments. When an administrator has enabled multi-team mode and exposed the Config API, an authenticated Viewer holding only configuration-read access — with no prior access to the secret — could read a team-scoped Celery broker URL, including its embedded credentials, in cleartext, while the equivalent global option was correctly masked. The secrets masker matched only base section and option names and did not normalize team-prefixed sections before the sensitivity check (CWE-200). This is a distinct masker bypass from CVE-2026-48828 and CVE-2026-48892: deployments that upgraded to apache-airflow 3.3.0 to address those issues remain affected by this team-scoped variant. Users are advised to upgrade to apache-airflow 3.3.1 or later, which normalizes team-scoped sections before masking.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/advisories/GHSA-379c-qx7v-6h59" target="_blank" rel="noopener">CVE-2026-66007</a>
         </td>
         <td>Datasets</td>
@@ -791,132 +683,6 @@
         <td>OSV+GHSA</td>
         <td class="wrap-cell">
           Hugging Face Datasets folder-based builders allow path traversal through file_name metadata Datasets through 5.0.0, fixed in f989ef9, contains a path traversal vulnerability in folder-based dataset builders where the file_name metadata field is not properly validated before being joined to the dataset directory. Attackers can supply crafted file_name values with directory traversal sequences to read arbitrary local files, which are then embedded into output when save_to_disk or push_to_hub is called.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-q4c3-7575-55j2" target="_blank" rel="noopener">CVE-2026-67260</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.3</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow scheduler unsafely deserializes human-in-the-loop task next_kwargs Apache Airflow 3.3.0 moved human-in-the-loop tasks from the triggerer to a new `awaiting_input` task state swept by the scheduler. That sweep deserializes the task instance&#39;s `next_kwargs` without an allow-list, so a Dag author — who controls that value through the task execution API — can cause an arbitrary module import and object instantiation inside the scheduler process, or terminate the scheduler job. No non-default configuration is required: the sweep runs unconditionally every 15 seconds, and the default `allowed_deserialization_classes` setting does not cover this code path. Versions before 3.3.0 are not affected, because human-in-the-loop tasks deferred onto the triggerer instead. This is a different code path from CVE-2026-58076, which covers the same unguarded exception-node deserialization reached elsewhere — deployments that applied that fix must upgrade for this issue as well. Users are adv
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-2qjv-p2gc-mjg2" target="_blank" rel="noopener">CVE-2026-67587</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=3.3.0,&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow Task SDK Callback deserialization can import arbitrary modules in the scheduler Apache Airflow&#39;s Task SDK rebuilt a `Callback` object from serialized data by re-running its constructor, which imports the module named by the stored callback path. Because `SyncCallback` is itself an Airflow class it passes the default `allowed_deserialization_classes` allow-list, so tightening that setting does not help. A Dag author — who controls a task instance&#39;s `next_kwargs` through the task execution API — can therefore cause an arbitrary module to be imported inside the scheduler process, when the scheduler&#39;s `awaiting_input` timeout sweep deserializes that value. No non-default configuration is required; the sweep runs unconditionally. Versions before 3.3.0 are not affected: the class existed, but the scheduler sweep that reaches it did not. This is a separate code path from CVE-2026-58076 and CVE-2026-67260, which cover different gadgets reaching deserialization — applying either 
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-75mg-c62r-v95g" target="_blank" rel="noopener">CVE-2026-68076</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.4</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow environment-variable secrets backend permits cross-team credential use Apache Airflow&#39;s environment-variable secrets backend resolved a team-scoped Connection or Variable from the wrong team&#39;s scope. The guard meant to prevent this only ran when no team scope was supplied, and its pattern could not match a team name containing an underscore, which team names are allowed to contain. When the guard did not apply, the lookup fell through to an unconditional global read that resolved the stored `AIRFLOW_CONN__&lt;TEAM&gt;___&lt;ID&gt;` variable regardless of which team asked. In multi-team mode an authenticated user of one team could therefore have `POST /api/v2/connections/test` resolve another team&#39;s Connection and authenticate outward with that team&#39;s credentials; the endpoint uses the credentials rather than returning them. Exploitation requires `[core] multi_team` enabled, `[core] test_connection` set to `Enabled` (it ships `Disabled`), team-scoped secrets provisioned as environmen
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-j4jc-cq9h-xrhr" target="_blank" rel="noopener">CVE-2026-68968</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow Backfill API parser discrepancy permits cross-DAG authorization bypass Apache Airflow&#39;s Backfill API authorized a request against a Dag id supplied by the caller whenever the `backfill_id` path segment failed to parse. The authorization dependency parsed it with `int()` while the route handler parsed it as pydantic&#39;s `NonNegativeInt`, which accepts values `int()` rejects (`1.0` coerces to `1`); FastAPI resolves dependencies before endpoint validation, so the two acted on different Dags. An authenticated user holding edit permission on any single Dag could therefore read, pause and cancel backfills belonging to any other Dag, including moving another Dag&#39;s queued runs to `failed`. No non-default configuration is required and backfill ids are sequential, so finding a target is trivial. Users are advised to upgrade to apache-airflow 3.3.1 or later, which parses the backfill id with the same type the routes declare.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-cjv4-7hp2-2x9h" target="_blank" rel="noopener">CVE-2026-68969</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow bulk endpoints log Variable and Connection secrets in cleartext Apache Airflow wrote Variable values and Connection `extra` contents to the audit log in cleartext when they were submitted through the bulk endpoints (`PATCH /api/v2/variables` and `PATCH /api/v2/connections`). The audit-log masking recognised only top-level request fields, and a bulk request nests its entities two levels below, so no masking was applied to them. Any authenticated user with audit-log read access -- who need not hold Variables or Connections read at all -- could recover those secrets verbatim, and the Connection `extra` copy is stored unencrypted in the log while the connection table encrypts it. The Airflow UI&#39;s *Import Variables* action posts to this endpoint, so an ordinary operator import wrote every secret in the file to the log. This is a different code path from CVE-2026-50204: that fix shipped in 3.3.0 and covers the single-entity endpoints only, so deployments that upgraded in respo
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-f3c2-j7g8-vpp8" target="_blank" rel="noopener">CVE-2026-68970</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow Task SDK fails to mask list-shaped JSON Variables Apache Airflow&#39;s Task SDK did not mask the contents of a Variable whose JSON value is a list, so secrets stored in that shape appeared in cleartext in task logs and in the Rendered Templates UI. Masking was applied only when the deserialized value was a string or a dict; a list at the top level matched neither and was returned unmasked. Any authenticated user able to read the logs or rendered templates of a task that references such a Variable could recover the values, with no special configuration required. This is the list-shaped counterpart of CVE-2026-59244, whose fix covered the dict case only, so deployments that upgraded in response to that advisory remain affected and must upgrade again. Users are advised to upgrade to apache-airflow 3.3.1 or later.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-5247-m8w9-2v4m" target="_blank" rel="noopener">CVE-2026-68971</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.1</td>
-        <td class="mono">3.3.1</td>
-        <td>-</td>
-        <td class="mono">20260812</td>
-        <td class="mono">20261002</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          Apache Airflow missing team context permits cross-team Dag actions and XCom reads Apache Airflow&#39;s asset materialization endpoint (`POST /api/v2/assets/{asset_id}/materialize`) and the XCom result check on `wait_dag_run_until_finished` authorized the target Dag without its team, unlike every other authorization site. A team-aware auth manager distinguishes a team-scoped Dag from a global one by that field -- the Keycloak auth manager, for example, checks the `DAG` resource instead of `DAG:&lt;team&gt;` -- so the team-scoped permission that should gate the request was never consulted. In a deployment running multi-team mode with a team-aware auth manager, an authenticated user in one team could trigger Dag runs belonging to another team, supplying their own `dag_run_id` and `conf`, and could read another team&#39;s XCom values. Deployments using the FAB auth manager are unaffected, as it has no multi-team support. Users are advised to upgrade to apache-airflow 3.3.1 or later, which resolves the D
         </td>
       </tr>
       <tr>
