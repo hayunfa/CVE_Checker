@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-18 22:59:52</div>
+    <div class="stamp">최종 생성 2026-10-25 23:32:15</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (37건)</h2>
+<h2>이 회차 CVE (26건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -145,114 +145,6 @@
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] CrewAI before fb2323b offers a Python blocklist approach that operates at the wrong level of abstraction, a different vulnerability than CVE-2026-2275. Import-time blocking of module names does not address the availability of Python&#39;s complete object graph. For example, calling ctypes.CDLL(None) loads the C library without relying in any import statements. In other words, a within-process sandbox cannot merely account for the import system and instead must account for the complete runtime of the Python interpreter.</div>
           </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43627</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">&gt;=b1283,&lt;=b9058</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b1283 through b9058 contain an integer overflow vulnerability in the llama_batch_init() function where unchecked multiplications in malloc() calls can wrap past INT32_MAX when computing allocation sizes. Attackers can pass specially crafted parameters to trigger integer overflow, causing heap corruption and potentially achieving arbitrary code execution through subsequent batch operations that write past allocated buffer boundaries.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43628</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">&gt;=b3978,&lt;=b9058</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b3978 through b9058 contain an integer underflow and out-of-bounds read vulnerability in the DRY sampler that allows unauthenticated attackers to trigger a heap buffer underflow by sending a crafted HTTP request with dry_allowed_length set to INT32_MIN to the /v1/completions or /v1/chat/completions endpoints. Attackers can exploit this vulnerability to crash the server with SIGSEGV causing denial of service for all connected users, or corrupt token sampling probabilities by reading garbage values from memory before the allocated buffer.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43629</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&gt;=b4882,&lt;=b9058</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b4882 through b9058 contain a heap buffer overflow vulnerability in the KV cache state restore path where the state_read_data() function computes write size without overflow checking, allowing attackers with write access to the slot_save_path directory to corrupt heap memory. Attackers can craft malicious state files where cell_count multiplication overflows or exceeds tensor buffer allocation to write attacker-controlled bytes past buffer boundaries, potentially resulting in heap metadata corruption, model weight corruption, or arbitrary code execution via function pointer overwrite.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43630</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=b5702,&lt;=b7653</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b5702 through b7653 contain an out-of-bounds read vulnerability in the recurrent memory state restore path that allows attackers with write access to the slot save directory to read memory past the end of the allocated cells array. Attackers can craft a malicious slot file with an oversized seq_id value to trigger an out-of-bounds read that leaks heap data including pointer values into server logs, defeating ASLR protections and facilitating further exploitation.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43631</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&gt;=b7492,&lt;=b9060</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in the vocab pointer of llama-server when the --sleep-idle-seconds feature is enabled, allowing unauthenticated remote attackers to execute arbitrary code. Attackers can trigger the vulnerability by sending requests to affected endpoints while the server transitions to sleep mode, causing concurrent worker threads to dereference a freed vocab pointer that can be reclaimed with attacker-controlled data to achieve remote code execution.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-43632</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&gt;=b7492,&lt;=b9060</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b7492 through the latest b9060 contains a use-after-free vulnerability in llama-server affecting six tokenization endpoints (/tokenize, /detokenize, /infill, /apply-template, /rerank, and /anthropic/count_tokens) that bypass the task queue and access ctx_server.vocab directly on HTTP worker threads. Attackers can exploit a time-of-check-time-of-use race condition where the main thread destroys and frees vocab after the synchronization lock is released but before the handler finishes using it, causing a crash or potential code execution when --sleep-idle-seconds is configured.
         </td>
       </tr>
       <tr>
@@ -328,100 +220,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Elixir protobuf is a pure Elixir implementation of Google Protobuf. From 0.8.0 until 0.16.1, services that decode attacker-controlled protobuf bytes with Protobuf.Decoder can be taken offline when the schema contains a self-referential or cyclic message type. In lib/protobuf/decoder.ex, Protobuf.Decoder.value_for_field/3 handles an embedded?: true field by recursively entering the decode / build_message / handle_value / value_for_field call chain without enforcing a nesting-depth limit. Deeply nested embedded fields retain non-tail recursive frames, allowing a comparatively small request to consume substantial CPU and memory, pin a BEAM scheduler, and exhaust the node. This issue is fixed in version 0.16.1.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/milvus-io/milvus/issues/50763" target="_blank" rel="noopener">CVE-2026-69111</a>
-        </td>
-        <td>Milvus</td>
-        <td>Zilliz</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;=3.0.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260805</td>
-        <td class="mono">20260924</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Milvus through 2.6.22 and 3.0.0 contains an unauthenticated denial of service vulnerability that allows remote attackers to terminate service components by sending a crafted HTTP GET request to the management server on port 9091. Attackers can exploit the unprotected /management/stop endpoint, which bypasses REST API authentication middleware, by supplying a &#39;role&#39; parameter to shut down the proxy, datanode, or querynode components, resulting in denial of service.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70638</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.8</td>
-        <td class="mono">&gt;=b1886,&lt;=b7445</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b1886 through b7445 contain an integer overflow vulnerability in the LLaMA-Android JNI wrapper where the new_1batch() function multiplies sizeof(llama_seq_id) by an attacker-controlled n_seq_max parameter without overflow validation, causing heap buffer allocation to wrap and allocate insufficient memory. Attackers can exploit this by providing a crafted n_seq_max value through a malicious model file or JNI call to trigger heap corruption and achieve denial of service or arbitrary code execution on Android applications using the LLaMA-Android binding.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70639</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.5</td>
-        <td class="mono">&gt;=b1886,&lt;=b7445</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b1886 through b7445 contain a null pointer dereference vulnerability in the LLaMA-Android JNI wrapper where the bench_1model() function fails to validate the model context pointer before dereferencing it. Attackers can supply a malicious, corrupt, or truncated model file to trigger a null context condition, causing a SIGSEGV crash that terminates the Android application process and results in denial of service.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Vladimir-tokarev-cyera/llama-cpp-security-patches" target="_blank" rel="noopener">CVE-2026-70640</a>
-        </td>
-        <td>llama.cpp</td>
-        <td>ggml</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.0</td>
-        <td class="mono">&gt;=b1886,&lt;=b7445</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260806</td>
-        <td class="mono">20260921</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          llama.cpp builds b1886 through b7445 contain a race condition use-after-free vulnerability in the LLaMA-Android JNI wrapper where bench_1model() and free_1context() lack synchronization, allowing Thread A to operate on freed memory while Thread B concurrently frees the llama_context. Attackers can exploit this by performing heap spray with attacker-controlled data containing a fake vtable to hijack the vtable pointer at offset +0x30, causing llama_batch_allocr::clear() to dereference arbitrary memory and achieve remote code execution.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">CVE-2026-75104</a>
-        </td>
-        <td>Transformers</td>
-        <td>Hugging Face</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.5</td>
-        <td class="mono">*</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260817</td>
-        <td class="mono">20260924</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          [버전범위 불명확] Hugging Face Transformers는 체크포인트 인덱스 파일의 샤드 파일 이름을 검증하지 못하여 공격자가 모델 디렉터리 외부의 임의 파일을 읽을 수 있습니다. 공격자는 상위 디렉터리 참조 또는 유효성 검사 없이 결합된 절대 경로가 포함된 악성 인덱스 파일을 제공하여 파일 공개 및 파일 시스템 정찰을 가능하게 할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">[버전범위 불명확] Hugging Face Transformers fails to validate shard filenames in checkpoint index files, allowing attackers to read arbitrary files outside the model directory. Attackers can supply malicious index files with parent-directory references or absolute paths that are joined without validation, enabling file disclosure and filesystem reconnaissance.</div>
           </details>
         </td>
       </tr>

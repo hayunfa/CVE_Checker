@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-18 22:59:52</div>
+    <div class="stamp">최종 생성 2026-10-25 23:32:15</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1716 OSV=0 NVD=45 GHSA=0 RANGE_RECOVERED=16 TRANSLATE=0건 번역 / 40건 캐시</span></div>
 </div>
 
-<h2>이 회차 CVE (33건)</h2>
+<h2>이 회차 CVE (25건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -541,182 +541,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.0, the DELETE /api/v1/folders/{id} handler in backend/open_webui/routers/folders.py allowed a user granted write access to a shared chat folder to permanently delete chats and messages belonging to the folder owner. The cascade following the authorization check is bound to the folder owner&#39;s id, but the subfolder check accepted any inherited write grant instead of requiring ownership or administrator status. A collaborator can destroy the owner&#39;s subtree or force-move chats out of it when delete_contents=false. This issue is fixed in 0.11.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/releases/tag/n8n@1.123.64" target="_blank" rel="noopener">CVE-2026-71539</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n GmbH</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.9</td>
-        <td class="mono">&lt;2.30.1</td>
-        <td class="mono">1.123.64</td>
-        <td>-</td>
-        <td class="mono">20260818</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n은 오픈 소스 워크플로 자동화 플랫폼입니다. 1.123.64, 2.29.8 및 2.30.1 이전 버전에서는 Git 노드 복제 작업을 통해 인증된 워크플로 사용자가 복제하기 전에 검증된 디렉터리를 심볼릭 링크로 교체할 수 있으며, 다시 시작한 후 사용자 정의 JavaScript 노드로 로드되고 서버에서 임의 코드를 실행하는 커뮤니티 노드 디렉터리에 제작된 저장소를 심을 수 있습니다. 이 문제는 버전 1.123.64, 2.29.8 및 2.30.1에서 해결되었습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n is an open source workflow automation platform. Prior to 1.123.64, 2.29.8, and 2.30.1, the Git node clone operation allows an authenticated workflow user to swap a validated directory for a symlink before cloning, planting a crafted repository in the community node directory that loads as a custom JavaScript node after restart and executes arbitrary code on the server. This issue is fixed in versions 1.123.64, 2.29.8, and 2.30.1.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-xmc9-4f2h-jf9c" target="_blank" rel="noopener">CVE-2026-72762</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.0.0,&lt;2.31.5|==2.32.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.67, 2.31.5 및 2.32.1 이전의 n8n 버전에는 검증 없이 출력 형식 매개변수를 기본 이미지 라이브러리에 전달하는 Edit Image 노드의 임의 파일 쓰기 취약점이 포함되어 있습니다. 워크플로를 실행할 수 있는 인증된 사용자는 n8n 인스턴스의 노드 작업 디렉터리 외부에 임의 파일을 쓰기 위해 가공된 형식 값을 제공할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.67, 2.31.5, and 2.32.1 contain an arbitrary file write vulnerability in the Edit Image node, which passes its output format parameter to the underlying image library without validation. An authenticated user able to run workflows can supply a crafted format value to write arbitrary files outside the node&#39;s working directory on the n8n instance.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9cmh-xcqm-5hqr" target="_blank" rel="noopener">CVE-2026-72764</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.0.0,&lt;2.31.5|==2.32.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          n8n의 JavaScript 작업 실행기는 모든 사용자의 코드 노드 실행에서 단일 모듈 캐시를 공유했습니다. 영향을 받는 버전(1.123.67, 2.31.5 및 2.32.1 이전)에서는 코드 노드를 실행할 수 있는 사용자가 캐시된 모듈을 손상시켜 동일한 실행기에서 다른 사용자의 코드 노드 실행을 변경하여 기밀성, 무결성 또는 가용성에 영향을 미칠 수 있습니다. 이는 단일 n8n 인스턴스 내의 사용자 간 격리 중단이며 샌드박스 이스케이프 또는 원격 코드 실행을 구성하지 않습니다. 내장 또는 외부 모듈이 활성화된 JS 작업 실행기를 실행하는 다중 사용자 인스턴스만 영향을 받습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n&#39;s JavaScript task runner shared a single module cache across all users&#39; Code-node executions. In affected versions (before 1.123.67, 2.31.5, and 2.32.1), a user able to run a Code node could poison a cached module and thereby alter other users&#39; Code-node executions on the same runner, affecting their confidentiality, integrity, or availability. This is a cross-user isolation break within a single n8n instance and does not constitute a sandbox escape or remote code execution. Only multi-user instances running the JS task runner with built-in or external modules enabled are affected.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-rcv6-pvrj-4xcg" target="_blank" rel="noopener">CVE-2026-72767</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.0.0,&lt;2.31.5|==2.32.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.67 이전의 n8n, 2.31.5 이전의 2.x, 2.32.1 이전의 2.32.x에는 Git 노드의 원격 코드 실행 취약점이 포함되어 있습니다. 워크플로를 생성하고 실행할 수 있는 권한이 있는 인증된 사용자는 git이 기본 git 보안 설정에서 후크를 실행하고 n8n 프로세스 사용자로 임의의 명령을 실행하도록 하는 조작된 로컬 저장소를 준비할 수 있습니다. 자체 호스팅 인스턴스와 클라우드 인스턴스 모두 영향을 받습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.67, 2.x before 2.31.5, and 2.32.x before 2.32.1 contain a remote code execution vulnerability in the Git node. Authenticated users with rights to create and execute workflows can stage a crafted local repository that causes git to run hooks under default git security settings, executing arbitrary commands as the n8n process user. Both self-hosted and cloud instances are affected.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-hx4h-vr3m-45vh" target="_blank" rel="noopener">CVE-2026-72769</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.1</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.0.0,&lt;2.31.5|==2.32.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.67, 2.31.5 및 2.32.1 이전의 n8n에는 VM 표현 엔진에 프로토타입 오염 취약점이 포함되어 있습니다. 워크플로 표현식을 생성하거나 편집할 수 있는 인증된 사용자는 엔진의 배열 요소 액세스를 남용하여 내장된 호스트에 대한 참조를 얻고 기본 n8n 프로세스(샌드박스 이스케이프)에서 해당 프로토타입을 오염시켜 서비스 거부를 초래할 수 있습니다. VM 표현 엔진을 실행하는 자체 호스팅 및 클라우드 인스턴스가 모두 영향을 받습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.67, 2.31.5, and 2.32.1 contains a prototype pollution vulnerability in the VM expression engine. An authenticated user able to create or edit a workflow expression can abuse the engine&#39;s array-element access to obtain a reference to a host built-in and pollute its prototype in the main n8n process (a sandbox escape), leading to a denial of service. Both self-hosted and cloud instances running the VM expression engine are affected.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-8342-988q-86cr" target="_blank" rel="noopener">CVE-2026-72772</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;2.31.5|==2.32.0</td>
-        <td class="mono">2.31.5</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          2.32.1 이전(및 2.31.5 이전) n8n은 토큰 교환 내장 로그인 기능을 통한 계정 탈취에 취약합니다. 유효하게 서명된 수신 토큰이 이메일 청구에 의해 로컬 계정과 일치하는 경우 서비스는 이메일 청구가 확인되었는지 확인하지 않았으며 신뢰할 수 있는 키의 허용된 역할 한도가 해당 계정에 포함되는지 확인하지 않았습니다. 결과적으로 구성된 신뢰할 수 있는 키에 의해 허용되는 토큰을 얻을 수 있는 사람(예: 확인되지 않은 이메일 주소를 방출하는 신뢰할 수 있는 발급자)은 누구나 기존 사용자로 인증하고 전체 계정 제어권을 얻을 수 있습니다. 이 문제는 내장된 로그인 기능이 활성화되어 있고 하나 이상의 신뢰할 수 있는 키 소스가 구성된 인스턴스에만 영향을 미칩니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 2.32.1 (and before 2.31.5) is vulnerable to account takeover via the Token Exchange Embed Login feature. When a validly-signed incoming token was matched to a local account by its email claim, the service did not verify that the email claim was verified, nor that the trusted key&#39;s permitted role ceiling covered that account. As a result, anyone able to obtain a token accepted by a configured trusted key (for example, a trusted issuer emitting unverified email addresses) could authenticate as any existing user and gain full account control. This issue only affects instances where the embed login feature is enabled and at least one trusted key source is configured.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-6qc9-mqvw-jg7x" target="_blank" rel="noopener">CVE-2026-72774</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;1.123.67|&gt;=2.0.0,&lt;2.31.5|==2.32.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260811</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.67, 2.31.5 및 2.32.1 이전의 n8n에는 HTTP 요청 노드에 자격 증명 인증 우회가 포함되어 있습니다. 공유 워크플로우에 대한 편집 액세스 권한이 있는 인증된 구성원은 표현식을 통해 자격 증명 유형을 지정하는 동안 다른 사용자의 자격 증명을 참조할 수 있습니다. 실행 전 권한 확인은 확인된 자격 증명 유형 대신 확인되지 않은 표현식을 비교하기 때문에 소유권 확인을 건너뛰고 실행 시 자격 증명을 로드하여 구성원이 부여되지 않은 자격 증명을 사용하거나 유출할 수 있도록 합니다. 악용하려면 대상 자격 증명의 식별자를 알아야 합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n before 1.123.67, 2.31.5, and 2.32.1 contains a credential authorization bypass in the HTTP Request node. An authenticated member with edit access to a shared workflow can reference another user&#39;s credential while specifying the credential type via an expression. Because the pre-execution permission check compares the unresolved expression instead of the resolved credential type, the ownership check is skipped and the credential is loaded at execution time, allowing the member to use or exfiltrate a credential they were not granted. Exploitation requires knowing the target credential&#39;s identifier.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/Mintplex-Labs/anything-llm/commit/61766d06b77b903f66dc4afd8dffb3a39012db14" target="_blank" rel="noopener">CVE-2026-72917</a>
-        </td>
-        <td>AnythingLLM</td>
-        <td>Mintplex Labs</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.9</td>
-        <td class="mono">&gt;=1.0.0,&lt;1.15.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260810</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          AnythingLLM은 모든 LLM이 채팅 중에 참조로 사용할 수 있는 컨텍스트로 콘텐츠를 변환하는 애플리케이션입니다. 1.0.0에서 1.15.0까지, server/utils/PasswordRecovery/index.js에 있는 AnythingLLM의 인증되지 않은 계정 복구 흐름은 RecoverAccount()를 사용하여 원시 RecoveryCodes 값을 잘라내기 전에 중복을 제거합니다. 따라서 서로 다른 주변 공백을 사용하여 두 번 제출된 하나의 유효한 코드가 두 코드 검사를 충족할 수 있습니다. 정규화된 각 값은 고유한 해시를 사용하는 대신 저장된 동일한 해시와 일치할 수도 있습니다. 대상 사용자 이름과 하나의 복구 코드를 알고 있는 공격자는 다중 사용자 모드에서 POST /api/system/recover-account를 호출하고 비밀번호 재설정 토큰을 받은 다음 POST /api/system/reset-password를 사용하여 관리자 계정을 포함한 계정을 탈취할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. From 1.0.0 to 1.15.0, AnythingLLM&#39;s unauthenticated account-recovery flow in server/utils/PasswordRecovery/index.js uses recoverAccount() to deduplicate the raw recoveryCodes values before trimming them, so one valid code submitted twice with different surrounding whitespace can satisfy the two-code check. Each normalized value can also match the same stored hash instead of consuming a distinct hash. An attacker who knows the target username and one recovery code can call POST /api/system/recover-account in multi-user mode, receive a password-reset token, and use POST /api/system/reset-password to take over the account, including an administrator account.</div>
           </details>
         </td>
       </tr>

@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-18 22:59:52</div>
+    <div class="stamp">최종 생성 2026-10-25 23:32:15</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (16건)</h2>
+<h2>이 회차 CVE (10건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -126,138 +126,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette&#39;s trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/67495" target="_blank" rel="noopener">CVE-2026-48828</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260916</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 대량 변수 API는 변수의 키를 전달하지 않고 수정자를 호출했기 때문에 키 기반 `should_hide_value_for_key` 검사(`*_password` / `*_token` / `*_secret`과 같이 비밀 접미사가 붙은 키 이름에서 트리거됨)가 JSON 디코딩 가능한 변수 값에 대해 실행될 수 없습니다. 대량 변수 읽기 권한이 있는 인증된 UI/API 사용자는 키가 수정을 트리거하는 JSON 변수에서 일반 텍스트 값을 검색할 수 있습니다. 비밀 접미사가 붙은 키 이름 아래 JSON 유형의 Airflow 변수에 민감한 값을 저장하는 배포에 영향을 줍니다. 사용자는 `apache-airflow` 3.3.0 이상으로 업그레이드하는 것이 좋습니다(수정 사항은 3.2.2 이후 `main`에 적용되었으며 3.2.x 백포트는 없음).
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">The Bulk Variables API in Apache Airflow called the redactor without passing the variable&#39;s key, so the key-based `should_hide_value_for_key` check (which triggers on secret-suffixed key names like `*_password` / `*_token` / `*_secret`) could not fire for JSON-decodable variable values. An authenticated UI/API user with bulk Variable read permission could retrieve plaintext values from JSON variables whose key would otherwise trigger redaction. Affects deployments that store sensitive values in JSON-typed Airflow Variables under secret-suffixed key names. Users are advised to upgrade to `apache-airflow` 3.3.0 or later (the fix landed on `main` after 3.2.2; no 3.2.x backport).</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/wzc8nflg94rq6w8f5tvtlo0o3g4wjrfl" target="_blank" rel="noopener">CVE-2026-48891</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.3</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260916</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 `/ui/dependent` 예약 그래프 엔드포인트의 버그로 인해 호출자의 읽기 가능한 Dag 필터가 최상위 직렬화된 Dag 키에 적용되었지만 여전히 트리거/센서 종속성 항목의 `dep.source` 및 `dep.target` 필드를 통해 참조된 Dag ID를 내보냈습니다. 일부 Dags에 대한 읽기 권한이 있는 인증된 UI 사용자는 트리거/센서 참조에 대한 종속성 그래프를 검사하여 읽기 권한이 부여되지 않은 다른 Dags의 식별자를 열거할 수 있습니다. 팀 전체에서 Dag 식별자를 비공개로 유지하기 위해 Dag별 읽기 범위 지정을 사용하는 배포에 영향을 줍니다. 이는 최상위 Dag 키를 필터링했지만 트리거/센서 dep-source/dep-target 필드에 필터를 전파하지 않은 CVE-2026-28563에 대한 수정 사항의 잔여 간격입니다. CVE-2026-28563을(를) 이미 업그레이드한 사용자는 잔여 트리거/센서 종속성 누출을 해결하기 위해 `apache-airflow` 3.3.0 이상으로 추가로 업그레이드해야 합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">A bug in Apache Airflow&#39;s `/ui/dependencies` scheduling graph endpoint applied the caller&#39;s readable-Dag filter to the top-level serialized Dag key but still emitted referenced Dag IDs through the `dep.source` and `dep.target` fields of trigger / sensor dependency entries. An authenticated UI user with read permission on some Dags could enumerate the identifiers of other Dags they were not authorized to read by inspecting the dependency graph for trigger / sensor references. Affects deployments that rely on per-Dag read scoping to keep Dag identifiers private across teams. This is a residual gap in the fix for CVE-2026-28563, which filtered the top-level Dag key but did not propagate the filter into the trigger / sensor dep-source / dep-target fields. Users who already upgraded for CVE-2026-28563 should additionally upgrade to `apache-airflow` 3.3.0 or later to cover the residual trigger / sensor dependency leak.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/pq5yy40079h6tzh3fxvw28dd8dbk72hk" target="_blank" rel="noopener">CVE-2026-48892</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260916</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 Config API는 옵션 이름이 `sensitive_config_values`에 없는 합성 구성 옵션으로 키별 비밀 백엔드 재정의(`AIRFLOW__SECRETS__BACKEND_KWARG__SECRET_ID` 및 `AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__SECRET_ID`와 같은 환경 변수)를 표시했으므로 마스커가 이를 수정하지 않았습니다. 구성 읽기 권한이 있는 인증된 UI/API 사용자는 구성 API 출력에서 ​​일반 텍스트 비밀 백엔드 자격 증명(Vault `role_id` / `secret_id` 등)을 검색할 수 있습니다. 키별 환경 재정의를 통해 비밀 백엔드를 구성하는 배포에 영향을 줍니다. 사용자는 `apache-airflow` 3.3.0 이상으로 업그레이드하는 것이 좋습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">The Config API in Apache Airflow surfaced per-key secrets-backend overrides (environment variables like `AIRFLOW__SECRETS__BACKEND_KWARG__SECRET_ID` and `AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__SECRET_ID`) as synthetic config options whose option names were not in `sensitive_config_values`, so the masker did not redact them. An authenticated UI/API user with Config read permission could retrieve plaintext secrets-backend credentials (Vault `role_id` / `secret_id`, etc.) from the Config API output. Affects deployments that configure secrets backends via per-key environment overrides. Users are advised to upgrade to `apache-airflow` 3.3.0 or later.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://lists.apache.org/thread/qlw6pozlzlfhkvmbgqsbjlq6vj4v0pc4" target="_blank" rel="noopener">CVE-2026-49487</a>
-        </td>
-        <td>Airflow</td>
-        <td>apache</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;3.3.0</td>
-        <td class="mono">3.3.0</td>
-        <td>-</td>
-        <td class="mono">20260707</td>
-        <td class="mono">20260916</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          3.3.0 이전의 Apache Airflow에서는 REST API 작업 인스턴스 세부 정보 및 목록 엔드포인트가 마스킹 없이 지연된 작업의 트리거 kwargs를 반환했습니다. 지연된 연산자가 비밀 정보(예: 공급자 API 키)를 트리거에 전달하면 해당 DAG에 대한 DAG 범위 작업 인스턴스 읽기 액세스 권한이 있는 인증된 사용자는 작업이 지연되는 동안 일반 텍스트로 해당 비밀을 읽을 수 있습니다. 사용자는 API에서 반환된 트리거 kwargs의 민감한 값을 마스킹하는 apache-airflow 3.3.0 이상으로 업그레이드해야 합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">In Apache Airflow before 3.3.0, the REST API task-instance detail and list endpoints returned a deferred task&#39;s trigger kwargs without masking. When a deferred operator passed a secret (for example a provider API key) into its trigger, any authenticated user with DAG-scoped task-instance read access for that DAG could read that secret in clear text while the task was deferred. Users should upgrade to apache-airflow 3.3.0 or later, which masks sensitive values in trigger kwargs returned by the API.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/apache/airflow/pull/70876" target="_blank" rel="noopener">CVE-2026-68870</a>
-        </td>
-        <td>Airflow</td>
-        <td>Apache Software Foundation</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&lt;14.1.0</td>
-        <td class="mono">14.1.0</td>
-        <td>-</td>
-        <td class="mono">20260810</td>
-        <td class="mono">20260916</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Apache Airflow의 Microsoft Azure 공급자의 Azure Key Vault 비밀 백엔드는 팀 범위 조회가 누락된 경우 팀 독립적 조회를 통해 팀 범위 연결 또는 변수 ID를 확인했습니다. 이 백엔드를 사용하여 다중 팀 모드를 실행하는 배포에서 한 팀의 호출자는 해당 팀의 네임스페이스를 설명하는 ID를 제공하고 전체 자격 증명을 획득하여 다른 팀에 속한 비밀을 확인할 수 있습니다. 다중 팀 모드를 활성화하고 이 백엔드를 사용하는 것 외에는 특별한 구성이 필요하지 않습니다. 사용자는 apache-airflow-providers-microsoft-azure 14.1.0 이상으로 업그레이드하는 것이 좋습니다. 이는 팀 네임스페이스의 이름을 지정할 수 있는 ID에 대해 팀에 구애받지 않는 폴스루를 거부합니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">The Azure Key Vault secrets backend in Apache Airflow&#39;s Microsoft Azure provider resolved a team-scoped Connection or Variable id through the team-agnostic lookup when the team-scoped lookup missed. In a deployment running multi-team mode with this backend, a caller in one team could resolve a secret belonging to another team by supplying an id that spells out that team&#39;s namespace, obtaining its credentials in full. No unusual configuration is required beyond enabling multi-team mode and using this backend. Users are advised to upgrade to apache-airflow-providers-microsoft-azure 14.1.0 or later, which refuses the team-agnostic fall-through for an id that could name a team namespace.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/huggingface/accelerate/issues/4067" target="_blank" rel="noopener">CVE-2026-69112</a>
-        </td>
-        <td>Accelerate</td>
-        <td>Hugging Face</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.1</td>
-        <td class="mono">&lt;=1.14.0</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260810</td>
-        <td class="mono">20260916</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          Hugging Face Accelerate 1.14.0에는 분할된 체크포인트 인덱스에서 Weight_map 항목을 삭제하지 못하는 load_checkpoint_in_model 및 load_checkpoint_and_dispatch 함수의 경로 탐색 취약점이 포함되어 있습니다. 공격자는 임의의 파일을 읽기 위해 ../ 시퀀스 또는 절대 경로가 포함된 상대 경로를 제공하거나 명명된 파이프의 샤드 항목을 가리켜 무기한 차단 및 서비스 거부를 유발할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">Hugging Face Accelerate through 1.14.0 contains a path traversal vulnerability in load_checkpoint_in_model and load_checkpoint_and_dispatch functions that fail to sanitize weight_map entries from sharded checkpoint indexes. Attackers can supply relative paths with ../ sequences or absolute paths to read arbitrary files, or point shard entries at named pipes to cause indefinite blocking and denial of service.</div>
           </details>
         </td>
       </tr>

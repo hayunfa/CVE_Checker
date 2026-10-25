@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-18 22:59:52</div>
+    <div class="stamp">최종 생성 2026-10-25 23:32:15</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (218건)</h2>
+<h2>이 회차 CVE (196건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -2251,24 +2251,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-59425" target="_blank" rel="noopener">CVE-2025-59425</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.11.0</td>
-        <td class="mono">0.11.0</td>
-        <td>-</td>
-        <td class="mono">20251007</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary The API key support in vLLM performed validation using a method that was vulnerable to a timing attack. This could potentially allow an attacker to discover a valid API key using an approach more efficient than brute force. ### Details https://github.com/vllm-project/vllm/blob/4b946d693e0af15740e9ca9c0e059d5f333b1083/vllm/entrypoints/openai/api_server.py#L1270-L1274 API key validation used a string comparison that will take longer the more characters the provided API key gets correct. Data analysis across many attempts can allow an attacker to determine when it finds the next correct character in the key sequence. ### Impact Deployments relying on vLLM&#39;s built-in API key validation are vulnerable to authentication bypass using this technique.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-6fvq-23cw-5628" target="_blank" rel="noopener">CVE-2025-61620</a>
         </td>
         <td>vLLM</td>
@@ -2301,60 +2283,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           A vulnerability in the DocugamiReader class of the run-llama/llama_index repository, up to but excluding version 0.12.41, involves the use of MD5 hashing to generate IDs for document chunks. This approach leads to hash collisions when structurally distinct chunks contain identical text, resulting in one chunk overwriting another. This can cause loss of semantically or legally important document content, breakage of parent-child chunk hierarchies, and inaccurate or hallucinated responses in AI outputs. The issue is resolved in version 0.3.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-62164" target="_blank" rel="noopener">CVE-2025-62164</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=0.10.2,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20251120</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary A memory corruption vulnerability that leading to a crash (denial-of-service) and potentially remote code execution (RCE) exists in vLLM versions 0.10.2 and later, in the Completions API endpoint. When processing user-supplied prompt embeddings, the endpoint loads serialized tensors using torch.load() without sufficient validation. Due to a change introduced in PyTorch 2.8.0, sparse tensor integrity checks are disabled by default. As a result, maliciously crafted tensors can bypass internal bounds checks and trigger an out-of-bounds memory write during the call to to_dense(). This memory corruption can crash vLLM and potentially lead to code execution on the server hosting vLLM. ### Details A vulnerability that can lead to RCE from the completions API endpoint exists in vllm, where due to missing checks when loading user-provided tensors, an out-of-bounds write can be triggered. This happens because the default behavior of `torch.load(tensor, weights_only=True)` since pytor
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-62372" target="_blank" rel="noopener">CVE-2025-62372</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.5.5,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20251120</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary Users can crash the vLLM engine serving multimodal models by passing multimodal embedding inputs with correct `ndim` but incorrect `shape` (e.g. hidden dimension is wrong), regardless of whether the model is intended to support such inputs (as defined in the Supported Models page). The issue has existed ever since we added support for image embedding inputs, i.e. #6613 (released in v0.5.5) ### Details Using image embeddings as an example: - For models that support image embedding inputs, the engine crashes when scattering the embeddings to `inputs_embeds` (mismatched shape) - For models that don&#39;t support image embedding inputs, the engine crashes when validating the inputs inside `get_input_embeddings` (validation fails). This happens because we only validate `ndim` of the tensor, but not the full shape, in input processor (via `MultiModalDataParser`). ### Impact - Denial of service by crashing the engine ### Mitigation - Use API key to limit access to trusted users. - Set
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2025-62426" target="_blank" rel="noopener">CVE-2025-62426</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=0.5.5,&lt;0.11.1</td>
-        <td class="mono">0.11.1</td>
-        <td>-</td>
-        <td class="mono">20251120</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary The /v1/chat/completions and /tokenize endpoints allow a `chat_template_kwargs` request parameter that is used in the code before it is properly validated against the chat template. With the right `chat_template_kwargs` parameters, it is possible to block processing of the API server for long periods of time, delaying all other requests ### Details In serving_engine.py, the chat_template_kwargs are unpacked into kwargs passed to chat_utils.py `apply_hf_chat_template` with no validation on the keys or values in that chat_template_kwargs dict. This means they can be used to override optional parameters in the `apply_hf_chat_template` method, such as `tokenize`, changing its default from False to True. https://github.com/vllm-project/vllm/blob/2a6dc67eb520ddb9c4138d8b35ed6fe6226997fb/vllm/entrypoints/openai/serving_engine.py#L809-L814 https://github.com/vllm-project/vllm/blob/2a6dc67eb520ddb9c4138d8b35ed6fe6226997fb/vllm/entrypoints/chat_utils.py#L1602-L1610 Both serving_chat.
         </td>
       </tr>
       <tr>
@@ -3041,24 +2969,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42309" target="_blank" rel="noopener">CVE-2026-42309</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.5</td>
-        <td class="mono">&gt;=11.2.1,&lt;12.2.0</td>
-        <td class="mono">12.2.0</td>
-        <td>-</td>
-        <td class="mono">20260504</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          Passing nested lists as coordinates to APIs that accept coordinates such as `ImagePath.Path`, `ImageDraw.ImageDraw.polygon` and `ImageDraw.ImageDraw.line` could cause a heap buffer overflow, as nested lists were recursively unpacked beyond the allocated buffer. Coordinate lists are now validated to contain exactly two numeric coordinates. This was introduced in Pillow 11.2.1.
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-42310" target="_blank" rel="noopener">CVE-2026-42310</a>
         </td>
         <td>Pillow</td>
@@ -3239,24 +3149,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45804" target="_blank" rel="noopener">CVE-2026-45804</a>
-        </td>
-        <td>Diffusers</td>
-        <td>Hugging Face</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.38.0</td>
-        <td class="mono">0.38.0</td>
-        <td>-</td>
-        <td class="mono">20260520</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Background This vulnerability is found in the `diffusers` package - the `transformers`-equivalent library for diffusion models. It is found in the `DiffusionPipeline.from_pretrained` flow, which is used to load a pipeline from the HuggingFace Hub. This function has a `trust_remote_code` guard: if the repository’s `model_index.json` references a custom pipeline class defined in a `.py` file in the repo, the load is blocked unless `trust_remote_code=True` is explicitly passed: ``` ValueError: The repository for attacker/repo contains custom code in pipeline.py which must be executed to correctly load the model. You can inspect the repository content at https://hf.co/attacker/repo/blob/main/pipeline.py. Please pass the argument `trust_remote_code=True` to allow custom code to be run. ``` The vulnerability allows arbitrary code execution through the custom pipeline flow from a Hub repo, with no `custom_pipeline` or `trust_remote_code` kwargs passed. The `from_pretrained` call succeeds a
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45830" target="_blank" rel="noopener">CVE-2026-45830</a>
         </td>
         <td>ChromaDB</td>
@@ -3365,60 +3257,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54058" target="_blank" rel="noopener">CVE-2026-54058</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary When Pillow loads an uncompressed image whose tile uses the `raw` codec and a mode in `Image._MAPMODES`, and the image was opened **from a filename**, it memory-maps the file and builds the image&#39;s row pointers directly into the mapping via `PyImaging_MapBuffer` (`src/map.c`). The per-row spacing (`stride`) is taken from the tile arguments. `map.c` validates `offset + ysize*stride &lt;= buffer_len` but **never checks that `stride` is at least the natural row width `xsize * pixelsize`**. The **McIdas** AREA plugin (`McIdasImagePlugin.py`) derives `stride`, `offset`, `xsize`, and `ysize` directly from attacker-controlled 32-bit header words with no validation. By supplying a `stride` far smaller than the row width, an attacker makes each row pointer read `xsize*pixelsize` bytes that run past the mapped region. Accessing the pixels (e.g. `Image.tobytes()`, `getpixel`, `convert`, `save`) then reads adjacent process memory (information disclosure) or faults (SIGBUS, denial of servic
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54059" target="_blank" rel="noopener">CVE-2026-54059</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Description `PIL/PcfFontFile.py` `_load_bitmaps()` (line 227) reads glyph dimensions from the PCF `METRICS` section and passes them directly to `Image.frombytes()` without calling `Image._decompression_bomb_check()`. Dimensions originate from unsigned 16-bit values: ``` xsize = right - left (max: 65535 − 0 = 65535) ysize = ascent + descent (max: 65535 + 65535 = 131070) ``` Maximum exploitable pixel count: **65,535 × 131,070 = 8,589,734,450 pixels** — **48× the DecompressionBombError threshold**. **Vulnerable code (`PIL/PcfFontFile.py` line 224–227):** ```python for i in range(nbitmaps): xsize, ysize = metrics[i][:2] # from PCF METRICS — attacker-controlled b, e = offsets[i : i + 2] bitmaps.append( Image.frombytes(&#34;1&#34;, (xsize, ysize), data[b:e], &#34;raw&#34;, mode, pad(xsize)) # ↑ NO _decompression_bomb_check()! ) ``` `Image.frombytes()` calls `Image.new()` first (allocating the full C-heap buffer), **then** attempts to fill it. This creates two distinct attack paths: - **Persistent attack*
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54060" target="_blank" rel="noopener">CVE-2026-54060</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Description `PIL/FontFile.py` `FontFile.compile()` assembles per-glyph images into a single combined bitmap using `Image.new(&#34;1&#34;, (xsize, ysize))` without calling `Image._decompression_bomb_check()`. This is the base-class method shared by both `BdfFontFile` and `PcfFontFile`, and it is triggered whenever a loaded font is converted to an `ImageFont` or saved. Neither `BdfFontFile.BdfFontFile(fp)` nor `PcfFontFile.PcfFontFile(fp)` is registered with `Image.register_open()`, so Pillow&#39;s standard decompression bomb guard never fires for font objects. The compile step is the final opportunity to check the combined allocation — and it has no check. **Vulnerable code (`PIL/FontFile.py` lines ~64–92):** ```python def compile(self) -&gt; None: if self.bitmap: return h = w = maxwidth = 0 lines = 1 for glyph in self.glyph: # up to 256 glyph slots if glyph: d, dst, src, im = glyph h = max(h, src[3] - src[1]) # max glyph height — attacker-controlled w = w + (src[2] - src[0]) if w &gt; WIDTH: # WIDTH 
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54233" target="_blank" rel="noopener">CVE-2026-54233</a>
         </td>
         <td>vLLM</td>
@@ -3433,24 +3271,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           ### Summary vLLM&#39;s `/v1/audio/transcriptions` endpoint limits compressed upload size but not decoded PCM output. A 25MB OPUS file expands to ~14.9GB of float32 PCM at decode time. Tested on vLLM v0.19.0. ### Details `SpeechToTextProcessor` rejects uploads over `VLLM_MAX_AUDIO_CLIP_FILESIZE_MB` (default 25MB) based on compressed byte length, but the audio decoder in `audio.py` accumulates all decoded frames into memory with no size limit before returning: ```python # speech_to_text.py L184-189 if len(audio_data) / 1024 ** 2 &gt; self.max_audio_filesize_mb: raise VLLMValidationError(...) y, sr = load_audio(buf, sr=self.asr_config.sample_rate) # decoded size unchecked # audio.py L77-107 chunks: list[npt.NDArray] = [] for frame in container.decode(stream): chunks.append(frame.to_ndarray()) audio = np.concatenate(chunks, axis=-1).astype(np.float32) # single contiguous allocation ``` A 25MB OPUS file at 6kbps encodes ~8.7 hours of audio. Decoding produces ~5.7GB of float32 PCM (232x amplificati
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54234" target="_blank" rel="noopener">CVE-2026-54234</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=0.17.1,&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260717</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary A frontend-legal multi-request speculative workload can make vLLM produce an out-of-vocabulary recovered token equal to `vocab_size`, convert that value to `-1` when choosing the next live token for a request, and then feed that `-1` back into the next drafter input ids. On Qwen3 GPTQ this reaches the worker-side drafting / attention path and crashes the engine with a GPU `device-side assert`. The same issue is reachable through the public gRPC request surface by sending a specific overlapping `Generate` / `Abort` sequence. ## Impact - A remote client that can send public gRPC generation requests can crash the shared vLLM engine worker - The triggering request sequence aborts concurrent requests and prevents later requests from completing until the worker is restarted - In shared deployments, this is a service-wide denial of service for other clients, not just a failure isolated to the attacking requests - The failure is reproducible, so repeated request sequences can sustai
         </td>
       </tr>
       <tr>
@@ -3491,42 +3311,6 @@
       </tr>
       <tr>
         <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55379" target="_blank" rel="noopener">CVE-2026-55379</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary `PIL/BdfFontFile.py` `bdf_char()` (lines 84–88) reads the `BBX width height` field from a BDF font file and passes the dimensions directly to `Image.new()` without calling `Image._decompression_bomb_check()`. This completely bypasses Pillow&#39;s documented decompression bomb protection. `Image.open()` enforces `MAX_IMAGE_PIXELS = 89,478,485` and raises `DecompressionBombError` for images exceeding `2 × MAX = 178,956,970` pixels. The BDF font loading path calls `Image.new()` directly, which only calls `_check_size()` (validates `&gt;= 0`) — no pixel count limit. **Vulnerable code (`PIL/BdfFontFile.py` lines 84–88):** ```python # width, height from attacker-controlled &#34;BBX width height x y&#34; line try: im = Image.frombytes(&#34;1&#34;, (width, height), bitmap, &#34;hex&#34;, &#34;1&#34;) except ValueError: # TRIGGERED when BITMAP section is empty (zero hex lines) im = Image.new(&#34;1&#34;, (width, height)) # ← NO _decompression_bomb_check()! # ^ This image is stored in self.glyph[ch] — persists in memory ``` **Att
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55380" target="_blank" rel="noopener">CVE-2026-55380</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Description `PIL/GdImageFile.py` `GdImageFile._open()` reads image dimensions from the GD 2.x header and stores them in `self._size` without calling `Image._decompression_bomb_check()`. Because `GdImageFile` is **not registered with `Image.register_open()`**, it never passes through the standard `Image.open()` code path that enforces Pillow&#39;s decompression bomb guard. The plugin exposes its own entry point — `PIL.GdImageFile.open(fp)` — which directly instantiates the class, fully bypassing the documented protection. **Vulnerable code (`PIL/GdImageFile.py` lines 50–61):** ```python def _open(self) -&gt; None: s = self.fp.read(1037) if i16(s) not in [65534, 65535]: raise SyntaxError(&#34;Not a valid GD 2.x .gd file&#34;) self._mode = &#34;P&#34; self._size = i16(s, 2), i16(s, 4) # ← unsigned 16-bit; max 65535 each # NO _decompression_bomb_check() call here ← ... self.tile = [ImageFile._Tile(&#34;raw&#34;, (0, 0) + self.size, 1037, &#34;L&#34;)] ``` When `load()` is subsequently called on the returned image object: ```
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55443" target="_blank" rel="noopener">CVE-2026-55443</a>
         </td>
         <td>LangChain</td>
@@ -3541,186 +3325,6 @@
         <td>OSV</td>
         <td class="wrap-cell">
           ## Summary Several LangChain components that resolve filesystem paths or expand search patterns do not consistently confine the *resolved* path to the intended root directory. Affected behaviors include: a file-search agent middleware that validates a starting directory but not the search pattern or the resolved target of matched files, so glob patterns and symlinks can reach files outside the configured root; prompt- and chain/agent-configuration loaders that accept path fields and resolve them without confining the result to a trusted base or rejecting symlink targets; and path-prefix authorization checks that compare by string prefix without a path-segment boundary, so a sibling path sharing the prefix is accepted. When these components receive path values, search patterns, or workspace contents influenced by an untrusted source — including an LLM acting on untrusted input — the result can be disclosure of files outside the intended boundary. We have no evidence of this behavior bei
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55514" target="_blank" rel="noopener">CVE-2026-55514</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=0.12.0,&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary _Short summary of the problem. Make the impact and severity as clear as possible. For example: An unsafe deserialization vulnerability allows any unauthenticated user to execute arbitrary code on the server._ Sending a pure prompt embeds payload in a `/v1/completions` request with a model using M-RoPE causes the EngineCore to fail an assertion and fatally crash, shutting down the entire server application. Any remote user who is authorized to make a `/v1/completions` endpoint can trivially make such a request and induce a crash. ### Details _Give all details on the vulnerability. Pointing to the incriminated source code is very helpful for the maintainer._ In commit [56669c1](https://github.com/vllm-project/vllm/commit/56669c1f293d5c53b6a19ddf2f78802fa9fff2c2), a simple assert intended to be a type-narrowing assert was added to the `_init_mrope_positions` method in `GPUModelRunner` (the offending line on main at the time of writing: https://github.com/vllm-project/vllm/blob
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55574" target="_blank" rel="noopener">CVE-2026-55574</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;0.24.0</td>
-        <td class="mono">0.24.0</td>
-        <td>-</td>
-        <td class="mono">20260717</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ## Summary The `structured_outputs.regex` API parameter passes a user-supplied regex string directly to grammar compiler backends with no compilation timeout. In the xgrammar backend, the string reaches `compile_regex()` with no guard. In the outlines backend, `validate_regex_is_buildable()` blocks structural issues (lookarounds, backreferences) but provides zero protection against exponential DFA state-space explosion. Patterns like `(a+)+b` pass all checks and hang the inference worker. ## Root Cause `backend_xgrammar.py:91` — no timeout: ```python ctx = self.compiler.compile_regex(grammar_spec) ``` `backend_outlines.py:299–330` — structural checks only, no complexity analysis: ```python def validate_regex_is_buildable(regex: str) -&gt; None: sre_parse.parse(regex) # AST parse only — does not detect exponential patterns _check_unsupported(...) # blocks lookarounds/backrefs, not nested quantifiers ``` `backend_outlines.py:64` — no timeout: ```python oc.Index(regex_string, vocabulary.inne
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55798" target="_blank" rel="noopener">CVE-2026-55798</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>4.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### 1. Summary `WindowsViewer.get_command()` constructs a `cmd.exe` shell command by directly embedding a file path into an f-string without escaping. The result is passed to `subprocess.Popen(..., shell=True)`. Shell metacharacters in the file path — most importantly a double-quote (`&#34;`) that breaks out of the wrapping, followed by `&amp;` — allow injection of arbitrary `cmd.exe` commands. The macOS equivalent (`MacViewer`) correctly applies `shlex.quote()` to the same parameter. The Linux equivalent (`UnixViewer`) does likewise. Windows is the only platform missing this protection, despite `shlex.quote` being **already imported** on line 21 of `ImageShow.py`. --- ### 2. Vulnerable Code **File:** `src/PIL/ImageShow.py`, lines 133–150 ```python class WindowsViewer(Viewer): format = &#34;PNG&#34; options = {&#34;compress_level&#34;: 1, &#34;save_all&#34;: True} def get_command(self, file: str, **options: Any) -&gt; str: return ( f&#39;start &#34;Pillow&#34; /WAIT &#34;{file}&#34; &#39; # ← f-string, no escaping &#34;&amp;&amp; ping -n 4 127.0.0.1 &gt;NUL 
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59197" target="_blank" rel="noopener">CVE-2026-59197</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.2</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary Pillow&#39;s public rank-filter API can trigger a native heap out-of-bounds write when given a very large odd filter size. Minimal public API trigger: ```python from PIL import Image, ImageFilter im = Image.new(&#34;L&#34;, (3, 3), 128) im.filter(ImageFilter.MedianFilter(4294967295)) ``` `ImageFilter.RankFilter.filter()` calls `image.expand(size // 2, size // 2)` before rank-filter size validation. With `size = 4294967295`, the expansion margin is `2147483647` (`INT_MAX`). `ImagingExpand()` then computes the output dimensions with unchecked signed `int` arithmetic. On tested builds, this wraps to a tiny output image and the border-expansion loop writes past the allocation. This is reachable through documented public classes (`RankFilter`, `MedianFilter`, `MinFilter`, and `MaxFilter`). No private API, ctypes, or custom Python object is needed. ### Details Current `src/PIL/ImageFilter.py`: ```python class RankFilter(Filter): def filter(self, image): if image.mode == &#34;P&#34;: msg = &#34;cannot fi
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59198" target="_blank" rel="noopener">CVE-2026-59198</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&gt;=5.2.0,&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary Pillow&#39;s TGA RLE encoder reads past its row buffer when saving a mode `&#34;1&#34;` image. Adjacent process heap bytes can be copied into the generated TGA file. The bug is reachable through the public save API: ```python im.save(out, format=&#34;TGA&#34;, compression=&#34;tga_rle&#34;) ``` Older affected Pillow versions use the equivalent public option `rle=True`. For mode `&#34;1&#34;`, Pillow allocates a packed row buffer of `ceil(width / 8)` bytes, but `ImagingTgaRleEncode()` treats the row as one full byte per pixel. The maximum valid TGA width is `65535`. At that width: ```text allocated packed row buffer: 8192 bytes encoder byte-offset walk: 65535 bytes maximum OOB window per row: 57343 bytes ``` On non-ASAN Pillow `12.2.0`, the public-only maximum-width PoC below serialized `57297` bytes from distinct out-of-bounds source offsets into one returned TGA, covering `99.92%` of the maximum adjacent heap window. No heap grooming, ctypes, private API, or malformed input file was used. The disclosure is e
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59199" target="_blank" rel="noopener">CVE-2026-59199</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary Pillow&#39;s public image coordinate APIs can trigger a native heap out-of-bounds write when given coordinates near the signed 32-bit integer limits. In 4-byte pixel modes such as `RGBA`, this becomes a controlled backward heap underwrite: for a source image of width `W`, Pillow writes `4 * W` attacker-controlled bytes starting `4 * W` bytes before the destination row pointer. With successful large image allocation, the theoretical upper bound is ~2 GiB backwards from the destination row. Minimal public API trigger: ```python from PIL import Image INT_MIN = -(1 &lt;&lt; 31) src = Image.new(&#34;RGBA&#34;, (2, 1), (0x41, 0x42, 0x43, 0x44)) dst = Image.new(&#34;RGBA&#34;, (8, 1)) dst.paste(src, ((1 &lt;&lt; 31) - 2, 0, INT_MIN, 1)) ``` The same root cause is also reachable through `Image.crop()` and `Image.alpha_composite()`. No private API, ctypes, custom Python object, or malformed image file is needed. This has been confirmed as an ASAN heap-buffer-overflow write. On normal non-ASAN Pillow builds, the mi
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59200" target="_blank" rel="noopener">CVE-2026-59200</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&gt;=5.1.0,&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary `PdfParser.PdfStream.decode()` in Pillow&#39;s `PdfParser.py` calls `zlib.decompress()` with the `bufsize` parameter set to the value of the PDF stream&#39;s `Length` field, without any upper bound on the actual decompressed output size. Python&#39;s `zlib.decompress()` `bufsize` argument is an *initial output buffer hint*, not a maximum size limit — the function will expand memory until the full decompressed result is produced. A crafted PDF containing a FlateDecode-compressed stream decompresses to 1 GB of memory from a ~950 KB file, causing server OOM termination or severe degradation in any application that uses `PdfParser` to read untrusted PDF files. ### Details `PdfStream.decode()` in `pdfminer/PdfParser.py` reads the stream&#39;s declared `Length` (or `DL`) field from the PDF dictionary and passes it as `bufsize` to `zlib.decompress()`: ```python # PIL/PdfParser.py — PdfStream.decode() class PdfStream: def decode(self) -&gt; bytes: try: filter = self.dictionary[b&#34;Filter&#34;] except KeyEr
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59203" target="_blank" rel="noopener">CVE-2026-59203</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>5.3</td>
-        <td class="mono">&gt;=12.0.0,&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary Pillow&#39;s EPS parser (PIL/EpsImagePlugin.py) accepts a negative byte count in the %%BeginBinary directive. A crafted EPS file can cause Image.open() to seek backwards to the same directive and parse it repeatedly, resulting in an infinite loop and CPU denial of service. The issue is triggered during Image.open(), does not require Image.load(), and does not require Ghostscript execution. Confirmed affected versions: Pillow 12.0.0 through 12.2.0. ### Details The issue is in the EPS parser in PIL/EpsImagePlugin.py. When parsing an EPS %%BeginBinary directive, Pillow reads the byte count from the file and passes it directly to a relative seek operation without validating that the value is non-negative. Relevant code: elif bytes_mv[:14] == b&#34;%%BeginBinary:&#34;: bytecount = int(byte_arr[14:bytes_read]) self.fp.seek(bytecount, os.SEEK_CUR) There is no validation that bytecount is non-negative. If an attacker provides a negative value such as %%BeginBinary:-18, the parser moves the fil
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59204" target="_blank" rel="noopener">CVE-2026-59204</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>-</td>
-        <td class="mono">&gt;=8.2.0,&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary `src/libImaging/Jpeg2KDecode.c:853` accumulates `total_component_width` across every tile in a JPEG2000 image instead of recomputing it per tile. That accumulated value is then used in the `tile_bytes` calculation at `src/libImaging/Jpeg2KDecode.c:868`, which can make the decoder grow `state-&gt;buffer` via `realloc` at `src/libImaging/Jpeg2KDecode.c:876` up to roughly one full image&#39;s decompressed size even when each tile is small. A crafted tiled JPEG2000 file can therefore force substantially higher transient memory usage and trigger out-of-memory failures during decoding. Based on current evidence, the supported impact is denial of service, not memory corruption. ### Details - Location: `src/libImaging/Jpeg2KDecode.c:853` - Root cause: `total_component_width` is initialized only once before the tile loop and keeps growing across tiles. It is then used to derive `tile_bytes`, so later tiles are treated as if they had the combined component width of all earlier tiles. - Dang
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59205" target="_blank" rel="noopener">CVE-2026-59205</a>
-        </td>
-        <td>Pillow</td>
-        <td>Python Pillow</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>7.5</td>
-        <td class="mono">&lt;12.3.0</td>
-        <td class="mono">12.3.0</td>
-        <td>-</td>
-        <td class="mono">20260720</td>
-        <td class="mono">20260910</td>
-        <td>OSV</td>
-        <td class="wrap-cell">
-          ### Summary Pillow&#39;s public `ImageCms.ImageCmsTransform.apply(im, imOut)` API can trigger controlled native heap corruption when the caller supplies an output image whose mode does not match the transform&#39;s declared output mode. For example, a transform built as `RGBA -&gt; RGBA` can be applied to an `L` output image. Pillow checks dimensions only, then calls LittleCMS with the output row pointer. LittleCMS writes RGBA-sized rows into a 1-byte-per-pixel `L` image row. ### Details `src/PIL/ImageCms.py:ImageCmsTransform.apply()` accepts an optional caller supplied `imOut`: ```python def apply(self, im, imOut=None): if imOut is None: imOut = Image.new(self.output_mode, im.size, None) self.transform.apply(im.getim(), imOut.getim()) imOut.info[&#34;icc_profile&#34;] = self.output_profile.tobytes() return imOut ``` If `imOut` is provided, Pillow does not check: ```text im.mode == self.input_mode imOut.mode == self.output_mode ``` The C wrapper in `src/_imagingcms.c` unwraps both image cores and only ch
         </td>
       </tr>
       <tr>

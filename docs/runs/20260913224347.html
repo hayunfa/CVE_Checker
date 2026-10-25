@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-18 22:59:52</div>
+    <div class="stamp">최종 생성 2026-10-25 23:32:15</div>
   </div>
 </header>
 <div class="wrap">
@@ -99,7 +99,7 @@
     <span class="muted">(내부망 반입용 — 파일명·시트명·헤더 16개 유지)</span></div>
 </div>
 
-<h2>이 회차 CVE (10건)</h2>
+<h2>이 회차 CVE (9건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -107,24 +107,6 @@
       <th>조치 버전</th><th>KEV</th><th>공개일</th><th>수정일</th><th>소스</th><th>요약</th>
     </tr></thead>
     <tbody>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/advisories/GHSA-mcmc-2m55-j8jj" target="_blank" rel="noopener">CVE-2026-56340</a>
-        </td>
-        <td>vLLM</td>
-        <td>vLLM Project</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&gt;=0.10.2,&lt;0.13.0</td>
-        <td class="mono">0.13.0</td>
-        <td>-</td>
-        <td class="mono">20260108</td>
-        <td class="mono">20260911</td>
-        <td>OSV+GHSA</td>
-        <td class="wrap-cell">
-          vLLM introduced enhanced protection for CVE-2025-62164 ### Summary The fix [here](https://github.com/vllm-project/vllm/pull/27204) for CVE-2025-62164 is not sufficient. The fix only disables prompt embeds by default rather than addressing the root cause, so the DoS vulnerability remains when the feature is enabled. ### Details vLLM&#39;s pending change attempts to fix the root cause, which is the missing sparse tensor validation. PyTorch (~v2.0) disables sparse tensor validation (specifically, sparse tensor invariants checks) by default for performance reasons. vLLM is adding the sparse tensor validation to ensure indices are valid, non-negative, and within bounds. These checks help catch malformed tensors. ### PoC NA ### Impact Current fix only added a flag to disable/enable prompt embeds, so by default, prompt embeds feature is disabled in vLLM, which stops DoS attacks through the embeddings. However, It doesn’t address the problem when the flag is enabled and there is still potential fo
-        </td>
-      </tr>
       <tr>
         <td class="mono">
 <a href="https://github.com/n8n-io/n8n/commit/18458482861097a26f874f30ad7e8136e268475c" target="_blank" rel="noopener">CVE-2026-86073</a>
