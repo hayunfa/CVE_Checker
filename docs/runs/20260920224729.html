@@ -69,7 +69,7 @@
       <a href="../index.html" class="">대시보드</a>
       <a href="../cve/index.html" class="">전체 CVE 검색</a>
     </nav>
-    <div class="stamp">최종 생성 2026-10-25 23:32:15</div>
+    <div class="stamp">최종 생성 2026-11-02 00:36:10</div>
   </div>
 </header>
 <div class="wrap">
@@ -96,7 +96,7 @@
   <div><b>소스별 수집 건수</b> <span class="mono">KEV=1716 OSV=0 NVD=45 GHSA=0 RANGE_RECOVERED=16 TRANSLATE=0건 번역 / 40건 캐시</span></div>
 </div>
 
-<h2>이 회차 CVE (25건)</h2>
+<h2>이 회차 CVE (23건)</h2>
 <div class="tablebox">
   <table>
     <thead><tr>
@@ -585,50 +585,6 @@
           <details style="margin-top:4px;">
             <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
             <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. From 3.3.0 until 4.5.10 and 4.6.2, JupyterLab allows notebook settings to be shared and applied through an overrides.json file using the Import button in the Settings Editor. In packages/notebook-extension/schema/tracker.json and packages/notebook-extension/src/index.ts, the sideBySideLeftMarginOverride and sideBySideRightMarginOverride settings are not properly validated before being inserted into style content, allowing a crafted settings file to contain instructions that execute as code instead of only changing display preferences. A user can import the malicious file, or an attacker with access to a shared settings location can plant an overrides.json that is applied automatically. The embedded code runs with the affected user&#39;s access and can read or modify notebooks and files and run code through the notebook server, including on a connected k</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-9x83-43r8-5hwc" target="_blank" rel="noopener">CVE-2026-85169</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-HIGH">HIGH</td>
-        <td>8.8</td>
-        <td class="mono">&lt;1.123.73|&gt;=2.0.0,&lt;2.35.4|&gt;=2.36.0,&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.73, 2.35.4 및 2.36.2 이전의 n8n 버전에는 $fromAI 핸들러에 표현식 샌드박스 이스케이프가 포함되어 있습니다. $fromAI는 발신자가 제공한 자리 표시자 이름을 자체 자산으로 요구하지 않고 예약된 키를 허용하여 확인했습니다. 기본 입력 값에 대해 라이브 호스트 프로토타입 참조를 반환했습니다. 워크플로 빌드 권한이 있는 공격자는 프로토타입 체인을 함수 생성자로 이동하고 기본 n8n 프로세스에서 임의의 코드를 컴파일/실행하여 원격 코드 실행으로 이어질 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.73, 2.35.4, and 2.36.2 contain an expression sandbox escape in the $fromAI handler. $fromAI resolved a caller-supplied placeholder name without requiring it to be an own property and admitted reserved keys; against a primitive input value it returned a live host-prototype reference. An attacker with workflow-build privilege can walk the prototype chain to the Function constructor and compile/execute arbitrary code in the main n8n process, leading to remote code execution.</div>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td class="mono">
-<a href="https://github.com/n8n-io/n8n/security/advisories/GHSA-95ph-833c-4wrp" target="_blank" rel="noopener">CVE-2026-85170</a>
-        </td>
-        <td>n8n</td>
-        <td>n8n</td>
-        <td class="sev sev-MEDIUM">MEDIUM</td>
-        <td>6.5</td>
-        <td class="mono">&lt;1.123.73|&gt;=2.0.0,&lt;2.35.4|&gt;=2.36.0,&lt;2.36.2</td>
-        <td class="mono">-</td>
-        <td>-</td>
-        <td class="mono">20260903</td>
-        <td class="mono">20260918</td>
-        <td>NVD</td>
-        <td class="wrap-cell">
-          1.123.73, 2.35.4 및 2.36.2 이전의 n8n 버전은 Gmail(v1) 및 Brevo 노드의 메시지 콘텐츠가 문자열인지 확인하지 않고 메일 작성기에 전달합니다. 워크플로를 실행할 수 있는 인증된 사용자는 경로 또는 href 속성을 전달하는 개체를 확인하는 표현식을 제공하여 작성기가 n8n 프로세스에 액세스할 수 있는 로컬 파일을 읽거나 내부 URL(SSRF)을 가져오고 결과를 보내는 메시지에 첨부하도록 할 수 있습니다.
-          <details style="margin-top:4px;">
-            <summary style="cursor:pointer;color:var(--muted);font-size:11px;">영문 원문</summary>
-            <div style="color:var(--muted);font-size:11.5px;margin-top:3px;">n8n versions before 1.123.73, 2.35.4, and 2.36.2 pass message content in the Gmail (v1) and Brevo nodes to the mail composer without verifying it is a string. An authenticated user able to run a workflow can supply an expression that resolves to an object carrying a path or href property, causing the composer to read a local file accessible to the n8n process or fetch an internal URL (SSRF) and attach the result to the outgoing message.</div>
           </details>
         </td>
       </tr>
